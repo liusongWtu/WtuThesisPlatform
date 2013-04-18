@@ -1,0 +1,5 @@
+1.始终在桌面最顶层显示的窗体：只需设置窗体this.TopMost = true;
+
+2.限制窗体大小： this.FormBorderStyle = FormBorderStyle.FixedDialog;//设置窗体的边框样式
+
+3.
