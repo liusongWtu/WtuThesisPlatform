@@ -15,7 +15,7 @@
         var ajaxHelper = false; //ajax帮助对象
         var code = false; //验证码输入框
         var username = false; //用户名输入框
-        var password = false;//密码框
+        var password = false; //密码框
 
         //当浏览器加载数据后
         window.onload = function () {
@@ -29,7 +29,7 @@
             gel("btnLogin").focus();
         };
 
-       
+
 
 
         //换一张验证码
@@ -44,7 +44,7 @@
             //success是服务器返回数据成功执行的方法
             ajaxHelper.doPost({ url: "/ashx/CheckValidateCode.ashx", data: "code=" + code.value, success: function (result) {
                 if (result == "ok") {
-                    
+
                 } else {
                     msgBox.showMsgInfo("验证码错误");
                 }
@@ -67,7 +67,18 @@
                 return false;
             }
 
-            ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx", data: "code=" + code.value + "&username=" + username.value + "&pwd" });
+            ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx",
+                data: "code=" + code.value +"&type="+getRadioValue("ID")+ "&username=" + username.value + "&pwd",
+                success: function (result) {
+                    if (result == "codeEmpty") {
+                        msgBox.showMsgErr("验证码不能为空！");
+                    } else if (result == "codeError") {
+                        msgBox.showMsgErr("验证码错误！");
+                    } else if (result == "typeError") {
+                        msgBox.showMsgErr("非法用户！");
+                    }else if
+                }
+            });
         }
 
         

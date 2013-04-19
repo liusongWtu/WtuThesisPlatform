@@ -46,9 +46,9 @@ namespace WtuThesisPlatform.BLL
         /// <summary>
         /// GET A Model byId
         /// </summary>
-        public Student GetModel(int intId)
+        public Student GetModel(string intId)
         {
-            return dal.GetModel(intId);
+            return dal.GetModelById(intId);
         }
 		#endregion
         #region GET DATA LIST
