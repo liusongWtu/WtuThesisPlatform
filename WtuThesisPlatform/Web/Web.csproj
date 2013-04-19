@@ -58,7 +58,6 @@
     <Content Include="css\stu_page.css" />
     <Content Include="css\stu_select.css" />
     <Content Include="css\template.css" />
-    <Content Include="HTMLPage1.htm" />
     <Content Include="HTMLPage2.htm" />
     <Content Include="images\btn_bg.gif" />
     <Content Include="images\comments.png" />
