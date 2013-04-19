@@ -16,7 +16,8 @@
         //s为null则设置相应参数的默认值
         else paras = { imghref: "./images/", waitImg: "loader.gif", bgImg: "qzonebg.gif" };
         paras.waitImgTag = "<img src='" + paras.imghref + paras.waitImg + "' style='margin-right:10px;' align='middle'/>    ";
-        preloadImg(new Array(paras.imghref + paras.bgImg, paras.imghref + paras.waitImg));
+        //这句话暂时没发现有什么作用
+        //preloadImg(new Array(paras.imghref + paras.bgImg, paras.imghref + paras.waitImg));
         writeMsgBox();
         window.onresize = function(){setPosition();}
     }

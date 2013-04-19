@@ -64,6 +64,29 @@ function trim(s) {
     return s.substring(st, end + 1);
 } 
 
+//设置radio组的选项；radioName为组名，newValue为该组中设为选择的那个标签值
+ function setCheckedValue(radioName, newValue) {  
+           if(!radioName) return;  
+           var radios = document.getElementsByName(radioName);     
+           for(var i=0; i<radios.length; i++) {  
+              radios[i].checked = false;  
+              if(radios[i].value == newValue.toString()) {  
+              radios[i].checked = true;  
+           }  
+        }
+  }
+
+  //获取radio组的选中的标签的值
+  function getRadioValue(radioName) {//得到radio的值     
+      var obj = document.getElementsByName(radioName);
+      for (var i = 0; i < obj.length; i++) {
+          if (obj[i].checked) {
+              return obj[i].value;
+          }
+      }
+  }     
+
+
 //将序列化成json格式后日期(毫秒数)转成日期格式
 function changeDateFormat(cellval) {
     var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));

@@ -29,6 +29,9 @@
             gel("btnLogin").focus();
         };
 
+       
+
+
         //换一张验证码
         function changeCode() {
             var code = document.getElementById("codeSpan").src = "/ashx/ValidateCode.ashx?date=" + new Date().getMilliseconds();
@@ -41,9 +44,9 @@
             //success是服务器返回数据成功执行的方法
             ajaxHelper.doPost({ url: "/ashx/CheckValidateCode.ashx", data: "code=" + code.value, success: function (result) {
                 if (result == "ok") {
-
+                    
                 } else {
-                    msgBox.showMsgInfo("错误");
+                    msgBox.showMsgInfo("验证码错误");
                 }
             }
             });
@@ -64,7 +67,7 @@
                 return false;
             }
 
-            ajaxHelper.doPost({url:"",});
+            ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx", data: "code=" + code.value + "&username=" + username.value + "&pwd" });
         }
 
         
@@ -104,9 +107,9 @@
                                 <img id="codeSpan" alt="验证码" title="点击换一张" onclick="changeCode()" src="ashx/ValidateCode.ashx" />
                             </div>
                             <div class="chooseid">
-                                <input type="radio" name="ID" class="chooseidItem" />学生
-                                <input type="radio" name="ID" class="chooseidItem" />教师
-                                <input type="radio" name="ID" class="chooseidItem" />管理员
+                                <input type="radio" name="ID" checked="checked" class="chooseidItem" value="1" />学生
+                                <input type="radio" name="ID" class="chooseidItem" value="2" />教师
+                                <input type="radio" name="ID" class="chooseidItem" value="3" />管理员
                             </div>
                         </div>
                         <div class="btn">
