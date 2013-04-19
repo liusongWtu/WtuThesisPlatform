@@ -28,7 +28,7 @@
             ajaxHelper = new AjaxHelper();
             gel("btnLogin").focus();
 
-            getObjPosition(gel("username"));
+
         };
 
         //换一张验证码
