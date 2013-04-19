@@ -27,8 +27,6 @@
             msgBox = new MsgBox();
             ajaxHelper = new AjaxHelper();
             gel("btnLogin").focus();
-
-
         };
 
         //换一张验证码
