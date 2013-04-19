@@ -61,6 +61,8 @@
     <Content Include="HTMLPage1.htm" />
     <Content Include="HTMLPage2.htm" />
     <Content Include="images\btn_bg.gif" />
+    <Content Include="images\comments.png" />
+    <Content Include="images\email.png" />
     <Content Include="images\index_banner.jpg" />
     <Content Include="images\index_banner.png" />
     <Content Include="images\index_bg.jpg" />
