@@ -69,6 +69,7 @@
     <Content Include="images\index_logo.png" />
     <Content Include="images\loader.gif" />
     <Content Include="images\modify_password_icon.gif" />
+    <Content Include="images\msg.gif" />
     <Content Include="images\qzonebg.gif" />
     <Content Include="images\setting_bg.gif" />
     <Content Include="images\square.png" />
