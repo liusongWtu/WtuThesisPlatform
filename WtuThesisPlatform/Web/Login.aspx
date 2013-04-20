@@ -68,7 +68,7 @@
             }
 
             ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx",
-                data: "code=" + code.value +"&type="+getRadioValue("ID")+ "&username=" + username.value + "&pwd",
+                data: "code=" + code.value + "&type=" + getRadioValue("ID") + "&username=" + username.value + "&pwd="+password.value,
                 success: function (result) {
                     if (result == "codeEmpty") {
                         msgBox.showMsgErr("验证码不能为空！");
@@ -76,7 +76,8 @@
                         msgBox.showMsgErr("验证码错误！");
                     } else if (result == "typeError") {
                         msgBox.showMsgErr("非法用户！");
-                    }else if
+                    } else {
+                    }
                 }
             });
         }

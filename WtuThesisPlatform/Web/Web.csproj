@@ -107,6 +107,7 @@
     <Content Include="images\stu_wish\stu_select_icon.gif" />
     <Content Include="images\stu_wish\stu_success_icon.gif" />
     <Content Include="images\stu_wish\stu_warning_icon.gif" />
+    <Content Include="images\stu_wish\submit.gif" />
     <Content Include="index.html" />
     <Content Include="js\ajaxHelper.js" />
     <Content Include="js\Common.js" />
@@ -120,15 +121,16 @@
     <Content Include="js\stu_pages.js" />
     <Content Include="js\template.js" />
     <Content Include="Login.aspx" />
-    <Content Include="Student\StuIndex.aspx" />
-    <Content Include="Student\stu_index.html" />
+    <Content Include="StudentUI\StuIndex.aspx" />
+    <Content Include="StudentUI\stu_index.html" />
     <Content Include="Global.asax" />
-    <Content Include="Student\stu_info.html" />
-    <Content Include="Student\stu_modify_password.html" />
-    <Content Include="Student\stu_myselect.html" />
-    <Content Include="Student\stu_mystore.html" />
-    <Content Include="Student\stu_select.html" />
-    <Content Include="Student\stu_topic_info.html" />
+    <Content Include="StudentUI\stu_info.html" />
+    <Content Include="StudentUI\stu_modify_password.html" />
+    <Content Include="StudentUI\stu_myselect.html" />
+    <Content Include="StudentUI\stu_mystore.html" />
+    <Content Include="StudentUI\stu_select.html" />
+    <Content Include="StudentUI\stu_topic_detail.html" />
+    <Content Include="StudentUI\stu_topic_info.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -163,28 +165,28 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Student\StudentMasterPage.Master.cs">
+    <Compile Include="StudentUI\StudentMasterPage.Master.cs">
       <DependentUpon>StudentMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Student\StudentMasterPage.Master.designer.cs">
+    <Compile Include="StudentUI\StudentMasterPage.Master.designer.cs">
       <DependentUpon>StudentMasterPage.Master</DependentUpon>
     </Compile>
-    <Compile Include="Student\StuIndex.aspx.cs">
+    <Compile Include="StudentUI\StuIndex.aspx.cs">
       <DependentUpon>StuIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Student\StuIndex.aspx.designer.cs">
+    <Compile Include="StudentUI\StuIndex.aspx.designer.cs">
       <DependentUpon>StuIndex.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
+    <Folder Include="AdminUI\" />
     <Folder Include="App_Data\" />
     <Folder Include="js\admin\" />
     <Folder Include="js\student\" />
     <Folder Include="js\teacher\" />
-    <Folder Include="Teacher\" />
+    <Folder Include="TeacherUI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
@@ -200,7 +202,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Student\StudentMasterPage.Master" />
+    <Content Include="StudentUI\StudentMasterPage.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ashx\ValidateCode.ashx" />
