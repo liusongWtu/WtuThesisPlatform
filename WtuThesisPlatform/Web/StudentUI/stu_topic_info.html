@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="css/stu_page.css" />
+<link rel="stylesheet" type="text/css" href="css/stu_common.css" />
+<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="js/stu_pages.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var _height = window.innerHeight;
+		var _width = window.innerWidth;
+		$(".container").height(_height-$(".header-wap").height());
+		$(".subNav-size").height($(".container").height()-30);
+		$("#content").height($(".container").height()-30);
+		$("#content").width(_width-200);
+		$(window).resize(function(){
+			var height = window.innerHeight;
+		    var width = window.innerWidth;
+			$(".container").height(height-$(".header-wap").height());
+			$(".subNav-size").height($(".container").height()-30);
+			$("#content").height($(".container").height()-30);
+			$("#content").width(width-200);
+		});	
+	}) 
+</script>
+
+</head>
+
+<body>
+	<div class="outer">
+		<div class="header-wap">
+			<div id="header" class="header">
+				<h1 id="logo" class="logoCl"></h1>
+				<div id="nav" class="abright">
+					<ul class="nav-ul">
+						<li class="cursor ml10">首页</li>
+						<li class="cursor ml10">选题</li>
+						<li class="cursor ml10">信息维护</li>
+					</ul>
+				</div>
+			</div>
+			<div id="info" class="info">
+			  <ul class="info_ul">
+				  <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，Admin</a></span></li>
+					<li class="infoItem"><span class="fontSty cursor"><a href="#">用户管理</a></span></li>
+					<li class="infoItem"><span class="itemPad mesIcon fontSty cursor"><a href="#" id="infoNum">&nbsp;N&nbsp;</a>条信息</span></li>
+					<li class="loginout"><span class="itemPad outIcon fontSty cursor"><a href="#">退出</a></span></li>
+				</ul>
+			</div>
+		</div>	
+		<div id="main" class="fl container">
+			<div id="subNav" class="fl subNav-size">
+				<div class="subNav-header">
+					<span class="setIcon"></span>
+					<h2 class="fonth2">管理菜单</h2>
+					<p class="enFont">Menu Administration</p>
+				</div>
+				<dl class="menu">
+					<dt class="menu-header cursor"><span class="menu-header-icon menu-icon"></span>所有选题</dt>
+				</dl>
+				<dl class="menu">
+					<dt class="menu-header cursor"><span class="menu-header-icon menu-icon"></span>我的志愿</dt>
+					<dd class="menu-list cursor"><span class="menu-list-icon menu-icon"></span><a href="#">我的收藏</a></dd>
+					<dd class="menu-list cursor"><span class="menu-list-icon menu-icon"></span><a href="#">我的选题</a></dd>
+				</dl>
+			</div>
+			<div class="content-wrap">
+				<div id="content" class="fl scroll content">
+					<div class="wrap">
+						<div class="teacher-info">
+							<dl>
+								<dt><h1>导师基本信息</h1></dt>
+								<dd>姓名：<span id="tName">何儒汉</span></dd>
+								<dd>职称：<span id="tPosition">学院副教授</span></dd>
+								<dd>电话：<span id="tPhone">16441471409</span></dd>
+								<dd>QQ：<span id="tQQ">594659037</span></dd>
+								<dd>邮箱：<span id="tEmail">594659037@qq.com</span></dd>
+								<dd>院系：<span id="tFaculty">数学与计算机学院</span></dd>
+								<dd>主讲课程：<span id="tProfession">数据库原理、软件基础、Delphi数据库应用、Unix操作系统</span></dd>
+								<dd>研究方向：<span id="tResearch">计算机视觉、多媒体处理、搜索引擎、信息检索、物流优化</span></dd>
+							</dl>
+							<!--<div id="tPhoto">
+								待定
+							</div>-->
+						</div>
+						<div class="topic-info">
+							<dl>
+								<dt><h1>导师各选题信息</h1></dt>
+							</dl>
+							<table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
+								<tr class="list-header">
+									<td class="td0 fn-ellipsis">&nbsp;</td>
+									<td class="td1 fn-ellipsis">选题名称</td>
+									<td class="td2 fn-ellipsis">允许选择人数</td>
+									<td class="td3 fn-ellipsis">已选人数</td>
+									<td class="td4 fn-ellipsis">剩余人数</td>
+									<td class="td5 fn-ellipsis">老师名字</td>
+									<td class="td6 fn-ellipsis">收藏</td>
+									<td class="td7 fn-ellipsis">选题</td>
+								</tr>
+								<tr class="list-content">
+									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1 fn-ellipsis"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2 fn-ellipsis">6</td>
+									<td class="td3 fn-ellipsis">4</td>
+									<td class="td4 fn-ellipsis">3</td>
+									<td class="td5 fn-ellipsis teacher"><a href="#">何儒汉</a></td>
+									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
+									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+								</tr>
+								<tr class="detail nohover hide">
+									<td colspan="8">
+										<table>
+											<tr class="nohover"><td class="fn-text-wrap">开发平台<p id="developTool">Visual C++</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">题目简介<p id="topicIntro">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">设计功能与实现目标<p id="target">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+										</table>
+									</td>
+								</tr>
+								<tr class="list-content">
+									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1 fn-ellipsis"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2 fn-ellipsis">6</td>
+									<td class="td3 fn-ellipsis">4</td>
+									<td class="td4 fn-ellipsis">3</td>
+									<td class="td5 fn-ellipsis teacher"><a href="#">何儒汉</a></td>
+									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
+									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+								</tr>
+								<tr class="detail nohover hide">
+									<td colspan="8">
+										<table>
+											<tr class="nohover"><td class="fn-text-wrap">开发平台<p id="developTool">Visual C++</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">题目简介<p id="topicIntro">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">设计功能与实现目标<p id="target">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+										</table>
+									</td>
+								</tr>
+								<tr class="list-content">
+									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1 fn-ellipsis"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2 fn-ellipsis">6</td>
+									<td class="td3 fn-ellipsis">4</td>
+									<td class="td4 fn-ellipsis">3</td>
+									<td class="td5 fn-ellipsis teacher"><a href="#">何儒汉</a></td>
+									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
+									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+								</tr>
+								<tr class="detail nohover hide">
+									<td colspan="8">
+										<table>
+											<tr class="nohover"><td class="fn-text-wrap">开发平台<p id="developTool">Visual C++</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">题目简介<p id="topicIntro">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">设计功能与实现目标<p id="target">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+										</table>
+									</td>
+								</tr>
+								<tr class="list-content">
+									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1 fn-ellipsis"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2 fn-ellipsis">6</td>
+									<td class="td3 fn-ellipsis">4</td>
+									<td class="td4 fn-ellipsis">3</td>
+									<td class="td5 fn-ellipsis teacher"><a href="#">何儒汉</a></td>
+									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
+									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+								</tr>
+								<tr class="detail nohover hide">
+									<td colspan="8">
+										<table>
+											<tr class="nohover"><td class="fn-text-wrap">开发平台<p id="developTool">Visual C++</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">题目简介<p id="topicIntro">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">设计功能与实现目标<p id="target">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="footPos">
+			<p>武汉纺织大学版权所有 
+				<font size="2" face="Verdana, Arial, Helvetica">
+					<span> </span>				</font>
+				2010 Copyrights all reserved  鄂ICP备05003335号			</p>
+		</div>
+		</div>
+		
+	</div>
+</body>
+</html>

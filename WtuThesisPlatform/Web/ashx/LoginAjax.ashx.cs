@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.SessionState;
 using WtuThesisPlatform.BLL;
+using WtuThesisPlatform.MODEL;
 
 namespace Web.ashx
 {
@@ -37,6 +38,7 @@ namespace Web.ashx
             if (type == "1")//学生
             {
                 StudentBLL bll = new StudentBLL();
+                Student student = bll.GetModel(username);
             }
             else if (type == "2")//教师
             {

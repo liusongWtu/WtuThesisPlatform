@@ -45,14 +45,13 @@ namespace WtuThesisPlatform.DAL
         /// <summary>
         /// GET A ENTITY GetAllKeysNameString
         /// </summary>
-        public Student GetModelById(string intId)
+        public Student GetModelById(string id)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,IsDel from Student ");
             strSql.Append(" where SNo=@intId ");
             SqlParameter[] parameters = {
-                    new SqlParameter("@intId", SqlDbType.VarChar)};
-            parameters[0].Value = intId;
+                    new SqlParameter("@intId",id)};
             Student model = new Student();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString(), parameters);
             if (dt.Rows.Count > 0)
