@@ -1,16 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>�ޱ����ĵ�</title>
-<link rel="stylesheet" type="text/css" href="css/base.css" />
-<link rel="stylesheet" type="text/css" href="css/stu_select.css" />
-<link rel="stylesheet" type="text/css" href="css/stu_common.css" />
-<link rel="stylesheet" type="text/css" href="js/popup/jquery.confirm.css" />
-<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" src="js/template.js"></script>
-<script type="text/javascript" src="js/stu_pages.js"></script>
-<script type="text/javascript" src="js/popup/jquery.confirm.js"></script>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css" />
+<link rel="stylesheet" type="text/css" href="../css/stu_select.css" />
+<link rel="stylesheet" type="text/css" href="../css/stu_common.css" />
+<link rel="stylesheet" type="text/css" href="../js/popup/jquery.confirm.css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/stu_pages.js"></script>
+<script type="text/javascript" src="../js/popup/jquery.confirm.js"></script>
 <script type="text/javascript">
 	$(function(){
 		var _height = window.innerHeight;
@@ -39,18 +39,18 @@
 				<h1 id="logo" class="logoCl"></h1>
 				<div id="nav" class="abright">
 					<ul class="nav-ul">
-						<li class="cursor ml10">��ҳ</li>
-						<li class="cursor ml10">ѡ��</li>
-						<li class="cursor ml10">��Ϣά��</li>
+						<li>首页</li>
+						<li>选题</li>
+						<li>信息维护</li>
 					</ul>
 				</div>
 			</div>
 			<div id="info" class="info">
-			  <ul class="info_ul">
-				  <li class="infoItem"><span class="fontSty cursor"><a href="#">��ӭ����Admin</a></span></li>
-					<li class="infoItem"><span class="fontSty cursor"><a href="#">�û�����</a></span></li>
-					<li class="infoItem"><span class="itemPad mesIcon fontSty cursor"><a href="#" id="infoNum">&nbsp;N&nbsp;</a>����Ϣ</span></li>
-					<li class="loginout"><span class="itemPad outIcon fontSty cursor"><a href="#">�˳�</a></span></li>
+			    <ul class="info_ul">
+					<li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，Admin</a></span></li>
+					<li class="infoItem"><span class="megIcon fontSty cursor"><a href="#" id="megNum">（4）</a></span></li>
+					<li class="infoItem"><span class="infoIcon fontSty cursor"><a href="#" id="infoNum">（3）</a></span></li>
+					<li id="logout" class="loginout"><span class="outIcon fontSty cursor"><a href="#">退出</a></span></li>
 				</ul>
 			</div>
 		</div>	
@@ -58,16 +58,16 @@
 			<div id="subNav" class="fl subNav-size">
 				<div class="subNav-header">
 					<span class="setIcon"></span>
-					<h2 class="fonth2">�����˵�</h2>
+					<h2 class="fonth2">管理菜单</h2>
 					<p class="enFont">Menu Administration</p>
 				</div>
 				<dl class="menu">
-					<dt class="menu-header cursor"><span class="menu-header-icon menu-icon"></span>����ѡ��</dt>
+					<dt class="menu-header"><span class="menu-header-icon menu-icon"></span>所有选题</dt>
 				</dl>
 				<dl class="menu">
-					<dt class="menu-header cursor"><span class="menu-header-icon menu-icon"></span>�ҵ�־Ը</dt>
-					<dd class="menu-list cursor"><span class="menu-list-icon menu-icon"></span><a href="#">�ҵ��ղ�</a></dd>
-					<dd class="menu-list cursor"><span class="menu-list-icon menu-icon"></span><a href="#">�ҵ�ѡ��</a></dd>
+					<dt class="menu-header"><span class="menu-header-icon menu-icon"></span>我的志愿</dt>
+					<dd class="menu-list"><span class="menu-list-icon menu-icon"></span><a href="#">我的收藏</a></dd>
+					<dd class="menu-list"><span class="menu-list-icon menu-icon"></span><a href="#">我的选题</a></dd>
 				</dl>
 
 			</div>
@@ -76,9 +76,9 @@
 					<div class="select-list">
 						<div class="content-top">
 							<div class="search fl fillet">
-								<label class="ablt">�ؼ���...</label>
+								<label class="ablt">关键字...</label>
 								<input type="text" class="search-input" />
-								<button id="searchButton" class="search-button abrt"><span>����</span></button>
+								<button id="searchButton" class="search-button abrt"><span>搜索</span></button>
 							</div>
 							<!--<div class="top-change-page fr">
 								<span id="topPageUp" class="top-page-up top-page"></span>
@@ -96,184 +96,166 @@
 						<div class="content-center">
 							<table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
 								<tr class="list-header">
-									<td class="td0 fn-ellipsis">&nbsp;</td>
-									<td class="td1 fn-ellipsis">ѡ������</td>
-									<td class="td2 fn-ellipsis">����ѡ������</td>
-									<td class="td3 fn-ellipsis">��ѡ����</td>
-									<td class="td4 fn-ellipsis">ʣ������</td>
-									<td class="td5 fn-ellipsis">��ʦ����</td>
-									<td class="td6 fn-ellipsis">�ղ�</td>
-									<td class="td7 fn-ellipsis">ѡ��</td>
+									<td class="td0">&nbsp;</td>
+									<td class="td1">选题名称</td>
+									<td class="td2">允许人数</td>
+									<td class="td3">已选人数</td>
+									<td class="td4">剩余人数</td>
+									<td class="td5">教师</td>
+									<td class="td6">收藏</td>
+									<td class="td7">选题</td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4 ">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
 								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
+									<td class="td0"><input type="checkbox" name="topiclist" /></td>
+									<td class="td1"><a href="#">毕业设计选题系统</a></td>
+									<td class="td2">6</td>
+									<td class="td3">4</td>
+									<td class="td4">3</td>
+									<td class="td5 teacher"><a href="#">何儒汉</a></td>
+									<td class="td6"><span class="store-icon list-icon"></span></td>
+									<td class="td7"><span class="select-icon list-icon"></span></td>
 								</tr>
-								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
-								</tr>
-								<tr class="list-content">
-									<td class="td0 fn-ellipsis"><input type="checkbox" name="topiclist" /></td>
-									<td class="td1 fn-ellipsis"><a href="#">��ҵ���ѡ��ϵͳ</a></td>
-									<td class="td2 fn-ellipsis">6</td>
-									<td class="td3 fn-ellipsis">4</td>
-									<td class="td4 fn-ellipsis">3</td>
-									<td class="td5 fn-ellipsis teacher"><a href="#">���庺</a></td>
-									<td class="td6 fn-ellipsis"><span class="store-icon list-icon"></span></td>
-									<td class="td7 fn-ellipsis"><span class="select-icon list-icon"></span></td>
-								</tr>
+								
+								
 							</table>
 							
 						</div>
 						<div class="content-bottom">
 							<ul class="operate">
-								<li><input type="checkbox" name="checkall" id="checkAll" />&nbsp;ȫѡ</li>
+								<li><input type="checkbox" name="checkall" id="checkAll" />&nbsp;全选</li>
 								<li>|</li>
-								<li><a href="#" id="clickToStore">һ���ղ�</a></li>
+								<li><a href="#" id="clickToStore">一键收藏</a></li>
 							</ul>
 							<table class="pagechange">
 								<tr>
-									<td class="page-up" title="��һҳ"><span></span></td>
+									<td class="page-up" title="上一页"><span></span></td>
 									<td><a href="#">1</a></td>
 									<td><a href="#">2</a></td>
 									<td><a href="#">3</a></td>
 									<td><a href="#">4</a></td>
 									<td><a href="#">5</a></td>
 									<td><a href="#">6</a></td>
-									<td class="page-down" title="��һҳ"><span></span></td>
+									<td class="page-down" title="下一页"><span></span></td>
 								</tr>
 							</table>
 							
@@ -282,10 +264,10 @@
 				</div>
 			</div>
 			<div class="footPos">
-			<p>�人��֯��ѧ��Ȩ���� 
+			<p>武汉纺织大学版权所有 
 				<font size="2" face="Verdana, Arial, Helvetica">
 					<span> </span>				</font>
-				2010 Copyrights all reserved  ��ICP��05003335��			</p>
+				2010 Copyrights all reserved  鄂ICP备05003335号			</p>
 			</div>
 		</div>
 	</div>

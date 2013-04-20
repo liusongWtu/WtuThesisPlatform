@@ -48,20 +48,23 @@ body{
 	height: 10px;
 	text-align: right;
 }
-.loginCl p a{
+.loginCl  a{
 	text-decoration: underline;
 	cursor: pointer;
 }
-.loginCl p a:hover{
-	color: #FFF;
+.loginCl  a:hover{
+	color: #e6e6e6;
 }
 
 .ui-input-wap{
-	width: 270px;
-	height: 35px;
 	line-height: 38px;
 	margin: 15px 0 15px 0;
 	position: relative;
+}
+
+.vcode{
+	vertical-align: middle;
+	margin: 0 10px 0 30px;
 }
 .ui-input{
 	width: 194px;
@@ -72,12 +75,8 @@ body{
 	color: #333;
 	font-weight: bold;
 	font-size: 14px;
-}
-
-.textInd70{
 	padding-left: 70px;
 }
-
 .item label{
 	font-family: "Courier New", Courier, monospace;
 	font-size: 13px;
@@ -90,6 +89,7 @@ body{
 .chooseid{
 	font-size: 14px;
 }
+
 .chooseidItem{
 	margin: 15px 8px 0 12px;
 }
