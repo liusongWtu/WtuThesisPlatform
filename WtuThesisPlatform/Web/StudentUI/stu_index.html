@@ -9,22 +9,6 @@
 <script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="../js/template.js"></script>
 <script type="text/javascript">
-	$(function(){
-		var _height = window.innerHeight;
-		var _width = window.innerWidth;
-		$(".container").height(_height-$(".header-wap").height());
-		$(".subNav-size").height($(".container").height()-30);
-		$("#content").height($(".container").height()-30);
-		$("#content").width(_width-200);
-		$(window).resize(function(){
-			var height = window.innerHeight;
-		    var width = window.innerWidth;
-			$(".container").height(height-$(".header-wap").height());
-			$(".subNav-size").height($(".container").height()-30);
-			$("#content").height($(".container").height()-30);
-			$("#content").width(width-200);
-		});	
-	})
 
 </script>
 
