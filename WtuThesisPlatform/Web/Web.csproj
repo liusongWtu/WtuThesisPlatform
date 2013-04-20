@@ -108,6 +108,7 @@
     <Content Include="images\stu_wish\stu_select_icon.gif" />
     <Content Include="images\stu_wish\stu_success_icon.gif" />
     <Content Include="images\stu_wish\stu_warning_icon.gif" />
+    <Content Include="images\stu_wish\submit.gif" />
     <Content Include="index.html" />
     <Content Include="js\ajaxHelper.js" />
     <Content Include="js\Common.js" />
