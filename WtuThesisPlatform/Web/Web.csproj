@@ -57,7 +57,6 @@
     <Content Include="css\stu_index.css" />
     <Content Include="css\stu_page.css" />
     <Content Include="css\stu_select.css" />
-    <Content Include="css\template.css" />
     <Content Include="HTMLPage2.htm" />
     <Content Include="images\btn_bg.gif" />
     <Content Include="images\comments.png" />
@@ -123,9 +122,10 @@
     <Content Include="js\stu_pages.js" />
     <Content Include="js\template.js" />
     <Content Include="Login.aspx" />
+    <Content Include="StudentUI\index.html" />
     <Content Include="StudentUI\StuIndex.aspx" />
-    <Content Include="StudentUI\stu_index.html" />
     <Content Include="Global.asax" />
+    <Content Include="StudentUI\stu_index.html" />
     <Content Include="StudentUI\stu_info.html" />
     <Content Include="StudentUI\stu_modify_password.html" />
     <Content Include="StudentUI\stu_myselect.html" />
