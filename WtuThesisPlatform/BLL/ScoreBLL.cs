@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of Score.
-    /// Datetime:2013/4/16 15:30:01
+    /// Datetime:2013/4/20 21:00:23
     /// </summary>
     public class ScoreBLL
     {

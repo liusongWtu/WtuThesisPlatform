@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of TBSys_IdManager.
-    /// Datetime:2013/4/16 15:31:01
+    /// Datetime:2013/4/20 21:00:49
     /// </summary>
     public class TBSys_IdManagerBLL
     {

@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Major.
-    /// Datetime:2013/4/16 16:11:25
+    /// Datetime:2013/4/20 20:59:37
     /// </summary>
     public class MajorDAL
     {
@@ -210,18 +210,26 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.MId == 0)
+                {
+                    model.MId = DbHelperSQL.GetNextValidID("Major ", "MId");
+                }
+                
                 strSql.Append("insert into Major(");
-                strSql.Append("DId,MName,IsDel)");
+                strSql.Append("MId,DId,MName,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@DId,@MName,@IsDel)");
+                strSql.Append(" @MId,@DId,@MName,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@MId", SqlDbType.Int,4),
                     new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@MName", SqlDbType.VarChar,50),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.DId;
-                parameters[1].Value = model.MName;
-                parameters[2].Value = model.IsDel;
+
+				parameters[0].Value = model.MId;
+                parameters[1].Value = model.DId;
+                parameters[2].Value = model.MName;
+                parameters[3].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

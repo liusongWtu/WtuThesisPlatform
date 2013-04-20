@@ -47,7 +47,6 @@
     <Compile Include="MajorDAL.cs" />
     <Compile Include="MessageDAL.cs" />
     <Compile Include="NoticeDAL.cs" />
-    <Compile Include="OnlineUserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleInfoDAL.cs" />
     <Compile Include="RoleRightDAL.cs" />

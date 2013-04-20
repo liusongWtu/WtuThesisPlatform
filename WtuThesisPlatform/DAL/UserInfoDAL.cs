@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of UserInfo.
-    /// Datetime:2013/4/16 16:12:28
+    /// Datetime:2013/4/20 21:01:11
     /// </summary>
     public class UserInfoDAL
     {
@@ -216,24 +216,32 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.UId == 0)
+                {
+                    model.UId = DbHelperSQL.GetNextValidID("UserInfo ", "UId");
+                }
+                
                 strSql.Append("insert into UserInfo(");
-                strSql.Append("UUserName,UPassword,UName,DepartmentId,UCheckId,IsDel)");
+                strSql.Append("UId,UUserName,UPassword,UName,DepartmentId,UCheckId,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@UUserName,@UPassword,@UName,@DepartmentId,@UCheckId,@IsDel)");
+                strSql.Append(" @UId,@UUserName,@UPassword,@UName,@DepartmentId,@UCheckId,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@UId", SqlDbType.Int,4),
                     new SqlParameter("@UUserName", SqlDbType.VarChar,20),
                     new SqlParameter("@UPassword", SqlDbType.VarChar,20),
                     new SqlParameter("@UName", SqlDbType.VarChar,20),
                     new SqlParameter("@DepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@UCheckId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.UUserName;
-                parameters[1].Value = model.UPassword;
-                parameters[2].Value = model.UName;
-                parameters[3].Value = model.DepartmentId;
-                parameters[4].Value = model.UCheckId;
-                parameters[5].Value = model.IsDel;
+
+				parameters[0].Value = model.UId;
+                parameters[1].Value = model.UUserName;
+                parameters[2].Value = model.UPassword;
+                parameters[3].Value = model.UName;
+                parameters[4].Value = model.DepartmentId;
+                parameters[5].Value = model.UCheckId;
+                parameters[6].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Department.
-    /// Datetime:2013/4/16 16:11:17
+    /// Datetime:2013/4/20 20:59:29
     /// </summary>
     public class DepartmentDAL
     {
@@ -207,18 +207,26 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.DId == 0)
+                {
+                    model.DId = DbHelperSQL.GetNextValidID("Department ", "DId");
+                }
+                
                 strSql.Append("insert into Department(");
-                strSql.Append("DName,DTelPhone,IsDel)");
+                strSql.Append("DId,DName,DTelPhone,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@DName,@DTelPhone,@IsDel)");
+                strSql.Append(" @DId,@DName,@DTelPhone,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@DName", SqlDbType.VarChar,50),
                     new SqlParameter("@DTelPhone", SqlDbType.VarChar,50),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.DName;
-                parameters[1].Value = model.DTelPhone;
-                parameters[2].Value = model.IsDel;
+
+				parameters[0].Value = model.DId;
+                parameters[1].Value = model.DName;
+                parameters[2].Value = model.DTelPhone;
+                parameters[3].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

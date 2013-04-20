@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of ThesisSelected.
-    /// Datetime:2013/4/16 15:31:30
+    /// Datetime:2013/4/20 21:01:00
     /// </summary>
     public class ThesisSelectedBLL
     {

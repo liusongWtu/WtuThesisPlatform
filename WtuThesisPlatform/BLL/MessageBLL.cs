@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of Message.
-    /// Datetime:2013/4/16 15:28:47
+    /// Datetime:2013/4/20 20:59:44
     /// </summary>
     public class MessageBLL
     {

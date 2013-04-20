@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of SysFun.
-    /// Datetime:2013/4/16 16:12:04
+    /// Datetime:2013/4/20 21:00:42
     /// </summary>
     public class SysFunDAL
     {
@@ -215,22 +215,30 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.NodeId == 0)
+                {
+                    model.NodeId = DbHelperSQL.GetNextValidID("SysFun ", "NodeId");
+                }
+                
                 strSql.Append("insert into SysFun(");
-                strSql.Append("DisplayName,NodeURL,ParentNodeId,DisplayOrder,IsDel)");
+                strSql.Append("NodeId,DisplayName,NodeURL,ParentNodeId,DisplayOrder,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@DisplayName,@NodeURL,@ParentNodeId,@DisplayOrder,@IsDel)");
+                strSql.Append(" @NodeId,@DisplayName,@NodeURL,@ParentNodeId,@DisplayOrder,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@NodeId", SqlDbType.Int,4),
                     new SqlParameter("@DisplayName", SqlDbType.VarChar,50),
                     new SqlParameter("@NodeURL", SqlDbType.VarChar,200),
                     new SqlParameter("@ParentNodeId", SqlDbType.Int,4),
                     new SqlParameter("@DisplayOrder", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.DisplayName;
-                parameters[1].Value = model.NodeURL;
-                parameters[2].Value = model.ParentNodeId;
-                parameters[3].Value = model.DisplayOrder;
-                parameters[4].Value = model.IsDel;
+
+				parameters[0].Value = model.NodeId;
+                parameters[1].Value = model.DisplayName;
+                parameters[2].Value = model.NodeURL;
+                parameters[3].Value = model.ParentNodeId;
+                parameters[4].Value = model.DisplayOrder;
+                parameters[5].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

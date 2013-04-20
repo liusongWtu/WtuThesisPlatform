@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of Major.
-    /// Datetime:2013/4/16 15:28:32
+    /// Datetime:2013/4/20 20:59:37
     /// </summary>
     public class MajorBLL
     {

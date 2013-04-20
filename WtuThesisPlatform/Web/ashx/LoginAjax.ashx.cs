@@ -39,6 +39,22 @@ namespace Web.ashx
             {
                 StudentBLL bll = new StudentBLL();
                 Student student = bll.GetModel(username);
+                if (student.SPassword == password)
+                {
+                    if (student.IsDel == true)
+                    {
+                        context.Response.Write("del");//已被冻结
+                    }
+                    else
+                    {
+                        context.Response.Write("ok");//登录成功
+                    }
+                }
+                else
+                {
+                    context.Response.Write("pwdError");//密码错误
+                }
+                return;
             }
             else if (type == "2")//教师
             {

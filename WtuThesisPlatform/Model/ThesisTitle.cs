@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of ThesisTitle.
-	/// Datetime:2013/4/16 15:31:41
+	/// Datetime:2013/4/20 21:01:05
     /// </summary>
     public class ThesisTitle
     {

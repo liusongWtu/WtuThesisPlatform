@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Teacher.
-    /// Datetime:2013/4/16 16:12:14
+    /// Datetime:2013/4/20 21:00:55
     /// </summary>
     public class TeacherDAL
     {
@@ -222,12 +222,18 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.TId == 0)
+                {
+                    model.TId = DbHelperSQL.GetNextValidID("Teacher ", "TId");
+                }
+                
                 strSql.Append("insert into Teacher(");
-                strSql.Append("TUserName,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,MajorId,TTeachCourse,TResearchFields,TCheckCode,IsDel)");
+                strSql.Append("TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,MajorId,TTeachCourse,TResearchFields,TCheckCode,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@TUserName,@TPassword,@TName,@TZhiCheng,@TTeachNum,@TPhone,@TEmail,@MajorId,@TTeachCourse,@TResearchFields,@TCheckCode,@IsDel)");
+                strSql.Append(" @TId,@TUserName,@TPassword,@TName,@TZhiCheng,@TTeachNum,@TPhone,@TEmail,@MajorId,@TTeachCourse,@TResearchFields,@TCheckCode,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@TId", SqlDbType.Int,4),
                     new SqlParameter("@TUserName", SqlDbType.VarChar,20),
                     new SqlParameter("@TPassword", SqlDbType.VarChar,20),
                     new SqlParameter("@TName", SqlDbType.VarChar,20),
@@ -240,18 +246,20 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TResearchFields", SqlDbType.VarChar,16),
                     new SqlParameter("@TCheckCode", SqlDbType.VarChar,36),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.TUserName;
-                parameters[1].Value = model.TPassword;
-                parameters[2].Value = model.TName;
-                parameters[3].Value = model.TZhiCheng;
-                parameters[4].Value = model.TTeachNum;
-                parameters[5].Value = model.TPhone;
-                parameters[6].Value = model.TEmail;
-                parameters[7].Value = model.MajorId;
-                parameters[8].Value = model.TTeachCourse;
-                parameters[9].Value = model.TResearchFields;
-                parameters[10].Value = model.TCheckCode;
-                parameters[11].Value = model.IsDel;
+
+				parameters[0].Value = model.TId;
+                parameters[1].Value = model.TUserName;
+                parameters[2].Value = model.TPassword;
+                parameters[3].Value = model.TName;
+                parameters[4].Value = model.TZhiCheng;
+                parameters[5].Value = model.TTeachNum;
+                parameters[6].Value = model.TPhone;
+                parameters[7].Value = model.TEmail;
+                parameters[8].Value = model.MajorId;
+                parameters[9].Value = model.TTeachCourse;
+                parameters[10].Value = model.TResearchFields;
+                parameters[11].Value = model.TCheckCode;
+                parameters[12].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

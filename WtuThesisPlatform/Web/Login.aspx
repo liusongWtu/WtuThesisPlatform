@@ -16,6 +16,7 @@
         var code = false; //验证码输入框
         var username = false; //用户名输入框
         var password = false; //密码框
+        var vp = false;
 
         //当浏览器加载数据后
         window.onload = function () {
@@ -39,6 +40,9 @@
 
         //检测验证码
         function checkCode() {
+            if (trim(code.value)) {
+                return;
+            }
             //调用 ajax帮助对象，向服务器发送一个 post 请求
             //url是指的要请求的路径
             //success是服务器返回数据成功执行的方法
@@ -47,6 +51,8 @@
 
                 } else {
                     msgBox.showMsgInfo("验证码错误");
+                    changeCode();
+                    setFocus(code);
                 }
             }
             });
@@ -56,33 +62,43 @@
         function CheckLogin() {
             if (trim(username.value) == "") {
                 msgBox.showMsgErr("用户名不能为空！");
-                return false;
+                setFocus(username);
             }
-            if (trim(password.value) == "") {
+            else if (trim(password.value) == "") {
                 msgBox.showMsgErr("密码不能为空！");
-                return false;
+                setFocus(password);
             }
-            if (trim(code.value) == "") {
+            else if (trim(code.value) == "") {
                 msgBox.showMsgErr("验证码不能为空！");
-                return false;
-            }
-
-            ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx",
-                data: "code=" + code.value + "&type=" + getRadioValue("ID") + "&username=" + username.value + "&pwd="+password.value,
-                success: function (result) {
-                    if (result == "codeEmpty") {
-                        msgBox.showMsgErr("验证码不能为空！");
-                    } else if (result == "codeError") {
-                        msgBox.showMsgErr("验证码错误！");
-                    } else if (result == "typeError") {
-                        msgBox.showMsgErr("非法用户！");
-                    } else {
+                setFocus(code);
+            } else {
+                ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx",
+                    data: "code=" + code.value + "&type=" + getRadioValue("ID") + "&username=" + username.value + "&pwd=" + password.value,
+                    success: function (result) {
+                        requestBack(result);
                     }
-                }
-            });
+                });
+            }
         }
 
-        
+        //回传消息响应
+        function requestBack(result) {
+            if (result == "codeEmpty") {
+                msgBox.showMsgErr("验证码不能为空！");
+                changeCode();
+                setFocus(code);
+            } else if (result == "codeError") {
+                msgBox.showMsgErr("验证码错误！");
+                changeCode();
+                setFocus(code);
+            } else if (result == "typeError") {
+                msgBox.showMsgErr("非法用户！");
+                changeCode();
+            } else {
+                msgBox.showMsgOk("登录成功!正在跳转...");
+                window.location.assign("HTMLPage2.htm");
+            }
+        }
     </script>
 </head>
 <body>
@@ -102,13 +118,13 @@
                         <div class="item">
                             <div class="ui-input-wap">
                                 <label for="username">
-                                    用户名&nbsp;|</label><input type="text" id="username" class="ui-input  textInd70" />
+                                    用户名&nbsp;|</label><input type="text" id="username" value="123" class="ui-input  textInd70" />
                             </div>
                             <p>
                                 <a>忘记密码?</a></p>
                             <div class="ui-input-wap">
                                 <label for="password ">
-                                    密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" class="ui-input  textInd70" />
+                                    密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" value="liu" class="ui-input  textInd70" />
                             </div>
                             <p>
                                 <input type="checkbox" />是否记住密码?</p>
@@ -116,7 +132,7 @@
                                 <label for="verification">
                                     验证码&nbsp;|</label><input type="text" id="verification" class="ui-input  textInd70"
                                         onblur="checkCode()" />
-                                <img id="codeSpan" alt="验证码" title="点击换一张" onclick="changeCode()" src="ashx/ValidateCode.ashx" />
+                                <img id="codeSpan" alt="点击刷新" title="点击刷新" onclick="changeCode()" src="ashx/ValidateCode.ashx" />
                             </div>
                             <div class="chooseid">
                                 <input type="radio" name="ID" checked="checked" class="chooseidItem" value="1" />学生

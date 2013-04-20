@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of TBSys_IdManager.
-    /// Datetime:2013/4/16 16:12:09
+    /// Datetime:2013/4/20 21:00:49
     /// </summary>
     public class TBSys_IdManagerDAL
     {
@@ -215,22 +215,30 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.Id == 0)
+                {
+                    model.Id = DbHelperSQL.GetNextValidID("TBSys_IdManager ", "Id");
+                }
+                
                 strSql.Append("insert into TBSys_IdManager(");
-                strSql.Append("TableName,FieldName,CurrentValue,Start,Step)");
+                strSql.Append("Id,TableName,FieldName,CurrentValue,Start,Step)");
                 strSql.Append(" values (");
-                strSql.Append("@TableName,@FieldName,@CurrentValue,@Start,@Step)");
+                strSql.Append(" @Id,@TableName,@FieldName,@CurrentValue,@Start,@Step)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@Id", SqlDbType.Int,4),
                     new SqlParameter("@TableName", SqlDbType.VarChar,100),
                     new SqlParameter("@FieldName", SqlDbType.VarChar,100),
                     new SqlParameter("@CurrentValue", SqlDbType.Int,4),
                     new SqlParameter("@Start", SqlDbType.Int,4),
                     new SqlParameter("@Step", SqlDbType.Int,4)};
-				                parameters[0].Value = model.TableName;
-                parameters[1].Value = model.FieldName;
-                parameters[2].Value = model.CurrentValue;
-                parameters[3].Value = model.Start;
-                parameters[4].Value = model.Step;
+
+				parameters[0].Value = model.Id;
+                parameters[1].Value = model.TableName;
+                parameters[2].Value = model.FieldName;
+                parameters[3].Value = model.CurrentValue;
+                parameters[4].Value = model.Start;
+                parameters[5].Value = model.Step;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of ClassInfo.
-    /// Datetime:2013/4/16 15:25:45
+    /// Datetime:2013/4/20 20:58:00
     /// </summary>
     public class ClassInfoBLL
     {

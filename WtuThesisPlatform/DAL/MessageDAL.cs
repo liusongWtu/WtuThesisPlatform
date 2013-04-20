@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Message.
-    /// Datetime:2013/4/16 16:11:30
+    /// Datetime:2013/4/20 20:59:44
     /// </summary>
     public class MessageDAL
     {
@@ -215,22 +215,30 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.MId == 0)
+                {
+                    model.MId = DbHelperSQL.GetNextValidID("Message ", "MId");
+                }
+                
                 strSql.Append("insert into Message(");
-                strSql.Append("ThesisTitleSelectedId,MContent,MTime,MName,IsDel)");
+                strSql.Append("MId,ThesisTitleSelectedId,MContent,MTime,MName,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@ThesisTitleSelectedId,@MContent,@MTime,@MName,@IsDel)");
+                strSql.Append(" @MId,@ThesisTitleSelectedId,@MContent,@MTime,@MName,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@MId", SqlDbType.Int,4),
                     new SqlParameter("@ThesisTitleSelectedId", SqlDbType.Int,4),
                     new SqlParameter("@MContent", SqlDbType.VarChar,16),
                     new SqlParameter("@MTime", SqlDbType.DateTime,8),
                     new SqlParameter("@MName", SqlDbType.VarChar,20),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.ThesisTitleSelectedId;
-                parameters[1].Value = model.MContent;
-                parameters[2].Value = model.MTime;
-                parameters[3].Value = model.MName;
-                parameters[4].Value = model.IsDel;
+
+				parameters[0].Value = model.MId;
+                parameters[1].Value = model.ThesisTitleSelectedId;
+                parameters[2].Value = model.MContent;
+                parameters[3].Value = model.MTime;
+                parameters[4].Value = model.MName;
+                parameters[5].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

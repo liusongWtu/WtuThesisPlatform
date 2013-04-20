@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Department.
-	/// Datetime:2013/4/16 15:28:16
+	/// Datetime:2013/4/20 20:59:29
     /// </summary>
     public class Department
     {

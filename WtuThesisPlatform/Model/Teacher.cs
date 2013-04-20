@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Teacher.
-	/// Datetime:2013/4/16 15:31:14
+	/// Datetime:2013/4/20 21:00:54
     /// </summary>
     public class Teacher
     {
