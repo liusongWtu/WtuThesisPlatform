@@ -1,4 +1,7 @@
 /* CSS Document */
+.content-wrap{
+	color: #555555;
+}
 /*这里是topic_info的样式*/
 .wrap{
 	width: 86%;
@@ -11,10 +14,9 @@
 }
 .teacher-info{
 	width: 100%;
-	margin-top: 10px;
 }
 .topic-info{
-	padding-bottom: 40px;
+	padding-bottom: 20px;
 }
 .wrap dt{
 	border-bottom: 3px solid #2888a8;
@@ -26,7 +28,6 @@
 }
 .wrap dd{
 	padding-left: 40px;
-	color: #978f8f;
 	line-height: 40px;
 }
 .teacher-info dt h1,.topic-info dt h1,.stu-info dt h1{
@@ -46,7 +47,6 @@
 .detail{
 	line-height: 25px;
 	font-size: 14px;
-	color: gray;
 	font-weight: bold;
 }
 .detail table{
@@ -139,7 +139,7 @@
 }
 .stu-info input{
 	border: none;
-	color: #978F8F
+	/*color: #978F8F*/
 }
 .stu-info input.active{
 	width: 200px;
@@ -153,7 +153,7 @@
 }
 .modify{
 	font-size: 12px;
-	color: gray;
+	/*color: gray;*/
 }
 .modify a{
 	padding: 0 10px;
@@ -172,17 +172,20 @@
 .modify-ok:hover,.psd-modify-ok:hover{
 	background: url(../images/stu_wish/modify_ok.gif) 0 0 no-repeat;
 }
-.modify-no{
+.modify-no,.psd-modify-no{
 	background: url(../images/stu_wish/modify_no.gif) 0 -27px no-repeat;
 }
-.modify-no:hover{
+.modify-no:hover,.psd-modify-no:hover{
 	background: url(../images/stu_wish/modify_no.gif) 0 0 no-repeat;
+}
+.psd-modify-ok{
+	margin-left: 0;
+}
+.psd-modify-no{
+	margin-left: 80px;
 }
 /*个人信息的样式*/
 /*密码修改的样式*/
-.stu-modify_password{
-	color:#978F8F;
-}
 
 .stu-modify_password dt h1{
 	font-weight: bold;
@@ -197,6 +200,66 @@
 	height: 25px;
 	margin: 10px;
 }
-.stu-modify_password  button{
-	margin: 0;
+
+/*选题详细信息*/
+.topic-single{
+	margin-left: 40px;
+}
+.message-board{
+	font-size: 13px;
+}
+.message-board dt h1{
+	font-weight: bold;
+	background: url(../images/modify_password_icon.gif) 0 0 no-repeat;
+	padding-left: 40px;
+}
+.dis-comments{
+    margin-left: 20px;
+	margin-top: 20px;
+}
+.com-name{
+	color: #DD3322;
+}
+.com-body p{
+	margin: 0.5em 0;
+	word-wrap: break-word;
+}
+.each-comment{
+	border-top: 1px solid #e6e6e6;
+	padding:10px 0 10px 20px;
+}
+.com-action,.com-reply{
+	color: #999999;
+}
+.com-children{
+	margin-top: 10px;
+}
+.reply-box{
+	position: relative;
+	width: 900px;
+}
+.reply-textarea,.reply-textarea textarea{
+	line-height: 20px;
+	padding: 10px;
+}
+.reply-textarea textarea{
+	color: #999999;
+	width: 100%;
+	height: 54px;
+	
+}
+.reply-toolbar{
+	position: absolute;
+	right: 0;
+
+}
+.reply-toolbar button{
+	width: 100px;
+	height: 30px;
+	border: none;
+	margin-bottom: 40px;
+	background: url(../images/stu_wish/submit.gif) 0 0 no-repeat;
+}
+.reply-toolbar button:hover{
+	background: url(../images/stu_wish/submit.gif) 0 -33px no-repeat;
 }

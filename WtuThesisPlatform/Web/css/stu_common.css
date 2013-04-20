@@ -39,6 +39,8 @@ body{
 	color: #FFF;
 	text-align: center;
 	line-height: 40px;
+	margin-left: 10px;
+	cursor: pointer;
 }
 .nav-ul-li-actived{
 	background: #273536;
@@ -62,6 +64,7 @@ body{
 }
 .info_ul li{
 	float: left;
+
 }
 .info_ul a:hover{
 	text-decoration: underline;
@@ -74,10 +77,16 @@ body{
 .itemPad{
 	padding-left: 30px;
 }
-.mesIcon{
-	background: url(../images/stu_message.png) 0 center no-repeat;
+.megIcon{
+	padding-left: 18px;
+	background: url(../images/comments.png) 0 center no-repeat;
+}
+.infoIcon{
+	padding-left: 18px;
+	background: url(../images/email.png) 0 center no-repeat;
 }
 .outIcon{
+	padding-left: 30px;
 	background: url(../images/stu_signout.png) 0 center no-repeat;
 }
 .loginout{
@@ -135,12 +144,12 @@ body{
 	letter-spacing: 0.1em;
 	padding-top: 10px;
 }
-.cursor{
-	cursor: pointer;
-}
 .menu{
 	width: 100%;
 	font-family: "新宋体";
+}
+.menu dt,.menu dd{
+	cursor: pointer;
 }
 .menu a:hover{
 	text-decoration: underline;
@@ -212,7 +221,16 @@ body{
 	width:95%;
 	margin-top: 20px;
 }
-
+.topic-list  td{
+	white-space: nowrap; /* 强制文字将不自动换行 */
+	overflow: hidden; /* 隐藏超出容器范围的文字 */
+	text-overflow: ellipsis; /* IE, Safari*/
+	-o-text-overflow: ellipsis; /* Opera */
+	-icab-text-overflow: ellipsis;
+	-khtml-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis; /* 目前这段代码无效，为 Firefox 预留 */
+}
 .list-header{
 	font-size: 12px;
 	height: 22px;

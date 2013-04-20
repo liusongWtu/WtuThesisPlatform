@@ -47,7 +47,23 @@
 	margin-right: 2em;
 	border-bottom: 1px dotted #CCC;
 }
+.content ul li{
+	white-space: nowrap; /* 强制文字将不自动换行 */
+	overflow: hidden; /* 隐藏超出容器范围的文字 */
+	text-overflow: ellipsis; /* IE, Safari*/
+	-o-text-overflow: ellipsis; /* Opera */
+	-icab-text-overflow: ellipsis;
+	-khtml-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis; /* 目前这段代码无效，为 Firefox 预留 */
+}
+.readstatus{
+	font-weight: bold;
+}
 .content a:hover{
 	text-decoration: underline;
 	color: #666;
+}
+.readed{
+	font-weight: normal;
 }

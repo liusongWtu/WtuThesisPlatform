@@ -16,6 +16,7 @@ fieldset,img{
 a{
 	text-decoration: none;
 	color: #000;
+	outline: none;
 }
 ul,li{
 	list-style-type: none;
@@ -28,6 +29,11 @@ input,select,textarea{
 	font-size:100%;
 	line-height: normal;
 	border: 1px solid #7E9DB9;
+}
+/*È¥µôieÏÂcheckbox radioµÄ±ß¿ò*/
+input[type="checkbox"], input[type="radio"]{
+    background: transparent;
+    border: 0;
 }
 
 /* È¥µôWebkitÄÚºËä¯ÀÀÆ÷ÊäÈë¿òµÄ±ß¿ò */
@@ -49,6 +55,9 @@ input[type="password"]:focus{
 
 .mb30{
 	margin-bottom: 30px;
+}
+.wid800{
+	width: 800px;
 }
 
 /*×óÓÒ¸¡¶¯¿¼ÂÇË«±¶±ß¾àbug*/
