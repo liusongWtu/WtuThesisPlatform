@@ -8,8 +8,9 @@ using System.Text;
 
 namespace Web.StudentUI
 {
-    public partial class StudentMasterPage : System.Web.UI.MasterPage
+    public partial class StudentMasterPage1 : System.Web.UI.MasterPage
     {
+
         protected StringBuilder sbNavigateHTML = new StringBuilder();
 
         protected void Page_Load(object sender, EventArgs e)

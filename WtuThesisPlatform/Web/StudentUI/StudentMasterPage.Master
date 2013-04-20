@@ -1,12 +1,12 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentMasterPage.master.cs"
-    Inherits="Web.Student.StudentMasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentMasterPage.master.cs" Inherits="Web.StudentUI.StudentMasterPage1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/base.css" />
-    <link rel="stylesheet" type="text/css" href="../css/stu_common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/student/stu_common.css" />
     <script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="../js/template.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -84,3 +84,4 @@
     </form>
 </body>
 </html>
+
