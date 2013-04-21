@@ -6,100 +6,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/base.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <script src="js/Common.js" type="text/javascript"></script>
-    <script src="js/msgBox.js" type="text/javascript"></script>
-    <script src="js/ajaxHelper.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        var xhr = false; //异步对象
-        var msgBox = false; //消息提示框对象
-        var ajaxHelper = false; //ajax帮助对象
-        var code = false; //验证码输入框
-        var username = false; //用户名输入框
-        var password = false; //密码框
-        var vp = false;
-
-        //当浏览器加载数据后
-        window.onload = function () {
-            code = gel("verification");
-            username = gel("username");
-            password = gel("password");
-
-            xhr = createXhr();
-            msgBox = new MsgBox();
-            ajaxHelper = new AjaxHelper();
-            gel("btnLogin").focus();
-        };
-
-
-
-
-        //换一张验证码
-        function changeCode() {
-            var code = document.getElementById("codeSpan").src = "/ashx/ValidateCode.ashx?date=" + new Date().getMilliseconds();
-        }
-
-        //检测验证码
-        function checkCode() {
-            if (trim(code.value)) {
-                return;
-            }
-            //调用 ajax帮助对象，向服务器发送一个 post 请求
-            //url是指的要请求的路径
-            //success是服务器返回数据成功执行的方法
-            ajaxHelper.doPost({ url: "/ashx/CheckValidateCode.ashx", data: "code=" + code.value, success: function (result) {
-                if (result == "ok") {
-
-                } else {
-                    msgBox.showMsgInfo("验证码错误");
-                    changeCode();
-                    setFocus(code);
-                }
-            }
-            });
-        }
-
-        //登录后验证
-        function CheckLogin() {
-            if (trim(username.value) == "") {
-                msgBox.showMsgErr("用户名不能为空！");
-                setFocus(username);
-            }
-            else if (trim(password.value) == "") {
-                msgBox.showMsgErr("密码不能为空！");
-                setFocus(password);
-            }
-            else if (trim(code.value) == "") {
-                msgBox.showMsgErr("验证码不能为空！");
-                setFocus(code);
-            } else {
-                ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx",
-                    data: "code=" + code.value + "&type=" + getRadioValue("ID") + "&username=" + username.value + "&pwd=" + password.value,
-                    success: function (result) {
-                        requestBack(result);
-                    }
-                });
-            }
-        }
-
-        //回传消息响应
-        function requestBack(result) {
-            if (result == "codeEmpty") {
-                msgBox.showMsgErr("验证码不能为空！");
-                changeCode();
-                setFocus(code);
-            } else if (result == "codeError") {
-                msgBox.showMsgErr("验证码错误！");
-                changeCode();
-                setFocus(code);
-            } else if (result == "typeError") {
-                msgBox.showMsgErr("非法用户！");
-                changeCode();
-            } else {
-                msgBox.showMsgOk("登录成功!正在跳转...");
-                window.location.assign("HTMLPage2.htm");
-            }
-        }
-    </script>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -132,7 +39,7 @@
                                 <label for="verification">
                                     验证码&nbsp;|</label><input type="text" id="verification" class="ui-input  textInd70"
                                         onblur="checkCode()" />
-                                <img id="codeSpan" alt="点击刷新" title="点击刷新" onclick="changeCode()" src="ashx/ValidateCode.ashx" />
+                                <a><img id="codeSpan" alt="点击刷新" title="点击刷新"  src="ashx/ValidateCode.ashx" /></a>
                             </div>
                             <div class="chooseid">
                                 <input type="radio" name="ID" checked="checked" class="chooseidItem" value="1" />学生
@@ -142,7 +49,7 @@
                         </div>
                         <div class="btn">
                             <span class="ui-btn-shadow btn-size">
-                                <input type="button" id="btnLogin" value="登陆" onclick="CheckLogin()" class="btn-size ui-btn" />
+                                <input type="button" id="btnLogin" value="登陆"  class="btn-size ui-btn" />
                             </span><span class="ui-btn-shadow  ml100 btn-size">
                                 <input type="button" value="重置" class="btn-size ui-btn " /></span>
                         </div>
@@ -158,5 +65,9 @@
         </div>
     </div>
     </form>
+    <script src="js/Common.js" type="text/javascript"></script>
+    <script src="js/msgBox.js" type="text/javascript"></script>
+    <script src="js/ajaxHelper.js" type="text/javascript"></script>
+    <script src="js/login.js" type="text/javascript"></script>
 </body>
 </html>

@@ -39,6 +39,11 @@ namespace Web.ashx
             {
                 StudentBLL bll = new StudentBLL();
                 Student student = bll.GetModel(username);
+                if (student == null)
+                {
+                    context.Response.Write("userError");
+                    return;
+                }
                 if (student.SPassword == password)
                 {
                     if (student.IsDel == true)

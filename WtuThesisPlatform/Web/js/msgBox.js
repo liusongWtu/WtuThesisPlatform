@@ -1,6 +1,6 @@
 ﻿function MsgBox(s) {//json格式{imghref:图片文件夹所在路径,waitImg:等待图片名,bgImg:背景图片名}
-    var secondConst = 2000;//系统默认显示时间
-    var secondWait = 2000;//显示时间
+    var secondConst = 1500;//系统默认显示时间
+    var secondWait = 1500;//显示时间
     var timer;//计时器
     var lf, tp;//左边距,顶边距
     var paras = {}; //json参数
