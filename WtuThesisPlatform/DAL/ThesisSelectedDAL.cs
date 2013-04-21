@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of ThesisSelected.
-    /// Datetime:2013/4/20 21:01:00
+    /// Datetime:2013/4/21 14:10:30
     /// </summary>
     public class ThesisSelectedDAL
     {

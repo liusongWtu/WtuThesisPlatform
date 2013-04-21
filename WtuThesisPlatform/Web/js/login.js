@@ -22,7 +22,7 @@ window.onload = function () {
 
 //换一张验证码
 function changeCode() {
-    var code = document.getElementById("codeSpan").src = "/ashx/ValidateCode.ashx?date=" + new Date().getMilliseconds();
+    var codeV = document.getElementById("codeSpan").src = "/ashx/common/ValidateCode.ashx?date=" + new Date().getMilliseconds();
 }
 
 //检测验证码
@@ -33,7 +33,7 @@ function checkCode() {
     //调用 ajax帮助对象，向服务器发送一个 post 请求
     //url是指的要请求的路径
     //success是服务器返回数据成功执行的方法
-    ajaxHelper.doPost({ url: "/ashx/CheckValidateCode.ashx", data: "code=" + code.value, success: function (result) {
+    ajaxHelper.doPost({ url: "/ashx/common/CheckValidateCode.ashx", data: "code=" + code.value, success: function (result) {
         if (result == "ok") {
 
         } else {
@@ -59,8 +59,8 @@ function checkLogin() {
         msgBox.showMsgErr("验证码不能为空！");
         code.select();
     } else {
-        ajaxHelper.doPost({ url: "/ashx/LoginAjax.ashx",
-            data: "code=" + code.value + "&type=" + getRadioValue("ID") + "&username=" + username.value + "&pwd=" + password.value,
+        ajaxHelper.doPost({ url: "/ashx/common/LoginAjax.ashx",
+            data: "code=" + code.value + "&type=" + getRadioValue("ID") + "&username=" + username.value + "&pwd=" + password.value + "&isremember=" + (gel("isRemember").checked ? "1" : "0"),
             success: function (result) {
                 requestBack(result);
             }
@@ -87,7 +87,7 @@ function requestBack(result) {
         changeCode();
         password.select();
     } else if (result == "del") {
-        msgBox.showMsgErr("用户已被冻结！");
+        msgBox.showMsgErr("此用户已被冻结！");
         changeCode();
         username.select();
     } else if (result == "typeError") {

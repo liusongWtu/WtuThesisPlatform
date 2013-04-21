@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of ClassInfo.
-    /// Datetime:2013/4/20 20:58:00
+    /// Datetime:2013/4/21 14:08:57
     /// </summary>
     public class ClassInfoDAL
     {

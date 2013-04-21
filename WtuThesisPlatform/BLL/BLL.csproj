@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBLL.cs" />
     <Compile Include="ClassInfoBLL.cs" />
     <Compile Include="DepartmentBLL.cs" />
     <Compile Include="MajorBLL.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="TeacherBLL.cs" />
     <Compile Include="ThesisSelectedBLL.cs" />
     <Compile Include="ThesisTitleBLL.cs" />
-    <Compile Include="UserInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

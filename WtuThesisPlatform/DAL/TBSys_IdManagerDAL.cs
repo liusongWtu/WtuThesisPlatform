@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of TBSys_IdManager.
-    /// Datetime:2013/4/20 21:00:49
+    /// Datetime:2013/4/21 14:10:19
     /// </summary>
     public class TBSys_IdManagerDAL
     {

@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Student.
-    /// Datetime:2013/4/20 21:00:32
+    /// Datetime:2013/4/21 14:10:07
     /// </summary>
     public class StudentDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public Student GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,IsDel from Student ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel from Student ");
             strSql.Append(" where SId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public Student GetModelBySno(string currentSno)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,IsDel from Student ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,RoleId,IsDel from Student ");
             strSql.Append(" where SNo=@currentSno ");
             SqlParameter[] parameters = {
                     new SqlParameter("@currentSno", SqlDbType.VarChar,20)};
@@ -90,7 +90,7 @@ namespace WtuThesisPlatform.DAL
         public Student GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,IsDel from Student ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel from Student ");
             strSql.Append(" where "+strWhere);
             Student model = new Student();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -113,7 +113,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Student> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,IsDel ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel ");
             strSql.Append(" FROM Student ");
             if (strWhere.Trim() != "")
             {
@@ -230,6 +230,10 @@ namespace WtuThesisPlatform.DAL
                 model.SFlag = bool.Parse(dr["SFlag"].ToString());
             }
             model.SYear = dr["SYear"].ToString();
+            if (!dr.IsNull("RoleId")&&dr["RoleId"].ToString() != "")
+            {
+                model.RoleId = int.Parse(dr["RoleId"].ToString());
+            }
             model.SCheckCode = dr["SCheckCode"].ToString();
             if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
             {
@@ -255,9 +259,9 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into Student(");
-                strSql.Append("SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,IsDel)");
+                strSql.Append("SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @SId,@SNo,@SName,@DId,@MId,@SSex,@SGrade,@SClass,@SPhone,@SQQ,@SEmail,@SPassword,@SFlag,@SYear,@SCheckCode,@IsDel)");
+                strSql.Append(" @SId,@SNo,@SName,@DId,@MId,@SSex,@SGrade,@SClass,@SPhone,@SQQ,@SEmail,@SPassword,@SFlag,@SYear,@RoleId,@SCheckCode,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@SId", SqlDbType.Int,4),
@@ -274,6 +278,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@SPassword", SqlDbType.VarChar,20),
                     new SqlParameter("@SFlag", SqlDbType.Bit,1),
                     new SqlParameter("@SYear", SqlDbType.VarChar,4),
+                    new SqlParameter("@RoleId", SqlDbType.Int,4),
                     new SqlParameter("@SCheckCode", SqlDbType.VarChar,8),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
@@ -291,8 +296,9 @@ namespace WtuThesisPlatform.DAL
                 parameters[11].Value = model.SPassword;
                 parameters[12].Value = model.SFlag;
                 parameters[13].Value = model.SYear;
-                parameters[14].Value = model.SCheckCode;
-                parameters[15].Value = model.IsDel;
+                parameters[14].Value = model.RoleId;
+                parameters[15].Value = model.SCheckCode;
+                parameters[16].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -325,6 +331,7 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("SPassword=@SPassword,");
             strSql.Append("SFlag=@SFlag,");
             strSql.Append("SYear=@SYear,");
+            strSql.Append("RoleId=@RoleId,");
             strSql.Append("SCheckCode=@SCheckCode,");
             strSql.Append("IsDel=@IsDel");
             strSql.Append(" where SId=@SId ");
@@ -343,6 +350,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@SPassword", SqlDbType.VarChar,20),
                     new SqlParameter("@SFlag", SqlDbType.Bit,1),
                     new SqlParameter("@SYear", SqlDbType.VarChar,4),
+                    new SqlParameter("@RoleId", SqlDbType.Int,4),
                     new SqlParameter("@SCheckCode", SqlDbType.VarChar,8),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.SId;
@@ -359,8 +367,9 @@ namespace WtuThesisPlatform.DAL
                 parameters[11].Value = model.SPassword;
                 parameters[12].Value = model.SFlag;
                 parameters[13].Value = model.SYear;
-                parameters[14].Value = model.SCheckCode;
-                parameters[15].Value = model.IsDel;
+                parameters[14].Value = model.RoleId;
+                parameters[15].Value = model.SCheckCode;
+                parameters[16].Value = model.IsDel;
 
             try
             {

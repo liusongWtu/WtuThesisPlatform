@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of RoleInfo.
-	/// Datetime:2013/4/20 21:00:10
+	/// Datetime:2013/4/21 14:09:50
     /// </summary>
     public class RoleInfo
     {

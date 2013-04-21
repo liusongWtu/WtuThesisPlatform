@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Major.
-    /// Datetime:2013/4/20 20:59:37
+    /// Datetime:2013/4/21 14:09:21
     /// </summary>
     public class MajorDAL
     {

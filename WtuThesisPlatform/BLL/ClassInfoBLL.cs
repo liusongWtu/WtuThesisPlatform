@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of ClassInfo.
-    /// Datetime:2013/4/20 20:58:00
+    /// Datetime:2013/4/21 14:08:57
     /// </summary>
     public class ClassInfoBLL
     {
@@ -31,6 +31,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(pageIndex, pageSize, where, orderby, out rowCount, out pageCount);
         }
         #endregion
+        
         #region GetListByProc
         /// <summary>
         /// GetListByProc
@@ -42,6 +43,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetListByProc(procName,paras);
         }
         #endregion
+        
         #region GET A Model byId
         /// <summary>
         /// GET A Model byId
@@ -51,6 +53,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetModel(intId);
         }
 		#endregion
+        
         #region GET DATA LIST
         /// <summary>
         /// GET DATA LIST

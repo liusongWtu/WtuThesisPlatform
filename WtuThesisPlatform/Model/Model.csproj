@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="ClassInfo.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="Major.cs" />
@@ -55,7 +56,6 @@
     <Compile Include="Teacher.cs" />
     <Compile Include="ThesisSelected.cs" />
     <Compile Include="ThesisTitle.cs" />
-    <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Message.
-    /// Datetime:2013/4/20 20:59:44
+    /// Datetime:2013/4/21 14:09:28
     /// </summary>
     public class MessageDAL
     {

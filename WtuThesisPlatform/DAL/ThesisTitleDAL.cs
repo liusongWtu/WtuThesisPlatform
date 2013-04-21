@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of ThesisTitle.
-    /// Datetime:2013/4/20 21:01:06
+    /// Datetime:2013/4/21 14:10:37
     /// </summary>
     public class ThesisTitleDAL
     {

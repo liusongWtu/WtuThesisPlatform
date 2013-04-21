@@ -6,7 +6,6 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/base.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,12 +33,13 @@
                                     密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" value="liu" class="ui-input  textInd70" />
                             </div>
                             <p>
-                                <input type="checkbox" />是否记住密码?</p>
+                                <input type="checkbox" id="isRemember" />记住我</p>
                             <div class="ui-input-wap">
                                 <label for="verification">
                                     验证码&nbsp;|</label><input type="text" id="verification" class="ui-input  textInd70"
                                         onblur="checkCode()" />
-                                <a><img id="codeSpan" alt="点击刷新" title="点击刷新"  src="ashx/ValidateCode.ashx" /></a>
+                                <a>
+                                    <img id="codeSpan" alt="点击刷新" title="点击刷新" src="/ashx/common/ValidateCode.ashx" /></a>
                             </div>
                             <div class="chooseid">
                                 <input type="radio" name="ID" checked="checked" class="chooseidItem" value="1" />学生
@@ -49,7 +49,7 @@
                         </div>
                         <div class="btn">
                             <span class="ui-btn-shadow btn-size">
-                                <input type="button" id="btnLogin" value="登陆"  class="btn-size ui-btn" />
+                                <input type="button" id="btnLogin" value="登陆" class="btn-size ui-btn" />
                             </span><span class="ui-btn-shadow  ml100 btn-size">
                                 <input type="button" value="重置" class="btn-size ui-btn " /></span>
                         </div>

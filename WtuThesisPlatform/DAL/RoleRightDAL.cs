@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of RoleRight.
-    /// Datetime:2013/4/20 21:00:17
+    /// Datetime:2013/4/21 14:09:57
     /// </summary>
     public class RoleRightDAL
     {

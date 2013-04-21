@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of SysFun.
-    /// Datetime:2013/4/20 21:00:42
+    /// Datetime:2013/4/21 14:10:12
     /// </summary>
     public class SysFunDAL
     {

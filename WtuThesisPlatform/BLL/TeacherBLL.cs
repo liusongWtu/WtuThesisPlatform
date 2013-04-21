@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of Teacher.
-    /// Datetime:2013/4/20 21:00:55
+    /// Datetime:2013/4/21 14:10:25
     /// </summary>
     public class TeacherBLL
     {
@@ -31,6 +31,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(pageIndex, pageSize, where, orderby, out rowCount, out pageCount);
         }
         #endregion
+        
         #region GetListByProc
         /// <summary>
         /// GetListByProc
@@ -42,6 +43,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetListByProc(procName,paras);
         }
         #endregion
+        
         #region GET A Model byId
         /// <summary>
         /// GET A Model byId
@@ -51,6 +53,17 @@ namespace WtuThesisPlatform.BLL
             return dal.GetModel(intId);
         }
 		#endregion
+
+        #region GET A Model byUserName
+        /// <summary>
+        /// GET A Model byUserName
+        /// </summary>
+        public Teacher GetModel(string userName)
+        {
+            return dal.GetModelByUserName(userName);
+        }
+        #endregion
+
         #region GET DATA LIST
         /// <summary>
         /// GET DATA LIST

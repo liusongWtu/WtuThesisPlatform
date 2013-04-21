@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Score.
-    /// Datetime:2013/4/20 21:00:23
+    /// Datetime:2013/4/21 14:10:02
     /// </summary>
     public class ScoreDAL
     {
