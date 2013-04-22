@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of ThesisTitle.
-    /// Datetime:2013/4/16 16:12:25
+    /// Datetime:2013/4/21 14:10:37
     /// </summary>
     public class ThesisTitleDAL
     {
@@ -234,12 +234,18 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.TId == 0)
+                {
+                    model.TId = DbHelperSQL.GetNextValidID("ThesisTitle ", "TId");
+                }
+                
                 strSql.Append("insert into ThesisTitle(");
-                strSql.Append("TTeacherId,TName,TLevel,TField,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel)");
+                strSql.Append("TId,TTeacherId,TName,TLevel,TField,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@TTeacherId,@TName,@TLevel,@TField,@TNumber,@TRequire,@TSelectedNum,@TAcceptNum,@TState,@TYear,@TDepartmentId,@IsDel)");
+                strSql.Append(" @TId,@TTeacherId,@TName,@TLevel,@TField,@TNumber,@TRequire,@TSelectedNum,@TAcceptNum,@TState,@TYear,@TDepartmentId,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@TId", SqlDbType.Int,4),
                     new SqlParameter("@TTeacherId", SqlDbType.Int,4),
                     new SqlParameter("@TName", SqlDbType.VarChar,80),
                     new SqlParameter("@TLevel", SqlDbType.VarChar,20),
@@ -252,18 +258,20 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TYear", SqlDbType.VarChar,4),
                     new SqlParameter("@TDepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.TTeacherId;
-                parameters[1].Value = model.TName;
-                parameters[2].Value = model.TLevel;
-                parameters[3].Value = model.TField;
-                parameters[4].Value = model.TNumber;
-                parameters[5].Value = model.TRequire;
-                parameters[6].Value = model.TSelectedNum;
-                parameters[7].Value = model.TAcceptNum;
-                parameters[8].Value = model.TState;
-                parameters[9].Value = model.TYear;
-                parameters[10].Value = model.TDepartmentId;
-                parameters[11].Value = model.IsDel;
+
+				parameters[0].Value = model.TId;
+                parameters[1].Value = model.TTeacherId;
+                parameters[2].Value = model.TName;
+                parameters[3].Value = model.TLevel;
+                parameters[4].Value = model.TField;
+                parameters[5].Value = model.TNumber;
+                parameters[6].Value = model.TRequire;
+                parameters[7].Value = model.TSelectedNum;
+                parameters[8].Value = model.TAcceptNum;
+                parameters[9].Value = model.TState;
+                parameters[10].Value = model.TYear;
+                parameters[11].Value = model.TDepartmentId;
+                parameters[12].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Student.
-	/// Datetime:2013/4/16 15:30:12
+	/// Datetime:2013/4/21 14:10:07
     /// </summary>
     public class Student
     {
@@ -13,6 +13,7 @@ namespace WtuThesisPlatform.MODEL
         { }
 		
         #region Protected Properties
+        protected int _sId;
         protected string _sNo = String.Empty;
         protected string _sName = String.Empty;
         protected int _dId;
@@ -26,11 +27,21 @@ namespace WtuThesisPlatform.MODEL
         protected string _sPassword = String.Empty;
         protected bool _sFlag;
         protected string _sYear = String.Empty;
+        protected int _roleId;
         protected string _sCheckCode = String.Empty;
         protected bool _isDel;
         #endregion
 		
         #region Public Properties
+        /// <summary>
+        ///  
+        /// </summary>
+        public int SId
+        {
+            set {_sId = value;}
+            get {return _sId;}
+        }
+
         /// <summary>
         ///  学号
         /// </summary>
@@ -146,6 +157,15 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_sYear = value;}
             get {return _sYear;}
+        }
+
+        /// <summary>
+        ///  用户角色id
+        /// </summary>
+        public int RoleId
+        {
+            set {_roleId = value;}
+            get {return _roleId;}
         }
 
         /// <summary>

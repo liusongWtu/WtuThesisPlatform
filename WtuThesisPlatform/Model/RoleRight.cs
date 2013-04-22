@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of RoleRight.
-	/// Datetime:2013/4/16 15:29:47
+	/// Datetime:2013/4/21 14:09:57
     /// </summary>
     public class RoleRight
     {

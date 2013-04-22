@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of Student.
-    /// Datetime:2013/4/16 15:30:13
+    /// Datetime:2013/4/21 14:10:07
     /// </summary>
     public class StudentBLL
     {
@@ -31,6 +31,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(pageIndex, pageSize, where, orderby, out rowCount, out pageCount);
         }
         #endregion
+        
         #region GetListByProc
         /// <summary>
         /// GetListByProc
@@ -42,15 +43,28 @@ namespace WtuThesisPlatform.BLL
             return dal.GetListByProc(procName,paras);
         }
         #endregion
+        
         #region GET A Model byId
         /// <summary>
         /// GET A Model byId
         /// </summary>
-        public Student GetModel(string intId)
+        public Student GetModel(int intId)
         {
-            return dal.GetModelById(intId);
+            return dal.GetModel(intId);
         }
 		#endregion
+
+        #region GET A Model bySno
+        /// <summary>
+        /// GET A Model bySno
+        /// </summary>
+        public Student GetModel(string sno)
+        {
+            return dal.GetModelBySno(sno);
+        }
+
+        #endregion
+
         #region GET DATA LIST
         /// <summary>
         /// GET DATA LIST

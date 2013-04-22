@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of TBSys_IdManager.
-	/// Datetime:2013/4/16 15:31:01
+	/// Datetime:2013/4/21 14:10:19
     /// </summary>
     public class TBSys_IdManager
     {

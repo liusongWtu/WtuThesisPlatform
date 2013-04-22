@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of ClassInfo.
-    /// Datetime:2013/4/16 16:16:06
+    /// Datetime:2013/4/21 14:08:57
     /// </summary>
     public class ClassInfoDAL
     {
@@ -210,18 +210,26 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.CId == 0)
+                {
+                    model.CId = DbHelperSQL.GetNextValidID("ClassInfo ", "CId");
+                }
+                
                 strSql.Append("insert into ClassInfo(");
-                strSql.Append("CName,MajorId,IsDel)");
+                strSql.Append("CId,CName,MajorId,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@CName,@MajorId,@IsDel)");
+                strSql.Append(" @CId,@CName,@MajorId,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@CId", SqlDbType.Int,4),
                     new SqlParameter("@CName", SqlDbType.VarChar,20),
                     new SqlParameter("@MajorId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.CName;
-                parameters[1].Value = model.MajorId;
-                parameters[2].Value = model.IsDel;
+
+				parameters[0].Value = model.CId;
+                parameters[1].Value = model.CName;
+                parameters[2].Value = model.MajorId;
+                parameters[3].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

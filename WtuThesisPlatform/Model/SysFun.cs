@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of SysFun.
-	/// Datetime:2013/4/16 15:30:25
+	/// Datetime:2013/4/21 14:10:12
     /// </summary>
     public class SysFun
     {

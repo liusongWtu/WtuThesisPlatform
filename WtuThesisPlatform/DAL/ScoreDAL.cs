@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Score.
-    /// Datetime:2013/4/16 16:11:54
+    /// Datetime:2013/4/21 14:10:02
     /// </summary>
     public class ScoreDAL
     {
@@ -218,22 +218,30 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.SId == 0)
+                {
+                    model.SId = DbHelperSQL.GetNextValidID("Score ", "SId");
+                }
+                
                 strSql.Append("insert into Score(");
-                strSql.Append("SNo,STearcherScore,SAppraiserScore,SRejoinScore,IsDel)");
+                strSql.Append("SId,SNo,STearcherScore,SAppraiserScore,SRejoinScore,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@SNo,@STearcherScore,@SAppraiserScore,@SRejoinScore,@IsDel)");
+                strSql.Append(" @SId,@SNo,@STearcherScore,@SAppraiserScore,@SRejoinScore,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@SId", SqlDbType.Int,4),
                     new SqlParameter("@SNo", SqlDbType.VarChar,20),
                     new SqlParameter("@STearcherScore", SqlDbType.Int,4),
                     new SqlParameter("@SAppraiserScore", SqlDbType.Int,4),
                     new SqlParameter("@SRejoinScore", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.SNo;
-                parameters[1].Value = model.STearcherScore;
-                parameters[2].Value = model.SAppraiserScore;
-                parameters[3].Value = model.SRejoinScore;
-                parameters[4].Value = model.IsDel;
+
+				parameters[0].Value = model.SId;
+                parameters[1].Value = model.SNo;
+                parameters[2].Value = model.STearcherScore;
+                parameters[3].Value = model.SAppraiserScore;
+                parameters[4].Value = model.SRejoinScore;
+                parameters[5].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

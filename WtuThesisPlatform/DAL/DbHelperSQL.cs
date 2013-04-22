@@ -150,5 +150,48 @@ namespace DAL
         }
 
         #endregion
+
+        #region 06. 获取下一个主键id +int GetNextValidID(string table, string keyName)
+        /// <summary>
+        /// 获取下一个主键id
+        /// </summary>
+        /// <param name="table">表名</param>
+        /// <param name="keyName">主键名</param>
+        /// <returns></returns>
+        public static int GetNextValidID(string table, string keyName)
+        {
+
+            int nextId = 0;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand command = new SqlCommand("up_GetNextValue", conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        command.CommandType = CommandType.StoredProcedure;
+                        SqlParameter spr;
+                        spr = command.Parameters.Add("@tablename", SqlDbType.NVarChar, 30);
+                        spr = command.Parameters.Add("@fieldname", SqlDbType.NVarChar, 20);
+                        spr = command.Parameters.Add("@tempvalue", SqlDbType.Int);
+                        spr.Direction = ParameterDirection.Output;
+                        command.Parameters["@tablename"].Value = table;
+                        command.Parameters["@fieldname"].Value = keyName;
+                        //command.Parameters["@tempvalue"].Value = nextId;
+                        command.ExecuteNonQuery();
+                        nextId = Convert.ToInt32(command.Parameters["@tempvalue"].Value);
+                        return nextId;
+                    }
+                    catch { }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                    return 0;
+                }
+            }
+        }
+        #endregion
     }
+
 }

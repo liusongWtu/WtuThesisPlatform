@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Score.
-	/// Datetime:2013/4/16 15:30:00
+	/// Datetime:2013/4/21 14:10:02
     /// </summary>
     public class Score
     {

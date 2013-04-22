@@ -10,7 +10,7 @@
 namespace Web.StudentUI {
     
     
-    public partial class StudentMasterPage1 {
+    public partial class StudentMasterPage {
         
         /// <summary>
         /// Head1 控件。

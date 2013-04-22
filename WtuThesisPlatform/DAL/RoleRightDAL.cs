@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of RoleRight.
-    /// Datetime:2013/4/16 16:11:50
+    /// Datetime:2013/4/21 14:09:57
     /// </summary>
     public class RoleRightDAL
     {
@@ -213,18 +213,26 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
+                 if (model.RoleRightId == 0)
+                {
+                    model.RoleRightId = DbHelperSQL.GetNextValidID("RoleRight ", "RoleRightId");
+                }
+                
                 strSql.Append("insert into RoleRight(");
-                strSql.Append("RoleId,NodeId,IsDel)");
+                strSql.Append("RoleRightId,RoleId,NodeId,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append("@RoleId,@NodeId,@IsDel)");
+                strSql.Append(" @RoleRightId,@RoleId,@NodeId,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
+                    new SqlParameter("@RoleRightId", SqlDbType.Int,4),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
                     new SqlParameter("@NodeId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-				                parameters[0].Value = model.RoleId;
-                parameters[1].Value = model.NodeId;
-                parameters[2].Value = model.IsDel;
+
+				parameters[0].Value = model.RoleRightId;
+                parameters[1].Value = model.RoleId;
+                parameters[2].Value = model.NodeId;
+                parameters[3].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)

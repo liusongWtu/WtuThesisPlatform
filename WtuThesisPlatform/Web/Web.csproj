@@ -143,13 +143,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ashx\LoginAjax.ashx.cs">
-      <DependentUpon>LoginAjax.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="ashx\CheckValidateCode.ashx.cs">
+    <Compile Include="ashx\common\CheckValidateCode.ashx.cs">
       <DependentUpon>CheckValidateCode.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Common\Common.cs" />
+    <Compile Include="ashx\common\LoginAjax.ashx.cs">
+      <DependentUpon>LoginAjax.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +186,9 @@
   <ItemGroup>
     <Folder Include="AdminUI\" />
     <Folder Include="App_Data\" />
+    <Folder Include="ashx\admin\" />
+    <Folder Include="ashx\student\" />
+    <Folder Include="ashx\teacher\" />
     <Folder Include="css\admin\" />
     <Folder Include="css\teacher\" />
     <Folder Include="images\admin\" />
@@ -208,16 +211,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ashx\ValidateCode.ashx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ashx\CheckValidateCode.ashx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ashx\LoginAjax.ashx" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="StudentUI\StudentMasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\common\CheckValidateCode.ashx" />
+    <Content Include="ashx\common\LoginAjax.ashx" />
+    <Content Include="ashx\common\ValidateCode.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

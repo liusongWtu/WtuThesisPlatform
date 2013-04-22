@@ -36,6 +36,8 @@ function htmAppend(id, value) { gel(id).innerHTML += value; }
 function htmInsertFirst(id, value) { var now = gel(id).innerHTML; gel(id).innerHTML = value + now; }
 //根据标签id设置焦点
 function setFocus(id) { gel(id).focus(); }
+//选中控件内容
+function setSelect(id) {gel(id).select();}
 //根据标签id移除标签
 function removeNode(nid) { var t = gel(nid); t.parentNode.removeChild(t); }
 //为控件绑定方法

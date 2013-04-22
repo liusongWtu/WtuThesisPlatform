@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Message.
-	/// Datetime:2013/4/16 15:28:46
+	/// Datetime:2013/4/21 14:09:28
     /// </summary>
     public class Message
     {
