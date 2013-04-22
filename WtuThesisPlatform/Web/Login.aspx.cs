@@ -102,8 +102,6 @@ namespace Web
             return true;
         } 
 
-       
-
         //导向上一个页面
         protected void GoPage()
         {
