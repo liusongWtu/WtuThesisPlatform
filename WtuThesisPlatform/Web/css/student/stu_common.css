@@ -1,7 +1,7 @@
 /* CSS Document */
-/* template²¿·ÖµÄÑùÊ½*/
+/* templateéƒ¨åˆ†çš„æ ·å¼*/
 body{
-	font-family: Arial, Helvetica,"ËÎÌå";
+	font-family: Arial, Helvetica,"å®‹ä½“";
 	background: #FFF 0 0;
 	width: 100%;
 	height: 100%;
@@ -27,14 +27,14 @@ body{
 .logoCl{
 	width: 524px;
 	height: 110px;
-	background: url(../images/stu_logo.png) no-repeat 10px 10px;
+	background: url(../../images/student/stu_logo.png) no-repeat 10px 10px;
 }
 
 .nav-ul li{
 	float: left;
 	width: 100px;
 	height: 40px;
-	font-family: "»ªÎÄ¿¬Ìå";
+	font-family: "åæ–‡æ¥·ä½“";
 	font-size: 24px;
 	color: #FFF;
 	text-align: center;
@@ -55,7 +55,7 @@ body{
 }
 .info{
 	height: 40px;
-	background: url(../images/stu_info_bg.gif) repeat-x 0 0;
+	background: url(../../images/student/stu_info_bg.gif) repeat-x 0 0;
 	position: relative;
 
 }
@@ -72,22 +72,22 @@ body{
 .infoItem{
 	padding-right: 15px;
 	padding-left: 15px;
-	background: url(../images/stu_info_cutline.png) no-repeat right center;
+	background: url(../../images/student/stu_info_cutline.png) no-repeat right center;
 }
 .itemPad{
 	padding-left: 30px;
 }
 .megIcon{
 	padding-left: 18px;
-	background: url(../images/comments.png) 0 center no-repeat;
+	background: url(../../images/student/comments.png) 0 center no-repeat;
 }
 .infoIcon{
 	padding-left: 18px;
-	background: url(../images/email.png) 0 center no-repeat;
+	background: url(../../images/student/email.png) 0 center no-repeat;
 }
 .outIcon{
 	padding-left: 30px;
-	background: url(../images/stu_signout.png) 0 center no-repeat;
+	background: url(../../images/stu_signout.png) 0 center no-repeat;
 }
 .loginout{
 	padding-left: 10px;
@@ -122,7 +122,7 @@ body{
 .subNav-header{
 	width: 100%;
 	height: 60px;
-	background: url(../images/setting_bg.gif) 0 0 repeat-x;
+	background: url(../../images/setting_bg.gif) 0 0 repeat-x;
 }
 .enFont{
 	font-size: 12px;
@@ -135,7 +135,7 @@ body{
 	width: 53px;
 	height: 60px;
 	float: left;
-	background: url(../images/stu_setting.png) 5px center no-repeat;
+	background: url(../../images/student/stu_setting.png) 5px center no-repeat;
 }
 .fonth2{
 	color: #FFF;
@@ -146,7 +146,7 @@ body{
 }
 .menu{
 	width: 100%;
-	font-family: "ĞÂËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 }
 .menu dt,.menu dd{
 	cursor: pointer;
@@ -178,10 +178,10 @@ body{
 	height: 9px;
 }
 .menu-header-icon{
-	background: url(../images/stu-subnav-icon.png) center -9px no-repeat;
+	background: url(../../images/student/stu-subnav-icon.png) center -9px no-repeat;
 }
 .menu-header-icon-actived{
-	background: url(../images/stu-subnav-icon.png) center 0 no-repeat;
+	background: url(../../images/student/stu-subnav-icon.png) center 0 no-repeat;
 }
 .menu-list{
 	font-size: 14px; 
@@ -200,7 +200,7 @@ body{
 	background: #c6e3ee;
 }
 .menu-list-icon{
-	background: url(../images/stu-subnav-icon2.png) center 0 no-repeat;
+	background: url(../../images/student/stu-subnav-icon2.png) center 0 no-repeat;
 }
 .footPos{
 	width: 100%;
@@ -214,27 +214,26 @@ body{
 	color: #CCC;
 	text-align: center;
 }
-/* template²¿·ÖµÄÑùÊ½*/
 
-/*topic list ÑùÊ½*/
+/*topic list æ ·å¼*/
 .topic-list{
 	width:95%;
 	margin-top: 20px;
 }
 .topic-list  td{
-	white-space: nowrap; /* Ç¿ÖÆÎÄ×Ö½«²»×Ô¶¯»»ĞĞ */
-	overflow: hidden; /* Òş²Ø³¬³öÈİÆ÷·¶Î§µÄÎÄ×Ö */
+	white-space: nowrap; /* å¼ºåˆ¶æ–‡å­—å°†ä¸è‡ªåŠ¨æ¢è¡Œ */
+	overflow: hidden; /* éšè—è¶…å‡ºå®¹å™¨èŒƒå›´çš„æ–‡å­— */
 	text-overflow: ellipsis; /* IE, Safari*/
 	-o-text-overflow: ellipsis; /* Opera */
 	-icab-text-overflow: ellipsis;
 	-khtml-text-overflow: ellipsis;
 	-moz-text-overflow: ellipsis;
-	-webkit-text-overflow: ellipsis; /* Ä¿Ç°Õâ¶Î´úÂëÎŞĞ§£¬Îª Firefox Ô¤Áô */
+	-webkit-text-overflow: ellipsis; /* ç›®å‰è¿™æ®µä»£ç æ— æ•ˆï¼Œä¸º Firefox é¢„ç•™ */
 }
 .list-header{
 	font-size: 12px;
 	height: 22px;
-	background: url(../images/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
+	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
 }
 .topic-list td{
 	vertical-align: middle;
@@ -296,15 +295,14 @@ body{
 	height: 22px;
 }
 .store-icon{	
-	background: url(../images/stu_select/stu_select_store.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_select/stu_select_store.gif) 0 0 no-repeat;
 }
 .store-icon-actived{
-	background: url(../images/stu_select/stu_select_store.gif) -22px 0 no-repeat;
+	background: url(../../images/student/stu_select/stu_select_store.gif) -22px 0 no-repeat;
 }
 .select-icon{
-	background: url(../images/stu_select/stu_select_select.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_select/stu_select_select.gif) 0 0 no-repeat;
 }
 .select-icon-actived{
-	background: url(../images/stu_select/stu_select_select.gif) -22px 0 no-repeat;
+	background: url(../../images/student/stu_select/stu_select_select.gif) -22px 0 no-repeat;
 }
-/*topic list ÑùÊ½*/

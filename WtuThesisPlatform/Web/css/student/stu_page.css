@@ -2,12 +2,12 @@
 .content-wrap{
 	color: #555555;
 }
-/*ÕâÀïÊÇtopic_infoµÄÑùÊ½*/
+/*è¿™é‡Œæ˜¯topic_infoçš„æ ·å¼*/
 .wrap{
 	width: 86%;
 	margin: 0 auto;
 	font-size: 14px;
-	font-family: "ĞÂËÎÌå";
+	font-family: "æ–°å®‹ä½“";
 }
 .wrap a:hover{
 	text-decoration: underline;
@@ -32,7 +32,7 @@
 }
 .teacher-info dt h1,.topic-info dt h1,.stu-info dt h1{
 	font-weight: bold;
-	background: url(../images/stu_info.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_info.gif) 0 0 no-repeat;
 	display: inline-block;
 	width: 100%;
 	height: 42px;
@@ -70,7 +70,7 @@
 
 
 
-/*ÕâÀïÊÇmystore¡¢myselectµÄcss*/
+/*è¿™é‡Œæ˜¯mystoreã€myselectçš„css*/
 .mystore,.myselect{
 	font-size: 16px;
 	position: relative;
@@ -89,11 +89,11 @@
 	text-indent: 30px;
 }
 .mystore dt a.arrow-left,.myselect dt a.arrow-left{
-	background: url(../images/stu_wish/stu_arrow_left.gif) left center no-repeat;
+	background: url(../../images/student/stu_wish/stu_arrow_left.gif) left center no-repeat;
 }
 .mystore dt a.arrow-right,.myselect dt a.arrow-right{
 	padding-right: 30px;
-	background: url(../images/stu_wish/stu_arrow_right.gif) right center no-repeat;
+	background: url(../../images/student/stu_wish/stu_arrow_right.gif) right center no-repeat;
 }
 .mystore .topic-list td,.myselect .topic-list td{
 	text-align: left;
@@ -105,16 +105,16 @@
 	height: 27px;
 }
 .mystore .select-icon{
-	background: url(../images/stu_wish/stu_select_icon.gif) 0 -27px no-repeat;
+	background: url(../../images/student/stu_wish/stu_select_icon.gif) 0 -27px no-repeat;
 }
 .mystore .select-icon:hover{
-	background: url(../images/stu_wish/stu_select_icon.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_wish/stu_select_icon.gif) 0 0 no-repeat;
 }
 .mystore .delete-icon{
-	background: url(../images/stu_wish/stu_delete_icon.gif) 0 -27px no-repeat;
+	background: url(../../images/student/stu_wish/stu_delete_icon.gif) 0 -27px no-repeat;
 }
 .mystore .delete-icon:hover{
-	background: url(../images/stu_wish/stu_delete_icon.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_wish/stu_delete_icon.gif) 0 0 no-repeat;
 }
 .topicName{
 	font-weight: bold;
@@ -125,15 +125,15 @@
 	font-weight: bold;
 }
 .myselect .refuse-select-icon{
-	background: url(../images/stu_wish/stu_refuse_select_icon.gif) 0 -27px no-repeat; 
+	background: url(../../images/student/stu_wish/stu_refuse_select_icon.gif) 0 -27px no-repeat; 
 }
 .myselect .refuse-select-icon:hover{
-	background: url(../images/stu_wish/stu_refuse_select_icon.gif) 0 0 no-repeat; 
+	background: url(../../images/student/stu_wish/stu_refuse_select_icon.gif) 0 0 no-repeat; 
 }
 .myselect .selectOrder{
 	font-size: 20px;
 }
-/*¸öÈËĞÅÏ¢µÄÑùÊ½*/
+/*ä¸ªäººä¿¡æ¯çš„æ ·å¼*/
 .stu-info dt {
 	position: relative;
 }
@@ -167,16 +167,16 @@
 	margin-bottom: 30px;
 }
 .modify-ok,.psd-modify-ok{
-	background: url(../images/stu_wish/modify_ok.gif) 0 -27px no-repeat;
+	background: url(../../images/student/stu_wish/modify_ok.gif) 0 -27px no-repeat;
 }
 .modify-ok:hover,.psd-modify-ok:hover{
-	background: url(../images/stu_wish/modify_ok.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_wish/modify_ok.gif) 0 0 no-repeat;
 }
 .modify-no,.psd-modify-no{
-	background: url(../images/stu_wish/modify_no.gif) 0 -27px no-repeat;
+	background: url(../../images/student/stu_wish/modify_no.gif) 0 -27px no-repeat;
 }
 .modify-no:hover,.psd-modify-no:hover{
-	background: url(../images/stu_wish/modify_no.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_wish/modify_no.gif) 0 0 no-repeat;
 }
 .psd-modify-ok{
 	margin-left: 0;
@@ -184,8 +184,8 @@
 .psd-modify-no{
 	margin-left: 80px;
 }
-/*¸öÈËĞÅÏ¢µÄÑùÊ½*/
-/*ÃÜÂëĞŞ¸ÄµÄÑùÊ½*/
+
+/*å¯†ç ä¿®æ”¹çš„æ ·å¼*/
 
 .stu-modify_password dt h1{
 	font-weight: bold;
@@ -193,7 +193,7 @@
 	width: 100%;
 	height: 42px;
 	padding-left: 40px;
-	background:url(../images/modify_password_icon.gif) 0 0 no-repeat;
+	background: url(../../images/student/modify_password_icon.gif) 0 0 no-repeat;
 }
 .stu-modify_password input{
 	width: 200px;
@@ -201,7 +201,7 @@
 	margin: 10px;
 }
 
-/*Ñ¡ÌâÏêÏ¸ĞÅÏ¢*/
+/*é€‰é¢˜è¯¦ç»†ä¿¡æ¯*/
 .topic-single{
 	margin-left: 40px;
 }
@@ -210,7 +210,7 @@
 }
 .message-board dt h1{
 	font-weight: bold;
-	background: url(../images/modify_password_icon.gif) 0 0 no-repeat;
+	background: url(../../images/student/modify_password_icon.gif) 0 0 no-repeat;
 	padding-left: 40px;
 }
 .dis-comments{
@@ -258,8 +258,8 @@
 	height: 30px;
 	border: none;
 	margin-bottom: 40px;
-	background: url(../images/stu_wish/submit.gif) 0 0 no-repeat;
+	background: url(../../images/student/stu_wish/submit.gif) 0 0 no-repeat;
 }
 .reply-toolbar button:hover{
-	background: url(../images/stu_wish/submit.gif) 0 -33px no-repeat;
+	background: url(../../images/student/stu_wish/submit.gif) 0 -33px no-repeat;
 }

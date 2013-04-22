@@ -1,6 +1,6 @@
 // JavaScript Document
 $(function(){
-	/**********ÊäÈë¿òĞ§¹û**********/
+	/**********è¾“å…¥æ¡†æ•ˆæœ**********/
 	$(".search-input").click(function(){
 		$(this).parent().children("label").hide();
 	}).blur(function(){
@@ -8,9 +8,26 @@ $(function(){
 			$(this).parent().children("label").show();
 		}
 	});
-	/**********ÊäÈë¿òĞ§¹û**********/
-	
-	/**********ÊÕ²ØÒÔ¼°Ñ¡ÌâĞ§¹û**********/
+	/**********ç™»å‡ºæ•ˆæœ**********/
+	$("#logout").click(function(){
+		$.confirm({
+			'title'		: 'ç¡®å®šé€€å‡ºï¼Ÿ',
+			'message'	: 'ç¡®å®šè¦é€€å‡ºç³»ç»Ÿï¼Ÿ',
+			'buttons'	: {
+				'Yes'	: {
+					'class'	: 'blue',
+					'action': function(){
+						self.location='index.html';
+					}
+				},
+				'No'	: {
+					'class'	: 'gray',
+					'action': function(){}	// Nothing to do in this case. You can as well omit the action property.
+				}
+			}
+		});
+	})
+	/**********æ”¶è—ä»¥åŠé€‰é¢˜æ•ˆæœ**********/
 	$(".store-icon").click(function(e){
 		$(this).toggleClass("store-icon-actived");
 		e.stopPropagation();
@@ -19,27 +36,34 @@ $(function(){
 		$(this).toggleClass("select-icon-actived");
 		e.stopPropagation();
 	});
-	/**********ÊÕ²ØÒÔ¼°Ñ¡ÌâĞ§¹û**********/
+	/**********ï¿½Õ²ï¿½ï¿½Ô¼ï¿½Ñ¡ï¿½ï¿½Ğ§ï¿½ï¿½**********/
 	
 	
-	/**********È«Ñ¡Ğ§¹û**********/
+	/**********È«Ñ¡Ğ§ï¿½ï¿½**********/
 	$("#checkAll").click(function(){
 		$("input[name='topiclist']").attr("checked",$(this).attr("checked"));
 	});
-	/**********È«Ñ¡Ğ§¹û**********/
 	
-	/**********Ò»¼üÊÕ²ØĞ§¹û**********/
+	/**********å…¨é€‰æ•ˆæœ**********/
 	$("#clickToStore").click(function(){
 		$.confirm({
-			'title'		: 'È·¶¨ÊÕ²Ø',
-			'message'	: 'È·¶¨Òª½«ËùÑ¡ÏîÊÕ²Ø£¿',
+			'title'		: 'ç¡®å®šæ”¶è—',
+			'message'	: 'ç¡®å®šè¦å°†æ‰€é€‰é¡¹æ”¶è—ï¼Ÿ',
 			'buttons'	: {
 				'Yes'	: {
 					'class'	: 'blue',
 					'action': function(){
+						var flag = false;
 						$("input[name='topiclist']:checked").each(function(){
-							$(this)	.parent().siblings("td").children(".store-icon").addClass("store-icon-actived");	
+							var $span = $(this)	.parent().siblings("td").children(".store-icon");
+							if(!($span.hasClass("store-icon-actived"))){
+								$span.addClass("store-icon-actived");
+								flag = true;
+							}
 						});
+						if(!flag){
+							alert("æ‚¨å·²ç»æ”¶è—äº†è¿™äº›é€‰é¢˜ï¼Œæ— éœ€é‡å¤æ”¶è—ï¼");
+						}
 					}
 				},
 				'No'	: {
@@ -50,41 +74,54 @@ $(function(){
 		});
 		
 	});
-	/**********Ò»¼üÊÕ²ØĞ§¹û**********/
+	/**********Ò»ï¿½ï¿½ï¿½Õ²ï¿½Ğ§ï¿½ï¿½**********/
 	
-	/**********µã»÷Õ¹¿ªÑ¡ÌâÏêÏ¸ĞÅÏ¢Ğ§¹û**********/
+	/**********ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ï¢Ğ§ï¿½ï¿½**********/
 	$(".topic-list tr:not('.nohover'):not(:first)").hover(function(){
 		$(this).toggleClass("hover");
 	}).click(function(){
 		$(this).toggleClass("actived");
 		$(this).next().toggleClass("show");
-	})
-	/**********µã»÷Õ¹¿ªÑ¡ÌâÏêÏ¸ĞÅÏ¢Ğ§¹û**********/
-	
-	
-	/**********ĞŞ¸Ä¸öÈËĞÅÏ¢Ğ§¹û**********/
-	$("#mInfo").click(function(){
-		$(".stu-info input").addClass("active")
-		                    .click(function(){
-								$(this).focus();
-								$(this).select();
-							});	
-		var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
-		$(".stu-info").append(addDiv);
-		$("#modify-ok").click(function(){
-			alert("ĞŞ¸Ä³É¹¦");
-		})
-		$("#modify-no").click(function(){
-			$("#button").remove();
-			$(".stu-info input").removeClass("active")
-		})
-	})
-	/**********ĞŞ¸Ä¸öÈËĞÅÏ¢Ğ§¹û**********/
-	/**********ĞŞ¸ÄÃÜÂë**********/
-	$("#psd-modify-ok").click(function(){
-		//ĞŞ¸ÄÃÜÂë
-		alert("ĞŞ¸ÄÃÜÂë");
 	});
-	/**********ĞŞ¸ÄÃÜÂë**********/
 	
+	/**********ç‚¹å‡»å±•å¼€é€‰é¢˜è¯¦ç»†ä¿¡æ¯æ•ˆæœ**********/
+	var flag = false;
+	$("#mInfo").click(function(){
+		console.log(flag);
+		if(!flag){
+			$(".stu-info input:not('#sName,#sNo')").removeAttr("readonly")
+			                                       .addClass("active")
+												   .click(function(){
+														$(this).focus();
+														});	
+			var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
+			flag = true;
+			$(".stu-info").append(addDiv);
+			$("#modify-ok").click(function(){
+				alert("ä¿®æ”¹æˆåŠŸ");
+				$("#button").remove();
+				$(".stu-info input").removeClass("active");
+				flag = false;
+			})
+			$("#modify-no").click(function(){
+				$("#button").remove();
+				$(".stu-info input").removeClass("active");
+				flag = false;
+			})
+		}
+		
+	});
+	
+	/**********ä¿®æ”¹å¯†ç **********/
+	$("#psd-modify-ok").click(function(){
+		//ä¿®æ”¹å¯†ç 
+		alert("ä¿®æ”¹å¯†ç ");
+	});
+	/**********ï¿½Ş¸ï¿½ï¿½ï¿½ï¿½ï¿½**********/
+	/**********ï¿½ï¿½ï¿½ï¿½hasreaded**********/
+	$(".notice li a").click(function(){
+		$(this).removeClass("readstatus");
+		$(this).parent().css("background","none");
+	})
+	/**********ï¿½ï¿½ï¿½ï¿½hasreaded**********/
 });
