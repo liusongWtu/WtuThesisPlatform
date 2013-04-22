@@ -138,6 +138,14 @@ namespace Web.Common
             return true;
         }
 
+        /// <summary>
+        /// 页面跳转信息
+        /// </summary>
+        public static void GoLoginUrl()
+        {
+            HttpContext.Current.Response.Redirect("/Login.aspx?return=" + HttpContext.Current.Request.Url);
+        }
+
         public static string GetAppSettings(string keyName)
         {
             if (System.Configuration.ConfigurationManager.AppSettings[keyName] != null)

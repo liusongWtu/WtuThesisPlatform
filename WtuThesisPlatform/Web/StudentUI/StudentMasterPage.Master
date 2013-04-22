@@ -46,14 +46,13 @@
                 </div>
             </div>
             <div id="info" class="info">
-                <ul class="info_ul">
-                    <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，Admin</a></span></li>
-                    <li class="infoItem"><span class="fontSty cursor"><a href="#">用户管理</a></span></li>
-                    <li class="infoItem"><span class="itemPad mesIcon fontSty cursor"><a href="#" id="infoNum">
-                        &nbsp;N&nbsp;</a>条信息</span></li>
-                    <li class="loginout"><span class="itemPad outIcon fontSty cursor"><a href="#">退出</a></span></li>
-                </ul>
-            </div>
+			  <ul class="info_ul">
+				    <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currStudent.SName %></a></span></li>
+					<li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor"><%= noticeNum %></span></a></li>
+					<li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor"><%= msgNum %></span></a></li>
+					<li id="logout" class="loginout"><a href="#"><span class="outIcon fontSty cursor">退出</span></a></li>
+				</ul>
+			</div>
         </div>
         <div id="main" class="fl container">
             <div id="subNav" class="fl subNav-size">
