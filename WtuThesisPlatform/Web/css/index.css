@@ -57,6 +57,7 @@ body{
 }
 
 .ui-input-wap{
+    width: 300px;
 	line-height: 38px;
 	margin: 15px 0 15px 0;
 	position: relative;
@@ -76,6 +77,7 @@ body{
 	font-weight: bold;
 	font-size: 14px;
 	padding-left: 70px;
+    margin-right: 10px;
 }
 .item label{
 	font-family: "Courier New", Courier, monospace;
@@ -127,6 +129,11 @@ body{
 	font-size: 12px;
 	color: #CCC;
 	text-align: center;
+}
+.verification-msg{
+    width: 16px;
+    height: 16px;
+    background: url(../images/right.gif);
 }
 
 
