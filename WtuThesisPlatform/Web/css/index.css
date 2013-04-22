@@ -1,6 +1,6 @@
 /* CSS Document */
 body{
-	font-family: Arial, Helvetica, sans-serif, "ËÎÌå";
+	font-family: Arial, Helvetica, sans-serif, "å®‹ä½“";
 	background: #165a8b url(../images/index_bg.jpg) repeat-x 0 0;
 	overflow: hidden;
 }
@@ -9,7 +9,7 @@ body{
 	height: 100%;
 	overflow: hidden;
 }
-.outer{/*ÊµÏÖË®Æ½´¹Ö±¾ÓÖĞ*/
+.outer{/*å®ç°æ°´å¹³å‚ç›´å±…ä¸­*/
 	width: 1400px;
 	height: 560px;
 	position: absolute;
@@ -41,7 +41,7 @@ body{
 .loginCl h1{
 	font-size: 45px;;
 	color: #FFFFFF;
-	font-family: "»ªÎÄ¿¬Ìå";
+	font-family: "åæ–‡æ¥·ä½“";
 }
 .loginCl p{
 	font-size: 12px;
@@ -71,7 +71,7 @@ body{
 	height: 29px;
 	border: 3px solid #FFFFFF;
 	border-radius: 5px;
-	font-family: "ËÎÌå";
+	font-family: "å®‹ä½“";
 	color: #333;
 	font-weight: bold;
 	font-size: 14px;
@@ -101,14 +101,14 @@ body{
 	background: url(../images/btn_bg.gif) repeat-x;
 	border: none;
 	color: #FFF;
-	font-family: "ËÎÌå";
+	font-family: "å®‹ä½“";
 	font-size: 24px;
 }
 .ui-btn:hover{
 	background: #194480 none;
 	border: 1px solid #CCC;
 }
-.ui-btn-shadow {/*°´Å¥ÍâÒõÓ°Ğ§¹û*/
+.ui-btn-shadow {/*æŒ‰é’®å¤–é˜´å½±æ•ˆæœ*/
 	display: inline-block;
 	margin: 20px 0 0 15px;
 	text-align: center;

@@ -1,18 +1,18 @@
-/* ·ÀÖ¹ÓÃ»§×Ô¶¨Òå±³¾°ÑÕÉ«¶ÔÍøÒ³µÄÓ°Ïì£¬Ìí¼ÓÈÃÓÃ»§¿ÉÒÔ×Ô¶¨Òå×ÖÌå */
+ï»¿/* é˜²æ­¢ç”¨æˆ·è‡ªå®šä¹‰èƒŒæ™¯é¢œè‰²å¯¹ç½‘é¡µçš„å½±å“ï¼Œæ·»åŠ è®©ç”¨æˆ·å¯ä»¥è‡ªå®šä¹‰å­—ä½“ */
 
 html, body {
-	/* height: 100%; ³öÏÖbody¹ö¶¯Ìõ£¬greyboxË«²ã¹ö¶¯Ìõ */
+	/* height: 100%; å‡ºç°bodyæ»šåŠ¨æ¡ï¼ŒgreyboxåŒå±‚æ»šåŠ¨æ¡ */
 	overflow: auto;
 }
-/* ÄÚÍâ±ß¾àÍ¨³£ÈÃ¸÷¸öä¯ÀÀÆ÷ÑùÊ½µÄ±íÏÖÎ»ÖÃ²»Í¬ */
+/* å†…å¤–è¾¹è·é€šå¸¸è®©å„ä¸ªæµè§ˆå™¨æ ·å¼çš„è¡¨ç°ä½ç½®ä¸åŒ */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 	margin:0;padding:0;
 }
-/* È¥³ıÄ¬ÈÏ±ß¿ò */
+/* å»é™¤é»˜è®¤è¾¹æ¡† */
 fieldset,img{
 	border:0;
 }
-/*È¥µôaÔªËØµÄÄ¬ÈÏÑùÊ½*/
+/*å»æ‰aå…ƒç´ çš„é»˜è®¤æ ·å¼*/
 a{
 	text-decoration: none;
 	color: #000;
@@ -30,13 +30,13 @@ input,select,textarea{
 	line-height: normal;
 	border: 1px solid #7E9DB9;
 }
-/*È¥µôieÏÂcheckbox radioµÄ±ß¿ò*/
+/*å»æ‰ieä¸‹checkbox radioçš„è¾¹æ¡†*/
 input[type="checkbox"], input[type="radio"]{
     background: transparent;
     border: 0;
 }
 
-/* È¥µôWebkitÄÚºËä¯ÀÀÆ÷ÊäÈë¿òµÄ±ß¿ò */
+/* å»æ‰Webkitå†…æ ¸æµè§ˆå™¨è¾“å…¥æ¡†çš„è¾¹æ¡† */
 input[type="text"]:focus{
 	outline: none;
 }
@@ -45,7 +45,7 @@ input[type="password"]:focus{
 }
 
 
-/*³£ÓÃµÄmargin¡¢padding*/
+/*å¸¸ç”¨çš„marginã€padding*/
 .ml60{
 	margin-left: 60px;
 }
@@ -60,7 +60,7 @@ input[type="password"]:focus{
 	width: 800px;
 }
 
-/*×óÓÒ¸¡¶¯¿¼ÂÇË«±¶±ß¾àbug*/
+/*å·¦å³æµ®åŠ¨è€ƒè™‘åŒå€è¾¹è·bug*/
 .fl{
 	float: left;
 	display: inline;
@@ -69,24 +69,24 @@ input[type="password"]:focus{
 	float: right;
 	display: inline;
 }
-/*********** ÎÄ×Ö¹ı³¤ÏÔÊ¾Ê¡ÂÔºÅ ***********/
+/*********** æ–‡å­—è¿‡é•¿æ˜¾ç¤ºçœç•¥å· ***********/
 .fn-ellipsis {
-	white-space: nowrap; /* Ç¿ÖÆÎÄ×Ö½«²»×Ô¶¯»»ĞĞ */
-	overflow: hidden; /* Òş²Ø³¬³öÈİÆ÷·¶Î§µÄÎÄ×Ö */
+	white-space: nowrap; /* å¼ºåˆ¶æ–‡å­—å°†ä¸è‡ªåŠ¨æ¢è¡Œ */
+	overflow: hidden; /* éšè—è¶…å‡ºå®¹å™¨èŒƒå›´çš„æ–‡å­— */
 	text-overflow: ellipsis; /* IE, Safari*/
 	-o-text-overflow: ellipsis; /* Opera */
 	-icab-text-overflow: ellipsis;
 	-khtml-text-overflow: ellipsis;
 	-moz-text-overflow: ellipsis;
-	-webkit-text-overflow: ellipsis; /* Ä¿Ç°Õâ¶Î´úÂëÎŞĞ§£¬Îª Firefox Ô¤Áô */
+	-webkit-text-overflow: ellipsis; /* ç›®å‰è¿™æ®µä»£ç æ— æ•ˆï¼Œä¸º Firefox é¢„ç•™ */
 }
-/************ ÎÄ×Ö¹ı³¤Ê±×Ô¶¯»»ĞĞ ************/
+/************ æ–‡å­—è¿‡é•¿æ—¶è‡ªåŠ¨æ¢è¡Œ ************/
 .fn-text-wrap{
 	white-space:normal;
 	word-break:break-all;
 	word-wrap:break-word;
 }
-/*³£ÓÃµÄ¶¨Î»*/
+/*å¸¸ç”¨çš„å®šä½*/
 .ablt{
 	position: absolute;
 	left: 0;
@@ -97,7 +97,7 @@ input[type="password"]:focus{
 	right: 0;
 	top: 0;
 }
-/*³£ÓÃµÄdisplay*/
+/*å¸¸ç”¨çš„display*/
 .dis-inline-block{
 	display: inline-block;
 }

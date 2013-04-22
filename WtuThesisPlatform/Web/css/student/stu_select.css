@@ -6,7 +6,7 @@
 	padding-bottom: 60px;
 	position: relative;
 	font-size: 14px;
-	font-family: "ÐÂËÎÌå";
+	font-family: "æ–°å®‹ä½“";
 }
 
 .select-list a:hover{
@@ -50,7 +50,7 @@
 	width: 66px;
 	border: none;
 	color: #FFF;
-	font-family: "Ó×Ô²";
+	font-family: "ï¿½ï¿½Ô²";
 	font-size: 16px;
 }
 .search-button:hover{
@@ -59,14 +59,14 @@
 .search-button,.search{
 	height: 30px;
 	line-height: 30px;
-	background: url(../images/stu_select/stu_select_search_bg.gif) 0 0 repeat-x;
+	background: url(../../images/student/stu_select/stu_select_search_bg.gif) 0 0 repeat-x;
 }
 .search-button span{
 	display: inline-block;
 	width: 66px;
 	height: 30px;
 	text-indent: 5px;
-	background: url(../images/stu_select/stu_select_searchIcon.png) 0 0 no-repeat;
+	background: url(../../images/student/stu_select/stu_select_searchIcon.png) 0 0 no-repeat;
 }
 
 .content-center{
@@ -100,10 +100,10 @@
 	height: 20px;
 }
 .page-up span{
-	background: url(../images/stu_select/stu_page_up.gif) -29px bottom no-repeat; 
+	background: url(../../images/student/stu_select/stu_page_up.gif) -29px bottom no-repeat; 
 }
 .page-down span{
-	background: url(../images/stu_select/stu_page_down.gif) -29px bottom  no-repeat;
+	background: url(../../images/student/stu_select/stu_page_down.gif) -29px bottom  no-repeat;
 }
 .pagechange a{
 	display: inline-block;
