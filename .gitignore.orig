@@ -1,0 +1,39 @@
+
+#ignore thumbnails created by windows
+Thumbs.db
+#Ignore files build by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+<<<<<<< HEAD
+
+
+*.orig
+=======
+*.suo.orig
+*.suo
+*.suo
+WtuThesisPlatform.suo
+>>>>>>> e26ef44e6eb540c65aa26b457762dc4060b9ce39
