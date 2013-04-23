@@ -15,8 +15,8 @@ namespace WtuThesisPlatform.MODEL
         #region Protected Properties
         protected int _roleRightId;
         protected int _roleId;
-        protected int _nodeId;
         protected bool _isDel;
+        protected SysFun _sysFun = new SysFun();
         #endregion
 		
         #region Public Properties
@@ -39,12 +39,12 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
-        ///  系统资料表Id
+        ///  系统资料表对象
         /// </summary>
-        public int NodeId
+        public SysFun SysFun
         {
-            set {_nodeId = value;}
-            get {return _nodeId;}
+            set {_sysFun = value;}
+            get {return _sysFun;}
         }
 
         /// <summary>

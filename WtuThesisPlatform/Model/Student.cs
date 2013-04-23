@@ -27,9 +27,9 @@ namespace WtuThesisPlatform.MODEL
         protected string _sPassword = String.Empty;
         protected bool _sFlag;
         protected string _sYear = String.Empty;
-        protected int _roleId;
         protected string _sCheckCode = String.Empty;
         protected bool _isDel;
+        protected RoleInfo _roleInfo=new RoleInfo ();
         #endregion
 		
         #region Public Properties
@@ -160,12 +160,12 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
-        ///  用户角色id
+        ///  用户角色对象
         /// </summary>
-        public int RoleId
+        public RoleInfo RoleInfo
         {
-            set {_roleId = value;}
-            get {return _roleId;}
+            set {_roleInfo = value;}
+            get {return _roleInfo;}
         }
 
         /// <summary>

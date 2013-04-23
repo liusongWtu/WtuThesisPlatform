@@ -50,6 +50,7 @@
     <Compile Include="NewNoticeDAL.cs" />
     <Compile Include="NoticeDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleInfoBLL.cs" />
     <Compile Include="RoleInfoDAL.cs" />
     <Compile Include="RoleRightDAL.cs" />
     <Compile Include="ScoreDAL.cs" />

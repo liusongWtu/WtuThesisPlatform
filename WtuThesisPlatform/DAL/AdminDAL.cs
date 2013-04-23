@@ -217,7 +217,8 @@ namespace WtuThesisPlatform.DAL
             }
             if (!dr.IsNull("RoleId")&&dr["RoleId"].ToString() != "")
             {
-                model.RoleId = int.Parse(dr["RoleId"].ToString());
+                int roleId = int.Parse(dr["RoleId"].ToString());
+                model.RoleInfo = new RoleInfoDAL().GetModel(roleId);
             }
             if (!dr.IsNull("UCheckId")&&dr["UCheckId"].ToString() != "")
             {
@@ -266,7 +267,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[2].Value = model.UPassword;
                 parameters[3].Value = model.UName;
                 parameters[4].Value = model.DepartmentId;
-                parameters[5].Value = model.RoleId;
+                parameters[5].Value = model.RoleInfo.RoleId;
                 parameters[6].Value = model.UCheckId;
                 parameters[7].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
@@ -310,7 +311,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[2].Value = model.UPassword;
                 parameters[3].Value = model.UName;
                 parameters[4].Value = model.DepartmentId;
-                parameters[5].Value = model.RoleId;
+                parameters[5].Value = model.RoleInfo.RoleId;
                 parameters[6].Value = model.UCheckId;
                 parameters[7].Value = model.IsDel;
 

@@ -193,7 +193,8 @@ namespace WtuThesisPlatform.DAL
             }
             if (!dr.IsNull("NodeId")&&dr["NodeId"].ToString() != "")
             {
-                model.NodeId = int.Parse(dr["NodeId"].ToString());
+                int sysFunId = int.Parse(dr["NodeId"].ToString());
+                model.SysFun = new SysFunDAL().GetModel(sysFunId);
             }
             if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
             {
@@ -231,7 +232,7 @@ namespace WtuThesisPlatform.DAL
 
 				parameters[0].Value = model.RoleRightId;
                 parameters[1].Value = model.RoleId;
-                parameters[2].Value = model.NodeId;
+                parameters[2].Value = model.SysFun.NodeId;
                 parameters[3].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
@@ -263,7 +264,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.RoleRightId;
                 parameters[1].Value = model.RoleId;
-                parameters[2].Value = model.NodeId;
+                parameters[2].Value = model.SysFun.NodeId;
                 parameters[3].Value = model.IsDel;
 
             try

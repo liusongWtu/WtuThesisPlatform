@@ -227,7 +227,8 @@ namespace WtuThesisPlatform.DAL
             model.TCheckCode = dr["TCheckCode"].ToString();
             if (!dr.IsNull("RoleId")&&dr["RoleId"].ToString() != "")
             {
-                model.RoleId = int.Parse(dr["RoleId"].ToString());
+                int roleId = int.Parse(dr["RoleId"].ToString());
+                model.RoleInfo = new RoleInfoDAL().GetModel(roleId);
             }
             if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
             {
@@ -285,7 +286,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[9].Value = model.TTeachCourse;
                 parameters[10].Value = model.TResearchFields;
                 parameters[11].Value = model.TCheckCode;
-                parameters[12].Value = model.RoleId;
+                parameters[12].Value = model.RoleInfo.RoleId;
                 parameters[13].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
@@ -347,7 +348,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[9].Value = model.TTeachCourse;
                 parameters[10].Value = model.TResearchFields;
                 parameters[11].Value = model.TCheckCode;
-                parameters[12].Value = model.RoleId;
+                parameters[12].Value = model.RoleInfo.RoleId;
                 parameters[13].Value = model.IsDel;
 
             try

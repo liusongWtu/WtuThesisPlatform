@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Security.Cryptography;
+using WtuThesisPlatform.MODEL;
+using WtuThesisPlatform.BLL;
+using System.Text;
 
 namespace Web.Common
 {
@@ -158,5 +161,121 @@ namespace Web.Common
             }
         }
 
+        /// <summary>
+        /// 下面的方面和生成菜单有关,获得当前用户所能访问的所有程序
+        /// </summary>
+        /// <returns></returns>
+        public static IList<RoleRight> GetRoleRightsFromSession()
+        {
+            if (HttpContext.Current.Session["RoleRights"] != null)
+            {
+                return (List<RoleRight>)HttpContext.Current.Session["RoleRights"];
+            }
+            else
+            {
+                RoleRightBLL bll = new RoleRightBLL();
+                string whStr = "RoleId=" + GetUserRoleId().ToString() + " and IsDel=0 order by NodeId";
+                IList<RoleRight> list = bll.GetList(whStr);
+                HttpContext.Current.Session["RoleRights"] = list;
+                return list;
+            }
+        }
+
+        /// <summary>
+        /// 获取当前用户id
+        /// </summary>
+        /// <returns></returns>
+        public static int GetUserRoleId()
+        {
+            object obj = HttpContext.Current.Session["currUser"];
+            if (obj is Student)
+            {
+                return (obj as Student).RoleInfo.RoleId;
+            }
+            else if (obj is Teacher)
+            {
+                return (obj as Teacher).RoleInfo.RoleId;
+            }
+            else if (obj is Admin)
+            {
+                return (obj as Admin).RoleInfo.RoleId;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// 获得指定节点的程序资料   键:父节点的程序id   值(程序集合):第一个是父节点的程序,后面是这个父节点下的所有的子节点
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<int, IList<SysFun>> GetFunsById(int id)
+        {
+            Dictionary<int, IList<SysFun>> dicResult = new Dictionary<int, IList<SysFun>>();
+            SysFunBLL sysfunBll = new SysFunBLL();
+            //获取id节点下所有子节点
+            IList<SysFun> rootFuns = sysfunBll.GetList("ParentNodeId="+id.ToString ());
+
+            //遍历所有的父节点
+            foreach (SysFun rootFun in rootFuns)
+            {
+                //取得该节点所有子节点
+                IList<SysFun> children = sysfunBll.GetList("ParentNodeId="+rootFun.NodeId);
+                if (children != null)
+                {
+                    children.Insert(0, rootFun);//把父节点加到所有子节点的前面
+                    dicResult.Add(rootFun.NodeId, children);
+                }
+            }
+            return dicResult;
+        }
+
+         /// <summary>
+        /// 创建菜单树
+        /// </summary>
+        public static string CreateTree()
+        {
+            StringBuilder sbTree = new StringBuilder();//菜单树代码
+            //当前用户的所有权限
+            IList<RoleRight> currRoleRights = GetRoleRightsFromSession();
+            //获得所有根节点
+            Dictionary<int, IList<SysFun>> dicRootFuns = GetFunsById(0);
+            foreach (var item in dicRootFuns.Values)//item中存的是 第一个是父节点,后面是这个父节点的所有子节点
+            {
+                for (int i = 0; i < item.Count; i++)//遍历每一个程序
+                {
+                    for (int j = 0; j < currRoleRights.Count; j++)//看改程序有没有权限显示
+                    {
+                        if (item[i].NodeId == currRoleRights[j].SysFun.NodeId)
+                        {
+                            if (string.IsNullOrEmpty(item[i].NodeURL))
+                            {
+                                sbTree.Append("<dl class=\"menu\">\r\n<dt class=\"menu-header\"><span class=\"menu-header-icon menu-icon\"></span>" + item[i].DisplayName + "</dt>\r\n");
+                              //  AddChildren(currRoleRights, item[i].NodeId,sbTree);
+                               // sbTree.Append("</dt>");
+                            }
+                            else
+                            {
+                                sbTree.Append("<dd class=\"menu-list\"><span class=\"menu-list-icon menu-icon\"></span><a href=\"" + item[i].NodeURL + "\">" + item[i].DisplayName + "</a></dd>\r\n");
+                                //todo:addchildren
+                               // sbTree.Append();
+                            }
+                            if (i == item.Count - 1)
+                            {
+                                sbTree.Append("</dl>\r\n");
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            return sbTree.ToString();
+        }
+
+        private static void AddChildren(IList<RoleRight> currRoleRights, int id, StringBuilder sbTree)
+        {
+
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Web.StudentUI
     public partial class StudentMasterPage : System.Web.UI.MasterPage
     {
         protected Student currStudent = null;
-        protected StringBuilder sbNavigateHTML = new StringBuilder();//左边导航树代码
+        protected string NavigateHTML = string.Empty;//左边导航树代码
         //todo:补充页面信息 eg:noticeNum="(4)";并且切换图片显示
         protected string noticeNum = "( 4 )";//公告信息
         protected string msgNum = "(2)";//消息信息
@@ -28,12 +28,11 @@ namespace Web.StudentUI
             }
             currStudent= Session["currUser"] as Student;
 
+            if (!IsPostBack)
+            {
+               NavigateHTML= CommonCode.CreateTree();
+            }
 
-            sbNavigateHTML.Append("<dl class=\"menu\">");
-            sbNavigateHTML.Append("<dt class=\"menu-header cursor\"><span class=\"menu-header-icon menu-icon\"></span>毕业设计展示</dt>");
-            sbNavigateHTML.Append("<dd class=\"menu-list cursor\"><span class=\"menu-list-icon menu-icon\"></span><a href=\"#\">最新作品</a></dd>");
-            sbNavigateHTML.Append("<dd class=\"menu-list cursor\"><span class=\"menu-list-icon menu-icon\"></span><a href=\"#\">全部作品</a></dd>");
-            sbNavigateHTML.Append("</dl>");
 
         }
     }
