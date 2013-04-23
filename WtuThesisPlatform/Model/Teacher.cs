@@ -25,8 +25,8 @@ namespace WtuThesisPlatform.MODEL
         protected string _tTeachCourse = String.Empty;
         protected string _tResearchFields = String.Empty;
         protected string _tCheckCode = String.Empty;
-        protected int _roleId;
         protected bool _isDel;
+        protected RoleInfo _roleInfo = new RoleInfo();
         #endregion
 		
         #region Public Properties
@@ -139,12 +139,12 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
-        ///  用户角色id
+        ///  用户角色
         /// </summary>
-        public int RoleId
+        public RoleInfo RoleInfo
         {
-            set {_roleId = value;}
-            get {return _roleId;}
+            set {_roleInfo = value;}
+            get {return _roleInfo;}
         }
 
         /// <summary>

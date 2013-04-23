@@ -27,6 +27,7 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-
-
-*.orig
+*.suo.orig
+*.suo
+*.suo
+WtuThesisPlatform.suo

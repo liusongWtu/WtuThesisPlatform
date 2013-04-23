@@ -15,6 +15,8 @@ namespace WtuThesisPlatform.DAL
     /// </summary>
     public class StudentDAL
     {
+        RoleInfoDAL roleInfoDal = new RoleInfoDAL();
+
         #region DELETE SOFTLY
         /// <summary>
         /// DELETE SOFTLY
@@ -28,7 +30,7 @@ namespace WtuThesisPlatform.DAL
             return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
         }
         #endregion
-		
+
         #region DELETE PHYSICAL
         /// <summary>
         /// DELETE PHYSICAL
@@ -40,7 +42,7 @@ namespace WtuThesisPlatform.DAL
             return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
         }
         #endregion
-		
+
         #region GET A ENTITY
         /// <summary>
         /// GET A ENTITY GetAllKeysNameString
@@ -91,7 +93,7 @@ namespace WtuThesisPlatform.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel from Student ");
-            strSql.Append(" where "+strWhere);
+            strSql.Append(" where " + strWhere);
             Student model = new Student();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
             if (dt.Rows.Count > 0)
@@ -103,9 +105,9 @@ namespace WtuThesisPlatform.DAL
             {
                 return null;
             }
-        } 		
+        }
         #endregion
-		
+
         #region GET DATA LIST bysqlwhere
         /// <summary>
         /// GET DATA LIST bysqlwhere
@@ -142,7 +144,7 @@ namespace WtuThesisPlatform.DAL
         /// </summary>
         /// <param name="procName">procName</param>
         /// <param name="paras">paras</param>
-        public IList<Student> GetListByProc(string procName,SqlParameter[] paras)
+        public IList<Student> GetListByProc(string procName, SqlParameter[] paras)
         {
             IList<Student> list = null;
             DataTable dt = DbHelperSQL.ExecProDataTable(procName, paras);
@@ -195,7 +197,7 @@ namespace WtuThesisPlatform.DAL
             }
         }
         #endregion
-		
+
         #region LoadEntityData
         /// <summary>
         /// LoadEntityData
@@ -204,17 +206,17 @@ namespace WtuThesisPlatform.DAL
         /// <param name="dr">DataRow</param>
         private void LoadEntityData(ref Student model, DataRow dr)
         {
-                        if (!dr.IsNull("SId")&&dr["SId"].ToString() != "")
+            if (!dr.IsNull("SId") && dr["SId"].ToString() != "")
             {
                 model.SId = int.Parse(dr["SId"].ToString());
             }
             model.SNo = dr["SNo"].ToString();
             model.SName = dr["SName"].ToString();
-            if (!dr.IsNull("DId")&&dr["DId"].ToString() != "")
+            if (!dr.IsNull("DId") && dr["DId"].ToString() != "")
             {
                 model.DId = int.Parse(dr["DId"].ToString());
             }
-            if (!dr.IsNull("MId")&&dr["MId"].ToString() != "")
+            if (!dr.IsNull("MId") && dr["MId"].ToString() != "")
             {
                 model.MId = int.Parse(dr["MId"].ToString());
             }
@@ -225,24 +227,25 @@ namespace WtuThesisPlatform.DAL
             model.SQQ = dr["SQQ"].ToString();
             model.SEmail = dr["SEmail"].ToString();
             model.SPassword = dr["SPassword"].ToString();
-            if (!dr.IsNull("SFlag")&&dr["SFlag"].ToString() != "")
+            if (!dr.IsNull("SFlag") && dr["SFlag"].ToString() != "")
             {
                 model.SFlag = bool.Parse(dr["SFlag"].ToString());
             }
             model.SYear = dr["SYear"].ToString();
-            if (!dr.IsNull("RoleId")&&dr["RoleId"].ToString() != "")
+            if (!dr.IsNull("RoleId") && dr["RoleId"].ToString() != "")
             {
-                model.RoleId = int.Parse(dr["RoleId"].ToString());
+                int roleId = int.Parse(dr["RoleId"].ToString());
+                model.RoleInfo = roleInfoDal.GetModel(roleId);
             }
             model.SCheckCode = dr["SCheckCode"].ToString();
-            if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
+            if (!dr.IsNull("IsDel") && dr["IsDel"].ToString() != "")
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
             }
 
         }
         #endregion
-		
+
         #region Add a record
         /// <summary>
         /// Add a record
@@ -253,11 +256,11 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
-                 if (model.SId == 0)
+                if (model.SId == 0)
                 {
                     model.SId = DbHelperSQL.GetNextValidID("Student ", "SId");
                 }
-                
+
                 strSql.Append("insert into Student(");
                 strSql.Append("SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel)");
                 strSql.Append(" values (");
@@ -282,7 +285,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@SCheckCode", SqlDbType.VarChar,8),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
-				parameters[0].Value = model.SId;
+                parameters[0].Value = model.SId;
                 parameters[1].Value = model.SNo;
                 parameters[2].Value = model.SName;
                 parameters[3].Value = model.DId;
@@ -296,7 +299,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[11].Value = model.SPassword;
                 parameters[12].Value = model.SFlag;
                 parameters[13].Value = model.SYear;
-                parameters[14].Value = model.RoleId;
+                parameters[14].Value = model.RoleInfo.RoleId;
                 parameters[15].Value = model.SCheckCode;
                 parameters[16].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
@@ -308,7 +311,7 @@ namespace WtuThesisPlatform.DAL
             return result;
         }
         #endregion
-		
+
         #region Update
         /// <summary>
         /// Update a data
@@ -318,7 +321,7 @@ namespace WtuThesisPlatform.DAL
             int res = -2;
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Student set ");
-                        strSql.Append("SNo=@SNo,");
+            strSql.Append("SNo=@SNo,");
             strSql.Append("SName=@SName,");
             strSql.Append("DId=@DId,");
             strSql.Append("MId=@MId,");
@@ -353,23 +356,23 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
                     new SqlParameter("@SCheckCode", SqlDbType.VarChar,8),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-			                parameters[0].Value = model.SId;
-                parameters[1].Value = model.SNo;
-                parameters[2].Value = model.SName;
-                parameters[3].Value = model.DId;
-                parameters[4].Value = model.MId;
-                parameters[5].Value = model.SSex;
-                parameters[6].Value = model.SGrade;
-                parameters[7].Value = model.SClass;
-                parameters[8].Value = model.SPhone;
-                parameters[9].Value = model.SQQ;
-                parameters[10].Value = model.SEmail;
-                parameters[11].Value = model.SPassword;
-                parameters[12].Value = model.SFlag;
-                parameters[13].Value = model.SYear;
-                parameters[14].Value = model.RoleId;
-                parameters[15].Value = model.SCheckCode;
-                parameters[16].Value = model.IsDel;
+            parameters[0].Value = model.SId;
+            parameters[1].Value = model.SNo;
+            parameters[2].Value = model.SName;
+            parameters[3].Value = model.DId;
+            parameters[4].Value = model.MId;
+            parameters[5].Value = model.SSex;
+            parameters[6].Value = model.SGrade;
+            parameters[7].Value = model.SClass;
+            parameters[8].Value = model.SPhone;
+            parameters[9].Value = model.SQQ;
+            parameters[10].Value = model.SEmail;
+            parameters[11].Value = model.SPassword;
+            parameters[12].Value = model.SFlag;
+            parameters[13].Value = model.SYear;
+            parameters[14].Value = model.RoleInfo.RoleId;
+            parameters[15].Value = model.SCheckCode;
+            parameters[16].Value = model.IsDel;
 
             try
             {

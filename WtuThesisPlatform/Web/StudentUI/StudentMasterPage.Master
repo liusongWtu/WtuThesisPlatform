@@ -64,7 +64,7 @@
                         Menu Administration</p>
                 </div>
                 <%-- 加载左侧导航--%>
-                <%= sbNavigateHTML.ToString () %>
+                <%= NavigateHTML%>
             </div>
             <div class="content-wrap">
                 <div id="content" class="fl scroll content">
