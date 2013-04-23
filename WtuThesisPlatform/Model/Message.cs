@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Message.
-	/// Datetime:2013/4/21 14:09:28
+	/// Datetime:2013/4/22 16:14:14
     /// </summary>
     public class Message
     {
@@ -18,6 +18,9 @@ namespace WtuThesisPlatform.MODEL
         protected string _mContent = String.Empty;
         protected DateTime _mTime;
         protected string _mName = String.Empty;
+        protected int _srcId;
+        protected int _mType;
+        protected bool _isRead;
         protected bool _isDel;
         #endregion
 		
@@ -65,6 +68,33 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_mName = value;}
             get {return _mName;}
+        }
+
+        /// <summary>
+        ///  留言人id
+        /// </summary>
+        public int SrcId
+        {
+            set {_srcId = value;}
+            get {return _srcId;}
+        }
+
+        /// <summary>
+        ///  接收留言人类型（0学生，1教师）
+        /// </summary>
+        public int MType
+        {
+            set {_mType = value;}
+            get {return _mType;}
+        }
+
+        /// <summary>
+        ///  是否已读
+        /// </summary>
+        public bool IsRead
+        {
+            set {_isRead = value;}
+            get {return _isRead;}
         }
 
         /// <summary>

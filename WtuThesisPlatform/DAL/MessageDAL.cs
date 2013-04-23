@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Message.
-    /// Datetime:2013/4/21 14:09:28
+    /// Datetime:2013/4/22 16:14:14
     /// </summary>
     public class MessageDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public Message GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select MId,ThesisTitleSelectedId,MContent,MTime,MName,IsDel from Message ");
+            strSql.Append("select MId,ThesisTitleSelectedId,MContent,MTime,MName,SrcId,MType,IsRead,IsDel from Message ");
             strSql.Append(" where MId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public Message GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select MId,ThesisTitleSelectedId,MContent,MTime,MName,IsDel from Message ");
+            strSql.Append("select MId,ThesisTitleSelectedId,MContent,MTime,MName,SrcId,MType,IsRead,IsDel from Message ");
             strSql.Append(" where "+strWhere);
             Message model = new Message();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Message> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select MId,ThesisTitleSelectedId,MContent,MTime,MName,IsDel ");
+            strSql.Append("select MId,ThesisTitleSelectedId,MContent,MTime,MName,SrcId,MType,IsRead,IsDel ");
             strSql.Append(" FROM Message ");
             if (strWhere.Trim() != "")
             {
@@ -197,6 +197,18 @@ namespace WtuThesisPlatform.DAL
                 model.MTime = DateTime.Parse(dr["MTime"].ToString());
             }
             model.MName = dr["MName"].ToString();
+            if (!dr.IsNull("SrcId")&&dr["SrcId"].ToString() != "")
+            {
+                model.SrcId = int.Parse(dr["SrcId"].ToString());
+            }
+            if (!dr.IsNull("MType")&&dr["MType"].ToString() != "")
+            {
+                model.MType = int.Parse(dr["MType"].ToString());
+            }
+            if (!dr.IsNull("IsRead")&&dr["IsRead"].ToString() != "")
+            {
+                model.IsRead = bool.Parse(dr["IsRead"].ToString());
+            }
             if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
@@ -221,9 +233,9 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into Message(");
-                strSql.Append("MId,ThesisTitleSelectedId,MContent,MTime,MName,IsDel)");
+                strSql.Append("MId,ThesisTitleSelectedId,MContent,MTime,MName,SrcId,MType,IsRead,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @MId,@ThesisTitleSelectedId,@MContent,@MTime,@MName,@IsDel)");
+                strSql.Append(" @MId,@ThesisTitleSelectedId,@MContent,@MTime,@MName,@SrcId,@MType,@IsRead,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@MId", SqlDbType.Int,4),
@@ -231,6 +243,9 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@MContent", SqlDbType.VarChar,16),
                     new SqlParameter("@MTime", SqlDbType.DateTime,8),
                     new SqlParameter("@MName", SqlDbType.VarChar,20),
+                    new SqlParameter("@SrcId", SqlDbType.Int,4),
+                    new SqlParameter("@MType", SqlDbType.Int,2),
+                    new SqlParameter("@IsRead", SqlDbType.Bit,1),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.MId;
@@ -238,7 +253,10 @@ namespace WtuThesisPlatform.DAL
                 parameters[2].Value = model.MContent;
                 parameters[3].Value = model.MTime;
                 parameters[4].Value = model.MName;
-                parameters[5].Value = model.IsDel;
+                parameters[5].Value = model.SrcId;
+                parameters[6].Value = model.MType;
+                parameters[7].Value = model.IsRead;
+                parameters[8].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -262,6 +280,9 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("MContent=@MContent,");
             strSql.Append("MTime=@MTime,");
             strSql.Append("MName=@MName,");
+            strSql.Append("SrcId=@SrcId,");
+            strSql.Append("MType=@MType,");
+            strSql.Append("IsRead=@IsRead,");
             strSql.Append("IsDel=@IsDel");
             strSql.Append(" where MId=@MId ");
             SqlParameter[] parameters = {
@@ -270,13 +291,19 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@MContent", SqlDbType.VarChar,16),
                     new SqlParameter("@MTime", SqlDbType.DateTime,8),
                     new SqlParameter("@MName", SqlDbType.VarChar,20),
+                    new SqlParameter("@SrcId", SqlDbType.Int,4),
+                    new SqlParameter("@MType", SqlDbType.Int,2),
+                    new SqlParameter("@IsRead", SqlDbType.Bit,1),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.MId;
                 parameters[1].Value = model.ThesisTitleSelectedId;
                 parameters[2].Value = model.MContent;
                 parameters[3].Value = model.MTime;
                 parameters[4].Value = model.MName;
-                parameters[5].Value = model.IsDel;
+                parameters[5].Value = model.SrcId;
+                parameters[6].Value = model.MType;
+                parameters[7].Value = model.IsRead;
+                parameters[8].Value = model.IsDel;
 
             try
             {
