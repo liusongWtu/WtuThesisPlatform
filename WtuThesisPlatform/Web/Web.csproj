@@ -826,6 +826,7 @@
     <Content Include="StudentUI\StuIndex.aspx" />
     <Content Include="Global.asax" />
     <Content Include="StudentUI\StuInfo.aspx" />
+    <Content Include="StudentUI\StuModifyPwd.aspx" />
     <Content Include="StudentUI\stu_index.html" />
     <Content Include="StudentUI\stu_info.html" />
     <Content Include="StudentUI\stu_modify_password.html" />
@@ -891,6 +892,13 @@
     </Compile>
     <Compile Include="StudentUI\StuInfo.aspx.designer.cs">
       <DependentUpon>StuInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuModifyPwd.aspx.cs">
+      <DependentUpon>StuModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuModifyPwd.aspx.designer.cs">
+      <DependentUpon>StuModifyPwd.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
