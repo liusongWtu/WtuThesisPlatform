@@ -50,7 +50,7 @@
 				    <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currStudent.SName %></a></span></li>
 					<li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor"><%= noticeNum %></span></a></li>
 					<li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor"><%= msgNum %></span></a></li>
-					<li id="logout" class="loginout"><a href="#"><span class="outIcon fontSty cursor">退出</span></a></li>
+					<li id="logout" class="loginout"><a href="/ashx/common/LoginOut.ashx"><span class="outIcon fontSty cursor">退出</span></a></li>
 				</ul>
 			</div>
         </div>
