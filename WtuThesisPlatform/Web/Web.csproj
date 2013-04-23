@@ -74,6 +74,9 @@
     <Content Include="images\student\comments.png" />
     <Content Include="images\student\email.png" />
     <Content Include="images\student\modify_password_icon.gif" />
+    <Content Include="images\student\new\mod_sub_nav.png" />
+    <Content Include="images\student\new\sub_nav_1.png" />
+    <Content Include="images\student\new\sub_nav_2.png" />
     <Content Include="images\student\stu-subnav-icon.png" />
     <Content Include="images\student\stu-subnav-icon2.png" />
     <Content Include="images\student\stu_info.gif" />

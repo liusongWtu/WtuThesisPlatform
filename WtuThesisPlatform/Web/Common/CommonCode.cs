@@ -8,6 +8,11 @@ namespace Web.Common
 {
     public static class CommonCode
     {
+        /// <summary>
+        /// 向网页输出消息提示框
+        /// </summary>
+        /// <param name="page">web窗体页</param>
+        /// <param name="msg">要显示的消息</param>
         public static void MessageBox(System.Web.UI.Page page, string msg)
         {
             msg = msg.Replace("\"", "");
@@ -17,14 +22,17 @@ namespace Web.Common
 
             page.ClientScript.RegisterClientScriptBlock(page.GetType(), Guid.NewGuid().ToString(),
                 "alert('" + msg + "');", true);
-
         }
 
+        /// <summary>
+        /// 向网页输出脚本
+        /// </summary>
+        /// <param name="page">web窗体页</param>
+        /// <param name="script">待注册的脚本</param>
         public static void WriteScript(System.Web.UI.Page page, string script)
         {
             page.ClientScript.RegisterClientScriptBlock(page.GetType(), Guid.NewGuid().ToString(),
                 string.Format("{0};", script), true);
-
         }
 
         /// <summary>
@@ -43,9 +51,13 @@ namespace Web.Common
 
         }
 
+        /// <summary>
+        /// 获取字符的MD5值
+        /// </summary>
+        /// <param name="txt">待计算的字符</param>
+        /// <returns></returns>
         public static string Md5Compute(string txt)
         {
-
             MD5 md5 = MD5.Create();
             //把txt转成byte数组
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(txt);
@@ -56,12 +68,9 @@ namespace Web.Common
             {
                 //ToString中的X表示转成16进制后再转string类型,2表示两位显示,不足两位前面补0
                 result += returnBytes[i].ToString("X2");
-
             }
             return result;
         }
-
-
 
         /// <summary>
         /// 把用户传过来txt进行加密
@@ -70,7 +79,6 @@ namespace Web.Common
         /// <returns></returns>
         public static string Encrypt(string txt, string key)
         {
-
             if (key == null || key.Length == 0)
             {
                 //大写A的Ascii码是65  大写Z的是90

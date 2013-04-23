@@ -78,8 +78,10 @@ namespace Web.ashx
                             {
                                 string encryptPwd = CommonCode.Encrypt(student.SPassword);
                                 HttpCookie currPwd = new HttpCookie("pwd", encryptPwd);
-                                currUser.Expires = currPwd.Expires = DateTime.Now.AddYears(10);
+                                HttpCookie currType = new HttpCookie("userType", "1");
+                                currUser.Expires = currPwd.Expires =currType.Expires= DateTime.Now.AddYears(10);
                                 context.Response.Cookies.Add(currPwd);
+                                context.Response.Cookies.Add(currType);
                             }
                             context.Response.Write("ok");//登录成功
                         }
@@ -113,8 +115,10 @@ namespace Web.ashx
                             {
                                 string encryptPwd = CommonCode.Encrypt(teacher.TPassword);
                                 HttpCookie currPwd = new HttpCookie("pwd", encryptPwd);
-                                currUser.Expires = currPwd.Expires = DateTime.Now.AddYears(10);
+                                HttpCookie currType = new HttpCookie("userType", "2");
+                                currUser.Expires = currPwd.Expires = currType.Expires = DateTime.Now.AddYears(10);
                                 context.Response.Cookies.Add(currPwd);
+                                context.Response.Cookies.Add(currType);
                             }
                             context.Response.Write("ok");
                         }
@@ -148,8 +152,10 @@ namespace Web.ashx
                             {
                                 string encryptPwd = CommonCode.Encrypt(admin.UPassword);
                                 HttpCookie currPwd = new HttpCookie("pwd", encryptPwd);
-                                currUser.Expires = currPwd.Expires = DateTime.Now.AddYears(10);
+                                HttpCookie currType = new HttpCookie("userType", "3");
+                                currUser.Expires = currPwd.Expires = currType.Expires = DateTime.Now.AddYears(10);
                                 context.Response.Cookies.Add(currPwd);
+                                context.Response.Cookies.Add(currType);
                             }
                             context.Response.Write("ok");
                         }
