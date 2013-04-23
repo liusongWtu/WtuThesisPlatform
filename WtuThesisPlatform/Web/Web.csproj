@@ -826,6 +826,8 @@
     <Content Include="StudentUI\StuIndex.aspx" />
     <Content Include="Global.asax" />
     <Content Include="StudentUI\StuInfo.aspx" />
+    <Content Include="StudentUI\StuModifyPwd.aspx" />
+    <Content Include="StudentUI\StuMySelect.aspx" />
     <Content Include="StudentUI\stu_index.html" />
     <Content Include="StudentUI\stu_info.html" />
     <Content Include="StudentUI\stu_modify_password.html" />
@@ -848,6 +850,9 @@
     </Compile>
     <Compile Include="ashx\common\LoginAjax.ashx.cs">
       <DependentUpon>LoginAjax.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\LoginOut.ashx.cs">
+      <DependentUpon>LoginOut.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Global.asax.cs">
@@ -889,6 +894,20 @@
     <Compile Include="StudentUI\StuInfo.aspx.designer.cs">
       <DependentUpon>StuInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StudentUI\StuModifyPwd.aspx.cs">
+      <DependentUpon>StuModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuModifyPwd.aspx.designer.cs">
+      <DependentUpon>StuModifyPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuMySelect.aspx.cs">
+      <DependentUpon>StuMySelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuMySelect.aspx.designer.cs">
+      <DependentUpon>StuMySelect.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminUI\" />
@@ -926,6 +945,7 @@
     <Content Include="ashx\common\ValidateCode.ashx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ashx\common\LoginOut.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

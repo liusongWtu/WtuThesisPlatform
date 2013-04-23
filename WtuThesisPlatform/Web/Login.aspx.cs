@@ -113,7 +113,7 @@ namespace Web
             else
             {
                 //证明用户直接打开的登录页面.
-                CommonCode.WriteScript(Page, "window.location='/HTMLPage2.htm'");
+                CommonCode.WriteScript(Page, "window.location='/StudentUI/StuIndex.aspx'");
             }
         }
     }
