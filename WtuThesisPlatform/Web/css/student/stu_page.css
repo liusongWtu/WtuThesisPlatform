@@ -150,6 +150,7 @@
 .stu-info select{
 	border: none;
 	width:150px;
+    -webkit-appearance: none;
 	/*color: #978F8F*/
 }
 .stu-info select.active{
@@ -157,6 +158,7 @@
 	height: 25px;
 	border: 1px solid gray;
 	text-indent: 1em;
+    -webkit-appearance: menulist;
 }
 
 .stu-info dt  span{

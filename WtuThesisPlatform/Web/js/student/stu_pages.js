@@ -10,36 +10,16 @@ $(function () {
     });
     /**********登出效果**********/
     $("#logout").click(function () {
-        /* $.confirm({
-        'title': '确定退出？',
-        'message': '确定要退出系统？',
-        'buttons': {
-        'Yes': {
-        'class': 'blue',
-        'action': function () {
-        self.location = 'index.html';
-        }
-        },
-        'No': {
-        'class': 'gray',
-        'action': function () { } // Nothing to do in this case. You can as well omit the action property.
-        }
-        }
-        });*/
         $.omMessageBox.confirm({
 
-            title: '确认退出？',
-
+           title: '确认退出？',
             content: '确定要退出系统吗？',
-
-            onClose: function () {
-
-                self.location = 'index.html';
-
+            onClose: function (value) {
+                if (value) {
+                    self.location = "index.html";
+                }
             }
-
         });
-
     })
     /**********收藏以及选题效果**********/
     $(".store-icon").click(function (e) {
@@ -110,10 +90,11 @@ $(function () {
             flag = true;
             $(".stu-info").append(addDiv);
             $("#modify-ok").click(function () {
-                alert("修改成功");
+                
                 $("#button").remove();
                 $(".stu-info input").removeClass("active");
                 flag = false;
+                $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
             })
             $("#modify-no").click(function () {
                 $("#button").remove();
@@ -166,27 +147,15 @@ $(function () {
     /**********删除收藏**********/
     $(".delete-icon").click(function () {
         var $myThis = $(this);
-
         $.omMessageBox.confirm({
-
             title: '确认删除？',
-
             content: '确定要删除该收藏？',
-
             onClose: function () {
-
                 if ($myThis.parent().parent().remove()) {
                     //删除成功
                     $.omMessageTip.show({ content: '已删除对该选题的收藏！', timeout: 1000, type: 'alert' });
-
                 }
-
             }
-
         });
-
     })
 });
-function del() {
-    
-}
