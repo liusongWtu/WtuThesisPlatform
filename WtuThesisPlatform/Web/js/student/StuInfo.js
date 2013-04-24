@@ -16,19 +16,24 @@ $(function () {
             $("#modify-ok").click(function () {
                 if (modifyInfo()) {//如果更新成功
                     $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
+                    $("#button").remove();
                     $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                     $(".stu-info select").removeClass("active").attr("disabled", "disabled");
+                    flag = false;
                 }
                 else {//更行失败
                     $.omMessageTip.show({ content: '更新失败！', timeout: 1000, type: 'error' });
                 }
+                return false;
             })
             $("#modify-no").click(function () {
                 $("#button").remove();
                 $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                 $(".stu-info select").removeClass("active").attr("disabled", "disabled");
                 flag = false;
+                return false;
             })
+            return false;
         }
     });
 });

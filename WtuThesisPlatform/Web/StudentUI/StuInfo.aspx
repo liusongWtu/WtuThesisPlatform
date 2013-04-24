@@ -15,7 +15,7 @@
                     <h1>
                         个人基本信息</h1>
                     <span class="modify"><a href="stu_modify_password.html" id="mPassword" class="dis-inline-block">
-                        修改密码</a><a  id="mInfo" class="dis-inline-block">修改个人信息</a></span></dt>
+                        修改密码</a><a   href="javascript:void(0)" id="mInfo" class="dis-inline-block">修改个人信息</a></span></dt>
                 <dd>
                     姓名：<input type="text" id="sName" runat="server" value="刘松" readonly="readonly" /></dd>
                 <dd>
