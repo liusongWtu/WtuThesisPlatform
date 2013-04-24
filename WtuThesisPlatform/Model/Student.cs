@@ -2,25 +2,24 @@
 namespace WtuThesisPlatform.MODEL
 {
     [Serializable]
-	/// <summary>
-	/// Author: LiuSong
-	/// Description: EntityTier -- the entity class of Student.
-	/// Datetime:2013/4/21 14:10:07
+    /// <summary>
+    /// Author: LiuSong
+    /// Description: EntityTier -- the entity class of Student.
+    /// Datetime:2013/4/21 14:10:07
     /// </summary>
     public class Student
     {
         public Student()
         { }
-		
+
         #region Protected Properties
         protected int _sId;
         protected string _sNo = String.Empty;
         protected string _sName = String.Empty;
-        protected int _dId;
-        protected int _mId;
+        protected Department _department = new Department();
+        protected Major _major = new Major();
         protected string _sSex = String.Empty;
-        protected string _sGrade = String.Empty;
-        protected string _sClass = String.Empty;
+        protected ClassInfo _classInfo = new ClassInfo();
         protected string _sPhone = String.Empty;
         protected string _sQQ = String.Empty;
         protected string _sEmail = String.Empty;
@@ -29,17 +28,17 @@ namespace WtuThesisPlatform.MODEL
         protected string _sYear = String.Empty;
         protected string _sCheckCode = String.Empty;
         protected bool _isDel;
-        protected RoleInfo _roleInfo=new RoleInfo ();
+        protected RoleInfo _roleInfo = new RoleInfo();
         #endregion
-		
+
         #region Public Properties
         /// <summary>
         ///  
         /// </summary>
         public int SId
         {
-            set {_sId = value;}
-            get {return _sId;}
+            set { _sId = value; }
+            get { return _sId; }
         }
 
         /// <summary>
@@ -47,8 +46,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SNo
         {
-            set {_sNo = value;}
-            get {return _sNo;}
+            set { _sNo = value; }
+            get { return _sNo; }
         }
 
         /// <summary>
@@ -56,26 +55,26 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SName
         {
-            set {_sName = value;}
-            get {return _sName;}
+            set { _sName = value; }
+            get { return _sName; }
         }
 
         /// <summary>
-        ///  院系id
+        ///  院系
         /// </summary>
-        public int DId
+        public Department Department
         {
-            set {_dId = value;}
-            get {return _dId;}
+            set { _department = value; }
+            get { return _department; }
         }
 
         /// <summary>
         ///  专业id
         /// </summary>
-        public int MId
+        public Major Major
         {
-            set {_mId = value;}
-            get {return _mId;}
+            set { _major = value; }
+            get { return _major; }
         }
 
         /// <summary>
@@ -83,26 +82,18 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SSex
         {
-            set {_sSex = value;}
-            get {return _sSex;}
+            set { _sSex = value; }
+            get { return _sSex; }
         }
 
-        /// <summary>
-        ///  年级
-        /// </summary>
-        public string SGrade
-        {
-            set {_sGrade = value;}
-            get {return _sGrade;}
-        }
 
         /// <summary>
         ///  班级
         /// </summary>
-        public string SClass
+        public ClassInfo ClassInfo 
         {
-            set {_sClass = value;}
-            get {return _sClass;}
+            set { _classInfo = value; }
+            get { return _classInfo; }
         }
 
         /// <summary>
@@ -110,8 +101,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SPhone
         {
-            set {_sPhone = value;}
-            get {return _sPhone;}
+            set { _sPhone = value; }
+            get { return _sPhone; }
         }
 
         /// <summary>
@@ -119,8 +110,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SQQ
         {
-            set {_sQQ = value;}
-            get {return _sQQ;}
+            set { _sQQ = value; }
+            get { return _sQQ; }
         }
 
         /// <summary>
@@ -128,8 +119,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SEmail
         {
-            set {_sEmail = value;}
-            get {return _sEmail;}
+            set { _sEmail = value; }
+            get { return _sEmail; }
         }
 
         /// <summary>
@@ -137,8 +128,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SPassword
         {
-            set {_sPassword = value;}
-            get {return _sPassword;}
+            set { _sPassword = value; }
+            get { return _sPassword; }
         }
 
         /// <summary>
@@ -146,8 +137,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public bool SFlag
         {
-            set {_sFlag = value;}
-            get {return _sFlag;}
+            set { _sFlag = value; }
+            get { return _sFlag; }
         }
 
         /// <summary>
@@ -155,8 +146,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SYear
         {
-            set {_sYear = value;}
-            get {return _sYear;}
+            set { _sYear = value; }
+            get { return _sYear; }
         }
 
         /// <summary>
@@ -164,8 +155,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public RoleInfo RoleInfo
         {
-            set {_roleInfo = value;}
-            get {return _roleInfo;}
+            set { _roleInfo = value; }
+            get { return _roleInfo; }
         }
 
         /// <summary>
@@ -173,8 +164,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string SCheckCode
         {
-            set {_sCheckCode = value;}
-            get {return _sCheckCode;}
+            set { _sCheckCode = value; }
+            get { return _sCheckCode; }
         }
 
         /// <summary>
@@ -182,8 +173,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public bool IsDel
         {
-            set {_isDel = value;}
-            get {return _isDel;}
+            set { _isDel = value; }
+            get { return _isDel; }
         }
         #endregion
     }

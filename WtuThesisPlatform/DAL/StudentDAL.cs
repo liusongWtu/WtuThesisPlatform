@@ -50,7 +50,7 @@ namespace WtuThesisPlatform.DAL
         public Student GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel from Student ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,CId,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel from Student ");
             strSql.Append(" where SId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -71,7 +71,7 @@ namespace WtuThesisPlatform.DAL
         public Student GetModelBySno(string currentSno)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,RoleId,IsDel from Student ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,CId,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,SCheckCode,RoleId,IsDel from Student ");
             strSql.Append(" where SNo=@currentSno ");
             SqlParameter[] parameters = {
                     new SqlParameter("@currentSno", SqlDbType.VarChar,20)};
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public Student GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel from Student ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,CId,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel from Student ");
             strSql.Append(" where " + strWhere);
             Student model = new Student();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -115,7 +115,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Student> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel ");
+            strSql.Append("select SId,SNo,SName,DId,MId,SSex,CId,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel ");
             strSql.Append(" FROM Student ");
             if (strWhere.Trim() != "")
             {
@@ -214,15 +214,20 @@ namespace WtuThesisPlatform.DAL
             model.SName = dr["SName"].ToString();
             if (!dr.IsNull("DId") && dr["DId"].ToString() != "")
             {
-                model.DId = int.Parse(dr["DId"].ToString());
+                model.Department.DId = int.Parse(dr["DId"].ToString());
+                model.Department = new DepartmentDAL().GetModel(model.Department.DId);
             }
             if (!dr.IsNull("MId") && dr["MId"].ToString() != "")
             {
-                model.MId = int.Parse(dr["MId"].ToString());
+                model.Major.MId = int.Parse(dr["MId"].ToString());
+                model.Major = new MajorDAL().GetModel(model.Major.MId);
             }
             model.SSex = dr["SSex"].ToString();
-            model.SGrade = dr["SGrade"].ToString();
-            model.SClass = dr["SClass"].ToString();
+            if (!dr.IsNull("CId") && dr["CId"].ToString() != "")
+            {
+                model.ClassInfo.CId = int.Parse(dr["CId"].ToString());
+                model.ClassInfo = new ClassInfoDAL().GetModel(model.ClassInfo.CId);
+            }
             model.SPhone = dr["SPhone"].ToString();
             model.SQQ = dr["SQQ"].ToString();
             model.SEmail = dr["SEmail"].ToString();
@@ -262,9 +267,9 @@ namespace WtuThesisPlatform.DAL
                 }
 
                 strSql.Append("insert into Student(");
-                strSql.Append("SId,SNo,SName,DId,MId,SSex,SGrade,SClass,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel)");
+                strSql.Append("SId,SNo,SName,DId,MId,SSex,CId,SPhone,SQQ,SEmail,SPassword,SFlag,SYear,RoleId,SCheckCode,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @SId,@SNo,@SName,@DId,@MId,@SSex,@SGrade,@SClass,@SPhone,@SQQ,@SEmail,@SPassword,@SFlag,@SYear,@RoleId,@SCheckCode,@IsDel)");
+                strSql.Append(" @SId,@SNo,@SName,@DId,@MId,@SSex,@CId,@SPhone,@SQQ,@SEmail,@SPassword,@SFlag,@SYear,@RoleId,@SCheckCode,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@SId", SqlDbType.Int,4),
@@ -273,8 +278,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@MId", SqlDbType.Int,4),
                     new SqlParameter("@SSex", SqlDbType.VarChar,2),
-                    new SqlParameter("@SGrade", SqlDbType.VarChar,20),
-                    new SqlParameter("@SClass", SqlDbType.VarChar,20),
+                    new SqlParameter("@CId", SqlDbType.VarChar,20),
                     new SqlParameter("@SPhone", SqlDbType.VarChar,15),
                     new SqlParameter("@SQQ", SqlDbType.VarChar,20),
                     new SqlParameter("@SEmail", SqlDbType.VarChar,30),
@@ -288,11 +292,10 @@ namespace WtuThesisPlatform.DAL
                 parameters[0].Value = model.SId;
                 parameters[1].Value = model.SNo;
                 parameters[2].Value = model.SName;
-                parameters[3].Value = model.DId;
-                parameters[4].Value = model.MId;
+                parameters[3].Value = model.Department.DId;
+                parameters[4].Value = model.Major.MId;
                 parameters[5].Value = model.SSex;
-                parameters[6].Value = model.SGrade;
-                parameters[7].Value = model.SClass;
+                parameters[7].Value = model.ClassInfo.CId;
                 parameters[8].Value = model.SPhone;
                 parameters[9].Value = model.SQQ;
                 parameters[10].Value = model.SEmail;
@@ -326,8 +329,7 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("DId=@DId,");
             strSql.Append("MId=@MId,");
             strSql.Append("SSex=@SSex,");
-            strSql.Append("SGrade=@SGrade,");
-            strSql.Append("SClass=@SClass,");
+            strSql.Append("CId=@CId,");
             strSql.Append("SPhone=@SPhone,");
             strSql.Append("SQQ=@SQQ,");
             strSql.Append("SEmail=@SEmail,");
@@ -345,8 +347,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@MId", SqlDbType.Int,4),
                     new SqlParameter("@SSex", SqlDbType.VarChar,2),
-                    new SqlParameter("@SGrade", SqlDbType.VarChar,20),
-                    new SqlParameter("@SClass", SqlDbType.VarChar,20),
+                    new SqlParameter("@CId", SqlDbType.VarChar,20),
                     new SqlParameter("@SPhone", SqlDbType.VarChar,15),
                     new SqlParameter("@SQQ", SqlDbType.VarChar,20),
                     new SqlParameter("@SEmail", SqlDbType.VarChar,30),
@@ -359,11 +360,10 @@ namespace WtuThesisPlatform.DAL
             parameters[0].Value = model.SId;
             parameters[1].Value = model.SNo;
             parameters[2].Value = model.SName;
-            parameters[3].Value = model.DId;
-            parameters[4].Value = model.MId;
+            parameters[3].Value = model.Department.DId;
+            parameters[4].Value = model.Major.MId;
             parameters[5].Value = model.SSex;
-            parameters[6].Value = model.SGrade;
-            parameters[7].Value = model.SClass;
+            parameters[7].Value = model.ClassInfo.CId;
             parameters[8].Value = model.SPhone;
             parameters[9].Value = model.SQQ;
             parameters[10].Value = model.SEmail;

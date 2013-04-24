@@ -31,13 +31,13 @@ namespace Web.StudentUI {
         protected global::System.Web.UI.HtmlControls.HtmlInputText sNo;
         
         /// <summary>
-        /// sGrade 控件。
+        /// sFaculty 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sGrade;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sFaculty;
         
         /// <summary>
         /// sProfession 控件。
@@ -49,13 +49,13 @@ namespace Web.StudentUI {
         protected global::System.Web.UI.HtmlControls.HtmlInputText sProfession;
         
         /// <summary>
-        /// sFaculty 控件。
+        /// sGrade 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sFaculty;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText sGrade;
         
         /// <summary>
         /// sQQ 控件。

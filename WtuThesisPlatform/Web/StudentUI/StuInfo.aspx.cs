@@ -18,8 +18,9 @@ namespace Web.StudentUI
             currStudent = Session["currUser"] as Student;
             if (currStudent != null)
             {
-                
-
+                sName.Value = currStudent.SName;
+                sNo.Value = currStudent.SNo;
+                sGrade.Value = currStudent.ClassInfo.CName;
             }
         }
     }
