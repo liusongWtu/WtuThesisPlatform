@@ -8,7 +8,7 @@ var vp = false;
 
 //当浏览器加载数据后
 window.onload = function () {
-    code = gel("verification");
+    code = gel("txtCode");
     username = gel("username");
     password = gel("password");
 
@@ -35,9 +35,9 @@ function checkCode() {
     //success是服务器返回数据成功执行的方法
     ajaxHelper.doPost({ url: "/ashx/common/CheckValidateCode.ashx", data: "code=" + code.value, success: function (result) {
         if (result == "ok") {
-
+            $(".verification-msg").css("background", "url(../images/right.gif)");
         } else {
-            msgBox.showMsgInfo("验证码错误");
+            $(".verification-msg").css("background", "url(../images/wrong.png)");
             changeCode();
             code.select();
         }

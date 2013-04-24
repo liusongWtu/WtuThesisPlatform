@@ -1,7 +1,7 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentMasterPage.master.cs" Inherits="Web.StudentUI.StudentMasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="StudentMasterPage.master.cs"
+    Inherits="Web.StudentUI.StudentMasterPage" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
@@ -46,13 +46,16 @@
                 </div>
             </div>
             <div id="info" class="info">
-			  <ul class="info_ul">
-				    <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currStudent.SName %></a></span></li>
-					<li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor"><%= noticeNum %></span></a></li>
-					<li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor"><%= msgNum %></span></a></li>
-					<li id="logout" class="loginout"><a href="/ashx/common/LoginOut.ashx"><span class="outIcon fontSty cursor">退出</span></a></li>
-				</ul>
-			</div>
+                <ul class="info_ul">
+                    <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currStudent.SName %></a></span></li>
+                    <li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor">
+                        <%= noticeNum %></span></a></li>
+                    <li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">
+                        <%= msgNum %></span></a></li>
+                    <li id="logout" class="loginout"><a href="/ashx/common/LoginOut.ashx"><span class="outIcon fontSty cursor">
+                        退出</span></a></li>
+                </ul>
+            </div>
         </div>
         <div id="main" class="fl container">
             <div id="subNav" class="fl subNav-size">
@@ -83,4 +86,3 @@
     </form>
 </body>
 </html>
-

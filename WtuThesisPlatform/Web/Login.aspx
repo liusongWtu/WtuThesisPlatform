@@ -36,10 +36,10 @@
                                 <input type="checkbox" id="isRemember" />记住我</p>
                             <div class="ui-input-wap">
                                 <label for="verification">
-                                    验证码&nbsp;|</label><input type="text" id="verification" class="ui-input  textInd70"
-                                        onblur="checkCode()" />
-                                <a>
-                                    <img id="codeSpan" alt="点击刷新" title="点击刷新" src="/ashx/common/ValidateCode.ashx" /></a>
+                                    验证码&nbsp;|</label>
+                                <input type="text" id="txtCode" class="ui-input" onblur="checkCode()" /><span class="verification-msg dis-inline-block"></span>
+                                <a><img class="vcode" id="codeSpan" src="/ashx/common/ValidateCode.ashx" alt="验证码" title="验证码" /></a>
+                                <a href="javascript:changeCode()" >看不清，换一张</a>
                             </div>
                             <div class="chooseid">
                                 <input type="radio" name="ID" checked="checked" class="chooseidItem" value="1" />学生
@@ -65,6 +65,7 @@
         </div>
     </div>
     </form>
+    <script src="js/jquery-1.4.4.min.js" type="text/javascript"></script>
     <script src="js/Common.js" type="text/javascript"></script>
     <script src="js/msgBox.js" type="text/javascript"></script>
     <script src="js/ajaxHelper.js" type="text/javascript"></script>
