@@ -74,15 +74,25 @@ body{
 	padding-left: 15px;
 	background: url(../../images/student/stu_info_cutline.png) no-repeat right center;
 }
+.info_ul li a{
+    padding: 5px;
+    border: 1px solid transparent;
+}
+.info_ul li a:hover{
+    border: 1px solid rgb(145,150,153);
+    border-radius: 5px;
+    background: rgb(145,150,153);
+    color: #FFF;
+}
 .itemPad{
 	padding-left: 30px;
 }
 .megIcon{
-	padding-left: 18px;
+	padding-left: 25px;
 	background: url(../../images/student/comments.png) 0 center no-repeat;
 }
 .infoIcon{
-	padding-left: 18px;
+	padding-left: 28px;
 	background: url(../../images/student/email.png) 0 center no-repeat;
 }
 .outIcon{

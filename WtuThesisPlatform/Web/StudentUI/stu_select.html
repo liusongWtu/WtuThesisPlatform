@@ -7,27 +7,61 @@
 <link rel="stylesheet" type="text/css" href="../css/student/stu_select.css" />
 <link rel="stylesheet" type="text/css" href="../css/student/stu_common.css" />
 <link rel="stylesheet" type="text/css" href="../js/popup/jquery.confirm.css" />
+<link rel="stylesheet" type="text/css" href="../js/om/themes/apusic/om-all.css" />
 <script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="../js/template.js"></script>
 <script type="text/javascript" src="../js/student/stu_pages.js"></script>
 <script type="text/javascript" src="../js/popup/jquery.confirm.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-core.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-mouse.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-draggable.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-position.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-messagebox.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-button.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-messagetip.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-resizable.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-grid.js"></script>
 <script type="text/javascript">
-	$(function(){
-		var _height = window.innerHeight;
-		var _width = window.innerWidth;
-		$(".container").height(_height-$(".header-wap").height());
-		$(".subNav-size").height($(".container").height()-30);
-		$("#content").height($(".container").height()-30);
-		$("#content").width(_width-200);
-		$(window).resize(function(){
-			var height = window.innerHeight;
-		    var width = window.innerWidth;
-			$(".container").height(height-$(".header-wap").height());
-			$(".subNav-size").height($(".container").height()-30);
-			$("#content").height($(".container").height()-30);
-			$("#content").width(width-200);
-		});	
-	})
+    $(function () {
+        var _height = window.innerHeight;
+        var _width = window.innerWidth;
+        $(".container").height(_height - $(".header-wap").height());
+        $(".subNav-size").height($(".container").height() - 30);
+        $("#content").height($(".container").height() - 30);
+        $("#content").width(_width - 200);
+        $(window).resize(function () {
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+            $(".container").height(height - $(".header-wap").height());
+            $(".subNav-size").height($(".container").height() - 30);
+            $("#content").height($(".container").height() - 30);
+            $("#content").width(width - 200);
+        });
+    });
+    $(function () {
+        $("#grid").omGrid({
+            title: '所有选题',
+
+            dataSource: '',
+
+            colModel: [{ header: '选题名称', name: 'id', width: 400, align: 'center' },
+
+                   { header: '允许人数', name: 'city', width: 120, align: 'center' },
+
+                   { header: '已选人数', name: 'address', width: '100', align: 'center' },
+
+                   { header: '剩余人数', name: 'address', width: '100', align: 'center' },
+
+                   { header: '教师', name: 'address', width: '150', align: 'center' },
+
+                   { header: '收藏', name: 'address', width: '100', align: 'center' },
+
+                   { header: '选题', name: 'address', width: '100', align: 'center' },
+
+                   ]
+
+        })
+    });
 </script>
 
 </head>
@@ -94,7 +128,9 @@
 							</table>-->
 						</div>
 						<div class="content-center">
-							<table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
+                            <table id="grid"></table>
+
+							<!--<table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
 								<tr class="list-header">
 									<td class="td0">&nbsp;</td>
 									<td class="td1">选题名称</td>
@@ -237,7 +273,7 @@
 								</tr>
 								
 								
-							</table>
+							</table>-->
 							
 						</div>
 						<div class="content-bottom">
