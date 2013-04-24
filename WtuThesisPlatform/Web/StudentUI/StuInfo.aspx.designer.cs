@@ -31,6 +31,15 @@ namespace Web.StudentUI {
         protected global::System.Web.UI.HtmlControls.HtmlInputText sNo;
         
         /// <summary>
+        /// sYear 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText sYear;
+        
+        /// <summary>
         /// sFaculty 控件。
         /// </summary>
         /// <remarks>
@@ -46,25 +55,16 @@ namespace Web.StudentUI {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sProfession;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sProfession;
         
         /// <summary>
-        /// sGrade 控件。
+        /// sClass 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sGrade;
-        
-        /// <summary>
-        /// sQQ 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sQQ;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sClass;
         
         /// <summary>
         /// sPhone 控件。
@@ -83,5 +83,14 @@ namespace Web.StudentUI {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText sEmail;
+        
+        /// <summary>
+        /// sQQ 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText sQQ;
     }
 }

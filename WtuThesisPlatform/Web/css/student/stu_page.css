@@ -147,6 +147,18 @@
 	border: 1px solid gray;
 	text-indent: 1em;
 }
+.stu-info select{
+	border: none;
+	width:150px;
+	/*color: #978F8F*/
+}
+.stu-info select.active{
+	width: 200px;
+	height: 25px;
+	border: 1px solid gray;
+	text-indent: 1em;
+}
+
 .stu-info dt  span{
 	position: absolute;
 	right: 10px;

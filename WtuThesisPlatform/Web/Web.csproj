@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="css\base.css" />
     <Content Include="css\index.css" />
+    <Content Include="js\student\StuInfo.js" />
     <Content Include="css\student\stu_common.css" />
     <Content Include="css\student\stu_index.css" />
     <Content Include="css\student\stu_page.css" />

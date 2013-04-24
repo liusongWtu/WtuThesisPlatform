@@ -20,7 +20,13 @@ namespace Web.StudentUI
             {
                 sName.Value = currStudent.SName;
                 sNo.Value = currStudent.SNo;
-                sGrade.Value = currStudent.ClassInfo.CName;
+                sYear.Value = currStudent.SYear;
+                sFaculty.Items.Add(currStudent.Department.DName);
+                sProfession.Items.Add(currStudent.Major.MName);
+                sClass.Items.Add(currStudent.ClassInfo.CName);
+                sPhone.Value = currStudent.SPhone;
+                sEmail.Value = currStudent.SEmail;
+                sQQ.Value = currStudent.SQQ;
             }
         }
     }

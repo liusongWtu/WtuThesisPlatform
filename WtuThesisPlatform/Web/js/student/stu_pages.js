@@ -101,7 +101,7 @@ $(function () {
     $("#mInfo").click(function () {
         console.log(flag);
         if (!flag) {
-            $(".stu-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sNo')").removeAttr("readonly")
+            $(".stu-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sNo,#ContentPlaceHolderBody_sYear')").removeAttr("readonly")
 			                                       .addClass("active")
 												   .click(function () {
 												       $(this).focus();
