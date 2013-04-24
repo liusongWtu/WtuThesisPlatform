@@ -38,7 +38,7 @@ function modifyInfo() {//这个函数你写成 : 如果更新成功就返回true
     //ajax更新操作
 
     //更新成功时提示
-    //return true;
+    return true;
     //失败时提示
     //return false;
 }
