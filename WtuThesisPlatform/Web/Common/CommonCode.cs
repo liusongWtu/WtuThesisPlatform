@@ -251,7 +251,7 @@ namespace Web.Common
                         {
                             if (string.IsNullOrEmpty(item[i].NodeURL))
                             {
-                                sbTree.Append("<dl class=\"menu\">\r\n<dt id=\""+item[i].NodeId+"\" class=\"menu-header close\"><span class=\"menu-header-icon menu-icon\"></span>" + item[i].DisplayName + "</dt>\r\n");
+                                sbTree.Append("<dl class=\"menu\">\r\n<dt id=\"" + item[i].NodeId + "\" class=\"menu-header close\"><span class=\"menu-header-icon menu-icon\"></span>" + item[i].DisplayName + "</dt>\r\n");
                               //  AddChildren(currRoleRights, item[i].NodeId,sbTree);
                                // sbTree.Append("</dt>");
                             }
