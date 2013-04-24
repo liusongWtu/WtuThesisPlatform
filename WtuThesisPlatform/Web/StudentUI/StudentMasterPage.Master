@@ -36,6 +36,8 @@
                 $("#content").width(width - 200);
             });
         });
+
+        
     </script>
 </head>
 <body>

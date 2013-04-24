@@ -858,6 +858,9 @@
     <Compile Include="ashx\common\LoginOut.ashx.cs">
       <DependentUpon>LoginOut.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\common\SaveTreeState.ashx.cs">
+      <DependentUpon>SaveTreeState.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -957,6 +960,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ashx\common\LoginOut.ashx" />
+    <Content Include="ashx\common\SaveTreeState.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
