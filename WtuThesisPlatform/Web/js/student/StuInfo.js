@@ -1,8 +1,8 @@
-﻿/**********点击展开选题详细信息效果**********/
+﻿/**********点击修改**********/
 var flag = false;
 $(function () {
+    var oldInfo = getInfo();//刚进入的时候获取各项值
     $("#mInfo").click(function () {
-        //console.log(flag);
         if (!flag) {
             $(".stu-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sNo,#ContentPlaceHolderBody_sYear')").removeAttr("readonly")
 			                                                                                                                   .addClass("active")
@@ -14,11 +14,15 @@ $(function () {
             flag = true;
             $(".stu-info").append(addDiv);
             $("#modify-ok").click(function () {
+                //取得各项值
+                var newInfo = getInfo();//点击更新的时候获取新的各项值
                 if (modifyInfo()) {//如果更新成功
+                    setInfo(newInfo);//将各项值更新
                     $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
                     $("#button").remove();
                     $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                     $(".stu-info select").removeClass("active").attr("disabled", "disabled");
+                    oldInfo = getInfo();//更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
                     flag = false;
                 }
                 else {//更行失败
@@ -27,7 +31,8 @@ $(function () {
                 return false;
             })
             $("#modify-no").click(function () {
-                $("#button").remove();
+                setInfo(oldInfo);//将各项值设置为原来的
+                $(".button").remove();
                 $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                 $(".stu-info select").removeClass("active").attr("disabled", "disabled");
                 flag = false;
@@ -35,8 +40,25 @@ $(function () {
             })
             return false;
         }
+
     });
+
+
 });
+//给各项设置值
+function setInfo(info) {
+    $(".sFaculty").val(info.sFaculty);
+    $(".sProfession").val(info.sProfession);
+    $(".sClass").val(info.sClass);
+    $(".sPhone").val(info.sPhone);
+    $(".sEmail").val(info.sEmail);
+    $(".sQQ").val(info.sQQ);
+}
+//取得各项的值
+function getInfo() {
+    var info = { 'sFaculty': $(".sFaculty").val(), 'sProfession': $(".sProfession").val(), 'sClass': $(".sClass").val(), 'sPhone': $(".sPhone").val(), 'sEmail': $(".sEmail").val(), 'sQQ': $(".sQQ").val() };
+    return info;
+}
 
 //修改操作
 function modifyInfo() {//这个函数你写成 : 如果更新成功就返回true，更新失败就返回false就行了

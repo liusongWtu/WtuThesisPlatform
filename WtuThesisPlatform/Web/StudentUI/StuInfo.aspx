@@ -17,28 +17,28 @@
                     <span class="modify"><a href="stu_modify_password.html" id="mPassword" class="dis-inline-block">
                         修改密码</a><a   href="javascript:void(0)" id="mInfo" class="dis-inline-block">修改个人信息</a></span></dt>
                 <dd>
-                    姓名：<input type="text" id="sName" runat="server" value="刘松" readonly="readonly" /></dd>
+                    姓名：<input type="text" id="sName" class="sName" runat="server" value="刘松" readonly="readonly" /></dd>
                 <dd>
-                    学号：<input type="text" id="sNo" runat="server" value="0904681206" readonly="readonly" /></dd>
+                    学号：<input type="text" id="sNo" class="sNo" runat="server" value="0904681206" readonly="readonly" /></dd>
                 <dd>
-                    届数：<input type="text" id="sYear" runat="server" value="" readonly="readonly" /></dd>
+                    届数：<input type="text" id="sYear" class="sYear" runat="server" value="" readonly="readonly" /></dd>
                 <dd>
-                    院系：<select id="sFaculty" runat="server" disabled="disabled">
+                    院系：<select id="sFaculty" class="sFaculty" runat="server" disabled="disabled">
                     </select></dd>
                 <dd>
-                    专业：<select id="sProfession" runat="server" disabled="disabled">
+                    专业：<select id="sProfession" class="sProfession" runat="server" disabled="disabled">
                     </select></dd>
                 <dd>
-                    班级：<select id="sClass" runat="server" disabled="disabled">
+                    班级：<select id="sClass" class="sClass" runat="server" disabled="disabled">
                     </select></dd>
                 <dd>
-                    电话：<input type="text" id="sPhone" runat="server" value="13419540412" readonly="readonly" /></dd>
+                    电话：<input type="text" id="sPhone" class="sPhone" runat="server" value="13419540412" readonly="readonly" /></dd>
                 <dd>
-                    邮箱：<input type="text" id="sEmail" runat="server" value="594659037@qq.com" readonly="readonly" />
+                    邮箱：<input type="text" id="sEmail" class="sEmail" runat="server" value="594659037@qq.com" readonly="readonly" />
                 </dd>
                 <dd>
                     Q Q：
-                    <input type="text" id="sQQ" runat="server" value="594659037" readonly="readonly" /></dd>
+                    <input type="text" id="sQQ" class="sQQ" runat="server" value="594659037" readonly="readonly" /></dd>
             </dl>
             <!--<div id="tPhoto">
 								待定
