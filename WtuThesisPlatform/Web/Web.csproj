@@ -51,6 +51,10 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\WtuThesisPlatform.mdf" />
+    <Content Include="App_Data\WtuThesisPlatform_log.ldf">
+      <DependentUpon>WtuThesisPlatform.mdf</DependentUpon>
+    </Content>
     <Content Include="css\base.css" />
     <Content Include="css\index.css" />
     <Content Include="js\student\StuInfo.js" />
@@ -928,7 +932,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminUI\" />
-    <Folder Include="App_Data\" />
     <Folder Include="ashx\admin\" />
     <Folder Include="ashx\teacher\" />
     <Folder Include="css\admin\" />
