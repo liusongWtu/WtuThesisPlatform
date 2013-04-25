@@ -30,7 +30,13 @@ namespace Web.StudentUI
 
             if (!IsPostBack)
             {
-               NavigateHTML= CommonCode.CreateTree();
+                //设置导航代码
+                //if (Session["naviget"] == null)
+                //{
+                //    Session["naviget"]=CommonCode.CreateTree();
+                //}
+                NavigateHTML = CommonCode.CreateTree();
+
             }
 
 

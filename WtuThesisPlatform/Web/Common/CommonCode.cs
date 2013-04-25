@@ -239,6 +239,10 @@ namespace Web.Common
             StringBuilder sbTree = new StringBuilder();//菜单树代码
             //当前用户的所有权限
             IList<RoleRight> currRoleRights = GetRoleRightsFromSession();
+
+            //获取当前展开节点
+            List<string> openNode = HttpContext.Current.Session["openNodes"] as List<string>;
+
             //获得所有根节点
             Dictionary<int, IList<SysFun>> dicRootFuns = GetFunsById(0);
             foreach (var item in dicRootFuns.Values)//item中存的是 第一个是父节点,后面是这个父节点的所有子节点
@@ -251,13 +255,20 @@ namespace Web.Common
                         {
                             if (string.IsNullOrEmpty(item[i].NodeURL))
                             {
-                                sbTree.Append("<dl class=\"menu\">\r\n<dt id=\"" + item[i].NodeId + "\" class=\"menu-header close\"><span class=\"menu-header-icon menu-icon\"></span>" + item[i].DisplayName + "</dt>\r\n");
-                              //  AddChildren(currRoleRights, item[i].NodeId,sbTree);
-                               // sbTree.Append("</dt>");
+                                if (openNode != null && openNode.Contains(item[i].NodeId.ToString ()))
+                                {
+                                    sbTree.Append("<dl class=\"menu\">\r\n<dt id=\"" + item[i].NodeId + "\" class=\"menu-header open\"><span class=\"menu-header-icon menu-icon\"></span>" + item[i].DisplayName + "</dt>\r\n");
+                                }
+                                else
+                                {
+                                    sbTree.Append("<dl class=\"menu\">\r\n<dt id=\"" + item[i].NodeId + "\" class=\"menu-header close\"><span class=\"menu-header-icon menu-icon\"></span>" + item[i].DisplayName + "</dt>\r\n");
+                                    //  AddChildren(currRoleRights, item[i].NodeId,sbTree);
+                                    // sbTree.Append("</dt>");
+                                }
                             }
                             else
                             {
-                                sbTree.Append("<dd class=\"menu-list\"><span class=\"menu-list-icon menu-icon\"></span><a href=\"" + item[i].NodeURL + "\">" + item[i].DisplayName + "</a></dd>\r\n");
+                                sbTree.Append("<dd id=\""+item[i].NodeId+"\" class=\"menu-list\"><span class=\"menu-list-icon menu-icon\"></span><a href=\"" + item[i].NodeURL + "?nodeId="+item[i].NodeId+"\">" + item[i].DisplayName + "</a></dd>\r\n");
                                 //todo:addchildren
                                // sbTree.Append();
                             }
