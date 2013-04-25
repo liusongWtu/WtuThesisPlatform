@@ -1,55 +1,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>无标题文档</title>
-<link rel="stylesheet" type="text/css" href="css/base.css" />
-<link rel="stylesheet" type="text/css" href="css/index.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>无标题文档</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            alert($("#sFaculty").val());
+        });
+    </script>
 </head>
-
 <body>
-	<div class="wrap">
-		<div class="outer">
-			<div class="mb30"><a href="#"><img id="logo" src="images/index_logo.png"/></a></div>
-			<div class="mainCl">
-				<div class="bannerCl"></div>
-				<div id="login" class="loginCl ml60">
-					<h1>毕业设计选题系统</h1>
-					<fieldset>
-						<div class="item">
-							<div class="ui-input-wap">
-								<label for="username">用户名&nbsp;|</label><input type="text" id="username" class="ui-input  textInd70" />
-							</div>
-							<p><a>忘记密码?</a></p>
-							<div class="ui-input-wap">
-								<label for="password ">密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" class="ui-input  textInd70" />
-							</div>
-							<p><input type="checkbox" />是否记住密码?</p>
-							<div class="ui-input-wap">
-								<label for="verification">验证码&nbsp;|</label><input type="text" id="verification" class="ui-input  textInd70" />
-							</div>
-							<div class="chooseid" class="chooseid">
-								<input type="radio" name="ID" class="chooseidItem"/>学生
-								<input type="radio" name="ID" class="chooseidItem"/>教师
-								<input type="radio" name="ID" class="chooseidItem"/>管理员
-							</div>
-						</div>
-						<div class="btn">
-							<span class="ui-btn-shadow btn-size"><input type="button" value="登陆" class="btn-size ui-btn" /> </span>  
-							<span class="ui-btn-shadow  ml100 btn-size"><input type="button" value="重置" class="btn-size ui-btn " /></span>
-						</div>
-					</fieldset>
-				</div>
-			</div>
-			<div class="footPos">
-				<p>武汉纺织大学版权所有 
-					<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
-						<span> </span>
-					</font>
-				    2010 Copyrights all reserved  鄂ICP备05003335号
-				</p>
-			</div>
-		</div>
-	</div>
+    <div class="wrap">
+        <div class="outer">
+            <div class="mb30">
+                <a href="#">
+                    <img id="logo" src="images/index_logo.png" /></a></div>
+            <div class="mainCl">
+                <div class="bannerCl">
+                </div>
+                <div id="login" class="loginCl ml60">
+                    <h1>
+                        毕业设计选题系统</h1>
+                    <fieldset>
+                        <div class="item">
+                            <div class="ui-input-wap">
+                                <label for="username">
+                                    用户名&nbsp;|</label><input type="text" id="username" class="ui-input  textInd70" />
+                            </div>
+                            <p>
+                                <a>忘记密码?</a></p>
+                            <div class="ui-input-wap">
+                                <label for="password ">
+                                    密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" class="ui-input  textInd70" />
+                            </div>
+                            <p>
+                                <input type="checkbox" />是否记住密码?</p>
+                            <div class="ui-input-wap">
+                                <label for="verification">
+                                    验证码&nbsp;|</label><input type="text" id="verification" class="ui-input  textInd70" />
+                            </div>
+                            院系：<select name="ctl00$ContentPlaceHolderBody$sFaculty" id="sFaculty" class="sFaculty">
+                                <option value="1">计算机学院</option>
+                            </select>
+                            <div class="chooseid" class="chooseid">
+                                <input type="radio" name="ID" class="chooseidItem" />学生
+                                <input type="radio" name="ID" class="chooseidItem" />教师
+                                <input type="radio" name="ID" class="chooseidItem" />管理员
+                            </div>
+                        </div>
+                        <div class="btn">
+                            <span class="ui-btn-shadow btn-size">
+                                <input type="button" value="登陆" class="btn-size ui-btn" />
+                            </span><span class="ui-btn-shadow  ml100 btn-size">
+                                <input type="button" value="重置" class="btn-size ui-btn " /></span>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="footPos">
+                <p>
+                    武汉纺织大学版权所有 <font size="2" face="Verdana, Arial, Helvetica, sans-serif"><span></span>
+                    </font>2010 Copyrights all reserved 鄂ICP备05003335号
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

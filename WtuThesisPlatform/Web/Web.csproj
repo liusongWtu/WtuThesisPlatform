@@ -851,6 +851,9 @@
     <Compile Include="ashx\common\CheckValidateCode.ashx.cs">
       <DependentUpon>CheckValidateCode.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\common\LoadSelect.ashx.cs">
+      <DependentUpon>LoadSelect.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\common\LoginAjax.ashx.cs">
       <DependentUpon>LoginAjax.ashx</DependentUpon>
     </Compile>
@@ -963,6 +966,7 @@
     <Content Include="ashx\common\LoginOut.ashx" />
     <Content Include="ashx\common\SaveTreeState.ashx" />
     <Content Include="ashx\student\ModifyInfo.ashx" />
+    <Content Include="ashx\common\LoadSelect.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
