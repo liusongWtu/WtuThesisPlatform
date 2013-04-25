@@ -861,6 +861,9 @@
     <Compile Include="ashx\common\SaveTreeState.ashx.cs">
       <DependentUpon>SaveTreeState.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\student\ModifyInfo.ashx.cs">
+      <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -927,7 +930,6 @@
     <Folder Include="AdminUI\" />
     <Folder Include="App_Data\" />
     <Folder Include="ashx\admin\" />
-    <Folder Include="ashx\student\" />
     <Folder Include="ashx\teacher\" />
     <Folder Include="css\admin\" />
     <Folder Include="css\teacher\" />
@@ -961,6 +963,7 @@
   <ItemGroup>
     <Content Include="ashx\common\LoginOut.ashx" />
     <Content Include="ashx\common\SaveTreeState.ashx" />
+    <Content Include="ashx\student\ModifyInfo.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

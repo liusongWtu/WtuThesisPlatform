@@ -12,8 +12,10 @@ $(function () {
             $(this).removeClass("menu-header-actived");
             $(this).children("span").removeClass("menu-header-icon-actived");
             $(this).siblings("dd").hide();
+
         }
     });
+
 
     $menudts.click(function () {
         $(this).toggleClass("menu-header-actived");
@@ -48,8 +50,6 @@ $(function () {
 //记录导航状态
 function setState() {
     var operate = false;
-
-    alert($(this).attr("id"));
     operate = $(this).hasClass("open");
     if (operate) {//若展开状态
         $.post("../ashx/SaveTreeState.ashx", { "id": $(this).attr("id"), "operate": "0" }, showResult(data, status));
