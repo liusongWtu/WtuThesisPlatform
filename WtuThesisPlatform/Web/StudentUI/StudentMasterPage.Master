@@ -36,8 +36,6 @@
                 $("#content").width(width - 200);
             });
         });
-
-        
     </script>
 </head>
 <body>
@@ -70,6 +68,7 @@
         <div id="main" class="fl container">
             <div id="subNav" class="fl subNav-size">
                 <div class="subNav-header">
+                    <input type="hidden" runat="server" id="currentNavNode" />
                     <span class="setIcon"></span>
                     <h2 class="fonth2">
                         管理菜单</h2>

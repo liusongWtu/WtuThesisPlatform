@@ -30,6 +30,7 @@ namespace Web.StudentUI
 
             if (!IsPostBack)
             {
+                currentNavNode.Value = Request["nodeId"];
                 //设置导航代码
                 //if (Session["naviget"] == null)
                 //{
