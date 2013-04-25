@@ -58,7 +58,6 @@
     <Content Include="css\student\stu_index.css" />
     <Content Include="css\student\stu_page.css" />
     <Content Include="css\student\stu_select.css" />
-    <Content Include="HTMLPage2.htm" />
     <Content Include="images\btn_bg.gif" />
     <Content Include="images\get_offpic2.jpg" />
     <Content Include="images\index_banner.jpg" />
