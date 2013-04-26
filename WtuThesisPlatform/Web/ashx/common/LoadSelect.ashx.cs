@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
+using WtuThesisPlatform.MODEL;
+using WtuThesisPlatform.BLL;
 
 namespace Web.ashx.common
 {
@@ -16,17 +19,17 @@ namespace Web.ashx.common
             context.Response.ContentType = "text/plain";
             string departmentId = context.Request["did"];
             string majorId = context.Request["mid"];
-            string classId = context.Request["cid"];
-            
+
+           
+            JavaScriptSerializer jsS = new JavaScriptSerializer();//创建 js序列化器对象
+
             //院系存在，则表明之后的专业，班级信息都要获取
             if (!string.IsNullOrEmpty(departmentId))
             {
-                //获取院系信息
-
-                //获取专业信息
-
-                //获取班级信息
-
+                IList<Major> lstMajor = new MajorBLL().GetListByDId(departmentId);
+                //将泛型集合，转成javascript的 json数组字符串
+                string jsonArrStr = jsS.Serialize(lstMajor);
+                context.Response.Write(jsonArrStr);
             }
 
             //专业

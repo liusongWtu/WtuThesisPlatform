@@ -132,9 +132,9 @@ namespace WtuThesisPlatform.BLL
         #endregion
 
         #region Get list by departmentId
-        public IList<Major> GetListByDId(int departmentId)
+        public IList<Major> GetListByDId(string departmentId)
         {
-            return dal.GetList("DId=" + departmentId.ToString() + " and IsDel=0");
+            return dal.GetList("DId=" + departmentId + " and IsDel=0");
         } 
         #endregion
     }

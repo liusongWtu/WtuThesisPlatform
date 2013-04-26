@@ -13,8 +13,6 @@ $(function () {
 												                                                                               });
             $(".stu-info select").removeAttr("disabled").addClass("active");
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
-            //设置院系、专业、班级信息
-            loadData();
 
             //绑定院系选择变化事件
             $("#ContentPlaceHolderBody_sFaculty").onchange() = loadMajor();
@@ -83,7 +81,7 @@ function loadData() {
 
 //根据院系加载相应专业信息
 function loadMajor() {
-
+    $.get("../../ashx/student/LoadSelect.ashx", {}, function (data) { });
 }
 
 //根据专业加载班级信息

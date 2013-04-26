@@ -130,5 +130,6 @@ namespace WtuThesisPlatform.BLL
             return dal.Update(model);
 		}
         #endregion
+
     }
 }

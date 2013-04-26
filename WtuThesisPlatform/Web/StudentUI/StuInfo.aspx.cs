@@ -34,7 +34,7 @@ namespace Web.StudentUI
         private void LoadSelect(Student currStudent)
         {
             IList<Department> lstDepartment = new DepartmentBLL().GetAll();
-            IList<Major> lstMajor = new MajorBLL().GetListByDId(currStudent.Department.DId);
+            IList<Major> lstMajor = new MajorBLL().GetListByDId(currStudent.Department.DId.ToString ());
             IList<ClassInfo> lstClass = new ClassInfoBLL().GetListByMId(currStudent.Major.MId);
             foreach (var item in lstDepartment)
             {
