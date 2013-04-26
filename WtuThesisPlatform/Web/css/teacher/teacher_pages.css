@@ -1,0 +1,104 @@
+.apply-topic-list{
+	width:95%;
+	margin-top: 20px;
+}
+.apply-topic-list  td{
+	white-space: nowrap; /* 强制文字将不自动换行 */
+	overflow: hidden; /* 隐藏超出容器范围的文字 */
+	text-overflow: ellipsis; /* IE, Safari*/
+	-o-text-overflow: ellipsis; /* Opera */
+	-icab-text-overflow: ellipsis;
+	-khtml-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis; /* 目前这段代码无效，为 Firefox 预留 */
+}
+.list-header{
+	font-size: 12px;
+	height: 22px;
+	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
+}
+.apply-topic-list td{
+	vertical-align: middle;
+	height: 22px;
+	text-align: center;
+	padding: 0 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.list-header .td4{
+	border-right: 1px solid #e6e6e6;
+}
+.list-header td{	
+	border-left: 1px solid #e6e6e6;
+
+	border-top: 1px solid #e6e6e6;
+}
+.list-content{
+    border-bottom: 1px solid #e6e6e6;
+}
+.td0{
+	width: 27%;
+}
+.td1{
+	width: 10%;
+}
+.td2{
+	width: 10%;
+}
+.td3{
+	width: 10%;
+}
+.td4{
+	width: 10%;
+}
+.wrap{
+	width: 86%;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: "新宋体";
+}
+.wrap a:hover{
+	text-decoration: underline;
+}
+.wrap dt{
+	border-bottom: 3px solid #2888a8;
+	font-size: 18px;
+	
+	height: 42px;
+	line-height: 55px;
+	padding: 20px 0 0 0 ;
+}
+.wrap dd{
+	padding-left: 40px;
+}
+.ope{
+    display: inline-block;
+    width: 34px;
+    height: 30px;
+    border: 1px solid #FFF;
+    
+}
+.ope:hover{
+    border: 1px solid #d3e8f3;
+    border-radius: 5px;
+}
+
+.tea-apply span,.tea-modify span,.tea-check span,.tea-delete span{
+    display: inline-block;
+    width:28px;
+    height: 28px; 
+    vertical-align:middle;
+}
+.tea-apply span{
+          
+    background: url(../../images/teacher/tea_select.png) 0 3px no-repeat;
+}
+.tea-modify span{      
+    background: url(../../images/teacher/tea_select.png) -24px 3px no-repeat;
+}
+.tea-check span{      
+    background: url(../../images/teacher/tea_select.png) -53px 3px no-repeat;
+}
+.tea-delete span{      
+    background: url(../../images/teacher/tea_select.png) -83px 3px no-repeat;
+}

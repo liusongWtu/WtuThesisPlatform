@@ -225,20 +225,20 @@ body{
 	text-align: center;
 }
 
-/*topic list 样式*/
+/*topic list 样式
 .topic-list{
 	width:95%;
 	margin-top: 20px;
 }
 .topic-list  td{
-	white-space: nowrap; /* 强制文字将不自动换行 */
-	overflow: hidden; /* 隐藏超出容器范围的文字 */
-	text-overflow: ellipsis; /* IE, Safari*/
-	-o-text-overflow: ellipsis; /* Opera */
+	white-space: nowrap;
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	-o-text-overflow: ellipsis; 
 	-icab-text-overflow: ellipsis;
 	-khtml-text-overflow: ellipsis;
 	-moz-text-overflow: ellipsis;
-	-webkit-text-overflow: ellipsis; /* 目前这段代码无效，为 Firefox 预留 */
+	-webkit-text-overflow: ellipsis;
 }
 .list-header{
 	font-size: 12px;
@@ -315,4 +315,4 @@ body{
 }
 .select-icon-actived{
 	background: url(../../images/student/stu_select/stu_select_select.gif) -22px 0 no-repeat;
-}
+}*/

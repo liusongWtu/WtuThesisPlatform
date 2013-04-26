@@ -51,13 +51,20 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\WtuThesisPlatform.mdf" />
+    <Content Include="App_Data\WtuThesisPlatform_log.ldf">
+      <DependentUpon>WtuThesisPlatform.mdf</DependentUpon>
+    </Content>
     <Content Include="css\base.css" />
+    <Content Include="css\common.css" />
     <Content Include="css\index.css" />
+    <Content Include="css\teacher\teacher_pages.css" />
+    <Content Include="images\teacher\tea_select.png" />
     <Content Include="js\student\StuInfo.js" />
-    <Content Include="css\student\stu_common.css" />
-    <Content Include="css\student\stu_index.css" />
+    <Content Include="css\common_index.css" />
     <Content Include="css\student\stu_page.css" />
     <Content Include="css\student\stu_select.css" />
+    <Content Include="HTMLPage2.htm" />
     <Content Include="images\btn_bg.gif" />
     <Content Include="images\get_offpic2.jpg" />
     <Content Include="images\index_banner.jpg" />
@@ -113,6 +120,7 @@
     <Content Include="images\student\stu_wish\stu_warning_icon.gif" />
     <Content Include="images\student\stu_wish\submit.gif" />
     <Content Include="images\stu_signout.png" />
+    <Content Include="index.html" />
     <Content Include="js\ajaxHelper.js" />
     <Content Include="js\Common.js" />
     <Content Include="js\jquery-1.4.4.min.js" />
@@ -827,6 +835,7 @@
     <Content Include="StudentUI\StuInfo.aspx" />
     <Content Include="StudentUI\StuModifyPwd.aspx" />
     <Content Include="StudentUI\StuMySelect.aspx" />
+    <Content Include="StudentUI\StuMyStore.aspx" />
     <Content Include="StudentUI\StuSelect.aspx" />
     <Content Include="StudentUI\stu_index.html" />
     <Content Include="StudentUI\stu_info.html" />
@@ -836,6 +845,8 @@
     <Content Include="StudentUI\stu_select.html" />
     <Content Include="StudentUI\stu_topic_detail.html" />
     <Content Include="StudentUI\stu_topic_info.html" />
+    <Content Include="TeacherUI\teacher_index .html" />
+    <Content Include="TeacherUI\teacher_select.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -849,9 +860,6 @@
   <ItemGroup>
     <Compile Include="ashx\common\CheckValidateCode.ashx.cs">
       <DependentUpon>CheckValidateCode.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="ashx\common\LoadSelect.ashx.cs">
-      <DependentUpon>LoadSelect.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\common\LoginAjax.ashx.cs">
       <DependentUpon>LoginAjax.ashx</DependentUpon>
@@ -919,6 +927,13 @@
     <Compile Include="StudentUI\StuMySelect.aspx.designer.cs">
       <DependentUpon>StuMySelect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="StudentUI\StuMyStore.aspx.cs">
+      <DependentUpon>StuMyStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuMyStore.aspx.designer.cs">
+      <DependentUpon>StuMyStore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StudentUI\StuSelect.aspx.cs">
       <DependentUpon>StuSelect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -929,16 +944,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminUI\" />
-    <Folder Include="App_Data\" />
     <Folder Include="ashx\admin\" />
     <Folder Include="ashx\teacher\" />
     <Folder Include="css\admin\" />
-    <Folder Include="css\teacher\" />
     <Folder Include="images\admin\" />
-    <Folder Include="images\teacher\" />
     <Folder Include="js\admin\" />
     <Folder Include="js\teacher\" />
-    <Folder Include="TeacherUI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
@@ -965,8 +976,8 @@
     <Content Include="ashx\common\LoginOut.ashx" />
     <Content Include="ashx\common\SaveTreeState.ashx" />
     <Content Include="ashx\student\ModifyInfo.ashx" />
-    <Content Include="ashx\common\LoadSelect.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
+    <None Include="StudentUI\StuInfo.aspx.orig" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
