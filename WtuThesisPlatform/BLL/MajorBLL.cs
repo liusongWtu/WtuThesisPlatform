@@ -63,7 +63,14 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(strWhere);
         }
         #endregion
-		
+
+        #region Get all list
+        public IList<Major> GetAll()
+        {
+            return dal.GetList("IsDel =0");
+        }
+        #endregion
+
         #region RESTORE
         /// <summary>
         /// RESTORE
@@ -122,6 +129,13 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.Update(model);
 		}
+        #endregion
+
+        #region Get list by departmentId
+        public IList<Major> GetListByDId(string departmentId)
+        {
+            return dal.GetList("DId=" + departmentId + " and IsDel=0");
+        } 
         #endregion
     }
 }

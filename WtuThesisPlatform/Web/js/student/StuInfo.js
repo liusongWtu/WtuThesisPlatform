@@ -1,7 +1,7 @@
 ﻿/**********点击修改**********/
 var flag = false;
 $(function () {
-    var oldInfo = getInfo();//刚进入的时候获取各项值
+    var oldInfo = getInfo(); //刚进入的时候获取各项值
     $("#mInfo").click(function () {
         //console.log(flag);
         var sFaculty = $("#sFaculty").val();
@@ -13,30 +13,33 @@ $(function () {
 												                                                                               });
             $(".stu-info select").removeAttr("disabled").addClass("active");
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
-            //设置院系、专业、班级联动信息
-            //loadData();
+
+            //绑定院系选择变化事件
+            $("#ContentPlaceHolderBody_sFaculty").onchange() = loadMajor();
+            //绑定专业选择变化事件
+            $("#ContentPlaceHolderBody_sProfession").onchange() = loadClass();
 
             flag = true;
             $(".stu-info").append(addDiv);
             $("#modify-ok").click(function () {
                 //取得各项值
-                var newInfo = getInfo();//点击更新的时候获取新的各项值
+                var newInfo = getInfo(); //点击更新的时候获取新的各项值
                 if (modifyInfo()) {//如果更新成功
-                    setInfo(newInfo);//将各项值更新
+                    setInfo(newInfo); //将各项值更新
                     $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
                     $("#button").remove();
                     $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                     $(".stu-info select").removeClass("active").attr("disabled", "disabled");
-                    oldInfo = getInfo();//更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
+                    oldInfo = getInfo(); //更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
                     flag = false;
                 }
-                else {//更行失败
+                else {//更新失败
                     $.omMessageTip.show({ content: '更新失败！', timeout: 1000, type: 'error' });
                 }
                 return false;
             })
             $("#modify-no").click(function () {
-                setInfo(oldInfo);//将各项值设置为原来的
+                setInfo(oldInfo); //将各项值设置为原来的
                 $(".button").remove();
                 $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                 $(".stu-info select").removeClass("active").attr("disabled", "disabled");
@@ -67,14 +70,30 @@ function getInfo() {
 
 //加载下拉框信息，并绑定相关事件
 function loadData() {
-    $.get();
+    $.get("../../ashx/student/LoadSelect.ashx", { "did": $("#ContentPlaceHolderBody_sFaculty").val(),
+        "mid": $("#ContentPlaceHolderBody_sProfession").val(), "cid": $("#ContentPlaceHolderBody_sClass").val()
+    },
+        function (data) {
+            var dataJsonArr = eval("(" + data + ")");
+
+        });
+}
+
+//根据院系加载相应专业信息
+function loadMajor() {
+    $.get("../../ashx/student/LoadSelect.ashx", {}, function (data) { });
+}
+
+//根据专业加载班级信息
+function loadClass() {
+
 }
 
 //修改操作
 function modifyInfo() {//这个函数你写成 : 如果更新成功就返回true，更新失败就返回false就行了
     //ajax更新操作
-    $.post("../../ashx/student/ModifyInfo.ashx", {"":""}, function (data) { 
-        
+    $.post("../../ashx/student/ModifyInfo.ashx", { "": "" }, function (data) {
+
     });
 }
 
