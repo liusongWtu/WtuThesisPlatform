@@ -1,5 +1,12 @@
 ﻿/**********点击修改**********/
 var flag = false;
+var sFaculty= $(".sFaculty");
+var sProfession=$(".sProfession");
+var sClass= $(".sClass");
+var sPhone= $(".sPhone");
+var sEmail= $(".sEmail");
+var sQQ= $(".sQQ");
+
 $(function () {
     var oldInfo = getInfo(); //刚进入的时候获取各项值
     $("#mInfo").click(function () {
@@ -15,9 +22,9 @@ $(function () {
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
 
             //绑定院系选择变化事件
-            $("#ContentPlaceHolderBody_sFaculty").onchange() = loadMajor();
+            $("#ContentPlaceHolderBody_sFaculty").change(function () { loadMajor(); });
             //绑定专业选择变化事件
-            $("#ContentPlaceHolderBody_sProfession").onchange() = loadClass();
+            $("#ContentPlaceHolderBody_sProfession").change(function () { loadClass(); });
 
             flag = true;
             $(".stu-info").append(addDiv);
@@ -55,44 +62,48 @@ $(function () {
 });
 //给各项设置值
 function setInfo(info) {
-    $(".sFaculty").val(info.sFaculty);
-    $(".sProfession").val(info.sProfession);
-    $(".sClass").val(info.sClass);
-    $(".sPhone").val(info.sPhone);
-    $(".sEmail").val(info.sEmail);
-    $(".sQQ").val(info.sQQ);
+   sFaculty.val(info.aFaculty);
+   sProfession.val(info.sProfession);
+   sClass.val(info.sClass);
+   sPhone.val(info.sPhone);
+   sEmail.val(info.sEmail);
+   sQQ.val(info.sQQ);
 }
 //取得各项的值
 function getInfo() {
-    var info = { 'sFaculty': $(".sFaculty").val(), 'sProfession': $(".sProfession").val(), 'sClass': $(".sClass").val(), 'sPhone': $(".sPhone").val(), 'sEmail': $(".sEmail").val(), 'sQQ': $(".sQQ").val() };
+    var info = { 'sFaculty':sFaculty.val() , 'sProfession': sProfession.val(), 'sClass': sClass.val(), 'sPhone': sPhone.value, 'sEmail':sEmail.value, 'sQQ':sQQ.value };
     return info;
-}
-
-//加载下拉框信息，并绑定相关事件
-function loadData() {
-    $.get("../../ashx/student/LoadSelect.ashx", { "did": $("#ContentPlaceHolderBody_sFaculty").val(),
-        "mid": $("#ContentPlaceHolderBody_sProfession").val(), "cid": $("#ContentPlaceHolderBody_sClass").val()
-    },
-        function (data) {
-            var dataJsonArr = eval("(" + data + ")");
-
-        });
 }
 
 //根据院系加载相应专业信息
 function loadMajor() {
-    $.get("../../ashx/student/LoadSelect.ashx", {}, function (data) { });
+    $.get("../../ashx/common/LoadSelect.ashx", { "did": $("#ContentPlaceHolderBody_sFaculty").val() }, function (data) {
+        var dataJsonArr = eval("(" + data + ")");
+        var curSelect = $("#ContentPlaceHolderBody_sProfession");
+        curSelect.empty();
+        for (var i = 0; i < dataJsonArr.length; i++) {
+            curSelect.append("<option value=\"" + dataJsonArr[i].MId + "\">" + dataJsonArr[i].MName + "</option>");
+        }
+    });
 }
 
 //根据专业加载班级信息
 function loadClass() {
-
+    $.get("../../ashx/common/LoadSelect.ashx", { "mid": $("#ContentPlaceHolderBody_sProfession").val() }, function (data) {
+        var dataJsonArr = eval("(" + data + ")");
+        var curSelect = $("#ContentPlaceHolderBody_sClass");
+        curSelect.empty();
+        for (var i = 0; i < dataJsonArr.length; i++) {
+            curSelect.append("<option value=\"" + dataJsonArr[i].CId + "\">" + dataJsonArr[i].CName + "</option>");
+        }
+    });
 }
+
 
 //修改操作
 function modifyInfo() {//这个函数你写成 : 如果更新成功就返回true，更新失败就返回false就行了
     //ajax更新操作
-    $.post("../../ashx/student/ModifyInfo.ashx", { "": "" }, function (data) {
+//    $.post("../../ashx/student/ModifyInfo.ashx", { $(""): "" }, function (data) {
 
     });
 }

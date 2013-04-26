@@ -132,9 +132,9 @@ namespace WtuThesisPlatform.BLL
         #endregion
 
         #region Get list by MajorId
-        public IList<ClassInfo> GetListByMId(int majorId)
+        public IList<ClassInfo> GetListByMId(string majorId)
         {
-            return dal.GetList("MajorId=" + majorId.ToString() + " and IsDel=0");
+            return dal.GetList("MajorId=" + majorId + " and IsDel=0");
         } 
         #endregion
     }

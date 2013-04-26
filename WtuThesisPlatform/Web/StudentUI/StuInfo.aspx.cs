@@ -35,7 +35,7 @@ namespace Web.StudentUI
         {
             IList<Department> lstDepartment = new DepartmentBLL().GetAll();
             IList<Major> lstMajor = new MajorBLL().GetListByDId(currStudent.Department.DId.ToString ());
-            IList<ClassInfo> lstClass = new ClassInfoBLL().GetListByMId(currStudent.Major.MId);
+            IList<ClassInfo> lstClass = new ClassInfoBLL().GetListByMId(currStudent.Major.MId.ToString());
             foreach (var item in lstDepartment)
             {
                 sFaculty.Items.Add( new ListItem(item.DName, item.DId.ToString()));

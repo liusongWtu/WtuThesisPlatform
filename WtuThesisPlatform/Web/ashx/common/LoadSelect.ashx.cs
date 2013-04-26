@@ -35,7 +35,9 @@ namespace Web.ashx.common
             //专业
             if (!string.IsNullOrEmpty(majorId))
             {
-
+                IList<ClassInfo> lstClassInfo = new ClassInfoBLL().GetListByMId(majorId);
+                string jsoArrStr = jsS.Serialize(lstClassInfo);
+                context.Response.Write(jsoArrStr);
             }
 
 
