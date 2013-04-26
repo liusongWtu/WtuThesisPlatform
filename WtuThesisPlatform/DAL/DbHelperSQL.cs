@@ -14,7 +14,7 @@ namespace DAL
     public class DbHelperSQL
     {
         //从配置文件读取了 连接字符串
-        static string connStr = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+        static string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
 
         #region 01.执行查询语句 返回数据表 +DataTable GetTable(string sqlStr, params SqlParameter[] paras)
         /// <summary>

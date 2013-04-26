@@ -1,0 +1,69 @@
+/* CSS Document */
+.workShow-wrap{
+	width: 65%;
+	margin-left: 10px;
+}
+.notice-wrap,.download-wrap{
+	margin-right: 10px;
+
+}
+.workShow-wrap,.notice-wrap,.download-wrap{
+	border: 1px solid #CCC;
+	margin-top: 10px;
+	padding: 5px;
+}
+.rightpart{
+	width: 30%;
+}
+.workShow-wrap dt,.notice-wrap dt,.download-wrap dt{
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 1em;
+	background: #CCC;
+	font-weight: bold;
+	color: #666;
+	margin-bottom: 10px;
+	position: relative;
+}
+.more{
+	position: absolute;
+	right: 5px;
+	font-size: 12px;
+	font-weight: normal;
+	margin-right: 10px;
+}
+.content ul{
+	font-family: "新宋体";
+	font-size: 12px;
+	color: #333;
+}
+.content li{
+	background: url(../../images/square.png) 0 0 no-repeat;
+	text-indent: 1em;
+	list-style: square;
+	line-height:35px;
+	margin-left: 3em;
+	margin-right: 2em;
+	border-bottom: 1px dotted #CCC;
+}
+.content ul li{
+	white-space: nowrap; /* 强制文字将不自动换行 */
+	overflow: hidden; /* 隐藏超出容器范围的文字 */
+	text-overflow: ellipsis; /* IE, Safari*/
+	-o-text-overflow: ellipsis; /* Opera */
+	-icab-text-overflow: ellipsis;
+	-khtml-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis; /* 目前这段代码无效，为 Firefox 预留 */
+}
+.readstatus{
+	font-weight: bold;
+}
+.content a:hover{
+	text-decoration: underline;
+	color: #666;
+}
+.readed{
+	font-weight: normal;
+}

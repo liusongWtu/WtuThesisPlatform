@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../css/base.css" />
+<link rel="stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
+<link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../js/popup/jquery.confirm.css" />
+<link rel="stylesheet" type="text/css" href="../js/om/themes/apusic/om-all.css" />
+<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../js/template.js"></script>
+<script type="text/javascript" src="../js/student/stu_pages.js"></script>
+<script type="text/javascript" src="../js/popup/jquery.confirm.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-core.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-mouse.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-draggable.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-position.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-messagebox.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-button.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-messagetip.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-resizable.js"></script>
+<script type="text/javascript" src="../js/om/ui/om-grid.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var _height = window.innerHeight;
+        var _width = window.innerWidth;
+        $(".container").height(_height - $(".header-wap").height());
+        $(".subNav-size").height($(".container").height() - 30);
+        $("#content").height($(".container").height() - 30);
+        $("#content").width(_width - 200);
+        $(window).resize(function () {
+            var height = window.innerHeight;
+            var width = window.innerWidth;
+            $(".container").height(height - $(".header-wap").height());
+            $(".subNav-size").height($(".container").height() - 30);
+            $("#content").height($(".container").height() - 30);
+            $("#content").width(width - 200);
+        });
+    });
+
+</script>
+
+</head>
+
+<body>
+	<div class="outer">
+		<div class="header-wap">
+			<div id="header" class="header">
+				<h1 id="logo" class="logoCl"></h1>
+				<div id="nav" class="abright">
+					<ul class="nav-ul">
+						<li>首页</li>
+						<li>选题管理</li>
+						<li>信息维护</li>
+					</ul>
+				</div>
+			</div>
+			<div id="info" class="info">
+			    <ul class="info_ul">
+					<li class="infoItem"><a href="#"><span class="fontSty cursor">欢迎您，Admin</span></a></li>
+					<li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor">4</span></a></li>
+					<li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">3</span></a></li>
+					<li id="logout" class="loginout"><a href="#"><span class="outIcon fontSty cursor">退出</span></a></li>
+				</ul>
+			</div>
+		</div>	
+		<div id="main" class="fl container">
+			<div id="subNav" class="fl subNav-size">
+				<div class="subNav-header">
+					<span class="setIcon"></span>
+					<h2 class="fonth2">管理菜单</h2>
+					<p class="enFont">Menu Administration</p>
+				</div>
+				<dl class="menu">
+					<dt class="menu-header"><span class="menu-header-icon menu-icon"></span>选题申请</dt>
+					<dd class="menu-list"><span class="menu-list-icon menu-icon"></span><a href="#">教师选题申请</a></dd>
+				</dl>
+				<dl class="menu">
+					<dt class="menu-header"><span class="menu-header-icon menu-icon"></span>历年选题管理</dt>
+				</dl>
+				<dl class="menu">
+					<dt class="menu-header"><span class="menu-header-icon menu-icon"></span>学生选题管理</dt>
+				</dl>
+
+			</div>
+			<div class="content-wrap">
+				<div id="content" class="fl scroll content">	
+					<div class="wrap">
+						<div class="topic-apply">
+							<dl>
+								<dt>我的申请</dt>
+								<dd>
+                                    <table id="applyTopicList" class="apply-topic-list" cellspacing="0" cellpadding="0">
+								<tr class="list-header">
+									<td class="td0">选题名称</td>
+									<td class="td1">申请</td>
+									<td class="td2">修改</td>
+									<td class="td3">预览</td>
+									<td class="td4">删除</td>
+								</tr>
+								<tr class="list-content">
+									<td class="td0"><a href="#">毕业设计选题系统</a></td>
+									<td class="td1"><span class="tea-apply ope"><span></span></span></td>
+									<td class="td2"><span class="tea-modify ope"><span></span></span></td>
+									<td class="td3"><span class="tea-check ope"><span></span></span></td>
+									<td class="td4"><span class="tea-delete ope"><span></span></span></td>						
+								</tr>
+                                <tr class="list-content">
+									<td class="td0"><a href="#">毕业设计选题系统</a></td>
+									<td class="td1"><span class="tea-apply ope"><span></span></span></td>
+									<td class="td2"><span class="tea-modify ope"><span></span></span></td>
+									<td class="td3"><span class="tea-check ope"><span></span></span></td>
+									<td class="td4"><span class="tea-delete ope"><span></span></span></td>						
+								</tr>
+                                
+							</table>
+                                </dd>
+							</dl>
+						</div>
+					</div>	
+				<div class="content-bottom">
+					
+				</div>
+					</div>
+				</div>
+			<div class="footPos">
+			<p>武汉纺织大学版权所有 
+				<font size="2" face="Verdana, Arial, Helvetica">
+					<span> </span>				</font>
+				2010 Copyrights all reserved  鄂ICP备05003335号			</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

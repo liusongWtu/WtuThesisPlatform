@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentUI/StudentMasterPage.Master" AutoEventWireup="true" CodeBehind="StuIndex.aspx.cs" Inherits="Web.StudentUI.StuIndex" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<link rel="stylesheet" type="text/css" href="../css/student/stu_index.css" />
+<link rel="stylesheet" type="text/css" href="../css/common_index.css" />
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
