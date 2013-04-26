@@ -105,7 +105,7 @@ function modifyInfo() {//这个函数你写成 : 如果更新成功就返回true
     //ajax更新操作
 //    $.post("../../ashx/student/ModifyInfo.ashx", { $(""): "" }, function (data) {
 
-    });
+  //  });
 }
 
 

@@ -105,11 +105,7 @@ $(function () {
 
     });
 
-    /**********修改密码**********/
-    $("#psd-modify-ok").click(function () {
-        //修改密码
-        alert("修改密码");
-    });
+   
 
     /**********公告点击之后**********/
     $(".notice li a").click(function () {
