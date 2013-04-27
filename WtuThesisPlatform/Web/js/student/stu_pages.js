@@ -118,18 +118,4 @@ $(function () {
 
     
 
-    /**********删除收藏**********/
-    $(".delete-icon").click(function () {
-        var $myThis = $(this);
-        $.omMessageBox.confirm({
-            title: '确认删除？',
-            content: '确定要删除该收藏？',
-            onClose: function () {
-                if ($myThis.parent().parent().remove()) {
-                    //删除成功
-                    $.omMessageTip.show({ content: '已删除对该选题的收藏！', timeout: 1000, type: 'alert' });
-                }
-            }
-        });
-    })
 });

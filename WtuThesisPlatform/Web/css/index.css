@@ -58,6 +58,7 @@ body{
 
 .ui-input-wap{
     width: 300px;
+    height: 38px;
 	line-height: 38px;
 	margin: 15px 0 15px 0;
 	position: relative;
@@ -69,7 +70,8 @@ body{
 }
 .ui-input{
 	width: 194px;
-	height: 29px;
+	height: 38px;
+    *line-height: 30px;
 	border: 3px solid #FFFFFF;
 	border-radius: 5px;
 	font-family: "宋体";
@@ -90,6 +92,7 @@ body{
 }
 .chooseid{
 	font-size: 14px;
+    margin-top: 40px;
 }
 
 .chooseidItem{

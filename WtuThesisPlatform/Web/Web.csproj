@@ -813,6 +813,7 @@
     <Content Include="js\popup\jquery.confirm.js" />
     <Content Include="js\student\StuModifyPwd.js" />
     <Content Include="js\student\StuMySelect.js" />
+    <Content Include="js\student\StuMyStore.js" />
     <Content Include="js\student\stu_pages.js" />
     <Content Include="js\template.js" />
     <Content Include="Login.aspx" />
