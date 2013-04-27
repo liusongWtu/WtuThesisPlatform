@@ -6,7 +6,7 @@ $(function () {
     newPwd.focus(function () {
         // console.log(oldPwd.val());
         if ("" == oldPwd.val()) {
-            oldPwd.parent().next().text("您还没有输入原始密码");
+            oldPwd.parent().next().text("您还没有输入原始密码!");
         }
 
     });
@@ -16,10 +16,10 @@ $(function () {
     repeatPwd.focus(function () {
         //console.log(oldPwd.val());
         if ("" == oldPwd.val() && oldPwd.next() == null) {
-            oldPwd.parent().next().text("您还没有输入原始密码");
+            oldPwd.parent().next().text("您还没有输入原始密码!");
         }
         if ("" == newPwd.val()) {
-            newPwd.parent().next().text("您还没有输入新密码");
+            newPwd.parent().next().text("您还没有输入新密码!");
         }
     });
     newPwd.change(function () {

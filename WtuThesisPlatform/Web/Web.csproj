@@ -59,6 +59,7 @@
     <Content Include="css\common.css" />
     <Content Include="css\index.css" />
     <Content Include="css\teacher\teacher_pages.css" />
+    <Content Include="images\student\buttons.gif" />
     <Content Include="images\teacher\tea_select.png" />
     <Content Include="js\student\StuInfo.js" />
     <Content Include="css\common_index.css" />
@@ -104,21 +105,6 @@
     <Content Include="images\student\stu_select\stu_select_table_bg.gif" />
     <Content Include="images\student\stu_select\stu_select_top.gif" />
     <Content Include="images\student\stu_setting.png" />
-    <Content Include="images\student\stu_wish\modify_no.gif" />
-    <Content Include="images\student\stu_wish\modify_ok.gif" />
-    <Content Include="images\student\stu_wish\stu_arrow_left.gif" />
-    <Content Include="images\student\stu_wish\stu_arrow_right.gif" />
-    <Content Include="images\student\stu_wish\stu_button_avtive_bg.gif" />
-    <Content Include="images\student\stu_wish\stu_button_bg.gif" />
-    <Content Include="images\student\stu_wish\stu_delete_active_icon.gif" />
-    <Content Include="images\student\stu_wish\stu_delete_icon.gif" />
-    <Content Include="images\student\stu_wish\stu_refuse_select_active_icon.gif" />
-    <Content Include="images\student\stu_wish\stu_refuse_select_icon.gif" />
-    <Content Include="images\student\stu_wish\stu_select_active_icon.gif" />
-    <Content Include="images\student\stu_wish\stu_select_icon.gif" />
-    <Content Include="images\student\stu_wish\stu_success_icon.gif" />
-    <Content Include="images\student\stu_wish\stu_warning_icon.gif" />
-    <Content Include="images\student\stu_wish\submit.gif" />
     <Content Include="images\stu_signout.png" />
     <Content Include="index.html" />
     <Content Include="js\ajaxHelper.js" />
@@ -826,6 +812,7 @@
     <Content Include="js\popup\jquery.confirm.css" />
     <Content Include="js\popup\jquery.confirm.js" />
     <Content Include="js\student\StuModifyPwd.js" />
+    <Content Include="js\student\StuMySelect.js" />
     <Content Include="js\student\stu_pages.js" />
     <Content Include="js\template.js" />
     <Content Include="Login.aspx" />

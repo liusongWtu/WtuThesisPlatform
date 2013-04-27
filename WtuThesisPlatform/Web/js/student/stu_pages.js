@@ -116,29 +116,7 @@ $(function () {
 
     });
 
-    /**********退选**********/
-    $(".refuse-select-icon").click(function () {
-        var $myThis = $(this);
-
-        $.omMessageBox.confirm({
-
-            title: '确认删除？',
-
-            content: '确定要退选改提吗？',
-
-            onClose: function () {
-
-                if ($myThis.parent().parent().remove()) {
-                    //删除成功
-                    $.omMessageTip.show({ content: '已退选该题！', timeout: 1000, type: 'alert' });
-
-                }
-
-            }
-
-        });
-
-    });
+    
 
     /**********删除收藏**********/
     $(".delete-icon").click(function () {
