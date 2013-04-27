@@ -79,10 +79,16 @@ function getInfo() {
 function loadMajor() {
     $.get("../../ashx/common/LoadSelect.ashx", { "did": $("#ContentPlaceHolderBody_sFaculty").val() }, function (data) {
         var dataJsonArr = eval("(" + data + ")");
-        var curSelect = $("#ContentPlaceHolderBody_sProfession");
-        curSelect.empty();
-        for (var i = 0; i < dataJsonArr.length; i++) {
-            curSelect.append("<option value=\"" + dataJsonArr[i].MId + "\">" + dataJsonArr[i].MName + "</option>");
+        var curSelectMajor = $("#ContentPlaceHolderBody_sProfession");
+        curSelectMajor.empty();
+        for (var i = 0; i < dataJsonArr.major.length; i++) {
+            curSelectMajor.append("<option value=\"" + dataJsonArr.major[i].MId + "\">" + dataJsonArr.major[i].MName + "</option>");
+        }
+
+        var curSelectClass = $("#ContentPlaceHolderBody_sClass");
+        curSelectClass.empty();
+        for (var i = 0; i < dataJsonArr.class.length; i++) {
+            curSelectClass.append("<option value=\""+dataJsonArr.class[i].CId+"\">" +dataJsonArr.class[i].CName+"</option>");
         }
     });
 }
