@@ -28,8 +28,13 @@ namespace Web.ashx.common
             {
                 IList<Major> lstMajor = new MajorBLL().GetListByDId(departmentId);
                 //将泛型集合，转成javascript的 json数组字符串
-                string jsonArrStr = jsS.Serialize(lstMajor);
-                context.Response.Write(jsonArrStr);
+                string jsonArrStrMajor = jsS.Serialize(lstMajor);
+
+                IList<ClassInfo> lstClassInfo = new ClassInfoBLL().GetListByMId(lstMajor[0].MId.ToString ());
+                string jsonArrStrClass = jsS.Serialize(lstClassInfo);
+
+                string finalStr = "{major:"+jsonArrStrMajor+",class:"+jsonArrStrClass+"}";
+                context.Response.Write(finalStr);
             }
 
             //专业
