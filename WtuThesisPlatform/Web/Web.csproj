@@ -824,6 +824,7 @@
     <Content Include="StudentUI\StuMySelect.aspx" />
     <Content Include="StudentUI\StuMyStore.aspx" />
     <Content Include="StudentUI\StuSelect.aspx" />
+    <Content Include="StudentUI\StuTopicDetail.aspx" />
     <Content Include="StudentUI\stu_index.html" />
     <Content Include="StudentUI\stu_info.html" />
     <Content Include="StudentUI\stu_modify_password.html" />
@@ -832,6 +833,8 @@
     <Content Include="StudentUI\stu_select.html" />
     <Content Include="StudentUI\stu_topic_detail.html" />
     <Content Include="StudentUI\stu_topic_info.html" />
+    <Content Include="StudentUI\StuTopicInfo.aspx" />
+    <Content Include="TeacherUI\applyExcel.htm" />
     <Content Include="TeacherUI\teacher_index .html" />
     <Content Include="TeacherUI\teacher_select.html" />
     <Content Include="Web.config">
@@ -930,6 +933,20 @@
     </Compile>
     <Compile Include="StudentUI\StuSelect.aspx.designer.cs">
       <DependentUpon>StuSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicDetail.aspx.cs">
+      <DependentUpon>StuTopicDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicDetail.aspx.designer.cs">
+      <DependentUpon>StuTopicDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicInfo.aspx.cs">
+      <DependentUpon>StuTopicInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicInfo.aspx.designer.cs">
+      <DependentUpon>StuTopicInfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
