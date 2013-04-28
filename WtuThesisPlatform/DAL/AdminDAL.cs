@@ -300,7 +300,7 @@ namespace WtuThesisPlatform.DAL
             SqlParameter[] parameters = {
                     new SqlParameter("@UId", SqlDbType.Int,4),
                     new SqlParameter("@UUserName", SqlDbType.VarChar,20),
-                    new SqlParameter("@UPassword", SqlDbType.VarChar,20),
+                    new SqlParameter("@UPassword", SqlDbType.VarChar,32),
                     new SqlParameter("@UName", SqlDbType.VarChar,20),
                     new SqlParameter("@DepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),

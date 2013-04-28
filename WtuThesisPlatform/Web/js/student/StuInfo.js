@@ -69,16 +69,16 @@ $(function () {
 });
 //给各项设置值
 function setInfo(info) {
-   sFaculty.val(info.aFaculty);
-   sProfession.val(info.sProfession);
-   sClass.val(info.sClass);
-   sPhone.val(info.sPhone);
-   sEmail.val(info.sEmail);
-   sQQ.val(info.sQQ);
+    sFaculty.val(info.aFaculty);
+    sProfession.val(info.sProfession);
+    sClass.val(info.sClass);
+    sPhone.val(info.sPhone);
+    sEmail.val(info.sEmail);
+    sQQ.val(info.sQQ);
 }
 //取得各项的值
 function getInfo() {
-    var info = { 'sFaculty':sFaculty.val() , 'sProfession': sProfession.val(), 'sClass': sClass.val(), 'sPhone': sPhone.val(), 'sEmail':sEmail.val(), 'sQQ':sQQ.val() };
+    var info = { 'sFaculty': sFaculty.val(), 'sProfession': sProfession.val(), 'sClass': sClass.val(), 'sPhone': sPhone.val(), 'sEmail': sEmail.val(), 'sQQ': sQQ.val() };
     return info;
 }
 
@@ -88,12 +88,14 @@ function loadMajor() {
         var dataJsonArr = eval("(" + data + ")");
         var curSelectMajor = $("#ContentPlaceHolderBody_sProfession");
         curSelectMajor.empty();
-        for (var i = 0; i < dataJsonArr.major.length; i++) {
+        curSelectMajor.append("<option selected=\"selected\" value=\"" + dataJsonArr.major[0].MId + "\">" + dataJsonArr.major[0].MName + "</option>");
+        for (var i = 1; i < dataJsonArr.major.length; i++) {
             curSelectMajor.append("<option value=\"" + dataJsonArr.major[i].MId + "\">" + dataJsonArr.major[i].MName + "</option>");
         }
         var curSelectClass = $("#ContentPlaceHolderBody_sClass");
         curSelectClass.empty();
-        for (var i = 0; i < dataJsonArr.class.length; i++) {
+        curSelectClass.append("<option selected=\"selected\" value=\"" + dataJsonArr.class[0].CId + "\">" + dataJsonArr.class[0].CName + "</option>");
+        for (var i = 1; i < dataJsonArr.class.length; i++) {
             curSelectClass.append("<option value=\"" + dataJsonArr.class[i].CId + "\">" + dataJsonArr.class[i].CName + "</option>");
         }
     });
@@ -105,7 +107,8 @@ function loadClass() {
         var dataJsonArr = eval("(" + data + ")");
         var curSelect = $("#ContentPlaceHolderBody_sClass");
         curSelect.empty();
-        for (var i = 0; i < dataJsonArr.length; i++) {
+        curSelect.append("<option selected=\"selected\" value=\"" + dataJsonArr[0].CId + "\">" + dataJsonArr[0].CName + "</option>");
+        for (var i = 1; i < dataJsonArr.length; i++) {
             curSelect.append("<option value=\"" + dataJsonArr[i].CId + "\">" + dataJsonArr[i].CName + "</option>");
         }
     });
@@ -113,10 +116,16 @@ function loadClass() {
 
 
 //修改操作
-function modifyInfo() {//这个函数你写成 : 如果更新成功就返回true，更新失败就返回false就行了
+function modifyInfo() {
     //ajax更新操作
-// $.post("../../ashx/student/ModifyInfo.ashx", { $(""): "" }, function (data) {
-
-  // });
+    $.post("../../ashx/student/ModifyInfo.ashx",
+        { "did": sFaculty.val(), "mid": sProfession.val(), "cid": sClass.val(), "phone": sPhone.val(), "email": sEmail.val(), "qq": sQQ.val() },
+        function (data) {
+            if (data == "ok") {
+                return true;
+            } else {
+                return false;
+            }
+        });
 }
 
