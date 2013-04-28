@@ -1,4 +1,5 @@
-﻿/**********点击修改**********/
+﻿
+/**********点击修改**********/
 var flag = false;
 var sFaculty;
 var sProfession;
@@ -8,26 +9,26 @@ var sEmail;
 var sQQ;
 
 $(function () {
-     sFaculty = $(".sFaculty");
-     sProfession = $(".sProfession");
-     sClass = $(".sClass");
-     sPhone = $(".sPhone");
-     sEmail = $(".sEmail");
-     sQQ = $(".sQQ");
-     oldInfo = getInfo(); //刚进入的时候获取各项值
+    sFaculty = $(".sFaculty");
+    sProfession = $(".sProfession");
+    sClass = $(".sClass");
+    sPhone = $(".sPhone");
+    sEmail = $(".sEmail");
+    sQQ = $(".sQQ");
+    oldInfo = getInfo(); //刚进入的时候获取各项值
     $("#mInfo").click(function () {
         //console.log(flag);
         if (!flag) {
             $(".stu-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sNo,#ContentPlaceHolderBody_sYear')").removeAttr("readonly")
-			                                                                                                                   .addClass("active")
-												                                                                               .click(function () {
-												                                                                                   $(this).focus();
-												                                                                               });
+.addClass("active")
+.click(function () {
+    $(this).focus();
+});
             $(".stu-info select").removeAttr("disabled").addClass("active");
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
 
             //绑定院系选择变化事件
-            $("#ContentPlaceHolderBody_sFaculty").change(function () { loadMajor(); });
+            $("#ContentPlaceHolderBody_sFaculty").change(function () { loadMajor(); console.log(getInfo()); });
             //绑定专业选择变化事件
             $("#ContentPlaceHolderBody_sProfession").change(function () { loadClass(); });
 
@@ -52,6 +53,7 @@ $(function () {
             })
             $("#modify-no").click(function () {
                 setInfo(oldInfo); //将各项值设置为原来的
+                loadMajor();
                 $(".button").remove();
                 $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                 $(".stu-info select").removeClass("active").attr("disabled", "disabled");
@@ -89,11 +91,10 @@ function loadMajor() {
         for (var i = 0; i < dataJsonArr.major.length; i++) {
             curSelectMajor.append("<option value=\"" + dataJsonArr.major[i].MId + "\">" + dataJsonArr.major[i].MName + "</option>");
         }
-
         var curSelectClass = $("#ContentPlaceHolderBody_sClass");
         curSelectClass.empty();
         for (var i = 0; i < dataJsonArr.class.length; i++) {
-            curSelectClass.append("<option value=\""+dataJsonArr.class[i].CId+"\">" +dataJsonArr.class[i].CName+"</option>");
+            curSelectClass.append("<option value=\"" + dataJsonArr.class[i].CId + "\">" + dataJsonArr.class[i].CName + "</option>");
         }
     });
 }
@@ -114,9 +115,8 @@ function loadClass() {
 //修改操作
 function modifyInfo() {//这个函数你写成 : 如果更新成功就返回true，更新失败就返回false就行了
     //ajax更新操作
-//    $.post("../../ashx/student/ModifyInfo.ashx", { $(""): "" }, function (data) {
+// $.post("../../ashx/student/ModifyInfo.ashx", { $(""): "" }, function (data) {
 
-  //  });
+  // });
 }
-
 
