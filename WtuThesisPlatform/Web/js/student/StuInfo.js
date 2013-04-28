@@ -37,8 +37,10 @@ $(function () {
             $("#modify-ok").click(function () {
                 //取得各项值
                 var newInfo = getInfo(); //点击更新的时候获取新的各项值
+                console.log(newInfo);
                 if (modifyInfo()) {//如果更新成功
                     setInfo(newInfo); //将各项值更新
+                    sFaculty.find("option[value=" + newInfo.sFaculty + "]").attr("selected", "selected");
                     $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
                     $("#button").remove();
                     $(".stu-info input").removeClass("active").attr("readonly", "readonly");
@@ -118,7 +120,7 @@ function loadClass() {
 //修改操作
 function modifyInfo() {
     //ajax更新操作
-    $.post("../../ashx/student/ModifyInfo.ashx",
+    var ope = $.post("../../ashx/student/ModifyInfo.ashx",
         { "did": sFaculty.val(), "mid": sProfession.val(), "cid": sClass.val(), "phone": sPhone.val(), "email": sEmail.val(), "qq": sQQ.val() },
         function (data) {
             if (data == "ok") {
@@ -127,5 +129,10 @@ function modifyInfo() {
                 return false;
             }
         });
-}
-
+        if (ope) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
