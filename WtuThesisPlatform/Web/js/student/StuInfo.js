@@ -1,17 +1,22 @@
 ﻿/**********点击修改**********/
 var flag = false;
-var sFaculty= $(".sFaculty");
-var sProfession=$(".sProfession");
-var sClass= $(".sClass");
-var sPhone= $(".sPhone");
-var sEmail= $(".sEmail");
-var sQQ= $(".sQQ");
+var sFaculty;
+var sProfession;
+var sClass;
+var sPhone;
+var sEmail;
+var sQQ;
 
 $(function () {
-    var oldInfo = getInfo(); //刚进入的时候获取各项值
+     sFaculty = $(".sFaculty");
+     sProfession = $(".sProfession");
+     sClass = $(".sClass");
+     sPhone = $(".sPhone");
+     sEmail = $(".sEmail");
+     sQQ = $(".sQQ");
+     oldInfo = getInfo(); //刚进入的时候获取各项值
     $("#mInfo").click(function () {
         //console.log(flag);
-        var sFaculty = $("#sFaculty").val();
         if (!flag) {
             $(".stu-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sNo,#ContentPlaceHolderBody_sYear')").removeAttr("readonly")
 			                                                                                                                   .addClass("active")
@@ -71,7 +76,7 @@ function setInfo(info) {
 }
 //取得各项的值
 function getInfo() {
-    var info = { 'sFaculty':sFaculty.val() , 'sProfession': sProfession.val(), 'sClass': sClass.val(), 'sPhone': sPhone.value, 'sEmail':sEmail.value, 'sQQ':sQQ.value };
+    var info = { 'sFaculty':sFaculty.val() , 'sProfession': sProfession.val(), 'sClass': sClass.val(), 'sPhone': sPhone.val(), 'sEmail':sEmail.val(), 'sQQ':sQQ.val() };
     return info;
 }
 
