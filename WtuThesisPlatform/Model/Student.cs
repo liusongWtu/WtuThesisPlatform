@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace WtuThesisPlatform.MODEL
 {
     [Serializable]
@@ -90,7 +92,7 @@ namespace WtuThesisPlatform.MODEL
         /// <summary>
         ///  班级
         /// </summary>
-        public ClassInfo ClassInfo 
+        public ClassInfo ClassInfo
         {
             set { _classInfo = value; }
             get { return _classInfo; }
@@ -176,6 +178,38 @@ namespace WtuThesisPlatform.MODEL
             set { _isDel = value; }
             get { return _isDel; }
         }
+        #endregion
+
+        #region Public Methods
+
+        #region 克隆当前对象
+        /// <summary>
+        /// 克隆当前对象
+        /// </summary>
+        /// <param name="isDeepCopy">是否是深拷贝</param>
+        /// <returns></returns>
+        public Student Clone(bool isDeepCopy)
+        {
+            Student desStudent = null;
+            if (isDeepCopy)
+            {
+
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(memoryStream, this);
+                    memoryStream.Position = 0;
+                    desStudent = (Student)formatter.Deserialize(memoryStream);
+                }
+            }
+            else
+            {
+                desStudent = (Student)this.MemberwiseClone();
+            }
+            return desStudent;
+        }
+        
+        #endregion
         #endregion
     }
 }

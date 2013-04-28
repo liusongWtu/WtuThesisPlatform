@@ -351,7 +351,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@SPhone", SqlDbType.VarChar,15),
                     new SqlParameter("@SQQ", SqlDbType.VarChar,20),
                     new SqlParameter("@SEmail", SqlDbType.VarChar,30),
-                    new SqlParameter("@SPassword", SqlDbType.VarChar,20),
+                    new SqlParameter("@SPassword", SqlDbType.VarChar,32),
                     new SqlParameter("@SFlag", SqlDbType.Bit,1),
                     new SqlParameter("@SYear", SqlDbType.VarChar,4),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
@@ -363,16 +363,16 @@ namespace WtuThesisPlatform.DAL
             parameters[3].Value = model.Department.DId;
             parameters[4].Value = model.Major.MId;
             parameters[5].Value = model.SSex;
-            parameters[7].Value = model.ClassInfo.CId;
-            parameters[8].Value = model.SPhone;
-            parameters[9].Value = model.SQQ;
-            parameters[10].Value = model.SEmail;
-            parameters[11].Value = model.SPassword;
-            parameters[12].Value = model.SFlag;
-            parameters[13].Value = model.SYear;
-            parameters[14].Value = model.RoleInfo.RoleId;
-            parameters[15].Value = model.SCheckCode;
-            parameters[16].Value = model.IsDel;
+            parameters[6].Value = model.ClassInfo.CId;
+            parameters[7].Value = model.SPhone;
+            parameters[8].Value = model.SQQ;
+            parameters[9].Value = model.SEmail;
+            parameters[10].Value = model.SPassword;
+            parameters[11].Value = model.SFlag;
+            parameters[12].Value = model.SYear;
+            parameters[13].Value = model.RoleInfo.RoleId;
+            parameters[14].Value = model.SCheckCode;
+            parameters[15].Value = model.IsDel;
 
             try
             {

@@ -77,6 +77,7 @@ function requestBack(result) {
     } else if (result == "codeError") {
         msgBox.showMsgErr("验证码错误！");
         changeCode();
+        code.value = "";
         code.select();
     } else if (result == "userError") {
         msgBox.showMsgErr("用户名错误！");
