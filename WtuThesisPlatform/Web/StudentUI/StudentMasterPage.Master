@@ -69,6 +69,7 @@
             <div id="subNav" class="fl subNav-size">
                 <div class="subNav-header">
                     <input type="hidden" runat="server" id="currentNavNode" />
+                    <input type="hidden" runat="server" id="userType" />
                     <span class="setIcon"></span>
                     <h2 class="fonth2">
                         管理菜单</h2>

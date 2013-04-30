@@ -61,6 +61,7 @@
     <Content Include="css\teacher\teacher_pages.css" />
     <Content Include="images\student\buttons.gif" />
     <Content Include="images\teacher\tea_select.png" />
+    <Content Include="js\MD5.js" />
     <Content Include="js\student\StuInfo.js" />
     <Content Include="css\common_index.css" />
     <Content Include="css\student\stu_page.css" />
@@ -845,6 +846,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ashx\common\ChangePwd.ashx.cs">
+      <DependentUpon>ChangePwd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\CheckPwd.ashx.cs">
+      <DependentUpon>CheckPwd.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\common\CheckValidateCode.ashx.cs">
       <DependentUpon>CheckValidateCode.ashx</DependentUpon>
     </Compile>
@@ -967,6 +974,8 @@
     <Content Include="ashx\common\SaveTreeState.ashx" />
     <Content Include="ashx\student\ModifyInfo.ashx" />
     <Content Include="ashx\common\LoadSelect.ashx" />
+    <Content Include="ashx\common\CheckPwd.ashx" />
+    <Content Include="ashx\common\ChangePwd.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

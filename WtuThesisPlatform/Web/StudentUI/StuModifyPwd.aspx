@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../js/popup/jquery.confirm.css" />
     <script type="text/javascript" src="../js/student/StuModifyPwd.js"></script>
     <script type="text/javascript" src="../js/popup/jquery.confirm.js"></script>
+    <script src="../js/MD5.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
