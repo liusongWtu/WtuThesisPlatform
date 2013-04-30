@@ -122,6 +122,9 @@
 .wrap dd{
 	padding-left: 40px;
 }
+.teacher-info dd{
+    line-height: 40px;
+}
 .teacher-info dt h1,.topic-info dt h1,.stu-info dt h1{
 	font-weight: bold;
 	background: url(../../images/student/stu_info.gif) 0 0 no-repeat;
@@ -374,5 +377,5 @@
 	background: url(../../images/student/buttons.gif) -400px -140px no-repeat;
 }
 .reply-toolbar button:hover{
-	background: url(../../images/student/buttons.gif) -400px -170px no-repeat;
+	background: url(../../images/student/buttons.gif) -400px -173px no-repeat;
 }

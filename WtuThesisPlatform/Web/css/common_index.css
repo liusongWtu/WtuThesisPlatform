@@ -3,6 +3,7 @@
 	width: 65%;
 	margin-left: 10px;
 }
+
 .notice-wrap,.download-wrap{
 	margin-right: 10px;
 
@@ -41,7 +42,6 @@
 .content li{
 	background: url(../../images/square.png) 0 0 no-repeat;
 	text-indent: 1em;
-	list-style: square;
 	line-height:35px;
 	margin-left: 3em;
 	margin-right: 2em;

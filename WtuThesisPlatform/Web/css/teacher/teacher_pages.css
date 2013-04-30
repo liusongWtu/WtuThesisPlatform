@@ -115,3 +115,11 @@
 .create-apply:hover{
      background: url(../../images/teacher/tea_select.png) 0 -61px no-repeat;
 }
+/*申请表样式*/
+.apply-table-wrap{
+    width: 100%;
+}
+.apply-table{
+    width: 1000px;
+    margin: 0 auto;
+}

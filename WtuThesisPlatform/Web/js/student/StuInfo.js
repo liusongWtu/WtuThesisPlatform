@@ -16,6 +16,7 @@ $(function () {
     sEmail = $(".sEmail");
     sQQ = $(".sQQ");
     oldInfo = getInfo(); //刚进入的时候获取各项值
+    //console.log(oldInfo);
     $("#mInfo").click(function () {
         //console.log(flag);
         if (!flag) {
@@ -28,7 +29,7 @@ $(function () {
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
 
             //绑定院系选择变化事件
-            $("#ContentPlaceHolderBody_sFaculty").change(function () { loadMajor(); console.log(getInfo()); });
+            $("#ContentPlaceHolderBody_sFaculty").change(function () { loadMajor();});
             //绑定专业选择变化事件
             $("#ContentPlaceHolderBody_sProfession").change(function () { loadClass(); });
             //绑定邮箱验证事件
@@ -61,12 +62,13 @@ $(function () {
                 if (modifyInfo()) {//如果更新成功
                     setInfo(newInfo); //将各项值更新
                     sFaculty.find("option[value=" + newInfo.sFaculty + "]").attr("selected", "selected");
-                    $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
-                    $("#button").remove();
+                    $(".button").remove();
                     $(".stu-info input").removeClass("active").attr("readonly", "readonly");
                     $(".stu-info select").removeClass("active").attr("disabled", "disabled");
                     oldInfo = getInfo(); //更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
+                    //console.log(oldInfo);
                     flag = false;
+                    $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
                 }
                 else {//更新失败
                     $.omMessageTip.show({ content: '更新失败！', timeout: 1000, type: 'error' });
@@ -75,6 +77,8 @@ $(function () {
             })
             $("#modify-no").click(function () {
                 setInfo(oldInfo); //将各项值设置为原来的
+                //console.log(oldInfo);
+                sFaculty.find("option[value=" + oldInfo.sFaculty + "]").attr("selected", "selected");
                 loadMajor();
                 $(".button").remove();
                 $(".stu-info input").removeClass("active").attr("readonly", "readonly");

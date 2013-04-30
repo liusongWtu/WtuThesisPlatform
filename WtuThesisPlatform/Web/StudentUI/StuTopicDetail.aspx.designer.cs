@@ -10,6 +10,6 @@
 namespace Web.StudentUI {
     
     
-    public partial class StuSelect {
+    public partial class StuTopicDetail {
     }
 }

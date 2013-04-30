@@ -113,9 +113,11 @@ body{
 .container{
 	width: 100%;
 	margin-top: 160px;
+    position: relative;
 }
 .scroll{
-	overflow: scroll;
+	overflow: auto;
+    position: relative;
 }
 .clear{
 	clear: both;
@@ -127,6 +129,7 @@ body{
 }
 .content-wrap{
 	margin-left: 200px;
+    position: relative;
 	overflow: hidden;
 }
 .subNav-header{
