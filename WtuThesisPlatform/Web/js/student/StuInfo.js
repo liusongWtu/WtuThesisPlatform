@@ -32,6 +32,26 @@ $(function () {
             $("#ContentPlaceHolderBody_sFaculty").change(function () { loadMajor();});
             //绑定专业选择变化事件
             $("#ContentPlaceHolderBody_sProfession").change(function () { loadClass(); });
+            //绑定邮箱验证事件
+            sEmail.blur(function () {
+                var emailPatrn = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (emailPatrn.test(sEmail.val())) {
+                    $("#emailError").hide();
+                } else {
+                    $("#emailError").show();
+                }
+            });
+            //绑定电话验证事件
+            sPhone.blur(function () {
+                var phonePatrn = /^(?:13\d|15[89])-?\d{5}(\d{3}|\*{3})$/;//手机
+                var telPatrn = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/; //电话
+                if(phonePatrn.test(sPhone.val())||telPatrn.test(sPhone.val())){
+                    $("#phoneError").hide();
+                }else{
+                    $("#phoneError").show();
+                }
+            });
+
 
             flag = true;
             $(".stu-info").append(addDiv);
@@ -123,6 +143,8 @@ function loadClass() {
 
 //修改操作
 function modifyInfo() {
+    
+
     //ajax更新操作
     var ope = $.post("../../ashx/student/ModifyInfo.ashx",
         { "did": sFaculty.val(), "mid": sProfession.val(), "cid": sClass.val(), "phone": sPhone.val(), "email": sEmail.val(), "qq": sQQ.val() },
@@ -140,3 +162,6 @@ function modifyInfo() {
             return false;
         }
     }
+
+    //验证页面输入是否合法
+    

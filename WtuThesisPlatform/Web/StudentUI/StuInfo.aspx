@@ -32,9 +32,12 @@
                     班级：<select id="sClass" class="sClass" runat="server" disabled="disabled">
                     </select></dd>
                 <dd>
-                    电话：<input type="text" id="sPhone" class="sPhone" runat="server" value="13419540412" readonly="readonly" /></dd>
+                    电话：<input type="text" id="sPhone" class="sPhone" runat="server" value="13419540412"
+                        readonly="readonly" /><span id="phoneError" style="color: red; display: none">*</span>
+                </dd>
                 <dd>
-                    邮箱：<input type="text" id="sEmail" class="sEmail" runat="server" value="594659037@qq.com" readonly="readonly" />
+                    邮箱：<input type="text" id="sEmail" class="sEmail" runat="server" value="594659037@qq.com"
+                        readonly="readonly" /><span id="emailError" style="color: red; display: none">*</span>
                 </dd>
                 <dd>
                     Q Q：

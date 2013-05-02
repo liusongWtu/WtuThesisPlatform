@@ -23,9 +23,9 @@ namespace Web
                 {
                     //数据库中不存在从cookie中读出的用户,有可能这个cookie是用户伪造的,也有可能管理员已经把这个用户删除了.
                     //及其他不合法情况
-                    Response.Cookies["loginId"].Expires.AddYears(-1);
-                    Response.Cookies["pwd"].Expires.AddYears(-1);
-                    Response.Cookies["userType"].Expires.AddYears(-1);
+                    Response.Cookies["loginId"].Expires=DateTime.Now.AddYears(-1);
+                    Response.Cookies["pwd"].Expires = DateTime.Now.AddYears(-1);
+                    Response.Cookies["userType"].Expires = DateTime.Now.AddYears(-1);
                 }
             }
         }

@@ -27,6 +27,7 @@ namespace Web.StudentUI
                 return;
             }
             currStudent= Session["currUser"] as Student;
+            userType.Value = "1";
 
             if (!IsPostBack)
             {
