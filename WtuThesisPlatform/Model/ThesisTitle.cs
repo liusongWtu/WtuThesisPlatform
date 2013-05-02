@@ -14,10 +14,9 @@ namespace WtuThesisPlatform.MODEL
 		
         #region Protected Properties
         protected int _tId;
-        protected int _tTeacherId;
+        protected Teacher _teacher;
         protected string _tName = String.Empty;
         protected string _tLevel = String.Empty;
-        protected string _tField = String.Empty;
         protected int _tNumber;
         protected string _tRequire = String.Empty;
         protected int _tSelectedNum;
@@ -41,10 +40,10 @@ namespace WtuThesisPlatform.MODEL
         /// <summary>
         ///  出题教师id
         /// </summary>
-        public int TTeacherId
+        public Teacher Teacher
         {
-            set {_tTeacherId = value;}
-            get {return _tTeacherId;}
+            set {_teacher = value;}
+            get {return _teacher;}
         }
 
         /// <summary>
@@ -63,15 +62,6 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_tLevel = value;}
             get {return _tLevel;}
-        }
-
-        /// <summary>
-        ///  选题方向
-        /// </summary>
-        public string TField
-        {
-            set {_tField = value;}
-            get {return _tField;}
         }
 
         /// <summary>

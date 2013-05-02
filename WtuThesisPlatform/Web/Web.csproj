@@ -996,7 +996,6 @@
     <Content Include="ashx\common\CheckPwd.ashx" />
     <Content Include="ashx\common\ChangePwd.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
-    <None Include="StudentUI\StuInfo.aspx.orig" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

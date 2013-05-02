@@ -58,6 +58,7 @@
     <Compile Include="SysFunDAL.cs" />
     <Compile Include="TBSys_IdManagerDAL.cs" />
     <Compile Include="TeacherDAL.cs" />
+    <Compile Include="ThesisCollectDAL.cs" />
     <Compile Include="ThesisSelectedDAL.cs" />
     <Compile Include="ThesisTitleDAL.cs" />
   </ItemGroup>

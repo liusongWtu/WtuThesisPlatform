@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public ThesisTitle GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TTeacherId,TName,TLevel,TField,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel from ThesisTitle ");
+            strSql.Append("select TId,TTeacherId,TName,TLevel,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel from ThesisTitle ");
             strSql.Append(" where TId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public ThesisTitle GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TTeacherId,TName,TLevel,TField,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel from ThesisTitle ");
+            strSql.Append("select TId,TTeacherId,TName,TLevel,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel from ThesisTitle ");
             strSql.Append(" where "+strWhere);
             ThesisTitle model = new ThesisTitle();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<ThesisTitle> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TTeacherId,TName,TLevel,TField,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel ");
+            strSql.Append("select TId,TTeacherId,TName,TLevel,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel ");
             strSql.Append(" FROM ThesisTitle ");
             if (strWhere.Trim() != "")
             {
@@ -189,11 +189,11 @@ namespace WtuThesisPlatform.DAL
             }
             if (!dr.IsNull("TTeacherId")&&dr["TTeacherId"].ToString() != "")
             {
-                model.TTeacherId = int.Parse(dr["TTeacherId"].ToString());
+                int teacherId=int.Parse(dr["TTeacherId"].ToString());
+                model.Teacher = new TeacherDAL().GetModel(teacherId);
             }
             model.TName = dr["TName"].ToString();
             model.TLevel = dr["TLevel"].ToString();
-            model.TField = dr["TField"].ToString();
             if (!dr.IsNull("TNumber")&&dr["TNumber"].ToString() != "")
             {
                 model.TNumber = int.Parse(dr["TNumber"].ToString());
@@ -240,16 +240,15 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into ThesisTitle(");
-                strSql.Append("TId,TTeacherId,TName,TLevel,TField,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel)");
+                strSql.Append("TId,TTeacherId,TName,TLevel,TNumber,TRequire,TSelectedNum,TAcceptNum,TState,TYear,TDepartmentId,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @TId,@TTeacherId,@TName,@TLevel,@TField,@TNumber,@TRequire,@TSelectedNum,@TAcceptNum,@TState,@TYear,@TDepartmentId,@IsDel)");
+                strSql.Append(" @TId,@TTeacherId,@TName,@TLevel,@TNumber,@TRequire,@TSelectedNum,@TAcceptNum,@TState,@TYear,@TDepartmentId,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
                     new SqlParameter("@TTeacherId", SqlDbType.Int,4),
                     new SqlParameter("@TName", SqlDbType.VarChar,80),
                     new SqlParameter("@TLevel", SqlDbType.VarChar,20),
-                    new SqlParameter("@TField", SqlDbType.VarChar,20),
                     new SqlParameter("@TNumber", SqlDbType.Int,4),
                     new SqlParameter("@TRequire", SqlDbType.VarChar,16),
                     new SqlParameter("@TSelectedNum", SqlDbType.Int,4),
@@ -260,18 +259,17 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.TId;
-                parameters[1].Value = model.TTeacherId;
+                parameters[1].Value = model.Teacher;
                 parameters[2].Value = model.TName;
                 parameters[3].Value = model.TLevel;
-                parameters[4].Value = model.TField;
-                parameters[5].Value = model.TNumber;
-                parameters[6].Value = model.TRequire;
-                parameters[7].Value = model.TSelectedNum;
-                parameters[8].Value = model.TAcceptNum;
-                parameters[9].Value = model.TState;
-                parameters[10].Value = model.TYear;
-                parameters[11].Value = model.TDepartmentId;
-                parameters[12].Value = model.IsDel;
+                parameters[4].Value = model.TNumber;
+                parameters[5].Value = model.TRequire;
+                parameters[6].Value = model.TSelectedNum;
+                parameters[7].Value = model.TAcceptNum;
+                parameters[8].Value = model.TState;
+                parameters[9].Value = model.TYear;
+                parameters[10].Value = model.TDepartmentId;
+                parameters[11].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -294,7 +292,6 @@ namespace WtuThesisPlatform.DAL
                         strSql.Append("TTeacherId=@TTeacherId,");
             strSql.Append("TName=@TName,");
             strSql.Append("TLevel=@TLevel,");
-            strSql.Append("TField=@TField,");
             strSql.Append("TNumber=@TNumber,");
             strSql.Append("TRequire=@TRequire,");
             strSql.Append("TSelectedNum=@TSelectedNum,");
@@ -309,7 +306,6 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TTeacherId", SqlDbType.Int,4),
                     new SqlParameter("@TName", SqlDbType.VarChar,80),
                     new SqlParameter("@TLevel", SqlDbType.VarChar,20),
-                    new SqlParameter("@TField", SqlDbType.VarChar,20),
                     new SqlParameter("@TNumber", SqlDbType.Int,4),
                     new SqlParameter("@TRequire", SqlDbType.VarChar,16),
                     new SqlParameter("@TSelectedNum", SqlDbType.Int,4),
@@ -319,18 +315,17 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TDepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.TId;
-                parameters[1].Value = model.TTeacherId;
+                parameters[1].Value = model.Teacher;
                 parameters[2].Value = model.TName;
                 parameters[3].Value = model.TLevel;
-                parameters[4].Value = model.TField;
-                parameters[5].Value = model.TNumber;
-                parameters[6].Value = model.TRequire;
-                parameters[7].Value = model.TSelectedNum;
-                parameters[8].Value = model.TAcceptNum;
-                parameters[9].Value = model.TState;
-                parameters[10].Value = model.TYear;
-                parameters[11].Value = model.TDepartmentId;
-                parameters[12].Value = model.IsDel;
+                parameters[4].Value = model.TNumber;
+                parameters[5].Value = model.TRequire;
+                parameters[6].Value = model.TSelectedNum;
+                parameters[7].Value = model.TAcceptNum;
+                parameters[8].Value = model.TState;
+                parameters[9].Value = model.TYear;
+                parameters[10].Value = model.TDepartmentId;
+                parameters[11].Value = model.IsDel;
 
             try
             {

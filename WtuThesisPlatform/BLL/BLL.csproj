@@ -55,6 +55,7 @@
     <Compile Include="SysFunBLL.cs" />
     <Compile Include="TBSys_IdManagerBLL.cs" />
     <Compile Include="TeacherBLL.cs" />
+    <Compile Include="ThesisCollectBLL.cs" />
     <Compile Include="ThesisSelectedBLL.cs" />
     <Compile Include="ThesisTitleBLL.cs" />
   </ItemGroup>
