@@ -109,12 +109,14 @@
 	height: 22px;
 }
 .store-icon{	
+    cursor: pointer;
 	background: url(../../images/student/stu_select/stu_select_store.gif) 0 0 no-repeat;
 }
 .store-icon-actived{
 	background: url(../../images/student/stu_select/stu_select_store.gif) -22px 0 no-repeat;
 }
 .select-icon{
+    cursor: pointer;
 	background: url(../../images/student/stu_select/stu_select_select.gif) 0 0 no-repeat;
 }
 .select-icon-actived{
@@ -125,9 +127,9 @@
 	font-weight: bold;
 	background: url(../../images/student/stu_info.gif) 0 0 no-repeat;
 	display: inline-block;
-	width: 100%;
 	height: 42px;
 	padding-left: 40px;
+    float: left;
 }
 .topic-info .topic-list tr.hover{
 	background: #DCF3FB;
@@ -135,12 +137,8 @@
 .topic-info .topic-list tr.actived{
 	background: #F6FFF0;
 }
-.detail{
-	line-height: 25px;
-	font-size: 14px;
-	font-weight: bold;
-}
-.detail table{
+
+/*.detail table{
 	border-left: 1px solid #e6e6e6;
 	border-right: 1px solid #e6e6e6;
 	border-bottom: 1px solid #e6e6e6;
@@ -158,7 +156,7 @@
 .topic-info .topic-list tr.show{
 	display: table-row;
 }
-
+*/
 
 
 /*这里是mystore、myselect的css*/
@@ -315,7 +313,28 @@
 
 /*选题详细信息*/
 .topic-single{
-	margin-left: 40px;
+	margin: 20px 0 20px 40px;
+    border-top: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+}
+.colname{
+	line-height: 25px;
+	font-size: 14px;
+	font-weight: bold;
+    background: #F1F1F1;
+}
+.ope{
+    margin: 15px 0 0px 20px;
+}
+.topic-single td{
+    width: 400px;
+    line-height: 30px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+}
+.topic-single p{
+    margin: 10px 5px;
 }
 .message-board{
 	font-size: 13px;

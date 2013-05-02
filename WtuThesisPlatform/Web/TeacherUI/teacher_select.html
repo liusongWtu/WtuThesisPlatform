@@ -21,26 +21,6 @@
 <script type="text/javascript" src="../js/om/ui/om-messagetip.js"></script>
 <script type="text/javascript" src="../js/om/ui/om-resizable.js"></script>
 <script type="text/javascript" src="../js/om/ui/om-grid.js"></script>
-<script type="text/javascript">
-    $(function () {
-        var _height = window.innerHeight;
-        var _width = window.innerWidth;
-        $(".container").height(_height - $(".header-wap").height());
-        $(".subNav-size").height($(".container").height() - 30);
-        $("#content").height($(".container").height() - 30);
-        $("#content").width(_width - 200);
-        $(window).resize(function () {
-            var height = window.innerHeight;
-            var width = window.innerWidth;
-            $(".container").height(height - $(".header-wap").height());
-            $(".subNav-size").height($(".container").height() - 30);
-            $("#content").height($(".container").height() - 30);
-            $("#content").width(width - 200);
-        });
-    });
-
-</script>
-
 </head>
 
 <body>
@@ -99,14 +79,14 @@
 									<td class="td3">预览</td>
 									<td class="td4 last">删除</td>
 								</tr>
-								<tr class="list-content">
+								<tr class="list-content nohover">
 									<td class="td0"><a href="#">毕业设计选题系统</a></td>
 									<td class="td1"><span class="tea-apply ope"><span></span></span></td>
 									<td class="td2"><span class="tea-modify ope"><span></span></span></td>
 									<td class="td3"><span class="tea-check ope"><span></span></span></td>
 									<td class="td4"><span class="tea-delete ope"><span></span></span></td>						
 								</tr>
-                                <tr class="list-content">
+                                <tr class="list-content nohover">
 									<td class="td0"><a href="#">毕业设计选题系统</a></td>
 									<td class="td1"><span class="tea-apply ope"><span></span></span></td>
 									<td class="td2"><span class="tea-modify ope"><span></span></span></td>

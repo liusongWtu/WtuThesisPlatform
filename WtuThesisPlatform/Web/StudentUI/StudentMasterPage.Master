@@ -19,48 +19,7 @@
     <script type="text/javascript" src="../js/om/ui/om-messagetip.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <script type="text/javascript">
-        $(function () {
-            var _height = getPageHeight();
-            var _width = getPageWidth();
-            $(".container").height(_height - $(".header-wap").height());
-            $(".subNav-size").height($(".container").height() - 30);
-            $("#content").height($(".container").height() - 30);
-            $("#content").width(_width - 200);
-            $(window).resize(function () {
-                var height = getPageHeight();
-                var width = getPageWidth();
-                $(".container").height(height - $(".header-wap").height());
-                $(".subNav-size").height($(".container").height() - 30);
-                $("#content").height($(".container").height() - 30);
-                $("#content").width(width - 200);
-            });
-        });
-
-        function getPageHeight() {
-            var windowHeight
-            if (self.innerHeight) {//all except Explorer
-                windowHeight = self.innerHeight;
-            } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
-                windowHeight = document.documentElement.clientHeight;
-            } else if (document.body) {//other Explorers
-                windowHeight = document.body.clientHeight;
-            }
-            return windowHeight
-        }
-
-        function getPageWidth() {
-            var windowWidth
-            if (self.innerWidth) {//all except Explorer
-                windowWidth = self.innerWidth;
-            } else if (document.documentElement && document.documentElement.clientWidth) { // Explorer 6 Strict Mode
-                windowWidth = document.documentElement.clientWidth;
-            } else if (document.body) {//other Explorers
-                windowWidth = document.body.clientWidth;
-            }
-            return windowWidth
-        }
-    </script>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -84,7 +43,7 @@
                         <%= noticeNum %></span></a></li>
                     <li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">
                         <%= msgNum %></span></a></li>
-                    <li id="logout" class="loginout"><a href="/ashx/common/LoginOut.ashx"><span class="outIcon fontSty cursor">
+                    <li id="logout" class="loginout"><a href="javascript:void(0)"><span class="outIcon fontSty cursor">
                         退出</span></a></li>
                 </ul>
             </div>

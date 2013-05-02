@@ -56,8 +56,8 @@ input[type="password"]:focus{
 .mb30{
 	margin-bottom: 30px;
 }
-.wid800{
-	width: 800px;
+.wid1000{
+	width: 1000px;
 }
 
 /*左右浮动考虑双倍边距bug*/

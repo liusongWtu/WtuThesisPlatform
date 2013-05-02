@@ -9,7 +9,8 @@
 }
 .topic dt{
 	border-bottom: 3px solid #2888a8;
-	font-size: 18px;
+	font-size: 20px;
+    font-weight: bold;
 	height: 42px;
 	line-height: 55px;
 	padding: 20px 0 0 0 ;
@@ -170,6 +171,12 @@
 	font-size: 14px;
 	font-weight: bold;
 	
+}
+.td-wid0{
+    width: 50%;
+}
+.td-wid1{
+    width: 50%;
 }
 .tr-wid{
 	width: 80%;

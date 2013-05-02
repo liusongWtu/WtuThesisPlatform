@@ -38,7 +38,7 @@ $(function () {
         $(this).parent().siblings().children("dd").removeClass("menu-list-actived");
     });
 
-  
+
 
     /*********左侧折叠菜单*********/
 
@@ -48,9 +48,66 @@ $(function () {
     $headerlis.click(function () {
         $(this).addClass("nav-ul-li-actived").siblings("li").removeClass("nav-ul-li-actived");
     });
-    /*********头部一级菜单*********/
+
+    /**********登出效果**********/
+    $("#logout").click(function () {
+        $.omMessageBox.confirm({
+            title: '确认退出？',
+            content: '确定要退出系统吗？',
+            onClose: function (value) {
+                if (value) {
+                    self.location = "/ashx/common/LoginOut.ashx";
+                }
+            }
+        });
+        return false;
+    })
 
 })
+
+
+//控制布局js
+$(function () {
+    var _height = getPageHeight();
+    var _width = getPageWidth();
+    $(".container").height(_height - $(".header-wap").height());
+    $(".subNav-size").height($(".container").height() - 30);
+    $("#content").height($(".container").height() - 30);
+    $("#content").width(_width - 200);
+    $(window).resize(function () {
+        var height = getPageHeight();
+        var width = getPageWidth();
+        $(".container").height(height - $(".header-wap").height());
+        $(".subNav-size").height($(".container").height() - 30);
+        $("#content").height($(".container").height() - 30);
+        $("#content").width(width - 200);
+    });
+});
+
+//获得网页可视区的高度
+function getPageHeight() {
+    var windowHeight
+    if (self.innerHeight) {//all except Explorer
+        windowHeight = self.innerHeight;
+    } else if (document.documentElement && document.documentElement.clientHeight) { // Explorer 6 Strict Mode
+        windowHeight = document.documentElement.clientHeight;
+    } else if (document.body) {//other Explorers
+        windowHeight = document.body.clientHeight;
+    }
+    return windowHeight
+}
+//获得网页可视区的宽度
+function getPageWidth() {
+    var windowWidth
+    if (self.innerWidth) {//all except Explorer
+        windowWidth = self.innerWidth;
+    } else if (document.documentElement && document.documentElement.clientWidth) { // Explorer 6 Strict Mode
+        windowWidth = document.documentElement.clientWidth;
+    } else if (document.body) {//other Explorers
+        windowWidth = document.body.clientWidth;
+    }
+    return windowWidth
+}
 
 //记录导航状态
 

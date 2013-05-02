@@ -8,19 +8,7 @@ $(function () {
             $(this).parent().children("label").show();
         }
     });
-    /**********登出效果**********/
-    $("#logout").click(function () {
-        $.omMessageBox.confirm({
-
-           title: '确认退出？',
-            content: '确定要退出系统吗？',
-            onClose: function (value) {
-                if (value) {
-                    self.location = "index.html";
-                }
-            }
-        });
-    })
+    
     /**********收藏以及选题效果**********/
     $(".store-icon").click(function (e) {
         $(this).toggleClass("store-icon-actived");

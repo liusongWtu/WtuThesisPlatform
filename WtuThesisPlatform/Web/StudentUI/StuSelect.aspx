@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/student/stu_select.css" />
     <link rel="stylesheet" type="text/css" href="../css/student/stu_page.css" />
+    <script type="text/javascript" src="../js/student/StuSelect.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">
