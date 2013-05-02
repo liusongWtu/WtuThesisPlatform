@@ -1,23 +1,24 @@
-.apply-topic-list{
+.wrap{
+	width: 86%;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: "新宋体";
+}
+.wrap a:hover{
+	text-decoration: underline;
+}
+.topic dt{
+	border-bottom: 3px solid #2888a8;
+	font-size: 18px;
+	height: 42px;
+	line-height: 55px;
+	padding: 20px 0 0 0 ;
+}
+.topic-list{
 	width:95%;
 	margin-top: 20px;
 }
-.apply-topic-list  td{
-	white-space: nowrap; /* 强制文字将不自动换行 */
-	overflow: hidden; /* 隐藏超出容器范围的文字 */
-	text-overflow: ellipsis; /* IE, Safari*/
-	-o-text-overflow: ellipsis; /* Opera */
-	-icab-text-overflow: ellipsis;
-	-khtml-text-overflow: ellipsis;
-	-moz-text-overflow: ellipsis;
-	-webkit-text-overflow: ellipsis; /* 目前这段代码无效，为 Firefox 预留 */
-}
-.list-header{
-	font-size: 12px;
-	height: 22px;
-	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
-}
-.apply-topic-list td{
+.topic-list td{
 	vertical-align: middle;
 	height: 22px;
 	text-align: center;
@@ -25,17 +26,27 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
-.list-header .td4{
-	border-right: 1px solid #e6e6e6;
+.list-header{
+	font-size: 12px;
+	height: 22px;
+	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
 }
+
 .list-header td{	
 	border-left: 1px solid #e6e6e6;
-
 	border-top: 1px solid #e6e6e6;
 }
 .list-content{
     border-bottom: 1px solid #e6e6e6;
 }
+.list-content td{
+	line-height: 35px;
+	border-bottom: 1px solid #e6e6e6;
+}
+.list-content .td0{
+	font-weight: bold;
+}
+
 .td0{
 	width: 27%;
 }
@@ -51,32 +62,17 @@
 .td4{
 	width: 10%;
 }
-.wrap{
-	width: 86%;
-	margin: 0 auto;
-	font-size: 14px;
-	font-family: "新宋体";
+.last{
+	border-right: 1px solid #e6e6e6;
 }
-.wrap a:hover{
-	text-decoration: underline;
-}
-.wrap dt{
-	border-bottom: 3px solid #2888a8;
-	font-size: 18px;
-	
-	height: 42px;
-	line-height: 55px;
-	padding: 20px 0 0 0 ;
-}
-.wrap dd{
-	padding-left: 40px;
-}
+
 .ope{
     display: inline-block;
-    width: 34px;
+    width: 32px;
     height: 30px;
+	margin: 2px;
     border: 1px solid #FFF;
-    
+    border-radius: 5px;
 }
 .ope:hover{
     border: 1px solid #d3e8f3;
@@ -97,7 +93,7 @@
     background: url(../../images/teacher/tea_select.png) -24px 3px no-repeat;
 }
 .tea-check span{      
-    background: url(../../images/teacher/tea_select.png) -53px 3px no-repeat;
+    background: url(../../images/teacher/tea_select.png) -55px 3px no-repeat;
 }
 .tea-delete span{      
     background: url(../../images/teacher/tea_select.png) -83px 3px no-repeat;
@@ -118,8 +114,79 @@
 /*申请表样式*/
 .apply-table-wrap{
     width: 100%;
+    margin: 40px auto;
+	text-align: center;
 }
 .apply-table{
-    width: 1000px;
-    margin: 0 auto;
+    width: 800px;
+	border-bottom: 1px solid #E9EDF1;
+	border-left: 1px solid #E9EDF1;
+	border-top: 1px solid #E9EDF1;
+}
+.apply-table td{
+	border-right : 1px solid #E9EDF1;
+	border-bottom: 1px solid #E9EDF1;
+	padding: 8px;
+	text-align: left;
+}
+.t-title{
+	font-size: 24x;
+	font-weight: bold;
+	margin: 20px 0;
+}
+.col-name{
+	width: 100px;
+	background: #F3F6F9;
+}
+.input-style{
+	width: 100%;
+	padding: 2px;
+	border: none;
+}
+.td-height{
+	height: 200px;
+}
+.apply{
+	border: none;
+	width: 54px;
+	height: 27px;
+	background: url(../../images/teacher/save.gif) 0 -27px no-repeat;
+}
+
+.apply:hover{
+	background: url(../../images/teacher/save.gif) 0 0 no-repeat;
+}
+/*所有选题样式*/
+
+.topic-list tr.hover{
+	background: #DCF3FB;
+}
+.topic-list tr.actived{
+	background: #F6FFF0;
+}
+.detail{
+	
+	line-height: 25px;
+	font-size: 14px;
+	font-weight: bold;
+	
+}
+.tr-wid{
+	width: 80%;
+	border-left: 1px solid #e6e6e6;
+	border-right: 1px solid #e6e6e6;
+}
+.detail p{
+	font-weight: normal;
+	text-indent: 2em;
+}
+.detail table td{
+	text-align: left;
+	border: none;
+}
+.topic .topic-list tr.hide{
+	display: none;
+}
+.topic .topic-list tr.show{
+	display: table-row;
 }

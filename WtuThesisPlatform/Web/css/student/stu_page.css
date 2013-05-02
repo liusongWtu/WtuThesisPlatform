@@ -3,11 +3,41 @@
 	color: #555555;
 }
 
+/*这里是topic_info的样式*/
+.wrap{
+	width: 86%;
+	margin: 0 auto;
+	font-size: 14px;
+	font-family: "新宋体";
+}
+.wrap a:hover{
+	text-decoration: underline;
+}
+.teacher-info{
+	width: 100%;
+}
+.topic-info{
+	padding-bottom: 20px;
+}
+.wrap dt{
+	border-bottom: 3px solid #2888a8;
+	font-size: 20px;
+	font-weight: bold;
+	height: 42px;
+	line-height: 55px;
+	padding: 20px 0 0 0 ;
+}
+.wrap dd{
+	padding-left: 40px;
+}
+.teacher-info dd{
+    line-height: 40px;
+}
 .topic-list{
 	width:95%;
 	margin-top: 20px;
 }
-.topic-list  td{
+.topic-list td{
 	white-space: nowrap;
 	overflow: hidden; 
 	text-overflow: ellipsis; 
@@ -16,18 +46,15 @@
 	-khtml-text-overflow: ellipsis;
 	-moz-text-overflow: ellipsis;
 	-webkit-text-overflow: ellipsis;
+	text-align: center;
+	padding: 0 10px;
 }
 .list-header{
 	font-size: 12px;
 	height: 22px;
 	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
 }
-.topic-list td{
-	/*vertical-align: middle;*/
-	/*height: 22px;*/
-	text-align: center;
-	padding: 0 10px;
-}
+
 
 .topic-list .td1{
 	text-align: left;
@@ -94,37 +121,6 @@
 	background: url(../../images/student/stu_select/stu_select_select.gif) -22px 0 no-repeat;
 }
 
-
-/*这里是topic_info的样式*/
-.wrap{
-	width: 86%;
-	margin: 0 auto;
-	font-size: 14px;
-	font-family: "新宋体";
-}
-.wrap a:hover{
-	text-decoration: underline;
-}
-.teacher-info{
-	width: 100%;
-}
-.topic-info{
-	padding-bottom: 20px;
-}
-.wrap dt{
-	border-bottom: 3px solid #2888a8;
-	font-size: 20px;
-	font-weight: bold;
-	height: 42px;
-	line-height: 55px;
-	padding: 20px 0 0 0 ;
-}
-.wrap dd{
-	padding-left: 40px;
-}
-.teacher-info dd{
-    line-height: 40px;
-}
 .teacher-info dt h1,.topic-info dt h1,.stu-info dt h1{
 	font-weight: bold;
 	background: url(../../images/student/stu_info.gif) 0 0 no-repeat;

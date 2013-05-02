@@ -60,6 +60,7 @@
     <Content Include="css\index.css" />
     <Content Include="css\teacher\teacher_pages.css" />
     <Content Include="images\student\buttons.gif" />
+    <Content Include="images\teacher\save.gif" />
     <Content Include="images\teacher\tea_select.png" />
     <Content Include="js\student\StuInfo.js" />
     <Content Include="css\common_index.css" />
@@ -834,6 +835,7 @@
     <Content Include="StudentUI\stu_topic_detail.html" />
     <Content Include="StudentUI\stu_topic_info.html" />
     <Content Include="StudentUI\StuTopicInfo.aspx" />
+    <Content Include="TeacherUI\allTopic.html" />
     <Content Include="TeacherUI\applyExcel.htm" />
     <Content Include="TeacherUI\teacher_index .html" />
     <Content Include="TeacherUI\teacher_select.html" />
@@ -985,6 +987,7 @@
     <Content Include="ashx\student\ModifyInfo.ashx" />
     <Content Include="ashx\common\LoadSelect.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
+    <None Include="StudentUI\StuInfo.aspx.orig" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
