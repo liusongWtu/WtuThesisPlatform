@@ -66,9 +66,7 @@ body{
 	float: left;
 
 }
-.info_ul a:hover{
-	text-decoration: underline;
-}
+
 .infoItem{
 	padding-right: 15px;
 	padding-left: 15px;

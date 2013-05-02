@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../css/base.css" />
 <link rel="stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
 <link rel="stylesheet" type="text/css" href="../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../css/student/stu_select.css" />
 <link rel="stylesheet" type="text/css" href="../js/om/themes/apusic/om-all.css" />
 <script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
 <script type="text/javascript" src="../js/template.js"></script>
@@ -18,21 +19,6 @@
 <script type="text/javascript" src="../js/om/ui/om-messagetip.js"></script>
 <script type="text/javascript">
 	$(function(){
-		var _height = window.innerHeight;
-		var _width = window.innerWidth;
-		$(".container").height(_height-$(".header-wap").height());
-		$(".subNav-size").height($(".container").height()-30);
-		$("#content").height($(".container").height()-30);
-		$("#content").width(_width-200);
-		$(window).resize(function(){
-			var height = window.innerHeight;
-		    var width = window.innerWidth;
-			$(".container").height(height-$(".header-wap").height());
-			$(".subNav-size").height($(".container").height()-30);
-			$("#content").height($(".container").height()-30);
-			$("#content").width(width-200);
-		});	
-		
 		$(".topic-list tr:not('.nohover'):not(:first)").hover(function () {
         $(this).toggleClass("hover");
     }).click(function () {
@@ -74,41 +60,47 @@
 					<p class="enFont">Menu Administration</p>
 				</div>
 				<dl class="menu">
-					<dt class="menu-header open"><span class="menu-header-icon menu-icon"></span>毕业设计展示</dt>
-					<dd class="menu-list"><span class="menu-list-icon menu-icon"></span><a href="#">全部作品</a></dd>
+					<dt class="menu-header open"><span class="menu-header-icon menu-icon"></span>选题申请</dt>
+					<dd class="menu-list"><span class="menu-list-icon menu-icon"></span><a href="#">教师选题申请</a></dd>
 				</dl>
 				<dl class="menu">
-					<dt class="menu-header"><span class="menu-header-icon menu-icon"></span>查看公告</dt>
-					<dd class="menu-list"><span class="menu-list-icon menu-icon"></span><a href="#">全部公告</a></dd>
-					<dd class="menu-list"><span class="menu-list-icon menu-icon"></span><a href="#">发布公告</a></dd>
+					<dt class="menu-header"><span class="menu-header-icon menu-icon"></span>历年选题管理</dt>
 				</dl>
 				<dl class="menu">
-					<dt class="menu-header cursor"><span class="menu-header-icon menu-icon"></span>相关文档下载</dt>
+					<dt class="menu-header cursor"><span class="menu-header-icon menu-icon"></span>学生选题管理</dt>
 				</dl>
 			</div>
 			<div class="content-wrap">
 				<div id="content" class="fl scroll content">
 					<div class="wrap">
+                        <div class="content-top">
+                            <div class="search fl fillet">
+                                <label class="ablt">
+                                    关键字...</label>
+                                <input type="text" class="search-input" />
+                                <button id="searchButton" class="search-button abrt">
+                                    <span>搜索</span></button>
+                            </div>
+                        </div>
 						<div class="topic">
-							<dl>
-								<dt><h1>历年选题信息</h1></dt>
-							
-							</dl>
+							<!--<dl>
+								<dt>历年选题信息</dt>
+							</dl>-->
 							<table class="topic-list" cellspacing="0" cellpadding="0">
 								<tr class="list-header">
-									<td>选题名称</td>
-									<td class="last">出题时间</td>
+									<td class="td-wid0">选题名称</td>
+									<td class="last td-wid1" style="width: 50%">出题时间</td>
 								</tr>
 								<tr class="list-content">
-									<td>毕业设计选题系统</td>
-									<td>2012-04-12</td>
+									<td class="td-wid0">毕业设计选题系统</td>
+									<td class="td-wid1">2012-04-12</td>
 								</tr>
 								<tr class="detail nohover hide">
 									<td colspan="2" class="tr-wid">
 										<table>
-											<tr class="nohover"><td class="fn-text-wrap">开发平台<p id="developTool">Visual C++</p></td></tr>
-											<tr class="nohover"><td class="fn-text-wrap">题目简介<p id="topicIntro">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
-											<tr class="nohover"><td class="fn-text-wrap">设计功能与实现目标<p id="target">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">开发平台<p>Visual C++</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">题目简介<p>视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
+											<tr class="nohover"><td class="fn-text-wrap">设计功能与实现目标<p>视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
 										</table>
 									</td>
 								</tr>
@@ -118,7 +110,7 @@
 								</tr>
 								<tr class="detail nohover hide">
 									<td colspan="2" class="tr-wid">
-										<table>
+										<table align="left">
 											<tr class="nohover"><td class="fn-text-wrap">开发平台<p id="developTool">Visual C++</p></td></tr>
 											<tr class="nohover"><td class="fn-text-wrap">题目简介<p id="topicIntro">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
 											<tr class="nohover"><td class="fn-text-wrap">设计功能与实现目标<p id="target">视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。</p></td></tr>
@@ -129,6 +121,36 @@
 							</table>
 
 						</div>
+                         <div class="content-bottom">
+                            <table class="pagechange">
+                                <tr>
+                                    <td class="page-up" title="上一页">
+                                        <span></span>
+                                    </td>
+                                    <td>
+                                        <a href="#">1</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">2</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">3</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">4</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">5</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">6</a>
+                                    </td>
+                                    <td class="page-down" title="下一页">
+                                        <span></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
 					</div>
 					
 					
