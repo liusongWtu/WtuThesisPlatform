@@ -19,6 +19,8 @@
                 <dd>
                     姓名：<input type="text" id="sName" class="sName" runat="server" value="刘松" readonly="readonly" /></dd>
                 <dd>
+                    性别：<input type="text" id="sSex" class="sSex" runat="server" value="女" readonly="readonly" /></dd>
+                <dd>
                     学号：<input type="text" id="sNo" class="sNo" runat="server" value="0904681206" readonly="readonly" /></dd>
                 <dd>
                     届数：<input type="text" id="sYear" class="sYear" runat="server" value="" readonly="readonly" /></dd>

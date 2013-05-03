@@ -7,33 +7,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
-        <!--<div class="teacher-info">
-            <dl>
-                <dt>
-                    <h1>
-                        导师基本信息</h1>
-                </dt>
-                <dd>
-                    姓名：<span id="tName">何儒汉</span></dd>
-                <dd>
-                    职称：<span id="tPosition">学院副教授</span></dd>
-                <dd>
-                    电话：<span id="tPhone">16441471409</span></dd>
-                <dd>
-                    QQ：<span id="tQQ">594659037</span></dd>
-                <dd>
-                    邮箱：<span id="tEmail">594659037@qq.com</span></dd>
-                <dd>
-                    院系：<span id="tFaculty">数学与计算机学院</span></dd>
-                <dd>
-                    主讲课程：<span id="tProfession">数据库原理、软件基础、Delphi数据库应用、Unix操作系统</span></dd>
-                <dd>
-                    研究方向：<span id="tResearch">计算机视觉、多媒体处理、搜索引擎、信息检索、物流优化</span></dd>
-            </dl>
-            <div id="tPhoto">
-								待定
-							</div>
-        </div>-->
         <div class="topic-info">
             <dl>
                 <dt>

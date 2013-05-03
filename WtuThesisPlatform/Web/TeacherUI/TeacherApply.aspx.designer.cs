@@ -10,6 +10,6 @@
 namespace Web.TeacherUI {
     
     
-    public partial class TeacherSelect1 {
+    public partial class TeacherSelect {
     }
 }

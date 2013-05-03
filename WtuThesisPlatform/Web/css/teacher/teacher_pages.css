@@ -141,6 +141,9 @@
 .topic-list tr.actived{
 	background: #F6FFF0;
 }
+.topic-list a{
+    padding: 3px;
+}
 .detail{
 	
 	line-height: 25px;
@@ -149,15 +152,15 @@
 	
 }
 .td-wid0{
-    width: 50%;
+    width: 70%;
 }
 .td-wid1{
-    width: 50%;
+    width: 30%;
 }
 .tr-wid{
-	width: 80%;
 	border-left: 1px solid #e6e6e6;
 	border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
 }
 .detail p{
 	font-weight: normal;
