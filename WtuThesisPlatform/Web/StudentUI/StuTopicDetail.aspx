@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
-        <div class="teacher-info">
+        <!--<div class="teacher-info">
             <dl>
                 <dt>
                     <h1>
@@ -30,10 +30,10 @@
                 <dd>
                     研究方向：<span id="tResearch">计算机视觉、多媒体处理、搜索引擎、信息检索、物流优化</span></dd>
             </dl>
-            <!--<div id="tPhoto">
+            <div id="tPhoto">
 								待定
-							</div>-->
-        </div>
+							</div>
+        </div>-->
         <div class="topic-info">
             <dl>
                 <dt>
@@ -47,16 +47,19 @@
                 <tr>
                     <td class="fn-text-wrap colname">选题名称</td>
                     <td id="topicname">毕业设计选题系统</td>
+                    <td class="fn-text-wrap colname">导师</td>
+                    <td id="topicTeacher"><a href="#">何何何</a></td>
                     <td class="fn-text-wrap colname">开发平台</td>
                     <td id="developTool">Visual C++</td>
-                    <td class="fn-text-wrap colname">允许选择人数</td>
-                    <td id="all">3</td>
+                    
                 </tr>
                 <tr>
+                    <td class="fn-text-wrap colname">允许选择人数</td>
+                    <td id="all">3</td>
                     <td class="fn-text-wrap colname">已选人数</td>
                     <td id="choosed">4</td>
                     <td class="fn-text-wrap colname">剩余人数</td>
-                    <td id="left" colspan="3" >7</td>
+                    <td id="left">7</td>
                 </tr>
                 <tr>
                     <td class="fn-text-wrap colname" colspan="6">题目简介</td>
