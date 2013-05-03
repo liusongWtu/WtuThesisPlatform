@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of ThesisSelected.
-    /// Datetime:2013/4/21 14:10:30
+    /// Datetime:2013/5/3 10:04:44
     /// </summary>
     public class ThesisSelectedDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public ThesisSelected GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,ThesisTitleId,TearchId,StudentId,TPassed,TYear,MessageId,IsDel from ThesisSelected ");
+            strSql.Append("select TId,ThesisTitleId,StudentId,TPassed,TYear,MessageId,IsDel from ThesisSelected ");
             strSql.Append(" where TId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public ThesisSelected GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,ThesisTitleId,TearchId,StudentId,TPassed,TYear,MessageId,IsDel from ThesisSelected ");
+            strSql.Append("select TId,ThesisTitleId,StudentId,TPassed,TYear,MessageId,IsDel from ThesisSelected ");
             strSql.Append(" where "+strWhere);
             ThesisSelected model = new ThesisSelected();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<ThesisSelected> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,ThesisTitleId,TearchId,StudentId,TPassed,TYear,MessageId,IsDel ");
+            strSql.Append("select TId,ThesisTitleId,StudentId,TPassed,TYear,MessageId,IsDel ");
             strSql.Append(" FROM ThesisSelected ");
             if (strWhere.Trim() != "")
             {
@@ -189,13 +189,14 @@ namespace WtuThesisPlatform.DAL
             }
             if (!dr.IsNull("ThesisTitleId")&&dr["ThesisTitleId"].ToString() != "")
             {
-                model.ThesisTitleId = int.Parse(dr["ThesisTitleId"].ToString());
+                int thesisTitleId=int.Parse(dr["ThesisTitleId"].ToString());
+                model.ThesisTitle = new ThesisTitleDAL().GetModel(thesisTitleId);
             }
-            if (!dr.IsNull("TearchId")&&dr["TearchId"].ToString() != "")
+            if (!dr.IsNull("StudentId")&&dr["StudentId"].ToString() != "")
             {
-                model.TearchId = int.Parse(dr["TearchId"].ToString());
+                int studentId=int.Parse(dr["StudentId"].ToString());
+                model.Student = new StudentDAL().GetModel(studentId);
             }
-            model.StudentId = dr["StudentId"].ToString();
             if (!dr.IsNull("TPassed")&&dr["TPassed"].ToString() != "")
             {
                 model.TPassed = bool.Parse(dr["TPassed"].ToString());
@@ -229,28 +230,26 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into ThesisSelected(");
-                strSql.Append("TId,ThesisTitleId,TearchId,StudentId,TPassed,TYear,MessageId,IsDel)");
+                strSql.Append("TId,ThesisTitleId,StudentId,TPassed,TYear,MessageId,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @TId,@ThesisTitleId,@TearchId,@StudentId,@TPassed,@TYear,@MessageId,@IsDel)");
+                strSql.Append(" @TId,@ThesisTitleId,@StudentId,@TPassed,@TYear,@MessageId,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
                     new SqlParameter("@ThesisTitleId", SqlDbType.Int,4),
-                    new SqlParameter("@TearchId", SqlDbType.Int,4),
-                    new SqlParameter("@StudentId", SqlDbType.VarChar,20),
+                    new SqlParameter("@StudentId", SqlDbType.Int,4),
                     new SqlParameter("@TPassed", SqlDbType.Bit,1),
                     new SqlParameter("@TYear", SqlDbType.VarChar,4),
                     new SqlParameter("@MessageId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.TId;
-                parameters[1].Value = model.ThesisTitleId;
-                parameters[2].Value = model.TearchId;
-                parameters[3].Value = model.StudentId;
-                parameters[4].Value = model.TPassed;
-                parameters[5].Value = model.TYear;
-                parameters[6].Value = model.MessageId;
-                parameters[7].Value = model.IsDel;
+                parameters[1].Value = model.ThesisTitle.TId;
+                parameters[2].Value = model.Student.SId;
+                parameters[3].Value = model.TPassed;
+                parameters[4].Value = model.TYear;
+                parameters[5].Value = model.MessageId;
+                parameters[6].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -271,7 +270,6 @@ namespace WtuThesisPlatform.DAL
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update ThesisSelected set ");
                         strSql.Append("ThesisTitleId=@ThesisTitleId,");
-            strSql.Append("TearchId=@TearchId,");
             strSql.Append("StudentId=@StudentId,");
             strSql.Append("TPassed=@TPassed,");
             strSql.Append("TYear=@TYear,");
@@ -281,20 +279,18 @@ namespace WtuThesisPlatform.DAL
             SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
                     new SqlParameter("@ThesisTitleId", SqlDbType.Int,4),
-                    new SqlParameter("@TearchId", SqlDbType.Int,4),
-                    new SqlParameter("@StudentId", SqlDbType.VarChar,20),
+                    new SqlParameter("@StudentId", SqlDbType.Int,4),
                     new SqlParameter("@TPassed", SqlDbType.Bit,1),
                     new SqlParameter("@TYear", SqlDbType.VarChar,4),
                     new SqlParameter("@MessageId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.TId;
-                parameters[1].Value = model.ThesisTitleId;
-                parameters[2].Value = model.TearchId;
-                parameters[3].Value = model.StudentId;
-                parameters[4].Value = model.TPassed;
-                parameters[5].Value = model.TYear;
-                parameters[6].Value = model.MessageId;
-                parameters[7].Value = model.IsDel;
+                parameters[1].Value = model.ThesisTitle;
+                parameters[2].Value = model.Student;
+                parameters[3].Value = model.TPassed;
+                parameters[4].Value = model.TYear;
+                parameters[5].Value = model.MessageId;
+                parameters[6].Value = model.IsDel;
 
             try
             {

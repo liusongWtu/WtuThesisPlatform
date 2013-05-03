@@ -14,8 +14,8 @@ namespace WtuThesisPlatform.BLL
     public class ThesisCollectBLL
     {
         private readonly ThesisCollectDAL dal = new ThesisCollectDAL();
-        
-		#region GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
+
+        #region GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
         /// <summary>
         /// GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
         /// </summary>
@@ -31,19 +31,19 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(pageIndex, pageSize, where, orderby, out rowCount, out pageCount);
         }
         #endregion
-        
+
         #region GetListByProc
         /// <summary>
         /// GetListByProc
         /// </summary>
         /// <param name="procName">procName</param>
         /// <param name="paras">paras</param>
-        public IList<ThesisCollect> GetListByProc(string procName,System.Data.SqlClient.SqlParameter[] paras)
+        public IList<ThesisCollect> GetListByProc(string procName, System.Data.SqlClient.SqlParameter[] paras)
         {
-            return dal.GetListByProc(procName,paras);
+            return dal.GetListByProc(procName, paras);
         }
         #endregion
-        
+
         #region GET A Model byId
         /// <summary>
         /// GET A Model byId
@@ -52,8 +52,19 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetModel(intId);
         }
-		#endregion
-        
+        #endregion
+
+        #region Contains the same thesisCollect
+        /// <summary>
+        /// Contains the same thesisCollect
+        /// </summary>
+        public bool Contians(ThesisCollect thesisCollect)
+        {
+            object obj = dal.GetModel("StudentId=" + thesisCollect.Student.SId + " and ThesisTitleId=" + thesisCollect.ThesisTitle.TId);
+            return obj == null ? false : true;
+        } 
+        #endregion
+
         #region GET DATA LIST
         /// <summary>
         /// GET DATA LIST
@@ -74,7 +85,7 @@ namespace WtuThesisPlatform.BLL
         public IList<ThesisCollect> GetListBySId(string studentId)
         {
             return dal.GetList("StudentId=" + studentId);
-        } 
+        }
         #endregion
 
         #region RESTORE
@@ -86,7 +97,7 @@ namespace WtuThesisPlatform.BLL
             return dal.UpdateDel(ids, false);
         }
         #endregion
-		
+
         #region DELETE SOFTLY
         /// <summary>
         /// DELETE SOFTLY
@@ -96,7 +107,7 @@ namespace WtuThesisPlatform.BLL
             return dal.UpdateDel(ids, true);
         }
         #endregion
-		
+
         #region DELETE SOFTLY
         /// <summary>
         /// DELETE SOFTLY
@@ -106,7 +117,7 @@ namespace WtuThesisPlatform.BLL
             return dal.UpdateDel(ids, isDel);
         }
         #endregion
-		
+
         #region DELETE PHYSICAL
         /// <summary>
         /// DELETE PHYSICAL
@@ -116,7 +127,7 @@ namespace WtuThesisPlatform.BLL
             return dal.Del(ids);
         }
         #endregion
-		
+
         #region ADD A RECORD
         /// <summary>
         /// ADD A RECORD
@@ -126,17 +137,16 @@ namespace WtuThesisPlatform.BLL
             return dal.Add(model);
         }
         #endregion
-		
-		#region Update
+
+        #region Update
         /// <summary>
         /// Update a data
         /// </summary>
         public int Update(ThesisCollect model)
         {
             return dal.Update(model);
-		}
+        }
         #endregion
 
-       
     }
 }
