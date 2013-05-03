@@ -3,6 +3,8 @@
 	margin: 0 auto;
 	font-size: 14px;
 	font-family: "新宋体";
+    position: relative;
+    padding-bottom: 60px;
 }
 .wrap a:hover{
 	text-decoration: underline;
@@ -15,39 +17,13 @@
 	line-height: 55px;
 	padding: 20px 0 0 0 ;
 }
-.topic-list{
-	width:95%;
-	margin-top: 20px;
-}
-.topic-list td{
-	vertical-align: middle;
-	height: 22px;
-	text-align: center;
-	padding: 0 10px;
-    border-bottom: 1px solid #e6e6e6;
-}
 
-.list-header{
-	font-size: 12px;
-	height: 22px;
-	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
-}
-
-.list-header td{	
-	border-left: 1px solid #e6e6e6;
-	border-top: 1px solid #e6e6e6;
-}
-.list-content{
-    border-bottom: 1px solid #e6e6e6;
-}
-.list-content td{
-	line-height: 35px;
-	border-bottom: 1px solid #e6e6e6;
-}
 .list-content .td0{
 	font-weight: bold;
 }
-
+.list-content a{
+    cursor: pointer;
+}
 .td0{
 	width: 27%;
 }
@@ -67,7 +43,7 @@
 	border-right: 1px solid #e6e6e6;
 }
 
-.ope{
+/*.ope{
     display: inline-block;
     width: 32px;
     height: 30px;
@@ -98,7 +74,7 @@
 }
 .tea-delete span{      
     background: url(../../images/teacher/tea_select.png) -83px 3px no-repeat;
-}
+}*/
 .content-bottom{
     margin-top: 20px;
     border-top: 1px solid #e6e6e6;

@@ -816,6 +816,8 @@
     <Content Include="js\student\StuMyStore.js" />
     <Content Include="js\student\StuSelect.js" />
     <Content Include="js\student\stu_pages.js" />
+    <Content Include="js\teacher\AllTopic.js" />
+    <Content Include="js\teacher\TeacherSelect.js" />
     <Content Include="js\template.js" />
     <Content Include="Login.aspx" />
     <Content Include="StudentUI\forgetPsd.html" />
@@ -837,10 +839,13 @@
     <Content Include="StudentUI\stu_topic_detail.html" />
     <Content Include="StudentUI\stu_topic_info.html" />
     <Content Include="StudentUI\StuTopicInfo.aspx" />
+    <Content Include="TeacherUI\AllTopic.aspx" />
     <Content Include="TeacherUI\allTopic.html" />
     <Content Include="TeacherUI\applyExcel.htm" />
+    <Content Include="TeacherUI\TeacherSelect.aspx" />
     <Content Include="TeacherUI\teacher_index .html" />
     <Content Include="TeacherUI\teacher_select.html" />
+    <Content Include="TeacherUI\TeacherIndex.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -964,12 +969,33 @@
     <Compile Include="StudentUI\StuTopicInfo.aspx.designer.cs">
       <DependentUpon>StuTopicInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeacherUI\AllTopic.aspx.cs">
+      <DependentUpon>AllTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
+      <DependentUpon>AllTopic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TeacherUI\TeacherMasterPage.Master.cs">
       <DependentUpon>TeacherMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TeacherUI\TeacherMasterPage.Master.designer.cs">
       <DependentUpon>TeacherMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherSelect.aspx.cs">
+      <DependentUpon>TeacherSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherSelect.aspx.designer.cs">
+      <DependentUpon>TeacherSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherIndex.aspx.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherIndex.aspx.designer.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -979,7 +1005,6 @@
     <Folder Include="css\admin\" />
     <Folder Include="images\admin\" />
     <Folder Include="js\admin\" />
-    <Folder Include="js\teacher\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />

@@ -33,42 +33,19 @@
 .teacher-info dd{
     line-height: 40px;
 }
-.topic-list{
-	width:95%;
-	margin-top: 20px;
-}
-.topic-list td{
-	white-space: nowrap;
-	overflow: hidden; 
-	text-overflow: ellipsis; 
-	-o-text-overflow: ellipsis; 
-	-icab-text-overflow: ellipsis;
-	-khtml-text-overflow: ellipsis;
-	-moz-text-overflow: ellipsis;
-	-webkit-text-overflow: ellipsis;
-	text-align: center;
-	padding: 0 10px;
-}
-.list-header{
-	font-size: 12px;
-	height: 22px;
-	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
-}
 
-
-.topic-list .td1{
-	text-align: left;
-}
-.list-header td{	
-	border-left: 1px solid #e6e6e6;
-	border-bottom: 1px solid #e6e6e6;
-	border-top: 1px solid #e6e6e6;
-}
 .list-header .td1{
 	border-left: 0;
 }
 .list-header .td7{
 	border-right: 1px solid #e6e6e6;
+}
+
+.list-content .td1{
+	font-weight: bold;
+}
+.topic-list .td1{
+	text-align: left;
 }
 .td0{
 	width: 3%;
@@ -95,13 +72,6 @@
 	width: 10%;
 }
 
-.list-content td{
-	line-height: 35px;
-	border-bottom: 1px solid #e6e6e6;
-}
-.list-content .td1{
-	font-weight: bold;
-}
 
 .list-icon{
 	display: inline-block;
@@ -157,6 +127,13 @@
 	display: table-row;
 }
 */
+/*stuselect样式*/
+
+.content-center{
+	width: 96%;
+	margin: 0px auto;
+	padding: 10px 0;	
+}
 
 
 /*这里是mystore、myselect的css*/
