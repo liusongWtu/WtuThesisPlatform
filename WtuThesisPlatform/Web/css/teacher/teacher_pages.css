@@ -3,6 +3,8 @@
 	margin: 0 auto;
 	font-size: 14px;
 	font-family: "新宋体";
+    position: relative;
+    padding-bottom: 60px;
 }
 .wrap a:hover{
 	text-decoration: underline;

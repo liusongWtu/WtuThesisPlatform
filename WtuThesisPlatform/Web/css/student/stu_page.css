@@ -157,6 +157,13 @@
 	display: table-row;
 }
 */
+/*stuselect样式*/
+
+.content-center{
+	width: 96%;
+	margin: 0px auto;
+	padding: 10px 0;	
+}
 
 
 /*这里是mystore、myselect的css*/
