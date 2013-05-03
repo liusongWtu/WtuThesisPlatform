@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TeacherMasterPage.master.cs" Inherits="Web.TeacherUI.TeacherMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+   <div class="outer">
+        <div class="header-wap">
+            <div id="header" class="header">
+                <h1 id="logo" class="logoCl">
+                </h1>
+                <div id="nav" class="abright">
+                    <ul class="nav-ul">
+                        <li class="cursor ml10">首页</li>
+                        <li class="cursor ml10">选题</li>
+                        <li class="cursor ml10">信息维护</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="info" class="info">
+                <ul class="info_ul">
+                    <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currTeacher.TName %></a></span></li>
+                    <li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor">
+                        <%= noticeNum %></span></a></li>
+                    <li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">
+                        <%= msgNum %></span></a></li>
+                    <li id="logout" class="loginout"><a href="javascript:void(0)"><span class="outIcon fontSty cursor">
+                        退出</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main" class="fl container">
+            <div id="subNav" class="fl subNav-size">
+                <div class="subNav-header">
+                    <input type="hidden" runat="server" id="currentNavNode" />
+                    <input type="hidden" runat="server" id="userType" />
+                    <span class="setIcon"></span>
+                    <h2 class="fonth2">
+                        管理菜单</h2>
+                    <p class="enFont">
+                        Menu Administration</p>
+                </div>
+                <%-- 加载左侧导航--%>
+                <%= NavigateHTML%>
+            </div>
+            <div class="content-wrap">
+                <div id="content" class="fl scroll content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderBody" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="footPos">
+                <p>
+                    武汉纺织大学版权所有 <font size="2" face="Verdana, Arial, Helvetica"><span></span></font>2010
+                    Copyrights all reserved 鄂ICP备05003335号
+                </p>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
