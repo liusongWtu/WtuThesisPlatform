@@ -16,7 +16,7 @@ namespace WtuThesisPlatform.MODEL
         protected int _cId;
         protected Student _student;
         protected ThesisTitle _thesisTitle;
-        private int leftNum;
+        private int _leftNum;
 
         #endregion
 
@@ -55,8 +55,8 @@ namespace WtuThesisPlatform.MODEL
         {
             get
             {
-                leftNum = _thesisTitle.TNumber - _thesisTitle.TAcceptNum;
-                return leftNum;
+                _leftNum = _thesisTitle.TNumber - _thesisTitle.TAcceptNum;
+                return _leftNum;
             }
         }
         #endregion

@@ -14,7 +14,7 @@
             onClose: function (value) {
 
                 if (value) {
-                    if (deleteSelectedTopic()) {
+                    if (deleteSelectedTopic($myThis.parent().parent().attr("id"))) {
                         //删除成功
 
                         $myThis.parent().parent().remove();//删除节点
@@ -42,7 +42,14 @@ function setTopicIndex() {
 }
 
 
-function deleteSelectedTopic() {
+function deleteSelectedTopic(id) {
     //删除已选选题
-    return true;
+    var result = $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": id, "operate": "del" }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }

@@ -11,7 +11,7 @@
     <div class="wrap">
         <div class="mystore">
             <dl>
-                <dt>我的收藏<span><a href="#" class="arrow-left">进入所有选题页面</a><a href="#" class="aRight">进入我的收藏<span
+                <dt>我的收藏<span><a href="/StudentUI/StuSelect.aspx?nodeId=201" class="arrow-left">进入所有选题页面</a><a href="/StudentUI/StuMySelect.aspx?nodeId=203" class="aRight">进入我的选题<span
                     class="arrow-right dis-inline-block"></span></a></span></dt>
                 <dd>
                     <table class="topic-list" cellspacing="0" cellpadding="0">
@@ -19,10 +19,10 @@
                             <ItemTemplate>
                                 <tr id="<%#Eval("CId") %>">
                                     <td class="topicName">
-                                        <a href="#"><%#Eval("ThesisTitle.TName")%></a>
+                                        <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("ThesisTitle.TId") %>"><%#Eval("ThesisTitle.TName")%></a>
                                     </td>
                                     <td class="teacher">
-                                        <a href="#"><%#Eval("ThesisTitle.Teacher.TName")%></a>
+                                        <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("ThesisTitle.Teacher.TId") %>"><%#Eval("ThesisTitle.Teacher.TName")%></a>
                                     </td>
                                     <td class="vanancy">
                                         剩余<span id="vanaNum">&nbsp;<%#Eval("LeftNum")%>&nbsp;</span>人

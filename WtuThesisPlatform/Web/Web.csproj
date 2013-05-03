@@ -885,6 +885,12 @@
     <Compile Include="ashx\student\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\student\SelectedManager.ashx.cs">
+      <DependentUpon>SelectedManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\student\StoreManager.ashx.cs">
+      <DependentUpon>StoreManager.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1060,6 +1066,8 @@
     <Content Include="ashx\common\LoadSelect.ashx" />
     <Content Include="ashx\common\CheckPwd.ashx" />
     <Content Include="ashx\common\ChangePwd.ashx" />
+    <Content Include="ashx\student\StoreManager.ashx" />
+    <Content Include="ashx\student\SelectedManager.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

@@ -33,12 +33,25 @@
 
 function deleteStore(id) {
     //删除收藏
-
-    return true;
+    var result = $.post("../../ashx/student/StoreManager.ashx", { "thesisId": id, "operate": "del" }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }
 
 
-function selectStore() {
+function selectStore(id) {
     //选题
-    return true;
+    var result = $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": id, "operate": "add" }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }

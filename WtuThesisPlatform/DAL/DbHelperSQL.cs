@@ -192,6 +192,38 @@ namespace DAL
             }
         }
         #endregion
+
+        #region 07. 执行含多条sql语句事务 +static int ExecuteSqlTran(string sql)
+        /// <summary>
+        /// 执行含多条sql语句事务
+        /// </summary>
+        /// <param name="sql">需要在事务中执行的sql语句</param>
+        /// <returns></returns>
+        public static int ExecuteSqlTran(string sql)
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                SqlTransaction tx = conn.BeginTransaction();
+                cmd.Transaction = tx;
+                try
+                {
+                    int count = 0;
+                    cmd.CommandText = sql;
+                    count = cmd.ExecuteNonQuery();
+                    tx.Commit();
+                    return count;
+                }
+                catch (Exception ex)
+                {
+                    tx.Rollback();
+                    return 0;
+                }
+            }
+        } 
+        #endregion
     }
 
 }

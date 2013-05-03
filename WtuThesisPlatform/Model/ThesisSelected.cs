@@ -2,62 +2,56 @@
 namespace WtuThesisPlatform.MODEL
 {
     [Serializable]
-	/// <summary>
-	/// Author: LiuSong
-	/// Description: EntityTier -- the entity class of ThesisSelected.
-	/// Datetime:2013/4/21 14:10:30
+    /// <summary>
+    /// Author: LiuSong
+    /// Description: EntityTier -- the entity class of ThesisSelected.
+    /// Datetime:2013/5/3 10:04:44
     /// </summary>
     public class ThesisSelected
     {
         public ThesisSelected()
         { }
-		
+
         #region Protected Properties
         protected int _tId;
-        protected int _thesisTitleId;
-        protected int _tearchId;
-        protected string _studentId = String.Empty;
+        protected ThesisTitle _thesisTitle;
+        protected Student _student;
         protected bool _tPassed;
         protected string _tYear = String.Empty;
         protected int _messageId;
         protected bool _isDel;
+        private int _leftNum;
+        private string _stateString;
+
+
         #endregion
-		
+
         #region Public Properties
         /// <summary>
         ///  已选表id
         /// </summary>
         public int TId
         {
-            set {_tId = value;}
-            get {return _tId;}
+            set { _tId = value; }
+            get { return _tId; }
         }
 
         /// <summary>
-        ///  选题id
+        ///  选题
         /// </summary>
-        public int ThesisTitleId
+        public ThesisTitle ThesisTitle
         {
-            set {_thesisTitleId = value;}
-            get {return _thesisTitleId;}
+            set { _thesisTitle = value; }
+            get { return _thesisTitle; }
         }
 
         /// <summary>
-        ///  教师id
+        ///  学生
         /// </summary>
-        public int TearchId
+        public Student Student
         {
-            set {_tearchId = value;}
-            get {return _tearchId;}
-        }
-
-        /// <summary>
-        ///  学号
-        /// </summary>
-        public string StudentId
-        {
-            set {_studentId = value;}
-            get {return _studentId;}
+            set { _student = value; }
+            get { return _student; }
         }
 
         /// <summary>
@@ -65,8 +59,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public bool TPassed
         {
-            set {_tPassed = value;}
-            get {return _tPassed;}
+            set { _tPassed = value; }
+            get { return _tPassed; }
         }
 
         /// <summary>
@@ -74,8 +68,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string TYear
         {
-            set {_tYear = value;}
-            get {return _tYear;}
+            set { _tYear = value; }
+            get { return _tYear; }
         }
 
         /// <summary>
@@ -83,8 +77,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public int MessageId
         {
-            set {_messageId = value;}
-            get {return _messageId;}
+            set { _messageId = value; }
+            get { return _messageId; }
         }
 
         /// <summary>
@@ -92,8 +86,39 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public bool IsDel
         {
-            set {_isDel = value;}
-            get {return _isDel;}
+            set { _isDel = value; }
+            get { return _isDel; }
+        }
+
+        /// <summary>
+        /// 剩余人数
+        /// </summary>
+        public int LeftNum
+        {
+            get
+            {
+                _leftNum = ThesisTitle.TNumber = ThesisTitle.TAcceptNum;
+                return _leftNum;
+            }
+        }
+
+        /// <summary>
+        /// 状态描述
+        /// </summary>
+        public string StateString
+        {
+            get
+            {
+                if (_tPassed)
+                {
+                    _stateString = "已通过";
+                }
+                else
+                {
+                    _stateString =  "等待处理...";
+                }
+                return _stateString;
+            }
         }
         #endregion
     }
