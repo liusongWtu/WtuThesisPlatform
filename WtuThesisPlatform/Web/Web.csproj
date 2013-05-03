@@ -958,6 +958,13 @@
     <Compile Include="StudentUI\StuTopicInfo.aspx.designer.cs">
       <DependentUpon>StuTopicInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeacherUI\TeacherMasterPage.Master.cs">
+      <DependentUpon>TeacherMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherMasterPage.Master.designer.cs">
+      <DependentUpon>TeacherMasterPage.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminUI\" />
@@ -997,7 +1004,7 @@
     <Content Include="ashx\common\CheckPwd.ashx" />
     <Content Include="ashx\common\ChangePwd.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
-    <None Include="StudentUI\StuInfo.aspx.orig" />
+    <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

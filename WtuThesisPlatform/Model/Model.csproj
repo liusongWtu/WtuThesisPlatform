@@ -55,6 +55,7 @@
     <Compile Include="SysFun.cs" />
     <Compile Include="TBSys_IdManager.cs" />
     <Compile Include="Teacher.cs" />
+    <Compile Include="ThesisCollect.cs" />
     <Compile Include="ThesisSelected.cs" />
     <Compile Include="ThesisTitle.cs" />
   </ItemGroup>
