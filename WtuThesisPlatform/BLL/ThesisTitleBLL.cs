@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of ThesisTitle.
-    /// Datetime:2013/4/21 14:10:37
+    /// Datetime:2013/5/3 17:24:34
     /// </summary>
     public class ThesisTitleBLL
     {
@@ -122,6 +122,16 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.Update(model);
 		}
+        #endregion
+
+        #region Get list by teacherId
+        /// <summary>
+        /// Get list by teacherId
+        /// </summary>
+        public IList<ThesisTitle> GetListByTId(string teacherId)
+        {
+            return dal.GetList("TTeacherId=" + teacherId + " and IsDel=0");
+        } 
         #endregion
     }
 }

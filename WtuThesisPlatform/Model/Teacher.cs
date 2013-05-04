@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Teacher.
-	/// Datetime:2013/4/21 14:10:24
+	/// Datetime:2013/5/4 11:06:34
     /// </summary>
     public class Teacher
     {
@@ -21,12 +21,14 @@ namespace WtuThesisPlatform.MODEL
         protected int _tTeachNum;
         protected string _tPhone = String.Empty;
         protected string _tEmail = String.Empty;
-        protected int _majorId;
+        protected string _tQQ = String.Empty;
+        protected Department _department;
+        protected Major _major;
         protected string _tTeachCourse = String.Empty;
         protected string _tResearchFields = String.Empty;
         protected string _tCheckCode = String.Empty;
+        protected RoleInfo _roleInfo;
         protected bool _isDel;
-        protected RoleInfo _roleInfo = new RoleInfo();
         #endregion
 		
         #region Public Properties
@@ -103,12 +105,30 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
-        ///  专业id
+        ///  QQ
         /// </summary>
-        public int MajorId
+        public string TQQ
         {
-            set {_majorId = value;}
-            get {return _majorId;}
+            set {_tQQ = value;}
+            get {return _tQQ;}
+        }
+
+        /// <summary>
+        ///  院系
+        /// </summary>
+        public Department Department
+        {
+            set {_department = value;}
+            get {return _department;}
+        }
+
+        /// <summary>
+        ///  专业
+        /// </summary>
+        public Major Major
+        {
+            set {_major = value;}
+            get {return _major;}
         }
 
         /// <summary>

@@ -22,10 +22,10 @@
                                 志愿<span class="order"></span>
                             </td>
                             <td id="topicName" class="topicName">
-                                <a href="#"><%#Eval("ThesisTitle.TName") %></a>
+                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("ThesisTitle.TId") %>"><%#Eval("ThesisTitle.TName") %></a>
                             </td>
                             <td id="teacher" class="teacher">
-                                <a href="#"><%#Eval("ThesisTitle.Teacher.TName") %></a>
+                                <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("ThesisTitle.Teacher.TId") %>"><%#Eval("ThesisTitle.Teacher.TName") %></a>
                             </td>
                             <td id="vanancy" class="vanancy">
                                 剩余<span id="vanaNum">&nbsp;<%#Eval("LeftNum") %>&nbsp;</span>人

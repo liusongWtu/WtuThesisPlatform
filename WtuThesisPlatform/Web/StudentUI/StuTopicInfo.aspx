@@ -14,21 +14,21 @@
                         导师基本信息</h1>
                 </dt>
                 <dd>
-                    姓名：<span id="tName">何儒汉</span></dd>
+                    姓名：<span id="tName"><%=currTeacher.TName %></span></dd>
                 <dd>
-                    职称：<span id="tPosition">学院副教授</span></dd>
+                    职称：<span id="tPosition"><%=currTeacher.TZhiCheng %></span></dd>
                 <dd>
-                    电话：<span id="tPhone">16441471409</span></dd>
+                    电话：<span id="tPhone"><%=currTeacher.TPhone %></span></dd>
                 <dd>
-                    QQ：<span id="tQQ">594659037</span></dd>
+                    QQ：<span id="tQQ"><%=currTeacher.TQQ %></span></dd>
                 <dd>
-                    邮箱：<span id="tEmail">594659037@qq.com</span></dd>
+                    邮箱：<span id="tEmail"><%=currTeacher.TEmail %></span></dd>
                 <dd>
-                    院系：<span id="tFaculty">数学与计算机学院</span></dd>
+                    院系：<span id="tFaculty"><%=currTeacher.Department.DName %></span></dd>
                 <dd>
-                    主讲课程：<span id="tProfession">数据库原理、软件基础、Delphi数据库应用、Unix操作系统</span></dd>
+                    主讲课程：<span id="tProfession"><%=currTeacher.TTeachCourse %></span></dd>
                 <dd>
-                    研究方向：<span id="tResearch">计算机视觉、多媒体处理、搜索引擎、信息检索、物流优化</span></dd>
+                    研究方向：<span id="tResearch"><%=currTeacher.TResearchFields %></span></dd>
             </dl>
             <!--<div id="tPhoto">
 								待定
@@ -68,32 +68,36 @@
                         选题
                     </td>
                 </tr>
-                <tr class="list-content">
-                    <td class="td0">
-                        <input type="checkbox" name="topiclist" />
-                    </td>
-                    <td class="td1">
-                        <a href="#">毕业设计选题系统</a>
-                    </td>
-                    <td class="td2">
-                        6
-                    </td>
-                    <td class="td3">
-                        4
-                    </td>
-                    <td class="td4">
-                        3
-                    </td>
-                    <td class="td5teacher">
-                        <a href="#">何儒汉</a>
-                    </td>
-                    <td class="td6">
-                        <span class="store-icon list-icon"></span>
-                    </td>
-                    <td class="td7">
-                        <span class="select-icon list-icon"></span>
-                    </td>
-                </tr>
+                <asp:Repeater ID="rptThesises" runat="server">
+                    <ItemTemplate>
+                        <tr class="list-content">
+                            <td class="td0">
+                                <input type="checkbox" name="topiclist" />
+                            </td>
+                            <td class="td1">
+                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("TId") %>"><%#Eval("TName") %></a>
+                            </td>
+                            <td class="td2">
+                                <%#Eval("TNumber") %>
+                            </td>
+                            <td class="td3">
+                                <%#Eval("TSelectedNum") %>
+                            </td>
+                            <td class="td4">
+                                <%#Eval("LeftNum") %>
+                            </td>
+                            <td class="td5teacher">
+                                <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("Teacher.TId") %>"><%#Eval("Teacher.TName") %></a>
+                            </td>
+                            <td class="td6" id="<%#Eval("TId") %>">
+                                <span class="store-icon list-icon"></span>
+                            </td>
+                            <td class="td7" id="<%#Eval("TId") %>" >
+                                <span class="select-icon list-icon"></span>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
                 <!--<tr class="detail nohover hide">
                     <td colspan="8">
                         <table>

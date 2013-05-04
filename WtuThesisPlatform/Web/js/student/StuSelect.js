@@ -11,13 +11,13 @@
     /**********收藏以及选题效果**********/
     $(".store-icon").click(function (e) {
         if ($(this).hasClass("store-icon-actived")) {//已经收藏了选题，此时再点击表示取消收藏
-            if (deldetStore()) {//取消收藏成功
+            if (deldetStore($(this).parent().attr("id"))) {//取消收藏成功
                 $(this).removeClass("store-icon-actived");
                 $.omMessageTip.show({ content: '已取消收藏！', timeout: 1000, type: 'success' });
             }
         }
         else {//还没有收藏，点击收藏
-            if (storeTopic()) {//如果选题收藏成功
+            if (storeTopic($(this).parent().attr("id"))) {//如果选题收藏成功
                 $(this).addClass("store-icon-actived");
                 e.stopPropagation();
                 $.omMessageTip.show({ content: '已收藏该选题！', timeout: 1000, type: 'success' });
@@ -27,13 +27,13 @@
     })
     $(".select-icon").click(function (e) {
         if ($(this).hasClass("select-icon-actived")) {//已经选择了该题，此时再点击表示取消选题
-            if (deleteSelect()) {//取消选题成功
+            if (deleteSelect($(this).parent().attr("id"))) {//取消选题成功
                 $(this).removeClass("select-icon-actived");
                 $.omMessageTip.show({ content: '已取消选题！', timeout: 1000, type: 'success' });
             }
         }
         else {//还没选题，点击选题
-            if (selectTopic()) {//如果选题选择成功
+            if (selectTopic($(this).parent().attr("id"))) {//如果选题选择成功
                 $(this).addClass("select-icon-actived");
                 e.stopPropagation();
                 $.omMessageTip.show({ content: '已选择该选题！', timeout: 1000, type: 'success' });
@@ -62,7 +62,7 @@
                         var flag = false;
                         $checked.each(function () {
                             var $span = $(this).parent().siblings("td").children(".store-icon");
-                            storeTopic();
+                            storeTopic($(this).attr("id"));
                             if (!($span.hasClass("store-icon-actived"))) {
                                 $span.addClass("store-icon-actived");
                                 flag = true;
@@ -79,16 +79,44 @@
 
 });
 
-function storeTopic() {//收藏选题
-    return true;
+function storeTopic(id) {//收藏选题
+    var result = $.post("../../ashx/student/StoreManager.ashx", { "thesisId": id, "operate": "add" }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }
 
-function deldetStore() {//取消收藏
-    return true;
+function deldetStore(thesisId) {//取消收藏
+    var result = $.post("../../ashx/student/StoreManager.ashx", { "thesisId": thesisId, "operate": "del" }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }
-function selectTopic() {//选择选题
-    return true;
+function selectTopic(id) {//选择选题
+    var result = $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": id, "operate": "add" }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }
-function deleteSelect() {//取消选题
-    return true;
+function deleteSelect(id) {//取消选题
+    var result = $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": id, "operate": "del" }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }

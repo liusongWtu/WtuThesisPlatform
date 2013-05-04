@@ -2,48 +2,51 @@
 namespace WtuThesisPlatform.MODEL
 {
     [Serializable]
-	/// <summary>
-	/// Author: LiuSong
-	/// Description: EntityTier -- the entity class of ThesisTitle.
-	/// Datetime:2013/4/21 14:10:37
+    /// <summary>
+    /// Author: LiuSong
+    /// Description: EntityTier -- the entity class of ThesisTitle.
+    /// Datetime:2013/5/3 17:24:32
     /// </summary>
     public class ThesisTitle
     {
         public ThesisTitle()
         { }
-		
+
         #region Protected Properties
         protected int _tId;
         protected Teacher _teacher;
         protected string _tName = String.Empty;
         protected string _tLevel = String.Empty;
         protected int _tNumber;
+        protected string _tPlatform = String.Empty;
+        protected string _tIntroduct = String.Empty;
         protected string _tRequire = String.Empty;
         protected int _tSelectedNum;
         protected int _tAcceptNum;
+        private int _leftNum;
         protected int _tState;
         protected string _tYear = String.Empty;
         protected int _tDepartmentId;
         protected bool _isDel;
         #endregion
-		
+
         #region Public Properties
         /// <summary>
         ///  选题id
         /// </summary>
         public int TId
         {
-            set {_tId = value;}
-            get {return _tId;}
+            set { _tId = value; }
+            get { return _tId; }
         }
 
         /// <summary>
-        ///  出题教师id
+        ///  出题教师
         /// </summary>
         public Teacher Teacher
         {
-            set {_teacher = value;}
-            get {return _teacher;}
+            set { _teacher = value; }
+            get { return _teacher; }
         }
 
         /// <summary>
@@ -51,8 +54,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string TName
         {
-            set {_tName = value;}
-            get {return _tName;}
+            set { _tName = value; }
+            get { return _tName; }
         }
 
         /// <summary>
@@ -60,8 +63,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string TLevel
         {
-            set {_tLevel = value;}
-            get {return _tLevel;}
+            set { _tLevel = value; }
+            get { return _tLevel; }
         }
 
         /// <summary>
@@ -69,26 +72,56 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public int TNumber
         {
-            set {_tNumber = value;}
-            get {return _tNumber;}
+            set { _tNumber = value; }
+            get { return _tNumber; }
         }
 
         /// <summary>
-        ///  选题要求
+        /// 剩余人数
+        /// </summary>
+        public int LeftNum
+        {
+            get
+            {
+                _leftNum = _tNumber - TAcceptNum;
+                return _leftNum;
+            }
+        }
+
+        /// <summary>
+        ///  开发平台
+        /// </summary>
+        public string TPlatform
+        {
+            set { _tPlatform = value; }
+            get { return _tPlatform; }
+        }
+
+        /// <summary>
+        ///  题目简介
+        /// </summary>
+        public string TIntroduct
+        {
+            set { _tIntroduct = value; }
+            get { return _tIntroduct; }
+        }
+
+        /// <summary>
+        ///  功能要求
         /// </summary>
         public string TRequire
         {
-            set {_tRequire = value;}
-            get {return _tRequire;}
+            set { _tRequire = value; }
+            get { return _tRequire; }
         }
 
         /// <summary>
-        ///  新选择人数
+        ///  选择人数
         /// </summary>
         public int TSelectedNum
         {
-            set {_tSelectedNum = value;}
-            get {return _tSelectedNum;}
+            set { _tSelectedNum = value; }
+            get { return _tSelectedNum; }
         }
 
         /// <summary>
@@ -96,8 +129,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public int TAcceptNum
         {
-            set {_tAcceptNum = value;}
-            get {return _tAcceptNum;}
+            set { _tAcceptNum = value; }
+            get { return _tAcceptNum; }
         }
 
         /// <summary>
@@ -105,8 +138,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public int TState
         {
-            set {_tState = value;}
-            get {return _tState;}
+            set { _tState = value; }
+            get { return _tState; }
         }
 
         /// <summary>
@@ -114,8 +147,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public string TYear
         {
-            set {_tYear = value;}
-            get {return _tYear;}
+            set { _tYear = value; }
+            get { return _tYear; }
         }
 
         /// <summary>
@@ -123,8 +156,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public int TDepartmentId
         {
-            set {_tDepartmentId = value;}
-            get {return _tDepartmentId;}
+            set { _tDepartmentId = value; }
+            get { return _tDepartmentId; }
         }
 
         /// <summary>
@@ -132,8 +165,8 @@ namespace WtuThesisPlatform.MODEL
         /// </summary>
         public bool IsDel
         {
-            set {_isDel = value;}
-            get {return _isDel;}
+            set { _isDel = value; }
+            get { return _isDel; }
         }
         #endregion
     }
