@@ -842,7 +842,11 @@
     <Content Include="TeacherUI\AllTopic.aspx" />
     <Content Include="TeacherUI\allTopic.html" />
     <Content Include="TeacherUI\applyExcel.htm" />
+    <Content Include="TeacherUI\TeacherApply.aspx" />
+    <Content Include="TeacherUI\TeacherInfo.aspx" />
+    <Content Include="TeacherUI\TeacherModifyPwd.aspx" />
     <Content Include="TeacherUI\TeacherSelect.aspx" />
+    <Content Include="TeacherUI\TeacherStuInfo.aspx" />
     <Content Include="TeacherUI\teacher_index .html" />
     <Content Include="TeacherUI\teacher_select.html" />
     <Content Include="TeacherUI\TeacherIndex.aspx" />
@@ -976,12 +980,40 @@
     <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
       <DependentUpon>AllTopic.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeacherUI\TeacherInfo.aspx.cs">
+      <DependentUpon>TeacherInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherInfo.aspx.designer.cs">
+      <DependentUpon>TeacherInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TeacherUI\TeacherMasterPage.Master.cs">
       <DependentUpon>TeacherMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TeacherUI\TeacherMasterPage.Master.designer.cs">
       <DependentUpon>TeacherMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherApply.aspx.cs">
+      <DependentUpon>TeacherApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherApply.aspx.designer.cs">
+      <DependentUpon>TeacherApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherIndex.aspx.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherIndex.aspx.designer.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherModifyPwd.aspx.cs">
+      <DependentUpon>TeacherModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherModifyPwd.aspx.designer.cs">
+      <DependentUpon>TeacherModifyPwd.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherUI\TeacherSelect.aspx.cs">
       <DependentUpon>TeacherSelect.aspx</DependentUpon>
@@ -990,12 +1022,12 @@
     <Compile Include="TeacherUI\TeacherSelect.aspx.designer.cs">
       <DependentUpon>TeacherSelect.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TeacherUI\TeacherIndex.aspx.cs">
-      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+    <Compile Include="TeacherUI\TeacherStuInfo.aspx.cs">
+      <DependentUpon>TeacherStuInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TeacherUI\TeacherIndex.aspx.designer.cs">
-      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+    <Compile Include="TeacherUI\TeacherStuInfo.aspx.designer.cs">
+      <DependentUpon>TeacherStuInfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
