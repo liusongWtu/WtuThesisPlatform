@@ -9,8 +9,15 @@ namespace Web.TeacherUI
 {
     public partial class TeacherSelect1 : System.Web.UI.Page
     {
+        TeacherInfo currTeacher = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            currTeacher = Session["currUser"] as TeacherInfo;
+            if (currTeacher != null)
+            {
+                return;
+            }
 
         }
     }

@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master" AutoEventWireup="true" CodeBehind="TeacherSelect.aspx.cs" Inherits="Web.TeacherUI.TeacherSelect1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master"
+    AutoEventWireup="true" CodeBehind="TeacherSelect.aspx.cs" Inherits="Web.TeacherUI.TeacherSelect1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="Stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
 </asp:Content>
@@ -7,7 +9,8 @@
         <div class="topic">
             <dl>
                 <dt>
-                    <h1>学生选题情况</h1>
+                    <h1>
+                        学生选题情况</h1>
                 </dt>
             </dl>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
@@ -25,20 +28,26 @@
                         确定人数
                     </td>
                 </tr>
-                <tr class="list-content">
-                    <td>
-                        毕业设计选题系统
-                    </td>
-                    <td>
-                        8
-                    </td>
-                    <td>
-                        <a href="#">4</a>
-                    </td>
-                    <td>
-                        <a href="#">3</a>
-                    </td>
-                </tr>
+                <asp:Repeater ID="rptThesis" runat="server">
+                    <ItemTemplate>
+                        <tr class="list-content">
+                            <td class="topicName">
+                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("ThesisTitle.TId") %>">
+                                    <%#Eval("ThesisTitle.TName")%>
+                                </a>
+                            </td>
+                            <td>
+                                <%#Eval("TNumber") %>
+                            </td>
+                            <td>
+                                <a href="#"></a>
+                            </td>
+                            <td>
+                                <a href="#">3</a>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
             </table>
         </div>
     </div>

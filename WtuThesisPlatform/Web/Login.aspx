@@ -24,7 +24,7 @@
                         <div class="item">
                             <div class="ui-input-wap">
                                 <label for="username">
-                                    用户名&nbsp;|</label><input type="text" id="username" value="123" class="ui-input  textInd70" />
+                                    用户名&nbsp;|</label><input type="text" id="username" value="hehanru" class="ui-input  textInd70" />
                             </div>
                             <p>
                                 <a>忘记密码?</a></p>

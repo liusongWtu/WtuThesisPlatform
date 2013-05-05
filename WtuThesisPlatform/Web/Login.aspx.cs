@@ -54,7 +54,7 @@ namespace Web
                             return true;
                         }
                         Session["currUser"] = currStudent;
-                        GoPage();
+                        GoPage("window.location='/StudentUI/StuIndex.aspx'");
                         return false;
                     }
                 }
@@ -74,7 +74,7 @@ namespace Web
                             return true;
                         }
                         Session["currUser"] = currTeacher;
-                        GoPage();
+                        GoPage("window.location='/TeacherUI/TeacherIndex.aspx'");
                         return false;
                     }
                 }
@@ -94,7 +94,7 @@ namespace Web
                             return true;
                         }
                         Session["currUser"] = currAdmin;
-                        GoPage();
+                        GoPage("window.location='/AdminUI/AdminIndex.aspx'");
                         return false;
                     }
                 }
@@ -103,7 +103,7 @@ namespace Web
         } 
 
         //导向上一个页面
-        protected void GoPage()
+        protected void GoPage(string url)
         {
             if (Request.QueryString["return"] != null)
             {
@@ -113,7 +113,7 @@ namespace Web
             else
             {
                 //证明用户直接打开的登录页面.
-                CommonCode.WriteScript(Page, "window.location='/StudentUI/StuIndex.aspx'");
+                CommonCode.WriteScript(Page, url);
             }
         }
     }

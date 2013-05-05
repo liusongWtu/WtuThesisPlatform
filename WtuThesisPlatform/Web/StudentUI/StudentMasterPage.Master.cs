@@ -32,6 +32,7 @@ namespace Web.StudentUI
             if (!IsPostBack)
             {
                 currentNavNode.Value = Request["nodeId"];
+                //todo:优化导航树
                 //设置导航代码
                 //if (Session["naviget"] == null)
                 //{

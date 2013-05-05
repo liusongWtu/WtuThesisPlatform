@@ -101,6 +101,7 @@ function requestBack(result) {
         if (currType == "1") {
             window.location.assign("/StudentUI/StuIndex.aspx");
         } else if (currType == "2") {
+            window.location.assign("/TeacherUI/TeacherIndex.aspx");
         } else if (currType == "3") {
         } else {
             msgBox.showMsgErr("用户类型错误");

@@ -882,6 +882,9 @@
     <Compile Include="ashx\common\SaveTreeState.ashx.cs">
       <DependentUpon>SaveTreeState.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\student\GetThesisData.ashx.cs">
+      <DependentUpon>GetThesisData.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\student\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
     </Compile>
@@ -903,13 +906,6 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
     <Compile Include="StudentUI\StudentMasterPage.Master.cs">
       <DependentUpon>StudentMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1039,9 +1035,6 @@
     <Folder Include="js\admin\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Site.Master" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{8A657BD0-4CB9-47CA-9A81-06A3007FBB1B}</Project>
       <Name>BLL</Name>
@@ -1068,6 +1061,7 @@
     <Content Include="ashx\common\ChangePwd.ashx" />
     <Content Include="ashx\student\StoreManager.ashx" />
     <Content Include="ashx\student\SelectedManager.ashx" />
+    <Content Include="ashx\student\GetThesisData.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

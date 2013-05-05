@@ -4,6 +4,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/student/stu_select.css" />
     <link rel="stylesheet" type="text/css" href="../css/student/stu_page.css" />
+    <style type="text/css">
+        #pageBar a
+        {
+            border: 2px solid #fff;
+            background-color: #ff6600;
+            padding: 0px 6px;
+            text-decoration: none;
+            color: #fff;
+        }
+        #pageBar a:hover
+        {
+            color: #fff;
+            background-color: #7AB64F;
+        }
+    </style>
     <script type="text/javascript" src="../js/student/StuSelect.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
@@ -62,13 +77,14 @@
                     <ItemTemplate>
                         <tr class="list-content">
                             <td class="td0">
-                                <input type="checkbox" name="topiclist" id="<%#Eval("TId") %>"/>
+                                <input type="checkbox" name="topiclist" id="<%#Eval("TId") %>" />
                             </td>
                             <td class="td1">
-                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("TId") %>"><%#Eval("TName") %></a>
+                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("TId") %>">
+                                    <%#Eval("TName") %></a>
                             </td>
                             <td class="td2">
-                                 <%#Eval("TNumber") %>
+                                <%#Eval("TNumber") %>
                             </td>
                             <td class="td3">
                                 <%#Eval("TSelectedNum") %>
@@ -77,7 +93,8 @@
                                 <%#Eval("LeftNum") %>
                             </td>
                             <td class="td5 teacher">
-                                <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("Teacher.TId") %>"><%#Eval("Teacher.TName") %></a>
+                                <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("Teacher.TId") %>">
+                                    <%#Eval("Teacher.TName") %></a>
                             </td>
                             <td class="td6" id="<%#Eval("TId") %>">
                                 <span class="store-icon list-icon"></span>
@@ -99,7 +116,9 @@
             </ul>
             <table class="pagechange">
                 <tr>
-                    <td class="page-up" title="上一页">
+                    <div id="pageBar">
+                        <%=pageBar%></div>
+                    <%-- <td class="page-up" title="上一页">
                         <span></span>
                     </td>
                     <td>
@@ -122,7 +141,7 @@
                     </td>
                     <td class="page-down" title="下一页">
                         <span></span>
-                    </td>
+                    </td>--%>
                 </tr>
             </table>
         </div>

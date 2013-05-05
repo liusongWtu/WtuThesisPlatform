@@ -11,7 +11,7 @@ namespace Web.TeacherUI
 {
     public partial class TeacherMasterPage : System.Web.UI.MasterPage
     {
-        protected Teacher currTeacher = new Teacher ();
+        protected Teacher currTeacher =null;
         protected string NavigateHTML = string.Empty;//左边导航树代码
         //todo:补充页面信息 eg:noticeNum="(4)";并且切换图片显示
         protected string noticeNum = "( 4 )";//公告信息
@@ -25,8 +25,13 @@ namespace Web.TeacherUI
                 CommonCode.GoLoginUrl();
                 return;
             }
-           // currTeacher = Session["currUser"] as Teacher;
+            currTeacher = Session["currUser"] as Teacher;
             userType.Value = "2";
+            if (!IsPostBack)
+            {
+                currentNavNode.Value=Request["nodeId"];
+                NavigateHTML = CommonCode.CreateTree();
+            }
         }
     }
 }

@@ -87,7 +87,7 @@ namespace WtuThesisPlatform.DAL
         public Teacher GetModelByUserName(string userName)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
+            strSql.Append("select TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,DepartmentId,TQQ,TPhone,TEmail,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
             strSql.Append(" where TUserName=@userName ");
             SqlParameter[] parameters = {
                     new SqlParameter("@userName", SqlDbType.NVarChar,20)};

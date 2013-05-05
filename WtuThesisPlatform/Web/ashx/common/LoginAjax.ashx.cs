@@ -76,10 +76,10 @@ namespace Web.ashx
                             context.Response.Cookies.Add(currUser);
                             if (isRemember == "1")//记住我被选中了
                             {
-                                string encryptPwd = CommonCode.Encrypt(student.SPassword);
+                                string encryptPwd =CommonCode.Encrypt(student.SPassword);
                                 HttpCookie currPwd = new HttpCookie("pwd", encryptPwd);
                                 HttpCookie currType = new HttpCookie("userType", "1");
-                                currUser.Expires = currPwd.Expires =currType.Expires= DateTime.Now.AddYears(10);
+                                currUser.Expires = currPwd.Expires = currType.Expires =                                             DateTime.Now.AddYears(10);
                                 context.Response.Cookies.Add(currPwd);
                                 context.Response.Cookies.Add(currType);
                             }
