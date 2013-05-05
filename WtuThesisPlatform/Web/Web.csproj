@@ -51,6 +51,17 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminUI\AddNotice.aspx" />
+    <Content Include="AdminUI\AdminInfo.aspx" />
+    <Content Include="AdminUI\AdminManager.aspx" />
+    <Content Include="AdminUI\AdminModifyPwd.aspx" />
+    <Content Include="AdminUI\ClassManager.aspx" />
+    <Content Include="AdminUI\DepartmentManager.aspx" />
+    <Content Include="AdminUI\DictionaryManager.aspx" />
+    <Content Include="AdminUI\MajorManager.aspx" />
+    <Content Include="AdminUI\NoticeManager.aspx" />
+    <Content Include="AdminUI\TeacherManager.aspx" />
+    <Content Include="AdminUI\ZhiChengManager.aspx" />
     <Content Include="App_Data\WtuThesisPlatform.mdf" />
     <Content Include="App_Data\WtuThesisPlatform_log.ldf">
       <DependentUpon>WtuThesisPlatform.mdf</DependentUpon>
@@ -861,6 +872,90 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUI\AddNotice.aspx.cs">
+      <DependentUpon>AddNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AddNotice.aspx.designer.cs">
+      <DependentUpon>AddNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminInfo.aspx.cs">
+      <DependentUpon>AdminInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminInfo.aspx.designer.cs">
+      <DependentUpon>AdminInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminManager.aspx.cs">
+      <DependentUpon>AdminManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminManager.aspx.designer.cs">
+      <DependentUpon>AdminManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminMasterPage.Master.cs">
+      <DependentUpon>AdminMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminMasterPage.Master.designer.cs">
+      <DependentUpon>AdminMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminModifyPwd.aspx.cs">
+      <DependentUpon>AdminModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminModifyPwd.aspx.designer.cs">
+      <DependentUpon>AdminModifyPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\ClassManager.aspx.cs">
+      <DependentUpon>ClassManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ClassManager.aspx.designer.cs">
+      <DependentUpon>ClassManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\DepartmentManager.aspx.cs">
+      <DependentUpon>DepartmentManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\DepartmentManager.aspx.designer.cs">
+      <DependentUpon>DepartmentManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\DictionaryManager.aspx.cs">
+      <DependentUpon>DictionaryManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\DictionaryManager.aspx.designer.cs">
+      <DependentUpon>DictionaryManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\MajorManager.aspx.cs">
+      <DependentUpon>MajorManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\MajorManager.aspx.designer.cs">
+      <DependentUpon>MajorManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\NoticeManager.aspx.cs">
+      <DependentUpon>NoticeManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\NoticeManager.aspx.designer.cs">
+      <DependentUpon>NoticeManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\TeacherManager.aspx.cs">
+      <DependentUpon>TeacherManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\TeacherManager.aspx.designer.cs">
+      <DependentUpon>TeacherManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\ZhiChengManager.aspx.cs">
+      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
+      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\common\ChangePwd.ashx.cs">
       <DependentUpon>ChangePwd.ashx</DependentUpon>
     </Compile>
@@ -1027,7 +1122,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AdminUI\" />
     <Folder Include="ashx\admin\" />
     <Folder Include="ashx\teacher\" />
     <Folder Include="css\admin\" />
@@ -1062,6 +1156,7 @@
     <Content Include="ashx\student\StoreManager.ashx" />
     <Content Include="ashx\student\SelectedManager.ashx" />
     <Content Include="ashx\student\GetThesisData.ashx" />
+    <Content Include="AdminUI\AdminMasterPage.Master" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

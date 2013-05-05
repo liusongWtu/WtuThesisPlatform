@@ -94,7 +94,7 @@ namespace Web
                             return true;
                         }
                         Session["currUser"] = currAdmin;
-                        GoPage("window.location='/AdminUI/AdminIndex.aspx'");
+                        GoPage("window.location='/AdminUI/AdminInfo.aspx'");
                         return false;
                     }
                 }
