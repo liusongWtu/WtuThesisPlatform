@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public Admin GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select UId,UUserName,UPassword,UName,DepartmentId,RoleId,UCheckId,IsDel from Admin ");
+            strSql.Append("select UId,UUserName,UPassword,UName,UPhone,UEmail,UQQ,DepartmentId,RoleId,UCheckId,IsDel from Admin "); 
             strSql.Append(" where UId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public Admin GetModelByUserName(string userName)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select UId,UUserName,UPassword,UName,DepartmentId,RoleId,UCheckId,IsDel from Admin ");
+            strSql.Append("select UId,UUserName,UPassword,UName,UPhone,UEmail,UQQ,DepartmentId,RoleId,UCheckId,IsDel from Admin "); 
             strSql.Append(" where UUserName=@userName ");
             SqlParameter[] parameters = {
                     new SqlParameter("@userName", SqlDbType.NVarChar,20)};
@@ -90,8 +90,8 @@ namespace WtuThesisPlatform.DAL
         public Admin GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select UId,UUserName,UPassword,UName,DepartmentId,RoleId,UCheckId,IsDel from Admin ");
-            strSql.Append(" where "+strWhere);
+            strSql.Append("select UId,UUserName,UPassword,UName,UPhone,UEmail,UQQ,DepartmentId,RoleId,UCheckId,IsDel from Admin "); 
+            strSql.Append(" where " + strWhere);
             Admin model = new Admin();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
             if (dt.Rows.Count > 0)
@@ -113,7 +113,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Admin> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select UId,UUserName,UPassword,UName,DepartmentId,RoleId,UCheckId,IsDel ");
+            strSql.Append("select UId,UUserName,UPassword,UName,UPhone,UEmail,UQQ,DepartmentId,RoleId,UCheckId,IsDel "); 
             strSql.Append(" FROM Admin ");
             if (strWhere.Trim() != "")
             {
@@ -211,6 +211,9 @@ namespace WtuThesisPlatform.DAL
             model.UUserName = dr["UUserName"].ToString();
             model.UPassword = dr["UPassword"].ToString();
             model.UName = dr["UName"].ToString();
+            model.UPhone = dr["UPhone"].ToString();
+            model.UEmail = dr["UEmail"].ToString();
+            model.UQQ = dr["UQQ"].ToString();
             if (!dr.IsNull("DepartmentId")&&dr["DepartmentId"].ToString() != "")
             {
                 model.DepartmentId = int.Parse(dr["DepartmentId"].ToString());
@@ -246,31 +249,37 @@ namespace WtuThesisPlatform.DAL
                 {
                     model.UId = DbHelperSQL.GetNextValidID("Admin ", "UId");
                 }
-                
-                strSql.Append("insert into Admin(");
-                strSql.Append("UId,UUserName,UPassword,UName,DepartmentId,RoleId,UCheckId,IsDel)");
-                strSql.Append(" values (");
-                strSql.Append(" @UId,@UUserName,@UPassword,@UName,@DepartmentId,@RoleId,@UCheckId,@IsDel)");
-                strSql.Append(";select @@IDENTITY");
-                SqlParameter[] parameters = {
+
+                 strSql.Append("insert into Admin(");
+                 strSql.Append("UId,UUserName,UPassword,UName,UPhone,UEmail,UQQ,DepartmentId,RoleId,UCheckId,IsDel)");
+                 strSql.Append(" values (");
+                 strSql.Append(" @UId,@UUserName,@UPassword,@UName,@UPhone,@UEmail,@UQQ,@DepartmentId,@RoleId,@UCheckId,@IsDel)");
+                 strSql.Append(";select @@IDENTITY");
+                 SqlParameter[] parameters = {
                     new SqlParameter("@UId", SqlDbType.Int,4),
                     new SqlParameter("@UUserName", SqlDbType.VarChar,20),
-                    new SqlParameter("@UPassword", SqlDbType.VarChar,20),
+                    new SqlParameter("@UPassword", SqlDbType.VarChar,32),
                     new SqlParameter("@UName", SqlDbType.VarChar,20),
+                    new SqlParameter("@UPhone", SqlDbType.VarChar,50),
+                    new SqlParameter("@UEmail", SqlDbType.VarChar,50),
+                    new SqlParameter("@UQQ", SqlDbType.VarChar,50),
                     new SqlParameter("@DepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
                     new SqlParameter("@UCheckId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
-				parameters[0].Value = model.UId;
-                parameters[1].Value = model.UUserName;
-                parameters[2].Value = model.UPassword;
-                parameters[3].Value = model.UName;
-                parameters[4].Value = model.DepartmentId;
-                parameters[5].Value = model.RoleInfo.RoleId;
-                parameters[6].Value = model.UCheckId;
-                parameters[7].Value = model.IsDel;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                 parameters[0].Value = model.UId;
+                 parameters[1].Value = model.UUserName;
+                 parameters[2].Value = model.UPassword;
+                 parameters[3].Value = model.UName;
+                 parameters[4].Value = model.UPhone;
+                 parameters[5].Value = model.UEmail;
+                 parameters[6].Value = model.UQQ;
+                 parameters[7].Value = model.DepartmentId;
+                 parameters[8].Value = model.RoleInfo.RoleId;
+                 parameters[9].Value = model.UCheckId;
+                 parameters[10].Value = model.IsDel;
+                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {
@@ -289,9 +298,12 @@ namespace WtuThesisPlatform.DAL
             int res = -2;
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Admin set ");
-                        strSql.Append("UUserName=@UUserName,");
+            strSql.Append("UUserName=@UUserName,");
             strSql.Append("UPassword=@UPassword,");
             strSql.Append("UName=@UName,");
+            strSql.Append("UPhone=@UPhone,");
+            strSql.Append("UEmail=@UEmail,");
+            strSql.Append("UQQ=@UQQ,");
             strSql.Append("DepartmentId=@DepartmentId,");
             strSql.Append("RoleId=@RoleId,");
             strSql.Append("UCheckId=@UCheckId,");
@@ -302,18 +314,24 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@UUserName", SqlDbType.VarChar,20),
                     new SqlParameter("@UPassword", SqlDbType.VarChar,32),
                     new SqlParameter("@UName", SqlDbType.VarChar,20),
+                    new SqlParameter("@UPhone", SqlDbType.VarChar,50),
+                    new SqlParameter("@UEmail", SqlDbType.VarChar,50),
+                    new SqlParameter("@UQQ", SqlDbType.VarChar,50),
                     new SqlParameter("@DepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
                     new SqlParameter("@UCheckId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-			                parameters[0].Value = model.UId;
-                parameters[1].Value = model.UUserName;
-                parameters[2].Value = model.UPassword;
-                parameters[3].Value = model.UName;
-                parameters[4].Value = model.DepartmentId;
-                parameters[5].Value = model.RoleInfo.RoleId;
-                parameters[6].Value = model.UCheckId;
-                parameters[7].Value = model.IsDel;
+            parameters[0].Value = model.UId;
+            parameters[1].Value = model.UUserName;
+            parameters[2].Value = model.UPassword;
+            parameters[3].Value = model.UName;
+            parameters[4].Value = model.UPhone;
+            parameters[5].Value = model.UEmail;
+            parameters[6].Value = model.UQQ;
+            parameters[7].Value = model.DepartmentId;
+            parameters[8].Value = model.RoleInfo.RoleId;
+            parameters[9].Value = model.UCheckId;
+            parameters[10].Value = model.IsDel;
 
             try
             {

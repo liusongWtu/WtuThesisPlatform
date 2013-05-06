@@ -62,7 +62,7 @@ namespace Web.ashx
                         return;
                     }
                     password = CommonCode.Md5Compute(password);
-                    if (student.SPassword == password)
+                    if (student.SPassword.ToLower() == password.ToLower())
                     {
                         bool isDel = student.IsDel;
                         if (isDel)//已被冻结
@@ -100,7 +100,7 @@ namespace Web.ashx
                         return;
                     }
                     password = CommonCode.Md5Compute(password);
-                    if (teacher.TPassword == password)
+                    if (teacher.TPassword.ToLower() == password.ToLower())
                     {
                         if (teacher.IsDel == true)
                         {
@@ -137,7 +137,7 @@ namespace Web.ashx
                         return;
                     }
                     password = CommonCode.Md5Compute(password);
-                    if (admin.UPassword == password)
+                    if (admin.UPassword.ToLower() == password.ToLower())
                     {
                         if (admin.IsDel)
                         {

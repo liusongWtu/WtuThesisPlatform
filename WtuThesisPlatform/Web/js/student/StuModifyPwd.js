@@ -56,8 +56,31 @@ $(function () {
         self.location = "StuInfo.aspx";
         return false;
     })
+
+    //验证密码
+    oldPwd.blur(function () {
+        var type = $("#userType").val();
+        var md5Pwd = $.md5(oldPwd.val()); //计算密码的md5值
+        $.post("../../ashx/common/checkPwd.ashx", { "type": type, "oldPwd": md5Pwd }, function (data) {
+            if (data == "ok") {
+                oldPwd.parent().next().text("");
+            } else {
+                oldPwd.parent().next().text("*");
+            }
+        });
+    });
 })
 
 function modifyPwd() {//修改数据库密码
-    return true;
+    var type = $("#userType").val();
+    var md5PwdNew = $.md5($("#newPassword").val());
+    var md5PwdOld = $.md5($("#oldPassword").val());
+    var result = $.post("../../ashx/common/ChangePwd.ashx", { "type": type, "oldPwd": md5PwdOld, "newPwd": md5PwdNew }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }

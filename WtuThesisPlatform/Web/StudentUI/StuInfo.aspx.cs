@@ -25,6 +25,7 @@ namespace Web.StudentUI
                 sPhone.Value = currStudent.SPhone;
                 sEmail.Value = currStudent.SEmail;
                 sQQ.Value = currStudent.SQQ;
+                sSex.Value = currStudent.SSex;
 
                 LoadSelect(currStudent);
             }

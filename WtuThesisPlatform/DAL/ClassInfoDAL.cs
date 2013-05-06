@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of ClassInfo.
-    /// Datetime:2013/4/21 14:08:57
+    /// Datetime:2013/5/6 21:54:32
     /// </summary>
     public class ClassInfoDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public ClassInfo GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select CId,CName,MajorId,IsDel from ClassInfo ");
+            strSql.Append("select CId,CName,MajorId,CNumber,IsDel from ClassInfo ");
             strSql.Append(" where CId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public ClassInfo GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select CId,CName,MajorId,IsDel from ClassInfo ");
+            strSql.Append("select CId,CName,MajorId,CNumber,IsDel from ClassInfo ");
             strSql.Append(" where "+strWhere);
             ClassInfo model = new ClassInfo();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<ClassInfo> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select CId,CName,MajorId,IsDel ");
+            strSql.Append("select CId,CName,MajorId,CNumber,IsDel ");
             strSql.Append(" FROM ClassInfo ");
             if (strWhere.Trim() != "")
             {
@@ -192,6 +192,10 @@ namespace WtuThesisPlatform.DAL
             {
                 model.MajorId = int.Parse(dr["MajorId"].ToString());
             }
+            if (!dr.IsNull("CNumber")&&dr["CNumber"].ToString() != "")
+            {
+                model.CNumber = int.Parse(dr["CNumber"].ToString());
+            }
             if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
@@ -216,20 +220,22 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into ClassInfo(");
-                strSql.Append("CId,CName,MajorId,IsDel)");
+                strSql.Append("CId,CName,MajorId,CNumber,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @CId,@CName,@MajorId,@IsDel)");
+                strSql.Append(" @CId,@CName,@MajorId,@CNumber,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@CId", SqlDbType.Int,4),
                     new SqlParameter("@CName", SqlDbType.VarChar,20),
                     new SqlParameter("@MajorId", SqlDbType.Int,4),
+                    new SqlParameter("@CNumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.CId;
                 parameters[1].Value = model.CName;
                 parameters[2].Value = model.MajorId;
-                parameters[3].Value = model.IsDel;
+                parameters[3].Value = model.CNumber;
+                parameters[4].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -251,17 +257,20 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("update ClassInfo set ");
                         strSql.Append("CName=@CName,");
             strSql.Append("MajorId=@MajorId,");
+            strSql.Append("CNumber=@CNumber,");
             strSql.Append("IsDel=@IsDel");
             strSql.Append(" where CId=@CId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@CId", SqlDbType.Int,4),
                     new SqlParameter("@CName", SqlDbType.VarChar,20),
                     new SqlParameter("@MajorId", SqlDbType.Int,4),
+                    new SqlParameter("@CNumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.CId;
                 parameters[1].Value = model.CName;
                 parameters[2].Value = model.MajorId;
-                parameters[3].Value = model.IsDel;
+                parameters[3].Value = model.CNumber;
+                parameters[4].Value = model.IsDel;
 
             try
             {

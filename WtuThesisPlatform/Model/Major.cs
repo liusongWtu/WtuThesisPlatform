@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Major.
-	/// Datetime:2013/4/21 14:09:21
+	/// Datetime:2013/5/6 21:54:53
     /// </summary>
     public class Major
     {
@@ -16,6 +16,7 @@ namespace WtuThesisPlatform.MODEL
         protected int _mId;
         protected int _dId;
         protected string _mName = String.Empty;
+        protected int _mnumber;
         protected bool _isDel;
         #endregion
 		
@@ -45,6 +46,15 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_mName = value;}
             get {return _mName;}
+        }
+
+        /// <summary>
+        ///  人数
+        /// </summary>
+        public int Mnumber
+        {
+            set {_mnumber = value;}
+            get {return _mnumber;}
         }
 
         /// <summary>

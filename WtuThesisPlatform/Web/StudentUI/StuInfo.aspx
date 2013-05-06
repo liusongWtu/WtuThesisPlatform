@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../css/student/stu_page.css" />
     <link rel="stylesheet" type="text/css" href="../js/popup/jquery.confirm.css" />
     <script src="../js/student/StuInfo.js" type="text/javascript"></script>
+    <script src="../js/Common.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/popup/jquery.confirm.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
@@ -43,7 +44,8 @@
                 </dd>
                 <dd>
                     Q Q：
-                    <input type="text" id="sQQ" class="sQQ" runat="server" value="594659037" readonly="readonly" /></dd>
+                    <input type="text" id="sQQ" class="sQQ" runat="server" value="594659037" readonly="readonly" />
+                    <span id="qqError" style="color: red; display: none">*</span></dd>
             </dl>
             <!--<div id="tPhoto">
 								待定

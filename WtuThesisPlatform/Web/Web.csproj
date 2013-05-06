@@ -62,10 +62,6 @@
     <Content Include="AdminUI\NoticeManager.aspx" />
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
-    <Content Include="App_Data\WtuThesisPlatform.mdf" />
-    <Content Include="App_Data\WtuThesisPlatform_log.ldf">
-      <DependentUpon>WtuThesisPlatform.mdf</DependentUpon>
-    </Content>
     <Content Include="css\base.css" />
     <Content Include="css\common.css" />
     <Content Include="css\index.css" />
@@ -73,6 +69,7 @@
     <Content Include="images\student\buttons.gif" />
     <Content Include="images\teacher\save.gif" />
     <Content Include="images\teacher\tea_select.png" />
+    <Content Include="js\admin\Admininfo.js" />
     <Content Include="js\MD5.js" />
     <Content Include="js\student\StuInfo.js" />
     <Content Include="css\common_index.css" />
@@ -956,6 +953,9 @@
     <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
       <DependentUpon>ZhiChengManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
+      <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\common\ChangePwd.ashx.cs">
       <DependentUpon>ChangePwd.ashx</DependentUpon>
     </Compile>
@@ -1122,11 +1122,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ashx\admin\" />
+    <Folder Include="App_Data\" />
     <Folder Include="ashx\teacher\" />
     <Folder Include="css\admin\" />
     <Folder Include="images\admin\" />
-    <Folder Include="js\admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -1157,6 +1156,7 @@
     <Content Include="ashx\student\SelectedManager.ashx" />
     <Content Include="ashx\student\GetThesisData.ashx" />
     <Content Include="AdminUI\AdminMasterPage.Master" />
+    <Content Include="ashx\admin\ModifyInfo.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

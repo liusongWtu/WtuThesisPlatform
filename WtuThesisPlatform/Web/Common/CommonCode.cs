@@ -72,7 +72,7 @@ namespace Web.Common
                 //ToString中的X表示转成16进制后再转string类型,2表示两位显示,不足两位前面补0
                 result += returnBytes[i].ToString("X2");
             }
-            return result;
+            return result.ToLower();
         }
 
         /// <summary>

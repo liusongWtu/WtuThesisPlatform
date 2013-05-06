@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Major.
-    /// Datetime:2013/4/21 14:09:21
+    /// Datetime:2013/5/6 21:54:53
     /// </summary>
     public class MajorDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public Major GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select MId,DId,MName,IsDel from Major ");
+            strSql.Append("select MId,DId,MName,Mnumber,IsDel from Major ");
             strSql.Append(" where MId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public Major GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select MId,DId,MName,IsDel from Major ");
+            strSql.Append("select MId,DId,MName,Mnumber,IsDel from Major ");
             strSql.Append(" where "+strWhere);
             Major model = new Major();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Major> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select MId,DId,MName,IsDel ");
+            strSql.Append("select MId,DId,MName,Mnumber,IsDel ");
             strSql.Append(" FROM Major ");
             if (strWhere.Trim() != "")
             {
@@ -192,6 +192,10 @@ namespace WtuThesisPlatform.DAL
                 model.DId = int.Parse(dr["DId"].ToString());
             }
             model.MName = dr["MName"].ToString();
+            if (!dr.IsNull("Mnumber")&&dr["Mnumber"].ToString() != "")
+            {
+                model.Mnumber = int.Parse(dr["Mnumber"].ToString());
+            }
             if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
@@ -216,20 +220,22 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into Major(");
-                strSql.Append("MId,DId,MName,IsDel)");
+                strSql.Append("MId,DId,MName,Mnumber,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @MId,@DId,@MName,@IsDel)");
+                strSql.Append(" @MId,@DId,@MName,@Mnumber,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@MId", SqlDbType.Int,4),
                     new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@MName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Mnumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.MId;
                 parameters[1].Value = model.DId;
                 parameters[2].Value = model.MName;
-                parameters[3].Value = model.IsDel;
+                parameters[3].Value = model.Mnumber;
+                parameters[4].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -251,17 +257,20 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("update Major set ");
                         strSql.Append("DId=@DId,");
             strSql.Append("MName=@MName,");
+            strSql.Append("Mnumber=@Mnumber,");
             strSql.Append("IsDel=@IsDel");
             strSql.Append(" where MId=@MId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@MId", SqlDbType.Int,4),
                     new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@MName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Mnumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.MId;
                 parameters[1].Value = model.DId;
                 parameters[2].Value = model.MName;
-                parameters[3].Value = model.IsDel;
+                parameters[3].Value = model.Mnumber;
+                parameters[4].Value = model.IsDel;
 
             try
             {

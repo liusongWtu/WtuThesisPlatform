@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of Major.
-    /// Datetime:2013/4/21 14:09:21
+    /// Datetime:2013/5/6 21:54:53
     /// </summary>
     public class MajorBLL
     {
@@ -63,14 +63,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(strWhere);
         }
         #endregion
-
-        #region Get all list
-        public IList<Major> GetAll()
-        {
-            return dal.GetList("IsDel =0");
-        }
-        #endregion
-
+		
         #region RESTORE
         /// <summary>
         /// RESTORE
@@ -135,7 +128,14 @@ namespace WtuThesisPlatform.BLL
         public IList<Major> GetListByDId(string departmentId)
         {
             return dal.GetList("DId=" + departmentId + " and IsDel=0");
-        } 
+        }
+        #endregion
+
+        #region Get all list
+        public IList<Major> GetAll()
+        {
+            return dal.GetList("IsDel =0");
+        }
         #endregion
     }
 }

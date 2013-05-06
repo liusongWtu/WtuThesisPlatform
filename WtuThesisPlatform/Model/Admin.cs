@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace WtuThesisPlatform.MODEL
 {
     [Serializable]
@@ -17,6 +19,9 @@ namespace WtuThesisPlatform.MODEL
         protected string _uUserName = String.Empty;
         protected string _uPassword = String.Empty;
         protected string _uName = String.Empty;
+        protected string _uPhone = String.Empty;
+        protected string _uEmail = String.Empty;
+        protected string _uQQ = String.Empty;
         protected int _departmentId;
         protected int _uCheckId;
         protected bool _isDel;
@@ -61,6 +66,33 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
+        ///  电话
+        /// </summary>
+        public string UPhone
+        {
+            set { _uPhone = value; }
+            get { return _uPhone; }
+        }
+
+        /// <summary>
+        ///  邮箱
+        /// </summary>
+        public string UEmail
+        {
+            set { _uEmail = value; }
+            get { return _uEmail; }
+        }
+
+        /// <summary>
+        ///  QQ
+        /// </summary>
+        public string UQQ
+        {
+            set { _uQQ = value; }
+            get { return _uQQ; }
+        }
+
+        /// <summary>
         ///  所在系（若为校级管理员则此字段为空）
         /// </summary>
         public int DepartmentId
@@ -95,6 +127,35 @@ namespace WtuThesisPlatform.MODEL
             set {_isDel = value;}
             get {return _isDel;}
         }
+        #endregion
+
+        #region Public Methods
+        #region 克隆当前对象
+        /// <summary>
+        /// 克隆当前对象
+        /// </summary>
+        /// <param name="isDeepCopy">是否是深拷贝</param>
+        /// <returns></returns>
+        public Admin Clone(bool isDeepCopy)
+        {
+            Admin desAdmin = null;
+            if (isDeepCopy)
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(memoryStream, this);
+                    memoryStream.Position = 0;
+                    desAdmin = (Admin)formatter.Deserialize(memoryStream);
+                }
+            }
+            else
+            {
+                desAdmin = (Admin)this.MemberwiseClone();
+            }
+            return desAdmin;
+        }
+        #endregion 
         #endregion
     }
 }

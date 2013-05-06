@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Department.
-	/// Datetime:2013/4/21 14:09:03
+	/// Datetime:2013/5/6 21:54:40
     /// </summary>
     public class Department
     {
@@ -16,6 +16,7 @@ namespace WtuThesisPlatform.MODEL
         protected int _dId;
         protected string _dName = String.Empty;
         protected string _dTelPhone = String.Empty;
+        protected int _dNumber;
         protected bool _isDel;
         #endregion
 		
@@ -45,6 +46,15 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_dTelPhone = value;}
             get {return _dTelPhone;}
+        }
+
+        /// <summary>
+        ///  人数
+        /// </summary>
+        public int DNumber
+        {
+            set {_dNumber = value;}
+            get {return _dNumber;}
         }
 
         /// <summary>

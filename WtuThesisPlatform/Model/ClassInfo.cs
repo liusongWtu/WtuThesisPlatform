@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of ClassInfo.
-	/// Datetime:2013/4/21 14:08:56
+	/// Datetime:2013/5/6 21:54:31
     /// </summary>
     public class ClassInfo
     {
@@ -16,6 +16,7 @@ namespace WtuThesisPlatform.MODEL
         protected int _cId;
         protected string _cName = String.Empty;
         protected int _majorId;
+        protected int _cNumber;
         protected bool _isDel;
         #endregion
 		
@@ -45,6 +46,15 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_majorId = value;}
             get {return _majorId;}
+        }
+
+        /// <summary>
+        ///  人数
+        /// </summary>
+        public int CNumber
+        {
+            set {_cNumber = value;}
+            get {return _cNumber;}
         }
 
         /// <summary>

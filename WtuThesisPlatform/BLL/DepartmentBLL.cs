@@ -9,12 +9,19 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of Department.
-    /// Datetime:2013/4/21 14:09:03
+    /// Datetime:2013/5/6 21:54:40
     /// </summary>
     public class DepartmentBLL
     {
         private readonly DepartmentDAL dal = new DepartmentDAL();
-        
+
+        #region Get All list
+        public IList<Department> GetAll()
+        {
+            return dal.GetList("IsDel =0");
+        }
+        #endregion
+
 		#region GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
         /// <summary>
         /// GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
@@ -63,14 +70,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(strWhere);
         }
         #endregion
-
-        #region Get All list
-        public IList<Department> GetAll()
-        {
-            return dal.GetList("IsDel =0");
-        } 
-        #endregion
-
+		
         #region RESTORE
         /// <summary>
         /// RESTORE
@@ -130,6 +130,5 @@ namespace WtuThesisPlatform.BLL
             return dal.Update(model);
 		}
         #endregion
-
     }
 }

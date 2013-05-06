@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Department.
-    /// Datetime:2013/4/21 14:09:03
+    /// Datetime:2013/5/6 21:54:40
     /// </summary>
     public class DepartmentDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public Department GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select DId,DName,DTelPhone,IsDel from Department ");
+            strSql.Append("select DId,DName,DTelPhone,DNumber,IsDel from Department ");
             strSql.Append(" where DId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public Department GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select DId,DName,DTelPhone,IsDel from Department ");
+            strSql.Append("select DId,DName,DTelPhone,DNumber,IsDel from Department ");
             strSql.Append(" where "+strWhere);
             Department model = new Department();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Department> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select DId,DName,DTelPhone,IsDel ");
+            strSql.Append("select DId,DName,DTelPhone,DNumber,IsDel ");
             strSql.Append(" FROM Department ");
             if (strWhere.Trim() != "")
             {
@@ -189,6 +189,10 @@ namespace WtuThesisPlatform.DAL
             }
             model.DName = dr["DName"].ToString();
             model.DTelPhone = dr["DTelPhone"].ToString();
+            if (!dr.IsNull("DNumber")&&dr["DNumber"].ToString() != "")
+            {
+                model.DNumber = int.Parse(dr["DNumber"].ToString());
+            }
             if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
@@ -213,20 +217,22 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into Department(");
-                strSql.Append("DId,DName,DTelPhone,IsDel)");
+                strSql.Append("DId,DName,DTelPhone,DNumber,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @DId,@DName,@DTelPhone,@IsDel)");
+                strSql.Append(" @DId,@DName,@DTelPhone,@DNumber,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@DName", SqlDbType.VarChar,50),
                     new SqlParameter("@DTelPhone", SqlDbType.VarChar,50),
+                    new SqlParameter("@DNumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.DId;
                 parameters[1].Value = model.DName;
                 parameters[2].Value = model.DTelPhone;
-                parameters[3].Value = model.IsDel;
+                parameters[3].Value = model.DNumber;
+                parameters[4].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -248,17 +254,20 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("update Department set ");
                         strSql.Append("DName=@DName,");
             strSql.Append("DTelPhone=@DTelPhone,");
+            strSql.Append("DNumber=@DNumber,");
             strSql.Append("IsDel=@IsDel");
             strSql.Append(" where DId=@DId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@DId", SqlDbType.Int,4),
                     new SqlParameter("@DName", SqlDbType.VarChar,50),
                     new SqlParameter("@DTelPhone", SqlDbType.VarChar,50),
+                    new SqlParameter("@DNumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.DId;
                 parameters[1].Value = model.DName;
                 parameters[2].Value = model.DTelPhone;
-                parameters[3].Value = model.IsDel;
+                parameters[3].Value = model.DNumber;
+                parameters[4].Value = model.IsDel;
 
             try
             {

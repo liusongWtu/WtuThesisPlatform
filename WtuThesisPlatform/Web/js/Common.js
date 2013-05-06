@@ -29,7 +29,7 @@ function txtSet(id, value) { gel(id).value = value; }
 //获取标签的innerHTML，参数标签id
 function htm(id) { return gel(id).innerHTML; }
 //设置标签的innerHTML
-function htmSet(id, value) { gel(id).innerHTML = value; }  
+function htmSet(id, value) { gel(id).innerHTML = value; }
 //给指定标签innerHTML属性后面追加内容
 function htmAppend(id, value) { gel(id).innerHTML += value; }
 //在指定标签innerHTML属性前插入内容
@@ -37,7 +37,7 @@ function htmInsertFirst(id, value) { var now = gel(id).innerHTML; gel(id).innerH
 //根据标签id设置焦点
 function setFocus(id) { gel(id).focus(); }
 //选中控件内容
-function setSelect(id) {gel(id).select();}
+function setSelect(id) { gel(id).select(); }
 //根据标签id移除标签
 function removeNode(nid) { var t = gel(nid); t.parentNode.removeChild(t); }
 //为控件绑定方法
@@ -64,29 +64,29 @@ function trim(s) {
         else break;
     }
     return s.substring(st, end + 1);
-} 
+}
 
 //设置radio组的选项；radioName为组名，newValue为该组中设为选择的那个标签值
- function setCheckedValue(radioName, newValue) {  
-           if(!radioName) return;  
-           var radios = document.getElementsByName(radioName);     
-           for(var i=0; i<radios.length; i++) {  
-              radios[i].checked = false;  
-              if(radios[i].value == newValue.toString()) {  
-              radios[i].checked = true;  
-           }  
+function setCheckedValue(radioName, newValue) {
+    if (!radioName) return;
+    var radios = document.getElementsByName(radioName);
+    for (var i = 0; i < radios.length; i++) {
+        radios[i].checked = false;
+        if (radios[i].value == newValue.toString()) {
+            radios[i].checked = true;
         }
-  }
+    }
+}
 
-  //获取radio组的选中的标签的值
-  function getRadioValue(radioName) {//得到radio的值     
-      var obj = document.getElementsByName(radioName);
-      for (var i = 0; i < obj.length; i++) {
-          if (obj[i].checked) {
-              return obj[i].value;
-          }
-      }
-  }     
+//获取radio组的选中的标签的值
+function getRadioValue(radioName) {//得到radio的值     
+    var obj = document.getElementsByName(radioName);
+    for (var i = 0; i < obj.length; i++) {
+        if (obj[i].checked) {
+            return obj[i].value;
+        }
+    }
+}
 
 
 //将序列化成json格式后日期(毫秒数)转成日期格式
@@ -192,3 +192,44 @@ function getViewportWidth() {
 //    var eventSource = window.event ? window.event.srcElement : eventTag.target; //ie||ff
 //    //alert(event + ":" + currentKey + ":" + eventSource);
 //}
+
+
+/*************************************验证****************************************************/
+
+//验证邮箱,txtEmail：邮箱标签；errorInfo：显示错误信息标签
+function validateEmail(txtEmail, errorInfo) {
+    var emailPatrn = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (emailPatrn.test(txtEmail.value)) {
+        errorInfo.style.display = "none";
+        return true;
+    } else {
+        errorInfo.style.display = "";
+        return false;
+    }
+}
+
+//验证电话,各参数类似验证邮箱
+function validatePhone(txtPhone, errorInfo) {
+    var phonePatrn = /^(?:13\d|15[89])-?\d{5}(\d{3}|\*{3})$/; //手机
+    var telPatrn = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/; //电话
+    if (phonePatrn.test(txtPhone.value) || telPatrn.test(txtPhone.value)) {
+        errorInfo.style.display = "none";
+        return true;
+    } else {
+        errorInfo.style.display = "";
+        return false;
+    }
+}
+
+//验证QQ
+function validateQQ(txtQQ, errorInfo) {
+    var qqPatrn = /^[0-9][0-9]{4,}$/;
+    if (qqPatrn.test(txtQQ.value)) {
+        errorInfo.style.display = "none";
+        return true;
+    } else {
+        errorInfo.style.display = "";
+        return false;
+    }
+}
+
