@@ -189,7 +189,8 @@ namespace WtuThesisPlatform.DAL
             }
             if (!dr.IsNull("DId")&&dr["DId"].ToString() != "")
             {
-                model.DId = int.Parse(dr["DId"].ToString());
+                int departmentId=int.Parse(dr["DId"].ToString());
+                model.Department = new DepartmentDAL().GetModel(departmentId);
             }
             model.MName = dr["MName"].ToString();
             if (!dr.IsNull("Mnumber")&&dr["Mnumber"].ToString() != "")
@@ -232,7 +233,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.MId;
-                parameters[1].Value = model.DId;
+                parameters[1].Value = model.Department;
                 parameters[2].Value = model.MName;
                 parameters[3].Value = model.Mnumber;
                 parameters[4].Value = model.IsDel;
@@ -267,7 +268,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@Mnumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.MId;
-                parameters[1].Value = model.DId;
+                parameters[1].Value = model.Department;
                 parameters[2].Value = model.MName;
                 parameters[3].Value = model.Mnumber;
                 parameters[4].Value = model.IsDel;

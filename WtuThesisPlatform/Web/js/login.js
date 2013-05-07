@@ -99,11 +99,11 @@ function requestBack(result) {
         msgBox.showMsgOk("登录成功!正在跳转...");
         var currType = getRadioValue("ID");
         if (currType == "1") {
-            window.location.assign("/StudentUI/StuIndex.aspx");
+            window.location.assign("/StudentUI/StuIndex.aspx?nodeId=1000");
         } else if (currType == "2") {
-            window.location.assign("/TeacherUI/TeacherIndex.aspx");
+            window.location.assign("/TeacherUI/TeacherIndex.aspx?nodeId=2000");
         } else if (currType == "3") {
-            window.location.assign("/AdminUI/AdminInfo.aspx");
+            window.location.assign("/AdminUI/AdminInfo.aspx?nodeId=3001");
         } else {
             msgBox.showMsgErr("用户类型错误");
         }

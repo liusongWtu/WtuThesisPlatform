@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of Notice.
-    /// Datetime:2013/4/22 16:14:30
+    /// Datetime:2013/5/7 10:54:19
     /// </summary>
     public class NoticeDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public Notice GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select NId,NLevel,NName,NPublisherId,NPublishUnits,NContent,NPublishTime,NDeadTime,IsDel from Notice ");
+            strSql.Append("select NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel from Notice ");
             strSql.Append(" where NId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public Notice GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select NId,NLevel,NName,NPublisherId,NPublishUnits,NContent,NPublishTime,NDeadTime,IsDel from Notice ");
+            strSql.Append("select NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel from Notice ");
             strSql.Append(" where "+strWhere);
             Notice model = new Notice();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Notice> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select NId,NLevel,NName,NPublisherId,NPublishUnits,NContent,NPublishTime,NDeadTime,IsDel ");
+            strSql.Append("select NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel ");
             strSql.Append(" FROM Notice ");
             if (strWhere.Trim() != "")
             {
@@ -197,6 +197,7 @@ namespace WtuThesisPlatform.DAL
                 model.NPublisherId = int.Parse(dr["NPublisherId"].ToString());
             }
             model.NPublishUnits = dr["NPublishUnits"].ToString();
+            model.NTitle = dr["NTitle"].ToString();
             model.NContent = dr["NContent"].ToString();
             if (!dr.IsNull("NPublishTime")&&dr["NPublishTime"].ToString() != "")
             {
@@ -230,9 +231,9 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into Notice(");
-                strSql.Append("NId,NLevel,NName,NPublisherId,NPublishUnits,NContent,NPublishTime,NDeadTime,IsDel)");
+                strSql.Append("NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel)");
                 strSql.Append(" values (");
-                strSql.Append(" @NId,@NLevel,@NName,@NPublisherId,@NPublishUnits,@NContent,@NPublishTime,@NDeadTime,@IsDel)");
+                strSql.Append(" @NId,@NLevel,@NName,@NPublisherId,@NPublishUnits,@NTitle,@NContent,@NPublishTime,@NDeadTime,@IsDel)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@NId", SqlDbType.Int,4),
@@ -240,6 +241,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@NName", SqlDbType.VarChar,20),
                     new SqlParameter("@NPublisherId", SqlDbType.Int,4),
                     new SqlParameter("@NPublishUnits", SqlDbType.VarChar,50),
+                    new SqlParameter("@NTitle", SqlDbType.VarChar,200),
                     new SqlParameter("@NContent", SqlDbType.VarChar,16),
                     new SqlParameter("@NPublishTime", SqlDbType.DateTime,8),
                     new SqlParameter("@NDeadTime", SqlDbType.DateTime,8),
@@ -250,10 +252,11 @@ namespace WtuThesisPlatform.DAL
                 parameters[2].Value = model.NName;
                 parameters[3].Value = model.NPublisherId;
                 parameters[4].Value = model.NPublishUnits;
-                parameters[5].Value = model.NContent;
-                parameters[6].Value = model.NPublishTime;
-                parameters[7].Value = model.NDeadTime;
-                parameters[8].Value = model.IsDel;
+                parameters[5].Value = model.NTitle;
+                parameters[6].Value = model.NContent;
+                parameters[7].Value = model.NPublishTime;
+                parameters[8].Value = model.NDeadTime;
+                parameters[9].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -277,6 +280,7 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("NName=@NName,");
             strSql.Append("NPublisherId=@NPublisherId,");
             strSql.Append("NPublishUnits=@NPublishUnits,");
+            strSql.Append("NTitle=@NTitle,");
             strSql.Append("NContent=@NContent,");
             strSql.Append("NPublishTime=@NPublishTime,");
             strSql.Append("NDeadTime=@NDeadTime,");
@@ -288,6 +292,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@NName", SqlDbType.VarChar,20),
                     new SqlParameter("@NPublisherId", SqlDbType.Int,4),
                     new SqlParameter("@NPublishUnits", SqlDbType.VarChar,50),
+                    new SqlParameter("@NTitle", SqlDbType.VarChar,200),
                     new SqlParameter("@NContent", SqlDbType.VarChar,16),
                     new SqlParameter("@NPublishTime", SqlDbType.DateTime,8),
                     new SqlParameter("@NDeadTime", SqlDbType.DateTime,8),
@@ -297,10 +302,11 @@ namespace WtuThesisPlatform.DAL
                 parameters[2].Value = model.NName;
                 parameters[3].Value = model.NPublisherId;
                 parameters[4].Value = model.NPublishUnits;
-                parameters[5].Value = model.NContent;
-                parameters[6].Value = model.NPublishTime;
-                parameters[7].Value = model.NDeadTime;
-                parameters[8].Value = model.IsDel;
+                parameters[5].Value = model.NTitle;
+                parameters[6].Value = model.NContent;
+                parameters[7].Value = model.NPublishTime;
+                parameters[8].Value = model.NDeadTime;
+                parameters[9].Value = model.IsDel;
 
             try
             {

@@ -35,6 +35,7 @@
         <div class="content-center">
             <!-- <table id="grid"></table>-->
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
+            <tr><td><a href="#">添加</a>&nbsp;&nbsp;<a href="#">导入</a>&nbsp;&nbsp;<a href="#">导出</a></td></tr>
                 <tr class="list-header">
                     <td class="td0">
                         &nbsp;

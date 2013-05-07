@@ -14,7 +14,7 @@ namespace WtuThesisPlatform.MODEL
 		
         #region Protected Properties
         protected int _mId;
-        protected int _dId;
+        protected Department _department;
         protected string _mName = String.Empty;
         protected int _mnumber;
         protected bool _isDel;
@@ -31,12 +31,12 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
-        ///  所在院系id
+        ///  所在院系
         /// </summary>
-        public int DId
+        public Department Department
         {
-            set {_dId = value;}
-            get {return _dId;}
+            set {_department = value;}
+            get {return _department;}
         }
 
         /// <summary>

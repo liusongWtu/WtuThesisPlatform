@@ -137,8 +137,25 @@ namespace Web.Common
         /// <returns></returns>
         public static bool CheckAuth()
         {
-            //todo:待补充...
+            //todo:方便调试用
             return true;
+
+            string nodeId=HttpContext.Current.Request["nodeId"];
+            int iNodeId = 0;
+            if (!int.TryParse(nodeId, out iNodeId)||iNodeId<=0)
+            {
+                return false;
+            }
+            //当前用户的所有权限
+            IList<RoleRight> currRoleRights = GetRoleRightsFromSession();
+            foreach (RoleRight item in currRoleRights)
+            {
+                if (item.SysFun.NodeId == iNodeId)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>

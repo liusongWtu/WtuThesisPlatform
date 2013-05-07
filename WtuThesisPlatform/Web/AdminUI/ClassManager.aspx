@@ -38,15 +38,18 @@
                         &nbsp;
                     </td>
                     <td class="td1">
-                        名称
+                        班级名称
                     </td>
                     <td class="td2">
-                        电话
+                        所在专业
                     </td>
                     <td class="td3">
-                        修改
+                        人数
                     </td>
                     <td class="td4">
+                        修改
+                    </td>
+                    <td class="td5">
                         删除
                     </td>
                 </tr>
@@ -54,18 +57,21 @@
                     <ItemTemplate>
                         <tr class="list-content">
                             <td class="td0">
-                                <input type="checkbox" name="topiclist" id="<%#Eval("DId") %>" />
+                                <input type="checkbox" name="topiclist" id="<%#Eval("CId") %>" />
                             </td>
                             <td class="td1">
-                                    <%#Eval("DName") %>
+                                    <%#Eval("CName") %>
                             </td>
                             <td class="td2">
-                                <%#Eval("DTelPhone") %>
+                                <%#Eval("Major.MName") %>
                             </td>
                             <td class="td3">
-                                 <a href="#">修改</a>
+                                <%#Eval("CNumber") %>
                             </td>
                             <td class="td4">
+                                 <a href="#">修改</a>
+                            </td>
+                            <td class="td5">
                                 <a href="#">删除</a>
                             </td>
                         </tr>

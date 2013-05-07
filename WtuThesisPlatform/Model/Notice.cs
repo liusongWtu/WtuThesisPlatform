@@ -5,7 +5,7 @@ namespace WtuThesisPlatform.MODEL
 	/// <summary>
 	/// Author: LiuSong
 	/// Description: EntityTier -- the entity class of Notice.
-	/// Datetime:2013/4/22 16:14:30
+	/// Datetime:2013/5/7 10:54:18
     /// </summary>
     public class Notice
     {
@@ -18,6 +18,7 @@ namespace WtuThesisPlatform.MODEL
         protected string _nName = String.Empty;
         protected int _nPublisherId;
         protected string _nPublishUnits = String.Empty;
+        protected string _nTitle = String.Empty;
         protected string _nContent = String.Empty;
         protected DateTime _nPublishTime;
         protected DateTime _nDeadTime;
@@ -68,6 +69,15 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_nPublishUnits = value;}
             get {return _nPublishUnits;}
+        }
+
+        /// <summary>
+        ///  标题
+        /// </summary>
+        public string NTitle
+        {
+            set {_nTitle = value;}
+            get {return _nTitle;}
         }
 
         /// <summary>

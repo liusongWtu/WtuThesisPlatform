@@ -54,7 +54,7 @@ namespace Web
                             return true;
                         }
                         Session["currUser"] = currStudent;
-                        GoPage("window.location='/StudentUI/StuIndex.aspx'");
+                        GoPage("window.location='/StudentUI/StuIndex.aspx?nodeId=1000'");
                         return false;
                     }
                 }
@@ -74,7 +74,7 @@ namespace Web
                             return true;
                         }
                         Session["currUser"] = currTeacher;
-                        GoPage("window.location='/TeacherUI/TeacherIndex.aspx'");
+                        GoPage("window.location='/TeacherUI/TeacherIndex.aspx?nodeId=2000'");
                         return false;
                     }
                 }
@@ -94,7 +94,7 @@ namespace Web
                             return true;
                         }
                         Session["currUser"] = currAdmin;
-                        GoPage("window.location='/AdminUI/AdminInfo.aspx'");
+                        GoPage("window.location='/AdminUI/AdminInfo.aspx?nodeId=3001'");
                         return false;
                     }
                 }

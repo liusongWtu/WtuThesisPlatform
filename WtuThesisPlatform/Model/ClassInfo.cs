@@ -15,7 +15,7 @@ namespace WtuThesisPlatform.MODEL
         #region Protected Properties
         protected int _cId;
         protected string _cName = String.Empty;
-        protected int _majorId;
+        protected Major _major;
         protected int _cNumber;
         protected bool _isDel;
         #endregion
@@ -40,12 +40,12 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
-        ///  专业Id
-        /// </summary>
-        public int MajorId
+        ///  专业
+        /// </summary>m
+        public Major Major
         {
-            set {_majorId = value;}
-            get {return _majorId;}
+            set {_major = value;}
+            get {return _major;}
         }
 
         /// <summary>

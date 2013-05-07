@@ -190,7 +190,8 @@ namespace WtuThesisPlatform.DAL
             model.CName = dr["CName"].ToString();
             if (!dr.IsNull("MajorId")&&dr["MajorId"].ToString() != "")
             {
-                model.MajorId = int.Parse(dr["MajorId"].ToString());
+                int majorId=int.Parse(dr["MajorId"].ToString());
+                model.Major = new MajorDAL().GetModel(majorId);
             }
             if (!dr.IsNull("CNumber")&&dr["CNumber"].ToString() != "")
             {
@@ -233,7 +234,7 @@ namespace WtuThesisPlatform.DAL
 
 				parameters[0].Value = model.CId;
                 parameters[1].Value = model.CName;
-                parameters[2].Value = model.MajorId;
+                parameters[2].Value = model.Major.MId;
                 parameters[3].Value = model.CNumber;
                 parameters[4].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
@@ -268,7 +269,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.CId;
                 parameters[1].Value = model.CName;
-                parameters[2].Value = model.MajorId;
+                parameters[2].Value = model.Major.MId;
                 parameters[3].Value = model.CNumber;
                 parameters[4].Value = model.IsDel;
 
