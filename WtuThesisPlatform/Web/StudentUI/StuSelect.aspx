@@ -4,21 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/student/stu_select.css" />
     <link rel="stylesheet" type="text/css" href="../css/student/stu_page.css" />
-    <style type="text/css">
-        #pageBar a
-        {
-            border: 2px solid #fff;
-            background-color: #ff6600;
-            padding: 0px 6px;
-            text-decoration: none;
-            color: #fff;
-        }
-        #pageBar a:hover
-        {
-            color: #fff;
-            background-color: #7AB64F;
-        }
-    </style>
     <script type="text/javascript" src="../js/student/StuSelect.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
@@ -114,36 +99,11 @@
                 <li>|</li>
                 <li><a href="#" id="clickToStore">一键收藏</a></li>
             </ul>
-            <table class="pagechange">
-                <tr>
-                    <div id="pageBar">
-                        <%=pageBar%></div>
-                    <%-- <td class="page-up" title="上一页">
-                        <span></span>
-                    </td>
-                    <td>
-                        <a href="#">1</a>
-                    </td>
-                    <td>
-                        <a href="#">2</a>
-                    </td>
-                    <td>
-                        <a href="#">3</a>
-                    </td>
-                    <td>
-                        <a href="#">4</a>
-                    </td>
-                    <td>
-                        <a href="#">5</a>
-                    </td>
-                    <td>
-                        <a href="#">6</a>
-                    </td>
-                    <td class="page-down" title="下一页">
-                        <span></span>
-                    </td>--%>
-                </tr>
-            </table>
+            <div class="pagechange">
+                
+                    <div id="pageBar"><%=pageBar%></div>
+                
+            </div>
         </div>
     </div>
 </asp:Content>

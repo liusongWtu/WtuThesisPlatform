@@ -62,6 +62,7 @@
     <Content Include="AdminUI\NoticeManager.aspx" />
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
+    <Content Include="css\admin\adm_page.css" />
     <Content Include="css\base.css" />
     <Content Include="css\common.css" />
     <Content Include="css\index.css" />
@@ -1124,7 +1125,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ashx\teacher\" />
-    <Folder Include="css\admin\" />
     <Folder Include="images\admin\" />
   </ItemGroup>
   <ItemGroup>

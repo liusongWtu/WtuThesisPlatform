@@ -30,15 +30,12 @@
 .wrap dd{
 	padding-left: 40px;
 }
-.teacher-info dd{
-    line-height: 40px;
-}
 
 .list-header .td1{
 	border-left: 0;
 }
 .list-header .td7{
-	border-right: 1px solid #e6e6e6;
+	
 }
 
 .list-content .td1{
@@ -71,7 +68,6 @@
 .td7{
 	width: 10%;
 }
-
 
 .list-icon{
 	display: inline-block;
@@ -131,8 +127,7 @@
 
 .content-center{
 	width: 96%;
-	margin: 0px auto;
-	padding: 10px 0;	
+	margin: 0px auto;	
 }
 
 
