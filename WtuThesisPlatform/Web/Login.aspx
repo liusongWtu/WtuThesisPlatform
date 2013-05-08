@@ -24,7 +24,7 @@
                         <div class="item">
                             <div class="ui-input-wap">
                                 <label for="username">
-                                    用户名&nbsp;|</label><input type="text" id="username" value="hehanru" class="ui-input  textInd70" />
+                                    用户名&nbsp;|</label><input type="text" id="username" value="admin" class="ui-input  textInd70" />
                             </div>
                             <p>
                                 <a>忘记密码?</a></p>
@@ -32,12 +32,12 @@
                                 <label for="password ">
                                     密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" value="liu" class="ui-input  textInd70" />
                             </div>
-                            <p>
+                            <p> 
                                 <input type="checkbox" id="isRemember" />记住我</p>
                             <div class="ui-input-wap">
                                 <label for="verification">
                                     验证码&nbsp;|</label>
-                                <input type="text" id="txtCode" class="ui-input" onblur="checkCode()" /><span class="verification-msg dis-inline-block"></span>
+                                <input type="text" id="txtCode" class="ui-input" onblur="checkCode()" value="aaa" /><span class="verification-msg dis-inline-block"></span>
                                 <a><img class="vcode" id="codeSpan" src="/ashx/common/ValidateCode.ashx" alt="验证码" title="验证码" /></a>
                                 <a href="javascript:changeCode()" >看不清，换一张</a>
                             </div>

@@ -43,10 +43,10 @@
                         允许人数
                     </td>
                     <td class="td3">
-                        已选人数
+                        新选人数
                     </td>
                     <td class="td4">
-                        剩余人数
+                        确定人数
                     </td>
                     <td class="td5">
                         教师
@@ -72,10 +72,10 @@
                                 <%#Eval("TNumber") %>
                             </td>
                             <td class="td3">
-                                <%#Eval("TSelectedNum") %>
+                                <%#Eval("TNewNum") %>
                             </td>
                             <td class="td4">
-                                <%#Eval("LeftNum") %>
+                                <%#Eval("TAcceptNum") %>
                             </td>
                             <td class="td5 teacher">
                                 <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("Teacher.TId") %>">

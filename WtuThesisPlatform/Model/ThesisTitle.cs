@@ -23,7 +23,7 @@ namespace WtuThesisPlatform.MODEL
         protected string _tRequire = String.Empty;
         protected int _tSelectedNum;
         protected int _tAcceptNum;
-        private int _leftNum;
+        private int _tNewNum;
         protected int _tState;
         protected string _tYear = String.Empty;
         protected int _tDepartmentId;
@@ -79,12 +79,12 @@ namespace WtuThesisPlatform.MODEL
         /// <summary>
         /// 剩余人数
         /// </summary>
-        public int LeftNum
+        public int TNewNum
         {
             get
             {
-                _leftNum = _tNumber - TAcceptNum;
-                return _leftNum;
+                _tNewNum = _tSelectedNum - TAcceptNum;
+                return _tNewNum;
             }
         }
 
