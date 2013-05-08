@@ -229,7 +229,7 @@ body{
 /*表格表头样式*/
 .topic-list{
 	width:95%;
-	margin-top: 20px;
+	margin: 0 auto;
 }
 .topic-list td{
 	white-space: nowrap;
@@ -260,6 +260,36 @@ body{
 .list-content td{
 	line-height: 35px;
 	border-bottom: 1px solid #e6e6e6;
+}
+.list-header .first,.list-content .first
+{
+    border-left: 0;
+    text-align: left;
+}
+.last
+{
+    border-right: 1px solid #e6e6e6;
+}
+
+.tr3
+{
+    width: 2%;
+}
+.tr10
+{
+    width: 10%;
+}
+.tr20
+{
+    width: 20%;
+}
+.tr30
+{
+    width: 30%;
+}
+.tr40
+{
+    width: 40%;
 }
 /*表格表头样式*/
 /*搜索框*/
@@ -354,7 +384,24 @@ body{
 	right: 10px;
 	padding: 5px 0;
 }
-.pagechange span{
+#pageBar
+{
+     font-weight: bold;
+}
+#pageBar a
+        {
+            border: 1px solid gray;
+	        background: #e6e6e6; 
+            padding: 0px 6px;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        #pageBar a:hover
+        {
+            color: #fff;
+            background-color: gray;
+        }
+/*.pagechange span{
 	display: inline-block;
 	width: 29px;
 	height: 20px;
@@ -377,7 +424,7 @@ body{
 .pagechange a:hover{
 	border: 1px solid gray;
 	background: #e6e6e6; 
-}
+}*/
 /*下翻页*/
 
 
