@@ -17,7 +17,7 @@ namespace Web.ashx.common
             context.Response.ContentType = "text/plain";
             context.Session["currUser"] = null;
             context.Session["openNodes"] = null;
-
+            context.Session["RoleRights"] = null;
             context.Response.Cookies["loginId"].Expires=DateTime.Now.AddYears(-1);
             context.Response.Cookies["pwd"].Expires = DateTime.Now.AddYears(-1);
             context.Response.Cookies["userType"].Expires = DateTime.Now.AddYears(-1);
