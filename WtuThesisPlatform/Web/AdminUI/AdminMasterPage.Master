@@ -16,7 +16,9 @@
     <script type="text/javascript" src="../js/om/ui/om-position.js"></script>
     <script type="text/javascript" src="../js/om/ui/om-messagebox.js"></script>
     <script type="text/javascript" src="../js/om/ui/om-button.js"></script>
+    <script type="text/javascript" src="../js/om/ui/om-resizable.js"></script>
     <script type="text/javascript" src="../js/om/ui/om-messagetip.js"></script>
+    <script type="text/javascript" src="../js/om/ui/om-dialog.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

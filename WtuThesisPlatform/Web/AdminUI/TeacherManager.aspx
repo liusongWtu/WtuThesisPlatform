@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="TeacherManager.aspx.cs" Inherits="Web.AdminUI.TeacherManager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/admin/adm_page.css" />
-    <script type="text/javascript" src="../js/student/StuSelect.js"></script>
+    <script type="text/javascript" src="../js/admin/TeacherManager.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 <div class="select-list">
@@ -16,6 +17,12 @@
         </div>
         <div class="content-center">
             <!-- <table id="grid"></table>-->
+            <ul class="toolBar">
+                <li id="add" class="opeAdd">添加</li>
+                <li id="delete" class="opeDelete">批量删除</li>
+                <li id="import" class="opeImport">导入</li>
+                <li id="export" class="opeExport">导出</li>
+            </ul>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
                 <tr class="list-header">
                     <td class="tr3">
@@ -71,17 +78,17 @@
                                 <%#Eval("TEmail") %>
                             </td>
                             <td>
-                                <a href="#">
+                                <a href="#" class="checkDetail">
                                     查看详情</a>
                             </td>
                             <td>
                                 <a href="#">重置</a>
                             </td>
                             <td>
-                                <a href="#">修改</a>
+                                <a href="#" class="modifyInfo">修改</a>
                             </td>
                             <td>
-                                <a href="#">删除</a>
+                                <a href="#" class="deleteOne">删除</a>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -94,4 +101,16 @@
             </div>
         </div>
     </div>
+    <div id="addNew" title="添加用户">
+        <table class="addTable">
+            <tr><td>用户名：</td><td><input type="text" class="TUserName" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;密码：</td><td><input type="text" class="TPassword"/></td></tr>
+            <tr><td>姓名：</td><td><input type="text"  class="TName" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;电话：</td><td><input type="text" class="TPhone" /></td></tr>
+            <tr><td>EMAIL：</td><td><input type="text" class="TEmail" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;QQ：</td><td><input type="text"  class="TQQ" /></td></tr>
+            <tr><td>职称：</td><td><input type="text"  class="TZhiCheng" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;限带人数：</td><td><input type="text"  class="TTeachNum" /></td></tr>
+            <tr><td>院系：</td><td><select  class="DepartmentId"><option>----请选择----</option><option>数学与计算机学院</option></select></td><td>&nbsp;&nbsp;&nbsp;&nbsp;专业：</td><td><select  class="MajorId"><option>----请选择----</option><option>软件工程</option></select></td></tr>
+            <tr><td>主讲课程：</td><td colspan="3"  class="TTeachCourse"><textarea></textarea></td></tr>
+            <tr><td>研究方向：</td><td colspan="3"  class="TResearchFields"><textarea></textarea></td></tr>
+        </table>
+    </div>
+
 </asp:Content>

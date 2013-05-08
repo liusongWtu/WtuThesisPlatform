@@ -67,15 +67,18 @@
     <Content Include="css\common.css" />
     <Content Include="css\index.css" />
     <Content Include="css\teacher\teacher_pages.css" />
+    <Content Include="images\admin\add.png" />
+    <Content Include="images\admin\blue-document-export.png" />
+    <Content Include="images\admin\blue-document-import.png" />
     <Content Include="images\student\buttons.gif" />
     <Content Include="images\teacher\save.gif" />
     <Content Include="images\teacher\tea_select.png" />
     <Content Include="js\admin\Admininfo.js" />
+    <Content Include="js\admin\TeacherManager.js" />
     <Content Include="js\MD5.js" />
     <Content Include="js\student\StuInfo.js" />
     <Content Include="css\common_index.css" />
     <Content Include="css\student\stu_page.css" />
-    <Content Include="css\student\stu_select.css" />
     <Content Include="images\btn_bg.gif" />
     <Content Include="images\get_offpic2.jpg" />
     <Content Include="images\index_banner.jpg" />
@@ -1125,7 +1128,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ashx\teacher\" />
-    <Folder Include="images\admin\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
