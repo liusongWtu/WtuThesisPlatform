@@ -63,7 +63,7 @@
                                 <input type="checkbox" name="topiclist"/>
                             </td>
                             <td class="first">
-                                    <%#Eval("TUserName") %>
+                                    <%#Eval("TNo") %>
                             </td>
                             <td>
                                 <%#Eval("TName") %>

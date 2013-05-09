@@ -28,7 +28,7 @@ namespace WtuThesisPlatform.DAL
             return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
         }
         #endregion
-		
+
         #region DELETE PHYSICAL
         /// <summary>
         /// DELETE PHYSICAL
@@ -40,7 +40,7 @@ namespace WtuThesisPlatform.DAL
             return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
         }
         #endregion
-		
+
         #region GET A ENTITY
         /// <summary>
         /// GET A ENTITY GetAllKeysNameString
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public Teacher GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
+            strSql.Append("select TId,TNo,TPassword,TName,TSex,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
             strSql.Append(" where TId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,8 +69,8 @@ namespace WtuThesisPlatform.DAL
         public Teacher GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
-            strSql.Append(" where "+strWhere);
+            strSql.Append("select TId,TNo,TPassword,TName,TZhiCheng,TSex,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
+            strSql.Append(" where " + strWhere);
             Teacher model = new Teacher();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
             if (dt.Rows.Count > 0)
@@ -87,8 +87,8 @@ namespace WtuThesisPlatform.DAL
         public Teacher GetModelByUserName(string userName)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,DepartmentId,TQQ,TPhone,TEmail,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
-            strSql.Append(" where TUserName=@userName ");
+            strSql.Append("select TId,TNo,TPassword,TName,TZhiCheng,TSex,TTeachNum,DepartmentId,TQQ,TPhone,TEmail,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel from Teacher ");
+            strSql.Append(" where TNo=@userName ");
             SqlParameter[] parameters = {
                     new SqlParameter("@userName", SqlDbType.NVarChar,20)};
             parameters[0].Value = userName;
@@ -105,7 +105,7 @@ namespace WtuThesisPlatform.DAL
             }
         }
         #endregion
-		
+
         #region GET DATA LIST bysqlwhere
         /// <summary>
         /// GET DATA LIST bysqlwhere
@@ -113,7 +113,7 @@ namespace WtuThesisPlatform.DAL
         public IList<Teacher> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel ");
+            strSql.Append("select TId,TNo,TPassword,TName,TZhiCheng,TSex,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel ");
             strSql.Append(" FROM Teacher ");
             if (strWhere.Trim() != "")
             {
@@ -142,7 +142,7 @@ namespace WtuThesisPlatform.DAL
         /// </summary>
         /// <param name="procName">procName</param>
         /// <param name="paras">paras</param>
-        public IList<Teacher> GetListByProc(string procName,SqlParameter[] paras)
+        public IList<Teacher> GetListByProc(string procName, SqlParameter[] paras)
         {
             IList<Teacher> list = null;
             DataTable dt = DbHelperSQL.ExecProDataTable(procName, paras);
@@ -195,7 +195,7 @@ namespace WtuThesisPlatform.DAL
             }
         }
         #endregion
-		
+
         #region LoadEntityData
         /// <summary>
         /// LoadEntityData
@@ -204,47 +204,48 @@ namespace WtuThesisPlatform.DAL
         /// <param name="dr">DataRow</param>
         private void LoadEntityData(ref Teacher model, DataRow dr)
         {
-                        if (!dr.IsNull("TId")&&dr["TId"].ToString() != "")
+            if (!dr.IsNull("TId") && dr["TId"].ToString() != "")
             {
                 model.TId = int.Parse(dr["TId"].ToString());
             }
-            model.TUserName = dr["TUserName"].ToString();
+            model.TNo = dr["TNo"].ToString();
             model.TPassword = dr["TPassword"].ToString();
             model.TName = dr["TName"].ToString();
             model.TZhiCheng = dr["TZhiCheng"].ToString();
-            if (!dr.IsNull("TTeachNum")&&dr["TTeachNum"].ToString() != "")
+            model.TSex = dr["TSex"].ToString();
+            if (!dr.IsNull("TTeachNum") && dr["TTeachNum"].ToString() != "")
             {
                 model.TTeachNum = int.Parse(dr["TTeachNum"].ToString());
             }
             model.TPhone = dr["TPhone"].ToString();
             model.TEmail = dr["TEmail"].ToString();
             model.TQQ = dr["TQQ"].ToString();
-            if (!dr.IsNull("DepartmentId")&&dr["DepartmentId"].ToString() != "")
+            if (!dr.IsNull("DepartmentId") && dr["DepartmentId"].ToString() != "")
             {
-                int departmentId=int.Parse(dr["DepartmentId"].ToString());
+                int departmentId = int.Parse(dr["DepartmentId"].ToString());
                 model.Department = new DepartmentDAL().GetModel(departmentId);
             }
-            if (!dr.IsNull("MajorId")&&dr["MajorId"].ToString() != "")
+            if (!dr.IsNull("MajorId") && dr["MajorId"].ToString() != "")
             {
-                int majorId=int.Parse(dr["MajorId"].ToString());
+                int majorId = int.Parse(dr["MajorId"].ToString());
                 model.Major = new MajorDAL().GetModel(majorId);
             }
             model.TTeachCourse = dr["TTeachCourse"].ToString();
             model.TResearchFields = dr["TResearchFields"].ToString();
             model.TCheckCode = dr["TCheckCode"].ToString();
-            if (!dr.IsNull("RoleId")&&dr["RoleId"].ToString() != "")
+            if (!dr.IsNull("RoleId") && dr["RoleId"].ToString() != "")
             {
-                int roleId=int.Parse(dr["RoleId"].ToString());
+                int roleId = int.Parse(dr["RoleId"].ToString());
                 model.RoleInfo = new RoleInfoDAL().GetModel(roleId);
             }
-            if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
+            if (!dr.IsNull("IsDel") && dr["IsDel"].ToString() != "")
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
             }
 
         }
         #endregion
-		
+
         #region Add a record
         /// <summary>
         /// Add a record
@@ -255,19 +256,19 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
-                 if (model.TId == 0)
+                if (model.TId == 0)
                 {
                     model.TId = DbHelperSQL.GetNextValidID("Teacher ", "TId");
                 }
-                
+
                 strSql.Append("insert into Teacher(");
-                strSql.Append("TId,TUserName,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel)");
+                strSql.Append("TId,TNo,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel,TSex)");
                 strSql.Append(" values (");
-                strSql.Append(" @TId,@TUserName,@TPassword,@TName,@TZhiCheng,@TTeachNum,@TPhone,@TEmail,@TQQ,@DepartmentId,@MajorId,@TTeachCourse,@TResearchFields,@TCheckCode,@RoleId,@IsDel)");
+                strSql.Append(" @TId,@TUserName,@TPassword,@TName,@TZhiCheng,@TTeachNum,@TPhone,@TEmail,@TQQ,@DepartmentId,@MajorId,@TTeachCourse,@TResearchFields,@TCheckCode,@RoleId,@IsDel,@TSex)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
-                    new SqlParameter("@TUserName", SqlDbType.VarChar,20),
+                    new SqlParameter("@TNo", SqlDbType.VarChar,20),
                     new SqlParameter("@TPassword", SqlDbType.VarChar,32),
                     new SqlParameter("@TName", SqlDbType.VarChar,20),
                     new SqlParameter("@TZhiCheng", SqlDbType.VarChar,20),
@@ -281,10 +282,11 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TResearchFields", SqlDbType.VarChar,16),
                     new SqlParameter("@TCheckCode", SqlDbType.VarChar,36),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
-                    new SqlParameter("@IsDel", SqlDbType.Bit,1)};
+                    new SqlParameter("@IsDel", SqlDbType.Bit,1),
+                    new SqlParameter("@TSex",SqlDbType.VarChar,2)};
 
-				parameters[0].Value = model.TId;
-                parameters[1].Value = model.TUserName;
+                parameters[0].Value = model.TId;
+                parameters[1].Value = model.TNo;
                 parameters[2].Value = model.TPassword;
                 parameters[3].Value = model.TName;
                 parameters[4].Value = model.TZhiCheng;
@@ -299,6 +301,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[13].Value = model.TCheckCode;
                 parameters[14].Value = model.RoleInfo;
                 parameters[15].Value = model.IsDel;
+                parameters[16].Value = model.TSex;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -308,7 +311,7 @@ namespace WtuThesisPlatform.DAL
             return result;
         }
         #endregion
-		
+
         #region Update
         /// <summary>
         /// Update a data
@@ -318,7 +321,7 @@ namespace WtuThesisPlatform.DAL
             int res = -2;
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Teacher set ");
-                        strSql.Append("TUserName=@TUserName,");
+            strSql.Append("TNo=@TNo,");
             strSql.Append("TPassword=@TPassword,");
             strSql.Append("TName=@TName,");
             strSql.Append("TZhiCheng=@TZhiCheng,");
@@ -332,11 +335,12 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("TResearchFields=@TResearchFields,");
             strSql.Append("TCheckCode=@TCheckCode,");
             strSql.Append("RoleId=@RoleId,");
-            strSql.Append("IsDel=@IsDel");
+            strSql.Append("IsDel=@IsDel,");
+            strSql.Append("TSex=@TSex");
             strSql.Append(" where TId=@TId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
-                    new SqlParameter("@TUserName", SqlDbType.VarChar,20),
+                    new SqlParameter("@TNo", SqlDbType.VarChar,20),
                     new SqlParameter("@TPassword", SqlDbType.VarChar,32),
                     new SqlParameter("@TName", SqlDbType.VarChar,20),
                     new SqlParameter("@TZhiCheng", SqlDbType.VarChar,20),
@@ -350,23 +354,26 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TResearchFields", SqlDbType.VarChar,16),
                     new SqlParameter("@TCheckCode", SqlDbType.VarChar,36),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
-                    new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-			                parameters[0].Value = model.TId;
-                parameters[1].Value = model.TUserName;
-                parameters[2].Value = model.TPassword;
-                parameters[3].Value = model.TName;
-                parameters[4].Value = model.TZhiCheng;
-                parameters[5].Value = model.TTeachNum;
-                parameters[6].Value = model.TPhone;
-                parameters[7].Value = model.TEmail;
-                parameters[8].Value = model.TQQ;
-                parameters[9].Value = model.Department;
-                parameters[10].Value = model.Major;
-                parameters[11].Value = model.TTeachCourse;
-                parameters[12].Value = model.TResearchFields;
-                parameters[13].Value = model.TCheckCode;
-                parameters[14].Value = model.RoleInfo;
-                parameters[15].Value = model.IsDel;
+                    new SqlParameter("@IsDel", SqlDbType.Bit,1),
+                    new SqlParameter("@TSex",SqlDbType.VarChar,2)};
+
+            parameters[0].Value = model.TId;
+            parameters[1].Value = model.TNo;
+            parameters[2].Value = model.TPassword;
+            parameters[3].Value = model.TName;
+            parameters[4].Value = model.TZhiCheng;
+            parameters[5].Value = model.TTeachNum;
+            parameters[6].Value = model.TPhone;
+            parameters[7].Value = model.TEmail;
+            parameters[8].Value = model.TQQ;
+            parameters[9].Value = model.Department;
+            parameters[10].Value = model.Major;
+            parameters[11].Value = model.TTeachCourse;
+            parameters[12].Value = model.TResearchFields;
+            parameters[13].Value = model.TCheckCode;
+            parameters[14].Value = model.RoleInfo;
+            parameters[15].Value = model.IsDel;
+            parameters[16].Value = model.TSex;
 
             try
             {

@@ -14,11 +14,12 @@ namespace WtuThesisPlatform.MODEL
 		
         #region Protected Properties
         protected int _tId;
-        protected string _tUserName = String.Empty;
+        protected string _tNo = String.Empty;
         protected string _tPassword = String.Empty;
         protected string _tName = String.Empty;
         protected string _tZhiCheng = String.Empty;
         protected int _tTeachNum;
+        protected string _tSex = String.Empty;
         protected string _tPhone = String.Empty;
         protected string _tEmail = String.Empty;
         protected string _tQQ = String.Empty;
@@ -42,12 +43,12 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
-        ///  用户名
+        ///  工号
         /// </summary>
-        public string TUserName
+        public string TNo
         {
-            set {_tUserName = value;}
-            get {return _tUserName;}
+            set {_tNo = value;}
+            get {return _tNo;}
         }
 
         /// <summary>
@@ -57,6 +58,16 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_tPassword = value;}
             get {return _tPassword;}
+        }
+
+
+        /// <summary>
+        ///  性别
+        /// </summary>
+        public string TSex
+        {
+            set { _tSex = value; }
+            get { return _tSex; }
         }
 
         /// <summary>

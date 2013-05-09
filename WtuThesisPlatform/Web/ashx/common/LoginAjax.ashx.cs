@@ -110,7 +110,7 @@ namespace Web.ashx
                         else
                         {
                             context.Session["currUser"] = teacher;
-                            HttpCookie currUser = new HttpCookie("loginId", teacher.TUserName);
+                            HttpCookie currUser = new HttpCookie("loginId", teacher.TNo);
                             context.Response.Cookies.Add(currUser);
                             if (isRemember == "1")
                             {

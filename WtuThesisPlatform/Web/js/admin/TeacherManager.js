@@ -22,6 +22,7 @@ $(function () {
         $("#addNew").omDialog({ buttons: [
         { text: "确定", click:
             function () {
+                
                 if (addNewCount()) { //添加新用户成功
                     //关闭窗口
                     $("#addNew").omDialog('close');
@@ -128,7 +129,11 @@ function getInfo() {
 
 function addNewCount() {//添加新用户
     var result = false;
-    $.post("../../ashx/admin/TeacherManager.ashx", {"operate":"addNew"}, function (data) { });
+    $.post("../../ashx/admin/TeacherManager.ashx",
+            { "operate": "addNew", "tUserName": TUserName.val(), "tName": TName.val(), "tPhone": TPhone.val(),
+               "tEmail":TEmail.val(),"tQQ":TQQ.val(),"tZhiCheng":TZhiCheng.val(),"tTeachNum":TTeachNum,
+                 },
+            function (data) { });
     return result;
 }
 function deleteCount() {//删除用户
