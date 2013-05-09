@@ -88,6 +88,17 @@ $(function () {
         $(".addTable input,.addTable textarea").removeAttr("readonly").removeClass("borderNone");
         $('.addTable select').removeAttr("disabled");
         //显示原信息
+        var teacherId = 1; //获取被点击的行的Id
+        $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teacherId }, function (data) {
+            alert(data); //json数据格式
+            //将返回的json数组字符串，转成 javascript的 数组对象
+            var teacherInfo = eval("(" + data + ")");
+            alert("教师姓名:" + teacherInfo.TName);
+            alert("院系名:" + teacherInfo.Department.DName);
+            alert("院系ID:" + teacherInfo.Department.DId);
+            alert("专业名:" + teacherInfo.Major.MName);
+        });
+
         //更新信息
     })
     $(".deleteOne").click(function () {//删除信息
