@@ -233,3 +233,9 @@ function validateQQ(txtQQ, errorInfo) {
     }
 }
 
+//验证数值范围0~20
+function validateNum(txtNum, errorInfo) {
+    var numPatrn = /^\d$|^1\d$|^20$/;
+}
+
+
