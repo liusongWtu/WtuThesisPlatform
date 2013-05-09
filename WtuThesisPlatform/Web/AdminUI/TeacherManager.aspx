@@ -60,7 +60,7 @@
                     <ItemTemplate>
                         <tr class="list-content" id="<%#Eval("TId") %>">
                             <td>
-                                <input type="checkbox" name="topiclist" id="<%#Eval("TId") %>" />
+                                <input type="checkbox" name="topiclist"/>
                             </td>
                             <td class="first">
                                     <%#Eval("TUserName") %>
