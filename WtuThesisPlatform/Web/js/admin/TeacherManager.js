@@ -34,11 +34,12 @@ $(function () {
 
 
     $("#add").click(function () {//添加
+        loadDepartment(DepartmentId, MajorId); //加载下拉列表
+        DepartmentId.change(function () { loadMajor(MajorId,DepartmentId.val()); });
         $("#addNew").omDialog({ title: "添加用户" });
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
-                
                     if (addNewCount()) { //添加新用户成功
                         //关闭窗口
                         $("#addNew").omDialog('close');
