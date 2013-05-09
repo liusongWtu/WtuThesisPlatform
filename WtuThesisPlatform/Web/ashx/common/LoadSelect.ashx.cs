@@ -19,7 +19,7 @@ namespace Web.ashx.common
             context.Response.ContentType = "text/plain";
             string departmentId = context.Request["did"];
             string majorId = context.Request["mid"];
-
+            string getDM=context.Request["getDM"];//获取院系，专业信息
            
             JavaScriptSerializer jsS = new JavaScriptSerializer();//创建 js序列化器对象
 
@@ -45,7 +45,19 @@ namespace Web.ashx.common
                 context.Response.Write(jsoArrStr);
             }
 
+            if (!string.IsNullOrEmpty(getDM))
+            {
+                //获取院系信息
+                IList<Department> lstDepartment = new DepartmentBLL().GetAll();
+                string jsonDepartment = jsS.Serialize(lstDepartment);
 
+                //获取专业信息
+                IList<Major> lstMajor = new MajorBLL().GetAll();
+                string jsonMajor = jsS.Serialize(lstMajor);
+                string finalStr = "{ department:" + jsonDepartment + ",major:" + jsonMajor + "}";
+                context.Response.Write(finalStr);
+                return;
+            }
 
         }
 
