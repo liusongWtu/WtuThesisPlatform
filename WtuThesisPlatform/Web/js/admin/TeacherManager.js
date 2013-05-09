@@ -38,7 +38,7 @@ $(function () {
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
-                
+
                     if (addNewCount()) { //添加新用户成功
                         //关闭窗口
                         $("#addNew").omDialog('close');
@@ -67,7 +67,6 @@ $(function () {
         });
         $("#addNew").omDialog('open');
         $(".addTable input,.addTable textarea").removeAttr("readonly");
-        $('.addTable select').removeAttr("disabled");
     });
     $("#delete").click(function () {//批量删除
         var $checked = $("input[name='topiclist']:checked");
@@ -89,7 +88,8 @@ $(function () {
                 }
             });
         }
-    })
+    });
+
     $(".checkDetail").click(function () { //查看详情
         var teaId = $(this).parent().parent().attr("id");
         $("#addNew").omDialog({ title: "用户信息" });
@@ -97,9 +97,11 @@ $(function () {
         $("#addNew").omDialog('open');
         setInfo(teaId);
         $(".addTable input,.addTable textarea").attr("readonly", "readonly");
-        $('.addTable select').attr("disabled", "disabled");
-    })
+        $("#addNew").omDialog({onClose : function() {clear()}});
+    });
+
     $(".modifyInfo").click(function () { //修改信息
+        var teaId = $(this).parent().parent().attr("id");
         $("#addNew").omDialog({ title: "修改信息" });
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
@@ -126,7 +128,6 @@ $(function () {
         $("#addNew").omDialog('open');
         setInfo(teaId);
         $(".addTable input,.addTable textarea").removeAttr("readonly");
-        $('.addTable select').removeAttr("disabled");
     })
     $(".deleteOne").click(function () {//删除信息
         var $myThis = $(this);

@@ -107,9 +107,9 @@
             <tr><td>性别：</td><td><input type="text"  class="TSex" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;电话：</td><td><input type="text" class="TPhone" /></td></tr>
             <tr><td>EMAIL：</td><td><input type="text" class="TEmail" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;QQ：</td><td><input type="text"  class="TQQ" /></td></tr>
             <tr><td>职称：</td><td><input type="text"  class="TZhiCheng" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;限带人数：</td><td><input type="text"  class="TTeachNum" /></td></tr>
-            <tr><td>院系：</td><td><select  class="DepartmentId"><option>----请选择----</option></select></td><td>&nbsp;&nbsp;&nbsp;&nbsp;专业：</td><td><select  class="MajorId"><option>----请选择----</option></select></td></tr>
-            <tr><td>主讲课程：</td><td colspan="3"  class="TTeachCourse"><textarea></textarea></td></tr>
-            <tr><td>研究方向：</td><td colspan="3"  class="TResearchFields"><textarea></textarea></td></tr>
+            <tr><td>院系：</td><td><select  class="DepartmentId"></select></td><td>&nbsp;&nbsp;&nbsp;&nbsp;专业：</td><td><select  class="MajorId"></select></td></tr>
+            <tr><td>主讲课程：</td><td colspan="3"><textarea   class="TTeachCourse" rows="10" cols="10"></textarea></td></tr>
+            <tr><td>研究方向：</td><td colspan="3"><textarea  class="TResearchFields" rows="10" cols="10"></textarea></td></tr>
         </table>
     </div>
 
