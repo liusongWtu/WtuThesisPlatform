@@ -29,7 +29,7 @@
                     </td>
                 </tr>
                 <tr class="list-content">
-                    <td>
+                    <td class="bold">
                         <a>毕业设计选题系统</a>
                     </td>
                     <td>
@@ -63,71 +63,12 @@
                     </td>
                 </tr>
 
-                <tr class="list-content">
-                    <td>
-                        <a>毕业设计选题系统</a>
-                    </td>
-                    <td>
-                        2012-04-12
-                    </td>
-                </tr>
-                <tr class="detail nohover hide">
-                    <td colspan="2" class="tr-wid fn-text-wrap">
-                        <table>
-                            <tr class="nohover">
-                                <td>开发平台
-                                    <p id="P1">Visual C++</p>
-                                </td>
-                            </tr>
-                            <tr class="nohover">
-                                <td>题目简介
-                                    <p id="P2" class="fn-text-wrap">
-                                        视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。
-                                        视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr class="nohover">
-                                <td>设计功能与实现目标
-                                    <p id="P3" class="fn-text-wrap">
-                                        视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
             </table>
         </div>
-        <div class="content-bottom">
-            <table class="pagechange">
-                <tr>
-                    <td class="page-up" title="上一页">
-                        <span></span>
-                    </td>
-                    <td>
-                        <a href="#">1</a>
-                    </td>
-                    <td>
-                        <a href="#">2</a>
-                    </td>
-                    <td>
-                        <a href="#">3</a>
-                    </td>
-                    <td>
-                        <a href="#">4</a>
-                    </td>
-                    <td>
-                        <a href="#">5</a>
-                    </td>
-                    <td>
-                        <a href="#">6</a>
-                    </td>
-                    <td class="page-down" title="下一页">
-                        <span></span>
-                    </td>
-                </tr>
-            </table>
+       <div class="content-bottom">
+            <div class="pagechange">
+                    <div id="pageBar"><%=pageBar%></div>
+            </div>
         </div>
     </div>
 </asp:Content>

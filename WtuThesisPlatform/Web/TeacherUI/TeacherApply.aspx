@@ -12,26 +12,30 @@
                 <dd>
                     <table id="applyTopicList" class="topic-list" cellspacing="0" cellpadding="0">
                         <tr class="list-header">
-                            <td class="td0">选题名称</td>
-                            <td class="td1">申请</td>
-                            <td class="td2">修改</td>
-                            <td class="td3">预览</td>
-                            <td class="td4 last">删除</td>
+                            <td>选题名称</td>
+                            <td>状态</td>
+                            <td>申请</td>
+                            <td>修改</td>
+                            <td>预览</td>
+                            <td class="last">删除</td>
                         </tr>
                         <tr class="list-content nohover">
-                            <td class="td0">
+                            <td class="bold">
                                 <a href="#">毕业设计选题系统</a>
                             </td>
-                            <td class="td1">
+                            <td>
+                                <span class="tea-status">状态</span>
+                            </td>
+                            <td>
                                 <a class="tea-apply">申请</a>
                             </td>
-                            <td class="td2">
+                            <td>
                                 <a class="tea-modify">修改</a>
                             </td>
-                            <td class="td3">
+                            <td>
                                 <a class="tea-check">预览</a>
                             </td>
-                            <td class="td4">
+                            <td>
                                 <a class="tea-delete">删除</a>
                             </td>
                         </tr>

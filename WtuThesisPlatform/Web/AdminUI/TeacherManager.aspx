@@ -29,7 +29,7 @@
                         &nbsp;
                     </td>
                     <td class="first">
-                        登录名
+                        教工号
                     </td>
                     <td>
                         姓名
@@ -103,8 +103,8 @@
     </div>
     <div id="addNew" title="添加用户">
         <table class="addTable">
-            <tr><td>用户名：</td><td><input type="text" class="TUserName" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;密码：</td><td><input type="text" class="TPassword"/></td></tr>
-            <tr><td>姓名：</td><td><input type="text"  class="TName" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;电话：</td><td><input type="text" class="TPhone" /></td></tr>
+            <tr><td>教工号：</td><td><input type="text" class="TUserName" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;姓名：</td><td><input type="text" class="TName"/></td></tr>
+            <tr><td>性别：</td><td><input type="text"  class="TSex" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;电话：</td><td><input type="text" class="TPhone" /></td></tr>
             <tr><td>EMAIL：</td><td><input type="text" class="TEmail" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;QQ：</td><td><input type="text"  class="TQQ" /></td></tr>
             <tr><td>职称：</td><td><input type="text"  class="TZhiCheng" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;限带人数：</td><td><input type="text"  class="TTeachNum" /></td></tr>
             <tr><td>院系：</td><td><select  class="DepartmentId"><option>----请选择----</option><option>数学与计算机学院</option></select></td><td>&nbsp;&nbsp;&nbsp;&nbsp;专业：</td><td><select  class="MajorId"><option>----请选择----</option><option>软件工程</option></select></td></tr>

@@ -10,6 +10,7 @@ var TTeachCourse;
 var TResearchFields;
 
 $(function () {
+
     $("#addNew").omDialog({
         autoOpen: false,
         height: 400,
@@ -19,37 +20,39 @@ $(function () {
 
 
     $("#add").click(function () {//添加
+        $("#addNew").omDialog({ title: "添加用户" });
         $("#addNew").omDialog({ buttons: [
-        { text: "确定", click:
-            function () {
-                if (addNewCount()) { //添加新用户成功
-                    //关闭窗口
+            { text: "确定", click:
+                function () {
+                    if (addNewCount()) { //添加新用户成功
+                        //关闭窗口
+                        $("#addNew").omDialog('close');
+                        $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                    }
+                    else {
+                        $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
+                    }
+                }
+            },
+            { text: "继续添加", click:
+                function () {
+                    if (addNewCount()) {//添加成功
+                        $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                        $("#addNew input").val("");
+                        $("#addNew textarea").val("");
+                    }
+                }
+            },
+            { text: "取消", click:
+                function () {
                     $("#addNew").omDialog('close');
-                    $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
-                }
-                else {
-                    $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
                 }
             }
-        },
-        { text: "继续添加", click:
-            function () {
-                if (addNewCount()) {//添加成功
-                    $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
-                    $("#addNew input").val("");
-                    $("#addNew textarea").val("");
-                }
-            }
-        },
-        { text: "取消", click:
-            function () {
-                $("#addNew").omDialog('close');
-            }
-        },
          ]
         });
-
         $("#addNew").omDialog('open');
+        $(".addTable input,.addTable textarea").removeAttr("readonly");
+        $('.addTable select').removeAttr("disabled");
     });
     $("#delete").click(function () {//批量删除
         var $checked = $("input[name='topiclist']:checked");
@@ -76,16 +79,37 @@ $(function () {
         $("#addNew").omDialog({ title: "用户信息" });
         $("#addNew").omDialog({ buttons: {} });
         $("#addNew").omDialog('open');
-        $(".addTable input,.addTable textarea").attr("readonly", "readonly").addClass("borderNone");
+        $(".addTable input,.addTable textarea").attr("readonly", "readonly");
         $('.addTable select').attr("disabled", "disabled");
         //给各项赋值
 
     })
     $(".modifyInfo").click(function () { //修改信息
         $("#addNew").omDialog({ title: "修改信息" });
-        $("#addNew").omDialog({ buttons: {} });
+        $("#addNew").omDialog({ buttons: [
+            { text: "确定", click:
+                function () {
+                    if (modifyCount()) { //修改成功
+                        //关闭窗口
+                        $("#addNew").omDialog('close');
+                        $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
+                    }
+                    else {
+                        $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
+                    }
+                }
+            },
+
+            { text: "取消", click:
+                function () {
+                    $("#addNew").omDialog('close');
+                }
+            }
+         ]
+
+        });
         $("#addNew").omDialog('open');
-        $(".addTable input,.addTable textarea").removeAttr("readonly").removeClass("borderNone");
+        $(".addTable input,.addTable textarea").removeAttr("readonly");
         $('.addTable select').removeAttr("disabled");
         //显示原信息
         var teacherId = 1; //获取被点击的行的Id
@@ -132,5 +156,8 @@ function addNewCount() {//添加新用户
     return result;
 }
 function deleteCount() {//删除用户
+    return true;
+}
+function modifyCount() {//修改用户
     return true;
 }
