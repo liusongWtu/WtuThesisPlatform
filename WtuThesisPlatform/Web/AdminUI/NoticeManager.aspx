@@ -43,9 +43,9 @@
                 </tr>
                 <asp:Repeater ID="rptAdmin" runat="server">
                     <ItemTemplate>
-                        <tr class="list-content">
+                        <tr class="list-content" id="<%#Eval("NId") %>">
                             <td>
-                                <input type="checkbox" name="topiclist" id="<%#Eval("NId") %>" />
+                                <input type="checkbox" name="topiclist"  />
                             </td>
                             <td class="first">
                                 <a href="#" title="<%#Eval("NTitle") %>">
