@@ -1,15 +1,29 @@
-﻿var TUserName;
-var TPassword;
+﻿var TNo;
+var TSex;
 var TName;
 var TPhone;
 var TEmail;
 var TQQ;
 var TZhiCheng;
 var TTeachNum;
+var DepartmentId;
+var MajorId;
 var TTeachCourse;
 var TResearchFields;
 
 $(function () {
+    TNo = $(".TNo");
+    TSex = $(".TSex");
+    TName = $(".TName");
+    TPhone = $(".TPhone");
+    TEmail = $(".TEmail");
+    TQQ = $(".TQQ");
+    TZhiCheng = $(".TZhiCheng");
+    TTeachNum = $(".TTeachNum");
+    DepartmentId = $(".DepartmentId");
+    MajorId = $(".MajorId");
+    TTeachCourse = $(".TTeachCourse");
+    TResearchFields = $(".TResearchFields");
 
     $("#addNew").omDialog({
         autoOpen: false,
@@ -20,11 +34,16 @@ $(function () {
 
 
     $("#add").click(function () {//添加
+        loadDepartment(DepartmentId, MajorId); //加载下拉列表
+        DepartmentId.change(function () { loadMajor(MajorId,DepartmentId.val()); });
         $("#addNew").omDialog({ title: "添加用户" });
         $("#addNew").omDialog({ buttons: [
-<<<<<<< HEAD
             { text: "确定", click:
                 function () {
+<<<<<<< HEAD
+=======
+
+>>>>>>> b3f96f976f06f5cbb2711e446bfd195192f79728
                     if (addNewCount()) { //添加新用户成功
                         //关闭窗口
                         $("#addNew").omDialog('close');
@@ -33,15 +52,6 @@ $(function () {
                     else {
                         $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
                     }
-=======
-        { text: "确定", click:
-            function () {
-                
-                if (addNewCount()) { //添加新用户成功
-                    //关闭窗口
-                    $("#addNew").omDialog('close');
-                    $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
->>>>>>> 52e1e8bc9ddf3aefd3db55be1350f5f16d68aefc
                 }
             },
             { text: "继续添加", click:
@@ -62,7 +72,6 @@ $(function () {
         });
         $("#addNew").omDialog('open');
         $(".addTable input,.addTable textarea").removeAttr("readonly");
-        $('.addTable select').removeAttr("disabled");
     });
     $("#delete").click(function () {//批量删除
         var $checked = $("input[name='topiclist']:checked");
@@ -84,17 +93,20 @@ $(function () {
                 }
             });
         }
-    })
+    });
+
     $(".checkDetail").click(function () { //查看详情
+        var teaId = $(this).parent().parent().attr("id");
         $("#addNew").omDialog({ title: "用户信息" });
         $("#addNew").omDialog({ buttons: {} });
         $("#addNew").omDialog('open');
+        setInfo(teaId);
         $(".addTable input,.addTable textarea").attr("readonly", "readonly");
-        $('.addTable select').attr("disabled", "disabled");
-        //给各项赋值
+        $("#addNew").omDialog({onClose : function() {clear()}});
+    });
 
-    })
     $(".modifyInfo").click(function () { //修改信息
+        var teaId = $(this).parent().parent().attr("id");
         $("#addNew").omDialog({ title: "修改信息" });
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
@@ -119,21 +131,8 @@ $(function () {
 
         });
         $("#addNew").omDialog('open');
+        setInfo(teaId);
         $(".addTable input,.addTable textarea").removeAttr("readonly");
-        $('.addTable select').removeAttr("disabled");
-        //显示原信息
-        var teacherId = 1; //获取被点击的行的Id
-        $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teacherId }, function (data) {
-            alert(data); //json数据格式
-            //将返回的json数组字符串，转成 javascript的 数组对象
-            var teacherInfo = eval("(" + data + ")");
-            alert("教师姓名:" + teacherInfo.TName);
-            alert("院系名:" + teacherInfo.Department.DName);
-            alert("院系ID:" + teacherInfo.Department.DId);
-            alert("专业名:" + teacherInfo.Major.MName);
-        });
-
-        //更新信息
     })
     $(".deleteOne").click(function () {//删除信息
         var $myThis = $(this);
@@ -156,15 +155,33 @@ $(function () {
 });
 
 function getInfo() {
-    var info = { 'TUserName': TUserName.val(), 'TPassword': TPassword.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
+    var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(),'DepartmentId': DepartmentId.val(),'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
     return info;
 }
 
+function setInfo(teaId){
+    $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teaId }, function (data) {
+        //将返回的json数组字符串，转成 javascript的 数组对象
+        info = eval("(" + data + ")");
+        TNo.val(info.TNo);
+        TName.val(info.TName);
+        TSex.val(info.TSex);
+        TPhone.val(info.TPhone);
+        TEmail.val(info.TEmail);
+        TQQ.val(info.TQQ);
+        TZhiCheng.val(info.TZhiCheng);
+        TTeachNum.val(info.TTeachNum);
+        DepartmentId.append("<option selected='selected'>"+info.Department.DName+"</option>");
+        MajorId.append("<option selected='selected'>"+info.Major.MName+"</option>");
+        TTeachCourse.text(info.TTeachCourse);
+        TResearchFields.text(info.TResearchFields);
+    });
+}
 function addNewCount() {//添加新用户
     var result = false;
     $.post("../../ashx/admin/TeacherManager.ashx",
             { "operate": "addNew", "tUserName": TUserName.val(), "tName": TName.val(), "tPhone": TPhone.val(),
-               "tEmail":TEmail.val(),"tQQ":TQQ.val(),"tZhiCheng":TZhiCheng.val(),"tTeachNum":TTeachNum,
+               "tEmail":TEmail.val(),"tQQ":TQQ.val(),"tZhiCheng":TZhiCheng.val(),"tTeachNum":TTeachNum
                  },
             function (data) { });
     return result;
@@ -174,4 +191,18 @@ function deleteCount() {//删除用户
 }
 function modifyCount() {//修改用户
     return true;
+}
+function clear() {
+    TNo.val("");
+    TName.val("");
+    TSex.val("");
+    TPhone.val("");
+    TEmail.val("");
+    TQQ.val("");
+    TZhiCheng.val("");
+    TTeachNum.val("");
+    DepartmentId.empty();
+    MajorId.empty();
+    TTeachCourse.text("");
+    TResearchFields.text("");
 }

@@ -29,10 +29,10 @@
                 <tr>
                     <td class="fn-text-wrap colname">允许选择人数</td>
                     <td id="all"><%=currThesisTitle.TNumber %></td>
-                    <td class="fn-text-wrap colname">已选人数</td>
-                    <td id="choosed"><%=currThesisTitle.TSelectedNum %></td>
-                    <td class="fn-text-wrap colname">剩余人数</td>
-                    <td id="left"><%=currThesisTitle.LeftNum %></td>
+                    <td class="fn-text-wrap colname">新选人数</td>
+                    <td id="choosed"><%=currThesisTitle.TNewNum %></td>
+                    <td class="fn-text-wrap colname">确定人数</td>
+                    <td id="left"><%=currThesisTitle.TAcceptNum %></td>
                 </tr>
                 <tr>
                     <td class="fn-text-wrap colname" colspan="6">题目简介</td>

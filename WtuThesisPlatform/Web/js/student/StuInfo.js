@@ -112,7 +112,7 @@ function getInfo() {
 
 //根据院系加载相应专业信息
 function loadMajor() {
-    $.get("../../ashx/common/LoadSelect.ashx", { "did": $("#ContentPlaceHolderBody_sFaculty").val() }, function (data) {
+    $.get("../../ashx/common/LoadSelect.ashx", { "operate":"getDM","did": $("#ContentPlaceHolderBody_sFaculty").val() }, function (data) {
         var dataJsonArr = eval("(" + data + ")");
         var curSelectMajor = $("#ContentPlaceHolderBody_sProfession");
         curSelectMajor.empty();
@@ -131,7 +131,7 @@ function loadMajor() {
 
 //根据专业加载班级信息
 function loadClass() {
-    $.get("../../ashx/common/LoadSelect.ashx", { "mid": $("#ContentPlaceHolderBody_sProfession").val() }, function (data) {
+    $.get("../../ashx/common/LoadSelect.ashx", { "operate":"getClass","mid": $("#ContentPlaceHolderBody_sProfession").val() }, function (data) {
         var dataJsonArr = eval("(" + data + ")");
         var curSelect = $("#ContentPlaceHolderBody_sClass");
         curSelect.empty();

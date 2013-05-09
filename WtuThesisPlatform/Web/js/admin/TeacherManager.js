@@ -34,6 +34,8 @@ $(function () {
 
 
     $("#add").click(function () {//添加
+        loadDepartment(DepartmentId, MajorId); //加载下拉列表
+        DepartmentId.change(function () { loadMajor(MajorId,DepartmentId.val()); });
         $("#addNew").omDialog({ title: "添加用户" });
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
@@ -66,7 +68,8 @@ $(function () {
          ]
         });
         $("#addNew").omDialog('open');
-        $(".addTable input,.addTable textarea").removeAttr("readonly");
+        $(".addTable input,.addTable textarea").removeAttr("readonly");       
+
     });
     $("#delete").click(function () {//批量删除
         var $checked = $("input[name='topiclist']:checked");
@@ -128,6 +131,7 @@ $(function () {
         $("#addNew").omDialog('open');
         setInfo(teaId);
         $(".addTable input,.addTable textarea").removeAttr("readonly");
+
     })
     $(".deleteOne").click(function () {//删除信息
         var $myThis = $(this);
