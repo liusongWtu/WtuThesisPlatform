@@ -127,7 +127,9 @@ function getInfo() {
 }
 
 function addNewCount() {//添加新用户
-    return true;
+    var result = false;
+    $.post("../../ashx/admin/TeacherManager.ashx", {"operate":"addNew"}, function (data) { });
+    return result;
 }
 function deleteCount() {//删除用户
     return true;
