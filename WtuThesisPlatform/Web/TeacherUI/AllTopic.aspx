@@ -12,7 +12,8 @@
                     关键字...</label>
                 <input type="text" class="search-input" />
                 <button id="searchButton" class="search-button abrt">
-                    <span>搜索</span></button>
+                    <span>搜索</span>
+                </button>
             </div>
         </div>
         <div class="topic">

@@ -37,9 +37,6 @@ $(function () {
         $(this).addClass("menu-list-actived").siblings("dd").removeClass("menu-list-actived");
         $(this).parent().siblings().children("dd").removeClass("menu-list-actived");
     });
-
-
-
     /*********左侧折叠菜单*********/
 
     /*********头部一级菜单*********/
@@ -62,10 +59,11 @@ $(function () {
         });
         return false;
     })
+    //表格样式
+    $("#topicList tr:odd").css("background", "rgb(255,255,255)");
+    $("#topicList tr:even").css("background", "rgb(246,246,246)");
 
 })
-
-
 //控制布局js
 $(function () {
     var _height = getPageHeight();

@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
-        <div class="stu-info">
+        <div class="person-info">
             <dl>
                 <dt>
                     <h1>
