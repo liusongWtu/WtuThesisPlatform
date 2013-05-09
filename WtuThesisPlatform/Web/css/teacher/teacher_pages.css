@@ -16,13 +16,18 @@
 	height: 42px;
 	line-height: 55px;
 	padding: 20px 0 0 0 ;
+	margin-bottom: 10px
 }
-
-.list-content .td0{
-	font-weight: bold;
+.list-content .bold
+{
+    font-weight: bold;
 }
 .list-content a{
     cursor: pointer;
+}
+/*
+.list-content .td0{
+	font-weight: bold;
 }
 .td0{
 	width: 27%;
@@ -38,7 +43,7 @@
 }
 .td4{
 	width: 10%;
-}
+}*/
 .last{
 	border-right: 1px solid #e6e6e6;
 }
