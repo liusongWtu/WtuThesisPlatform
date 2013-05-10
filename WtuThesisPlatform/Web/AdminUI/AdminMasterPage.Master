@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../js/om/themes/apusic/om-all.css" />
     <script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="../js/template.js"></script>
+    <script type="text/javascript" src="../js/Common.js"></script>
     <script type="text/javascript" src="../js/om/ui/om-core.js"></script>
     <script type="text/javascript" src="../js/om/ui/om-mouse.js"></script>
     <script type="text/javascript" src="../js/om/ui/om-draggable.js"></script>

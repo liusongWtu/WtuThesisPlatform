@@ -246,9 +246,9 @@ function validateNum(txtNum, errorInfo) {
     }
 }
 
-//验证数字范围,minLength数字的最小长度，maxLength数字的最大长度
-function validataNumField(txtNum,errorInfo,minLength, maxLength) {
-    var numPatrn = /^\d{minLength,maxLength}$/;
+//验证数字范围
+function validataNumField(txtNum,errorInfo) {
+    var numPatrn = /^\d{1,20}$/;
     if (numPatrn.test(txtNum.value)) {
         errorInfo.style.display = "none";
         return true;

@@ -104,13 +104,13 @@
     </div>
     <div id="addNew" title="添加用户">
         <table class="addTable">
-            <tr><td>教工号：</td><td><input type="text" class="TNo" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;姓名：</td><td><input type="text" class="TName"/></td></tr>
-            <tr><td>性别：</td><td><input type="text"  class="TSex" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;电话：</td><td><input type="text" class="TPhone" /></td></tr>
-            <tr><td>EMAIL：</td><td><input type="text" class="TEmail" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;QQ：</td><td><input type="text"  class="TQQ" /></td></tr>
-            <tr><td>职称：</td><td><input type="text"  class="TZhiCheng" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;限带人数：</td><td><input type="text"  class="TTeachNum" /></td></tr>
-            <tr><td>院系：</td><td><select  class="DepartmentId"></select></td><td>&nbsp;&nbsp;&nbsp;&nbsp;专业：</td><td><select  class="MajorId"></select></td></tr>
-            <tr><td>主讲课程：</td><td colspan="3"><textarea   class="TTeachCourse" rows="10" cols="10"></textarea></td></tr>
-            <tr><td>研究方向：</td><td colspan="3"><textarea  class="TResearchFields" rows="10" cols="10"></textarea></td></tr>
+            <tr><td>教工号：</td><td><input type="text" class="TNo" /></td><td><span id="TNoError" style="color: red; display: none">*</span></td><td>姓名：</td><td><input type="text" class="TName"/></td><td><span style="color: red; display: none">*</span></td></tr>
+            <tr><td>性别：</td><td><input type="text"  class="TSex" /></td><td><span id="Span3" style="color: red; display: none">*</span></td><td>电话：</td><td><input type="text" class="TPhone" /></td><td><span id="TPhoneError" style="color: red; display: none">*</span></td></tr>
+            <tr><td>EMAIL：</td><td><input type="text" class="TEmail" /></td><td><span id="TEmailError" style="color: red; display: none">*</span></td><td>QQ：</td><td><input type="text"  class="TQQ" /></td><td><span id="TQQError" style="color: red; display: none">*</span></td></tr>
+            <tr><td>职称：</td><td><input type="text"  class="TZhiCheng" /></td><td><span id="Span7" style="color: red; display: none">*</span></td><td>限带人数：</td><td><input type="text"  class="TTeachNum" /></td><td><span id="TTeachNumError" style="color: red; display: none">*</span></td></tr>
+            <tr><td>院系：</td><td><select  class="DepartmentId"></select></td><td><span id="Span8" style="color: red; display: none">*</span></td><td>专业：</td><td><select  class="MajorId"></select></td><td><span id="Span9" style="color: red; display: none">*</span></td></tr>
+            <tr><td>主讲课程：</td><td colspan="5"><textarea   class="TTeachCourse" rows="10" cols="10"></textarea></td></tr>
+            <tr><td>研究方向：</td><td colspan="5"><textarea  class="TResearchFields" rows="10" cols="10"></textarea></td></tr>
         </table>
     </div>
 

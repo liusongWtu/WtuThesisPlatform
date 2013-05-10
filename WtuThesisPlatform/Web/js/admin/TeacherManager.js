@@ -68,6 +68,24 @@ $(function () {
          ]
         });
         $("#addNew").omDialog('open');
+        TNo.blur(function () {
+            var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
+            var tnoValidate = checkTNo(TNo.val());
+            alert(numFieldValidata);
+            alert(tnoValidate); 
+        })
+        TPhone.blur(function () {
+            validatePhone(TPhone.get(0), $("#TPhoneError").get(0))
+        })
+        TEmail.blur(function () {
+            validateEmail(TEmail.get(0), $("#TEmailError").get(0));
+        })
+        TQQ.blur(function () {
+            validateQQ(TQQ.get(0), $("#TQQError").get(0))
+        })
+        TTeachNum.blur(function () {
+            validateNum(TTeachNum.get(0), $("#TTeachNumError").get(0));
+        })
         $(".addTable input,.addTable textarea").removeAttr("readonly");
 
     });
