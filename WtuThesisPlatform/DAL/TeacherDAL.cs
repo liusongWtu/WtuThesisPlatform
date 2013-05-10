@@ -326,6 +326,7 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("TName=@TName,");
             strSql.Append("TZhiCheng=@TZhiCheng,");
             strSql.Append("TTeachNum=@TTeachNum,");
+            strSql.Append("TSex=@TSex,");
             strSql.Append("TPhone=@TPhone,");
             strSql.Append("TEmail=@TEmail,");
             strSql.Append("TQQ=@TQQ,");
@@ -335,8 +336,7 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("TResearchFields=@TResearchFields,");
             strSql.Append("TCheckCode=@TCheckCode,");
             strSql.Append("RoleId=@RoleId,");
-            strSql.Append("IsDel=@IsDel,");
-            strSql.Append("TSex=@TSex");
+            strSql.Append("IsDel=@IsDel");
             strSql.Append(" where TId=@TId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
@@ -345,6 +345,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TName", SqlDbType.VarChar,20),
                     new SqlParameter("@TZhiCheng", SqlDbType.VarChar,20),
                     new SqlParameter("@TTeachNum", SqlDbType.Int,4),
+                    new SqlParameter("@TSex", SqlDbType.VarChar,2),
                     new SqlParameter("@TPhone", SqlDbType.VarChar,20),
                     new SqlParameter("@TEmail", SqlDbType.VarChar,20),
                     new SqlParameter("@TQQ", SqlDbType.VarChar,20),
@@ -354,26 +355,25 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TResearchFields", SqlDbType.VarChar,16),
                     new SqlParameter("@TCheckCode", SqlDbType.VarChar,36),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
-                    new SqlParameter("@IsDel", SqlDbType.Bit,1),
-                    new SqlParameter("@TSex",SqlDbType.VarChar,2)};
-
+                    new SqlParameter("@IsDel", SqlDbType.Bit,1)};
             parameters[0].Value = model.TId;
             parameters[1].Value = model.TNo;
             parameters[2].Value = model.TPassword;
             parameters[3].Value = model.TName;
             parameters[4].Value = model.TZhiCheng;
             parameters[5].Value = model.TTeachNum;
-            parameters[6].Value = model.TPhone;
-            parameters[7].Value = model.TEmail;
-            parameters[8].Value = model.TQQ;
-            parameters[9].Value = model.Department.DId;
-            parameters[10].Value = model.Major.MId;
-            parameters[11].Value = model.TTeachCourse;
-            parameters[12].Value = model.TResearchFields;
-            parameters[13].Value = model.TCheckCode;
-            parameters[14].Value = model.RoleInfo;
-            parameters[15].Value = model.IsDel;
-            parameters[16].Value = model.TSex;
+            parameters[6].Value = model.TSex;
+            parameters[7].Value = model.TPhone;
+            parameters[8].Value = model.TEmail;
+            parameters[9].Value = model.TQQ;
+            parameters[10].Value = model.Department.DId;
+            parameters[11].Value = model.Major.MId;
+            parameters[12].Value = model.TTeachCourse;
+            parameters[13].Value = model.TResearchFields;
+            parameters[14].Value = model.TCheckCode;
+            parameters[15].Value = model.RoleInfo.RoleId;
+            parameters[16].Value = model.IsDel;
+
 
             try
             {

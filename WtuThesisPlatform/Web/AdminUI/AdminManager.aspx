@@ -20,6 +20,7 @@
             <!-- <table id="grid"></table>-->
             <ul class="toolBar">
                 <li id="add" class="opeAdd">添加</li>
+                <li id="delete" class="opeDelete">批量删除</li>
                 <li id="import" class="opeImport">导入</li>
                 <li id="export" class="opeExport">导出</li>
             </ul>
@@ -81,5 +82,13 @@
                     <div id="pageBar"><%=pageBar%></div>
             </div>
         </div>
+    </div>
+    <div id="AdmAddNew">
+        <table class="addTable">
+            <tr><td>登录名：</td><td><input type="text" class="UUserName" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;姓名：</td><td><input type="text" class="UName"/></td></tr>
+            <tr><td>电话：</td><td><input type="text" class="UPhone" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;EMAIL：</td><td><input type="text" class="UEmail" /></td></tr>
+            <tr><td>QQ：</td><td><input type="text"  class="UQQ" /></td></tr>
+            <tr><td>院系：</td><td><select  class="DepartmentId"></select></td><td>&nbsp;&nbsp;&nbsp;&nbsp;专业：</td><td><select  class="MajorId"></select></td></tr>
+        </table>
     </div>
 </asp:Content>

@@ -24,6 +24,9 @@ namespace Web.ashx.admin
             string operate=context.Request["operate"];
             switch (operate)
             {
+                case "checkTNo":
+                    CheckTNo();
+                    break;
                 case "getAInfo":
                     string teacherId=context.Request["teacherId"];
                     GetModelByTId(teacherId);
@@ -34,14 +37,54 @@ namespace Web.ashx.admin
                 case "modify":
                     ModifyTeacher();
                     break;
+                case "del":
+                    DelATeacher();
+                    break;
                 default:
                     break;
             }
         }
 
+        /// <summary>
+        /// 检测工号是否存在
+        /// </summary>
+        private void CheckTNo()
+        {
+            string tno=context.Request["tno"];
+            if (bll.GetModel(Convert.ToInt32(tno)) != null)
+            {
+                context.Response.Write("ok");
+            }
+            else
+            {
+                context.Response.Write("failed");
+            }
+        }
+
+        /// <summary>
+        /// 删除一条记录
+        /// </summary>
+        private void DelATeacher()
+        {
+            string tid=context.Request["tid"];
+            if (bll.Del(tid)>0)
+            {
+                context.Response.Write("ok");
+            }
+            else
+            {
+                context.Response.Write("failed");
+            }
+        }
+
+        /// <summary>
+        /// 修改教师信息
+        /// </summary>
         private void ModifyTeacher()
         {
+            int teacherId = Convert.ToInt32(context.Request["tid"]);
             Teacher teacher = InitTeacher();
+            teacher.TId = teacherId;
             if (bll.Update(teacher) > 0)
             {
                 context.Response.Write("ok");
