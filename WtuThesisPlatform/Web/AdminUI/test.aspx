@@ -22,6 +22,7 @@
                 <li id="delete" class="opeDelete">批量删除</li>
                 <li id="import" class="opeImport">导入</li>
                 <li id="export" class="opeExport">导出</li>
+                <input id="File1" type="file" />
                 <asp:Button ID="Button1" runat="server" Text="导出.." onclick="Button1_Click" />
                 <asp:Button ID="Button2" runat="server" Text="下载.." onclick="Button2_Click"  />
             </ul>

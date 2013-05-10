@@ -28,7 +28,7 @@ $(function () {
 .click(function () {
     $(this).focus();
 });
-$(".person-info select").removeAttr("disabled").addClass("active");
+            $(".person-info select").removeAttr("disabled").addClass("active");
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
 
             //绑定院系选择变化事件
@@ -59,20 +59,24 @@ $(".person-info select").removeAttr("disabled").addClass("active");
                 //取得各项值
                 var newInfo = getInfo(); //点击更新的时候获取新的各项值
                 console.log(newInfo);
-                if (modifyInfo()) {//如果更新成功
-                    setInfo(newInfo); //将各项值更新
-                    sFaculty.find("option[value=" + newInfo.sFaculty + "]").attr("selected", "selected");
-                    $(".button").remove();
-                    $(".person-info input").removeClass("active").attr("readonly", "readonly");
-                    $(".person-info select").removeClass("active").attr("disabled", "disabled");
-                    oldInfo = getInfo(); //更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
-                    //console.log(oldInfo);
-                    flag = false;
-                    $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
-                }
-                else {//更新失败
-                    $.omMessageTip.show({ content: '更新失败！', timeout: 1000, type: 'error' });
-                }
+
+                $.post("../../ashx/student/ModifyInfo.ashx",
+                    { "did": sFaculty.val(), "mid": sProfession.val(), "cid": sClass.val(), "phone": sPhone.val(), "email": sEmail.val(), "qq": sQQ.val() },
+                    function (data) {
+                        if (data == "ok") {
+                            setInfo(newInfo); //将各项值更新
+                            sFaculty.find("option[value=" + newInfo.sFaculty + "]").attr("selected", "selected");
+                            $(".button").remove();
+                            $(".person-info input").removeClass("active").attr("readonly", "readonly");
+                            $(".person-info select").removeClass("active").attr("disabled", "disabled");
+                            oldInfo = getInfo(); //更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
+                            //console.log(oldInfo);
+                            flag = false;
+                            $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
+                        } else {
+                            $.omMessageTip.show({ content: '更新失败！', timeout: 1000, type: 'error' });
+                        }
+                    });
                 return false;
             })
             $("#modify-no").click(function () {
@@ -112,7 +116,7 @@ function getInfo() {
 
 //根据院系加载相应专业信息
 function loadMajor() {
-    $.get("../../ashx/common/LoadSelect.ashx", { "operate":"getDM","did": $("#ContentPlaceHolderBody_sFaculty").val() }, function (data) {
+    $.get("../../ashx/common/LoadSelect.ashx", { "operate": "getDM", "did": $("#ContentPlaceHolderBody_sFaculty").val() }, function (data) {
         var dataJsonArr = eval("(" + data + ")");
         var curSelectMajor = $("#ContentPlaceHolderBody_sProfession");
         curSelectMajor.empty();
@@ -131,7 +135,7 @@ function loadMajor() {
 
 //根据专业加载班级信息
 function loadClass() {
-    $.get("../../ashx/common/LoadSelect.ashx", { "operate":"getClass","mid": $("#ContentPlaceHolderBody_sProfession").val() }, function (data) {
+    $.get("../../ashx/common/LoadSelect.ashx", { "operate": "getClass", "mid": $("#ContentPlaceHolderBody_sProfession").val() }, function (data) {
         var dataJsonArr = eval("(" + data + ")");
         var curSelect = $("#ContentPlaceHolderBody_sClass");
         curSelect.empty();
@@ -141,20 +145,3 @@ function loadClass() {
         }
     });
 }
-
-
-//修改操作
-function modifyInfo() {
-
-    //ajax更新操作
-    var ope = $.post("../../ashx/student/ModifyInfo.ashx",
-        { "did": sFaculty.val(), "mid": sProfession.val(), "cid": sClass.val(), "phone": sPhone.val(), "email": sEmail.val(), "qq": sQQ.val() },
-        function (data) {
-            if (data == "ok") {
-                return true;
-            } else {
-                return false;
-            }
-        });
-    return ope;
-}    

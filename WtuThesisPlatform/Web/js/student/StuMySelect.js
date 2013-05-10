@@ -14,17 +14,20 @@
             onClose: function (value) {
 
                 if (value) {
-                    if (deleteSelectedTopic($myThis.parent().parent().attr("id"))) {
-                        //删除成功
+                    $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": $myThis.parent().parent().attr("id"), "operate": "del" }, function (data) {
+                        if (data == "ok") {
+                            //删除成功
 
-                        $myThis.parent().parent().remove();//删除节点
+                            $myThis.parent().parent().remove(); //删除节点
 
-                        $.omMessageTip.show({ content: '已退选该题！', timeout: 1000, type: 'alert' });
+                            $.omMessageTip.show({ content: '已退选该题！', timeout: 1000, type: 'alert' });
 
-                        //每次退选之后重新设置志愿序列号
-                        setTopicIndex();
-
-                    }
+                            //每次退选之后重新设置志愿序列号
+                            setTopicIndex();
+                        } else {
+                            return false;
+                        }
+                    });
                 }
 
             }

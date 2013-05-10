@@ -220,7 +220,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("CId,StudentId,ThesisTitleId)");
                 strSql.Append(" values (");
                 strSql.Append(" @CId,@StudentId,@ThesisTitleId)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@CId", SqlDbType.Int,4),
                     new SqlParameter("@StudentId", SqlDbType.Int,4),
