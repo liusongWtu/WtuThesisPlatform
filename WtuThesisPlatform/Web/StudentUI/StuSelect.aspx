@@ -54,7 +54,7 @@
                     <td class="td6">
                         收藏
                     </td>
-                    <td class="td7">
+                    <td class="td7 last">
                         选题
                     </td>
                 </tr>
