@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WtuThesisPlatform.MODEL;
 using WtuThesisPlatform.DAL;
+using System.Data;
 
 namespace WtuThesisPlatform.BLL
 {
@@ -133,5 +134,10 @@ namespace WtuThesisPlatform.BLL
             return dal.Update(model);
 		}
         #endregion
+
+        public DataTable GetAll()
+        {
+            return dal.GetAll();            
+        }
     }
 }
