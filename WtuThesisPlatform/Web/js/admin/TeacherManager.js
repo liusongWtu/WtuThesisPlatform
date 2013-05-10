@@ -83,10 +83,11 @@ $(function () {
                 onClose: function (value) {
                     if (value) {
                         $checked.each(function () {
-                            if (deleteCount($(this))) {//数据库删除成功
+                            if (deleteCount($(this).parent().parent().attr("id"))) {//数据库删除成功
                                 $(this).parent().parent().remove();
                             }
                         })
+                        $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
                     }
                 }
             });
@@ -111,7 +112,7 @@ $(function () {
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
-                    if (modifyCount()) { //修改成功
+                    if (modifyCount(teaId)) { //修改成功
                         //关闭窗口
                         $("#addNew").omDialog('close');
                         $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
@@ -137,12 +138,13 @@ $(function () {
     })
     $(".deleteOne").click(function () {//删除信息
         var $myThis = $(this);
+        var teaId = $(this).parent().parent().attr("id");
         $.omMessageBox.confirm({
             title: '确认删除？',
             content: '确定要删除该用户信息？',
             onClose: function (value) {
                 if (value) {
-                    if (deleteCount()) {//删除信息成功
+                    if (deleteCount(teaId)) {//删除信息成功
                         $myThis.parent().parent().remove();
                         $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
                     }
@@ -160,7 +162,7 @@ function getInfo() {
     return info;
 }
 
-function setInfo(teaId,operate) {
+function setInfo(teaId, operate) {
     $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teaId }, function (data) {
         //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
@@ -174,14 +176,16 @@ function setInfo(teaId,operate) {
         TTeachNum.val(info.TTeachNum);
         TTeachCourse.text(info.TTeachCourse);
         TResearchFields.text(info.TResearchFields);
-        if (operate == "detail") {`
+        if (operate == "detail") {
             DepartmentId.append("<option selected='selected'>" + info.Department.DName + "</option>");
             MajorId.append("<option selected='selected'>" + info.Major.MName + "</option>");
         } else if (operate == "modify") {
-            DepartmentId.val(info.Department.DId);
-            //DepartmentId.find("option[value=" + info.Department.DId + "]").attr("selected", "selected");
+            //  DepartmentId.val(info.Department.DId);
+            DepartmentId.find("option[value=" + info.Department.DId + "]").attr("selected", "selected");
             loadMajor(MajorId, info.Department.DId);
-            MajorId.val(info.Major.MId);
+            window.setTimeout(function () {
+                MajorId.val(info.Major.MId);
+            },200);
         }
     });
 }
@@ -200,11 +204,18 @@ function addNewCount() {//添加新用户
              });
     return result;
 }
-function deleteCount() {//删除用户
-    return true;
+function deleteCount(tid) {//删除用户
+    var result = $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "del", "tid": tid }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
 }
-function modifyCount() {//修改用户
-    var ope = $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "modify", "tNo": TNo.val(), "tName": TName.val(), "tPhone": TPhone.val(),
+function modifyCount(tid) {//修改用户
+    var ope = $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "modify","tid":tid, "tNo": TNo.val(), "tName": TName.val(), "tPhone": TPhone.val(),
         "tSex": TSex.val(), "tEmail": TEmail.val(), "tQQ": TQQ.val(), "tZhiCheng": TZhiCheng.val(), "tTeachNum": TTeachNum.val(),
         "tTeachCourse": TTeachCourse.val(), "tResearchFields": TResearchFields.val(), "did": DepartmentId.val(), "mid": MajorId.val()
     },
@@ -218,6 +229,19 @@ function modifyCount() {//修改用户
 
     return ope;
 }
+
+//验证工号是否存在
+function checkTNo(tno) {
+    var result = $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "checkTNo", "TNo": tno }, function (data) {
+        if (data == "ok") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+    return result;
+}
+
 function clear() {
     TNo.val("");
     TName.val("");
