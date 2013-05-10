@@ -35,7 +35,7 @@ $(function () {
 
     $("#add").click(function () {//添加
         loadDepartment(DepartmentId, MajorId); //加载下拉列表
-        DepartmentId.change(function () { loadMajor(MajorId,DepartmentId.val()); });
+        DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
         $("#addNew").omDialog({ title: "添加用户" });
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
@@ -68,7 +68,7 @@ $(function () {
          ]
         });
         $("#addNew").omDialog('open');
-        $(".addTable input,.addTable textarea").removeAttr("readonly");       
+        $(".addTable input,.addTable textarea").removeAttr("readonly");
 
     });
     $("#delete").click(function () {//批量删除
@@ -98,13 +98,15 @@ $(function () {
         $("#addNew").omDialog({ title: "用户信息" });
         $("#addNew").omDialog({ buttons: {} });
         $("#addNew").omDialog('open');
-        setInfo(teaId);
+        setInfo(teaId, "detail");
         $(".addTable input,.addTable textarea").attr("readonly", "readonly");
-        $("#addNew").omDialog({onClose : function() {clear()}});
+        $("#addNew").omDialog({ onClose: function () { clear(); } });
     });
 
     $(".modifyInfo").click(function () { //修改信息
         var teaId = $(this).parent().parent().attr("id");
+        loadDepartment(DepartmentId, MajorId); //加载下拉列表
+        DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
         $("#addNew").omDialog({ title: "修改信息" });
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
@@ -129,7 +131,7 @@ $(function () {
 
         });
         $("#addNew").omDialog('open');
-        setInfo(teaId);
+        setInfo(teaId, "modify");
         $(".addTable input,.addTable textarea").removeAttr("readonly");
 
     })
@@ -154,11 +156,11 @@ $(function () {
 });
 
 function getInfo() {
-    var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(),'DepartmentId': DepartmentId.val(),'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
+    var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
     return info;
 }
 
-function setInfo(teaId){
+function setInfo(teaId,operate) {
     $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teaId }, function (data) {
         //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
@@ -170,26 +172,51 @@ function setInfo(teaId){
         TQQ.val(info.TQQ);
         TZhiCheng.val(info.TZhiCheng);
         TTeachNum.val(info.TTeachNum);
-        DepartmentId.append("<option selected='selected'>"+info.Department.DName+"</option>");
-        MajorId.append("<option selected='selected'>"+info.Major.MName+"</option>");
         TTeachCourse.text(info.TTeachCourse);
         TResearchFields.text(info.TResearchFields);
+        if (operate == "detail") {`
+            DepartmentId.append("<option selected='selected'>" + info.Department.DName + "</option>");
+            MajorId.append("<option selected='selected'>" + info.Major.MName + "</option>");
+        } else if (operate == "modify") {
+            DepartmentId.val(info.Department.DId);
+            //DepartmentId.find("option[value=" + info.Department.DId + "]").attr("selected", "selected");
+            loadMajor(MajorId, info.Department.DId);
+            MajorId.val(info.Major.MId);
+        }
     });
 }
 function addNewCount() {//添加新用户
-    var result = false;
-    $.post("../../ashx/admin/TeacherManager.ashx",
-            { "operate": "addNew", "tUserName": TUserName.val(), "tName": TName.val(), "tPhone": TPhone.val(),
-               "tEmail":TEmail.val(),"tQQ":TQQ.val(),"tZhiCheng":TZhiCheng.val(),"tTeachNum":TTeachNum
-                 },
-            function (data) { });
+    var result = $.post("../../ashx/admin/TeacherManager.ashx",
+            { "operate": "addNew", "tNo": TNo.val(), "tName": TName.val(), "tPhone": TPhone.val(),
+                "tSex": TSex.val(), "tEmail": TEmail.val(), "tQQ": TQQ.val(), "tZhiCheng": TZhiCheng.val(), "tTeachNum": TTeachNum.val(),
+                "tTeachCourse": TTeachCourse.val(), "tResearchFields": TResearchFields.val(), "did": DepartmentId.val(), "mid": MajorId.val()
+            },
+             function (data) {
+                 if (data == "ok") {
+                     return true;
+                 } else {
+                     return false;
+                 }
+             });
     return result;
 }
 function deleteCount() {//删除用户
     return true;
 }
 function modifyCount() {//修改用户
-    return true;
+    var ope = $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "modify", "tNo": TNo.val(), "tName": TName.val(), "tPhone": TPhone.val(),
+        "tSex": TSex.val(), "tEmail": TEmail.val(), "tQQ": TQQ.val(), "tZhiCheng": TZhiCheng.val(), "tTeachNum": TTeachNum.val(),
+        "tTeachCourse": TTeachCourse.val(), "tResearchFields": TResearchFields.val(), "did": DepartmentId.val(), "mid": MajorId.val()
+    },
+                    function (data) {
+                        if (data == "ok") {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    });
+
+    return ope;
 }
 function clear() {
     TNo.val("");

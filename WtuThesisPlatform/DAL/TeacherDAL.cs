@@ -264,7 +264,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("insert into Teacher(");
                 strSql.Append("TId,TNo,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel,TSex)");
                 strSql.Append(" values (");
-                strSql.Append(" @TId,@TUserName,@TPassword,@TName,@TZhiCheng,@TTeachNum,@TPhone,@TEmail,@TQQ,@DepartmentId,@MajorId,@TTeachCourse,@TResearchFields,@TCheckCode,@RoleId,@IsDel,@TSex)");
+                strSql.Append(" @TId,@TNo,@TPassword,@TName,@TZhiCheng,@TTeachNum,@TPhone,@TEmail,@TQQ,@DepartmentId,@MajorId,@TTeachCourse,@TResearchFields,@TCheckCode,@RoleId,@IsDel,@TSex)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
@@ -294,12 +294,12 @@ namespace WtuThesisPlatform.DAL
                 parameters[6].Value = model.TPhone;
                 parameters[7].Value = model.TEmail;
                 parameters[8].Value = model.TQQ;
-                parameters[9].Value = model.Department;
-                parameters[10].Value = model.Major;
+                parameters[9].Value = model.Department.DId;
+                parameters[10].Value = model.Major.MId;
                 parameters[11].Value = model.TTeachCourse;
                 parameters[12].Value = model.TResearchFields;
                 parameters[13].Value = model.TCheckCode;
-                parameters[14].Value = model.RoleInfo;
+                parameters[14].Value = model.RoleInfo.RoleId;
                 parameters[15].Value = model.IsDel;
                 parameters[16].Value = model.TSex;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
@@ -366,8 +366,8 @@ namespace WtuThesisPlatform.DAL
             parameters[6].Value = model.TPhone;
             parameters[7].Value = model.TEmail;
             parameters[8].Value = model.TQQ;
-            parameters[9].Value = model.Department;
-            parameters[10].Value = model.Major;
+            parameters[9].Value = model.Department.DId;
+            parameters[10].Value = model.Major.MId;
             parameters[11].Value = model.TTeachCourse;
             parameters[12].Value = model.TResearchFields;
             parameters[13].Value = model.TCheckCode;
