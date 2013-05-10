@@ -174,14 +174,14 @@ function setInfo(teaId,operate) {
         TTeachNum.val(info.TTeachNum);
         TTeachCourse.text(info.TTeachCourse);
         TResearchFields.text(info.TResearchFields);
-        if (operate == "detail") {`
+        if (operate == "detail") {
             DepartmentId.append("<option selected='selected'>" + info.Department.DName + "</option>");
             MajorId.append("<option selected='selected'>" + info.Major.MName + "</option>");
         } else if (operate == "modify") {
             DepartmentId.val(info.Department.DId);
             //DepartmentId.find("option[value=" + info.Department.DId + "]").attr("selected", "selected");
             loadMajor(MajorId, info.Department.DId);
-            MajorId.val(info.Major.MId);
+            window.setTimeout(function () { MajorId.val(info.Major.MId); },200);
         }
     });
 }

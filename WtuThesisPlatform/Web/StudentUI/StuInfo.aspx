@@ -12,9 +12,7 @@
     <div class="wrap">
         <div class="person-info">
             <dl>
-                <dt>
-                    <h1>
-                        个人基本信息</h1>
+                <dt>个人基本信息
                     <span class="modify"><a href="StuModifyPwd.aspx" id="mPassword" class="dis-inline-block">
                         修改密码</a><a   href="#" id="mInfo" class="dis-inline-block">修改个人信息</a></span></dt>
                 <dd>

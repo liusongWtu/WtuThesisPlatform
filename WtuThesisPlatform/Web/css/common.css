@@ -229,15 +229,15 @@ body{
 .wrap{
 	width: 86%;
 	margin: 0 auto;
-	font-size: 14px;
+	font-size: 13px;
 	font-family: "新宋体";
 }
 .wrap dt{
 	border-bottom: 3px solid #2888a8;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: bold;
 	height: 42px;
-	line-height: 45px;
+	line-height: 55px;
 	padding: 20px 0 0 0 ;
 }
 .wrap dd{
@@ -278,7 +278,7 @@ body{
     border-bottom: 1px solid #e6e6e6;
 }
 .list-content td{
-	line-height: 35px;
+	line-height: 30px;
 	border-bottom: 1px solid #e6e6e6;
 }
 .list-header .first,.list-content .first
@@ -318,7 +318,7 @@ body{
 	margin: 0 auto;
 	padding-bottom: 60px;
 	position: relative;
-	font-size: 14px;
+	font-size: 13px;
 	font-family: "新宋体";
 }
 
@@ -480,14 +480,8 @@ body{
 	text-indent: 1em;
     -webkit-appearance: menulist;
 }
-.person-info h1
-{
-    display: inline-block;
-    float: left;
-}
+
 .person-info dt span{
-	/*position: absolute;
-	right: 10px;*/
 	float: right;
 }
 .modify{

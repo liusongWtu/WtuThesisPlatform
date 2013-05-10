@@ -60,8 +60,8 @@ $(function () {
         return false;
     })
     //表格样式
-    $("#topicList tr:odd").css("background", "rgb(255,255,255)");
-    $("#topicList tr:even").css("background", "rgb(246,246,246)");
+    $(".topic-list tr:odd").css("background", "rgb(255,255,255)");
+    $(".topic-list tr:even:not(.list-header)").css("background", "rgb(246,246,246)");
 
 })
 //控制布局js

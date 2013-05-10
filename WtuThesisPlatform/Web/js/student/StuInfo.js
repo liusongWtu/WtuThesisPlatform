@@ -23,12 +23,12 @@ $(function () {
     $("#mInfo").click(function () {
         //console.log(flag);
         if (!flag) {
-            $(".stu-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sSex,#ContentPlaceHolderBody_sNo,#ContentPlaceHolderBody_sYear')").removeAttr("readonly")
+            $(".person-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sSex,#ContentPlaceHolderBody_sNo,#ContentPlaceHolderBody_sYear')").removeAttr("readonly")
 .addClass("active")
 .click(function () {
     $(this).focus();
 });
-            $(".stu-info select").removeAttr("disabled").addClass("active");
+$(".person-info select").removeAttr("disabled").addClass("active");
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
 
             //绑定院系选择变化事件
@@ -50,7 +50,7 @@ $(function () {
             });
 
             flag = true;
-            $(".stu-info").append(addDiv);
+            $(".person-info").append(addDiv);
             $("#modify-ok").click(function () {
                 //检查页面验证是否通过
                 if (phoneValidate == false || emailValidate == false || qqValidate == false) {
@@ -63,8 +63,8 @@ $(function () {
                     setInfo(newInfo); //将各项值更新
                     sFaculty.find("option[value=" + newInfo.sFaculty + "]").attr("selected", "selected");
                     $(".button").remove();
-                    $(".stu-info input").removeClass("active").attr("readonly", "readonly");
-                    $(".stu-info select").removeClass("active").attr("disabled", "disabled");
+                    $(".person-info input").removeClass("active").attr("readonly", "readonly");
+                    $(".person-info select").removeClass("active").attr("disabled", "disabled");
                     oldInfo = getInfo(); //更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
                     //console.log(oldInfo);
                     flag = false;
@@ -83,8 +83,8 @@ $(function () {
                 sFaculty.find("option[value=" + oldInfo.sFaculty + "]").attr("selected", "selected");
                 loadMajor();
                 $(".button").remove();
-                $(".stu-info input").removeClass("active").attr("readonly", "readonly");
-                $(".stu-info select").removeClass("active").attr("disabled", "disabled");
+                $(".person-info input").removeClass("active").attr("readonly", "readonly");
+                $(".person-info select").removeClass("active").attr("disabled", "disabled");
                 flag = false;
                 return false;
             })
