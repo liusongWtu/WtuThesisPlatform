@@ -51,7 +51,7 @@ namespace Web.ashx.admin
         private void CheckTNo()
         {
             string tno=context.Request["tno"];
-            if (bll.GetModel(Convert.ToInt32(tno)) == null)
+            if (bll.GetModel(tno) == null)
             {
                 context.Response.Write("ok");
             }

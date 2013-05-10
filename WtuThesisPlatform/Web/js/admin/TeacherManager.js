@@ -37,6 +37,70 @@ $(function () {
         loadDepartment(DepartmentId, MajorId); //加载下拉列表
         DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
         $("#addNew").omDialog({ title: "添加用户" });
+        $("#addNew").omDialog('open');
+        $("#addNew").attr("tabindex", 0);
+        $("#addNew").focus(); //不让输入框一开始就获得焦点
+        TNo.blur(function () {//教工号验证
+            var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
+            if (!numFieldValidata) {
+                $.omMessageBox.confirm({
+                    title: '提示',
+                    content: '请输入1~20位数字串！',
+                    onClose: function (v) {
+
+                    }
+                });
+            }
+            checkTNo(TNo.val());
+        })
+        TPhone.blur(function () {//电话号码验证
+            var phoneValidata = validatePhone(TPhone.get(0), $("#TPhoneError").get(0));
+            if (!phoneValidata) {
+                $.omMessageBox.confirm({
+                    title: '提示',
+                    content: '请输入正确的电话号码！',
+                    onClose: function (v) {
+
+                    }
+                });
+            }
+        })
+        TEmail.blur(function () {//email验证
+            var emailValidata = validateEmail(TEmail.get(0), $("#TEmailError").get(0));
+            if (!emailValidata) {
+                $.omMessageBox.confirm({
+                    title: '提示',
+                    content: '请输入正确的邮箱格式！',
+                    onClose: function (v) {
+
+                    }
+                });
+            }
+        })
+        TQQ.blur(function () {
+            var qqValidata = validateQQ(TQQ.get(0), $("#TQQError").get(0));
+            if (!qqValidata) {
+                $.omMessageBox.confirm({
+                    title: '提示',
+                    content: '请输入正确的QQ格式！',
+                    onClose: function (v) {
+
+                    }
+                });
+            }
+        })
+        TTeachNum.blur(function () {
+            var numValidata = validateNum(TTeachNum.get(0), $("#TTeachNumError").get(0));
+            if (!numValidata) {
+                $.omMessageBox.confirm({
+                    title: '提示',
+                    content: '请输入0~20位数字串！',
+                    onClose: function (v) {
+
+                    }
+                });
+            }
+        })
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
@@ -67,25 +131,6 @@ $(function () {
             }
          ]
         });
-        $("#addNew").omDialog('open');
-        TNo.blur(function () {
-            var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
-            var tnoValidate = checkTNo(TNo.val());
-            alert(numFieldValidata);
-            alert(tnoValidate); 
-        })
-        TPhone.blur(function () {
-            validatePhone(TPhone.get(0), $("#TPhoneError").get(0))
-        })
-        TEmail.blur(function () {
-            validateEmail(TEmail.get(0), $("#TEmailError").get(0));
-        })
-        TQQ.blur(function () {
-            validateQQ(TQQ.get(0), $("#TQQError").get(0))
-        })
-        TTeachNum.blur(function () {
-            validateNum(TTeachNum.get(0), $("#TTeachNumError").get(0));
-        })
         $(".addTable input,.addTable textarea").removeAttr("readonly");
 
     });
@@ -123,13 +168,16 @@ $(function () {
     });
 
     $(".modifyInfo").click(function () { //修改信息
+        //初始化
         var teaId = $(this).parent().parent().attr("id");
+        setInfo(teaId, "modify");
         loadDepartment(DepartmentId, MajorId); //加载下拉列表
         DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
         $("#addNew").omDialog({ title: "修改信息" });
         $("#addNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
+                    alert(modifyCount(teaId).toLocaleString());
                     if (modifyCount(teaId)) { //修改成功
                         //关闭窗口
                         $("#addNew").omDialog('close');
@@ -150,7 +198,96 @@ $(function () {
 
         });
         $("#addNew").omDialog('open');
-        setInfo(teaId, "modify");
+
+        //获取原始值
+        var oldInfo = getInfo();
+        alert(TNo.val());
+        alert(oldInfo.TNo);
+        
+        TNo.blur(function () {
+            var newTno = TNo.val();
+            console.log(oldInfo.TNo);
+            console.log(newTno);
+            if (oldInfo.TNo != newTno) {
+                var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
+                if (!numFieldValidata) {
+                    $.omMessageBox.confirm({
+                        title: '提示',
+                        content: '请输入1~20位数字串！',
+                        onClose: function (v) {
+
+                        }
+                    });
+                }
+                checkTNo(TNo.val());
+            }
+        })
+        TPhone.blur(function () {
+            var newPhone = TPhone.val();
+            if (oldInfo.TPhone != newPhone) {
+                var phoneValidata = validatePhone(TPhone.get(0), $("#TPhoneError").get(0));
+                if (!phoneValidata) {
+                    $.omMessageBox.confirm({
+                        title: '提示',
+                        content: '请输入正确的电话号码！',
+                        onClose: function (v) {
+
+                        }
+                    });
+                }
+            }
+
+        })
+        TEmail.blur(function () {//email验证
+            var newEmail = TEmail.val();
+            if (oldInfo.TEmail != newEmail) {
+                var emailValidata = validateEmail(TEmail.get(0), $("#TEmailError").get(0));
+                if (!emailValidata) {
+                    $.omMessageBox.confirm({
+                        title: '提示',
+                        content: '请输入正确的邮箱格式！',
+                        onClose: function (v) {
+
+                        }
+                    });
+                }
+            }
+
+        })
+        TQQ.blur(function () {
+            var newQQ = TQQ.val();
+            if (oldInfo.TQQ != newQQ) {
+                var qqValidata = validateQQ(TQQ.get(0), $("#TQQError").get(0));
+                if (!qqValidata) {
+                    $.omMessageBox.confirm({
+                        title: '提示',
+                        content: '请输入正确的QQ格式！',
+                        onClose: function (v) {
+
+                        }
+                    });
+                }
+            }
+
+        })
+        TTeachNum.blur(function () {
+            var newTeacherNum = TTeachNum.val();
+            if (oldInfo.TTeachNum != newTeacherNum) {
+                var numValidata = validateNum(TTeachNum.get(0), $("#TTeachNumError").get(0));
+                if (!numValidata) {
+                    $.omMessageBox.confirm({
+                        title: '提示',
+                        content: '请输入0~20位数字串！',
+                        onClose: function (v) {
+
+                        }
+                    });
+                }
+            }
+
+        })
+
+
         $(".addTable input,.addTable textarea").removeAttr("readonly");
 
     })
@@ -173,12 +310,14 @@ $(function () {
             }
         });
     })
+
 });
 
 function getInfo() {
     var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
     return info;
 }
+
 
 function setInfo(teaId, operate) {
     $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teaId }, function (data) {
@@ -250,14 +389,17 @@ function modifyCount(tid) {//修改用户
 
 //验证工号是否存在
 function checkTNo(tno) {
-    var result = $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "checkTNo", "TNo": tno }, function (data) {
+    $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "checkTNo", "TNo": tno }, function (data) {
         if (data == "ok") {
-            return true;
+            
         } else {
-            return false;
+            $.omMessageBox.confirm({
+                title: '提示',
+                content: '您输入的教工号已存在！',
+                onClose: function(v){}
+            });
         }
     });
-    return result;
 }
 
 function clear() {
