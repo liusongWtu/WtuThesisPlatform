@@ -387,5 +387,12 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+        public DataTable GetAll()
+        {
+            string sql = "select * from Teacher";
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            return dt;
+        }
     }
 }

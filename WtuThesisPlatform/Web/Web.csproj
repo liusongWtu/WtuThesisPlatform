@@ -34,6 +34,30 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.DDF, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.DDF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HPSF, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.HPSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HSSF, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.HSSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.POIFS, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.POIFS.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.Util, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.Util.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -62,7 +86,14 @@
     <Content Include="AdminUI\NoticeManager.aspx" />
     <Content Include="AdminUI\StudentManager.aspx" />
     <Content Include="AdminUI\TeacherManager.aspx" />
+    <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
+    <Content Include="bll\NPOI.DDF.dll" />
+    <Content Include="bll\NPOI.dll" />
+    <Content Include="bll\NPOI.HPSF.dll" />
+    <Content Include="bll\NPOI.HSSF.dll" />
+    <Content Include="bll\NPOI.POIFS.dll" />
+    <Content Include="bll\NPOI.Util.dll" />
     <Content Include="css\admin\adm_page.css" />
     <Content Include="css\base.css" />
     <Content Include="css\common.css" />
@@ -959,6 +990,13 @@
     <Compile Include="AdminUI\TeacherManager.aspx.designer.cs">
       <DependentUpon>TeacherManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminUI\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminUI\ZhiChengManager.aspx.cs">
       <DependentUpon>ZhiChengManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1006,6 +1044,7 @@
       <DependentUpon>StoreManager.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\CommonCode.cs" />
+    <Compile Include="Common\NPOIHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
