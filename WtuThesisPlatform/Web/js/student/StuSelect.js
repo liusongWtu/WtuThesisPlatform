@@ -39,7 +39,7 @@
                 $.omMessageTip.show({ content: '已选择该选题！', timeout: 1000, type: 'success' });
             }
         }
-        
+
 
     });
     /**********全选**********/
@@ -80,43 +80,51 @@
 });
 
 function storeTopic(id) {//收藏选题
-    var result = $.post("../../ashx/student/StoreManager.ashx", { "thesisId": id, "operate": "add" }, function (data) {
+    var result = false;
+    $.ajax({ data: "post", url: "../../ashx/student/StoreManager.ashx", data: "thesisId=" + id + "&operate=add", async: false, success: function (data) {
         if (data == "ok") {
-            return true;
+            result = true;
         } else {
-            return false;
+            result = false;
         }
+    }
     });
     return result;
 }
 
 function deldetStore(thesisId) {//取消收藏
-    var result = $.post("../../ashx/student/StoreManager.ashx", { "thesisId": thesisId, "operate": "del" }, function (data) {
+    var result = false;
+    $.ajax({ data: "post", url: "../../ashx/student/StoreManager.ashx", data: "thesisId=" + thesisId + "&operate=del", async: false, success: function (data) {
         if (data == "ok") {
-            return true;
+            result = true;
         } else {
-            return false;
+            result = false;
         }
+    }
     });
     return result;
 }
 function selectTopic(id) {//选择选题
-    var result = $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": id, "operate": "add" }, function (data) {
+    var result = false;
+    $.ajax({ data: "post", url: "../../ashx/student/SelectedManager.ashx", data: "thesisId=" + id + "&operate=add&srcPage=stuSelect", async: false, success: function (data) {
         if (data == "ok") {
-            return true;
+            result = true;
         } else {
-            return false;
+            result = false;
         }
+    }
     });
     return result;
 }
 function deleteSelect(id) {//取消选题
-    var result = $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": id, "operate": "del" }, function (data) {
+    var result = false;
+    $.post({ data: "post", url: "../../ashx/student/SelectedManager.ashx", data: "thesisId=" + id + "&operate=del&srcPage=mySelect", async: false, success: function (data) {
         if (data == "ok") {
-            return true;
+            result = true;
         } else {
-            return false;
+            result = false;
         }
+    }
     });
     return result;
 }

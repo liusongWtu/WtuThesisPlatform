@@ -224,7 +224,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("CId,CName,MajorId,CNumber,IsDel)");
                 strSql.Append(" values (");
                 strSql.Append(" @CId,@CName,@MajorId,@CNumber,@IsDel)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@CId", SqlDbType.Int,4),
                     new SqlParameter("@CName", SqlDbType.VarChar,20),
@@ -237,7 +237,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[2].Value = model.Major.MId;
                 parameters[3].Value = model.CNumber;
                 parameters[4].Value = model.IsDel;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {

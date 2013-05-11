@@ -41,9 +41,16 @@ $(function () {
             repeatPwd.parent().next().text("您输入的密码与新密码不一致！");
         }
         else {
-            if (modifyPwd()) {//修改密码成功
-                $.omMessageTip.show({ content: '密码修改成功！', timeout: 1000, type: 'success' });
-            }
+            var type = $("#userType").val();
+            var md5PwdNew = $.md5($("#newPassword").val());
+            var md5PwdOld = $.md5($("#oldPassword").val());
+            var result = $.post("../../ashx/common/ChangePwd.ashx", { "type": type, "oldPwd": md5PwdOld, "newPwd": md5PwdNew }, function (data) {
+                if (data == "ok") {
+                    $.omMessageTip.show({ content: '密码修改成功！', timeout: 1000, type: 'success' });
+                } else {
+                    $.omMessageTip.show({ content: '密码修改失败！', timeout: 1000, type: 'error' });
+                }
+            }); 
         }
         repeatPwd.change(function () {
             repeatPwd.parent().next().text("");
@@ -70,17 +77,3 @@ $(function () {
         });
     });
 })
-
-function modifyPwd() {//修改数据库密码
-    var type = $("#userType").val();
-    var md5PwdNew = $.md5($("#newPassword").val());
-    var md5PwdOld = $.md5($("#oldPassword").val());
-    var result = $.post("../../ashx/common/ChangePwd.ashx", { "type": type, "oldPwd": md5PwdOld, "newPwd": md5PwdNew }, function (data) {
-        if (data == "ok") {
-            return true;
-        } else {
-            return false;
-        }
-    });
-    return result;
-}

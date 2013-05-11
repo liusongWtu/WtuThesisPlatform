@@ -19,13 +19,26 @@ namespace Web.ashx.student
             context.Response.ContentType = "text/plain";
             string thesisId = context.Request["thesisId"];
             string operate = context.Request["operate"];
+            string srcPage = context.Request["srcPage"];
             Student currStudent = context.Session["currUser"] as Student;
             if (currStudent == null)
             {
                 context.Response.Write("error");
             }
             ThesisSelected thesisSelected = new ThesisSelected();
-            thesisSelected.ThesisTitle = new ThesisTitleBLL().GetModel(Convert.ToInt32(thesisId));
+            if (srcPage == "myStore")
+            {
+                ThesisCollect thesisCollect = new ThesisCollectBLL().GetModel(Convert.ToInt32(thesisId));
+                thesisSelected.ThesisTitle = thesisCollect.ThesisTitle;
+            }
+            else if (srcPage == "mySelect")
+            {
+                thesisSelected = new ThesisSelectedBLL().GetModel(Convert.ToInt32(thesisId));
+            }
+            else if (srcPage == "stuSelect")
+            {
+                thesisSelected.ThesisTitle = new ThesisTitleBLL().GetModel(Convert.ToInt32(thesisId));
+            }
             thesisSelected.Student = currStudent;
             ThesisSelectedBLL tsBll = new ThesisSelectedBLL();
             ThesisCollectBLL tcBll = new ThesisCollectBLL();

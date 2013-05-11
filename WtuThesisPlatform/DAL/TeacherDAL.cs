@@ -265,7 +265,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("TId,TNo,TPassword,TName,TZhiCheng,TTeachNum,TPhone,TEmail,TQQ,DepartmentId,MajorId,TTeachCourse,TResearchFields,TCheckCode,RoleId,IsDel,TSex)");
                 strSql.Append(" values (");
                 strSql.Append(" @TId,@TNo,@TPassword,@TName,@TZhiCheng,@TTeachNum,@TPhone,@TEmail,@TQQ,@DepartmentId,@MajorId,@TTeachCourse,@TResearchFields,@TCheckCode,@RoleId,@IsDel,@TSex)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@TId", SqlDbType.Int,4),
                     new SqlParameter("@TNo", SqlDbType.VarChar,20),
@@ -302,7 +302,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[14].Value = model.RoleInfo.RoleId;
                 parameters[15].Value = model.IsDel;
                 parameters[16].Value = model.TSex;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {

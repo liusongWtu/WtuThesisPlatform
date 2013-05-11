@@ -227,7 +227,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("SId,SNo,STearcherScore,SAppraiserScore,SRejoinScore,IsDel)");
                 strSql.Append(" values (");
                 strSql.Append(" @SId,@SNo,@STearcherScore,@SAppraiserScore,@SRejoinScore,@IsDel)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@SId", SqlDbType.Int,4),
                     new SqlParameter("@SNo", SqlDbType.VarChar,20),
@@ -242,7 +242,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[3].Value = model.SAppraiserScore;
                 parameters[4].Value = model.SRejoinScore;
                 parameters[5].Value = model.IsDel;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {

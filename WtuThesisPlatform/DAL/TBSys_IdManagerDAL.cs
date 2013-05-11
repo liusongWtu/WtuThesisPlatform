@@ -224,7 +224,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("Id,TableName,FieldName,CurrentValue,Start,Step)");
                 strSql.Append(" values (");
                 strSql.Append(" @Id,@TableName,@FieldName,@CurrentValue,@Start,@Step)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@Id", SqlDbType.Int,4),
                     new SqlParameter("@TableName", SqlDbType.VarChar,100),
@@ -239,7 +239,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[3].Value = model.CurrentValue;
                 parameters[4].Value = model.Start;
                 parameters[5].Value = model.Step;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {

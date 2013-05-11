@@ -224,7 +224,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("NodeId,DisplayName,NodeURL,ParentNodeId,DisplayOrder,IsDel)");
                 strSql.Append(" values (");
                 strSql.Append(" @NodeId,@DisplayName,@NodeURL,@ParentNodeId,@DisplayOrder,@IsDel)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@NodeId", SqlDbType.Int,4),
                     new SqlParameter("@DisplayName", SqlDbType.VarChar,50),
@@ -239,7 +239,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[3].Value = model.ParentNodeId;
                 parameters[4].Value = model.DisplayOrder;
                 parameters[5].Value = model.IsDel;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {

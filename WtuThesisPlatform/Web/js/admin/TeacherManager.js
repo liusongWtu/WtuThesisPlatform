@@ -170,127 +170,21 @@ $(function () {
     $(".modifyInfo").click(function () { //修改信息
         //初始化
         var teaId = $(this).parent().parent().attr("id");
-        setInfo(teaId, "modify");
-        loadDepartment(DepartmentId, MajorId); //加载下拉列表
-        DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
-        $("#addNew").omDialog({ title: "修改信息" });
-        $("#addNew").omDialog({ buttons: [
-            { text: "确定", click:
-                function () {
-                    alert(modifyCount(teaId).toLocaleString());
-                    if (modifyCount(teaId)) { //修改成功
-                        //关闭窗口
-                        $("#addNew").omDialog('close');
-                        $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
-                    }
-                    else {
-                        $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
-                    }
-                }
-            },
+        var oldInfo;
+        setInfo(teaId, "modify", oldInfo);
 
-            { text: "取消", click:
-                function () {
-                    $("#addNew").omDialog('close');
-                }
-            }
-         ]
-
-        });
-        $("#addNew").omDialog('open');
 
         //获取原始值
-        var oldInfo = getInfo();
-        alert(TNo.val());
-        alert(oldInfo.TNo);
+        // var oldInfo = getInfo();
+        // alert(TNo.val());
+        // console.log(oldInfo.TNo);
+
         
-        TNo.blur(function () {
-            var newTno = TNo.val();
-            console.log(oldInfo.TNo);
-            console.log(newTno);
-            if (oldInfo.TNo != newTno) {
-                var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
-                if (!numFieldValidata) {
-                    $.omMessageBox.confirm({
-                        title: '提示',
-                        content: '请输入1~20位数字串！',
-                        onClose: function (v) {
-
-                        }
-                    });
-                }
-                checkTNo(TNo.val());
-            }
-        })
-        TPhone.blur(function () {
-            var newPhone = TPhone.val();
-            if (oldInfo.TPhone != newPhone) {
-                var phoneValidata = validatePhone(TPhone.get(0), $("#TPhoneError").get(0));
-                if (!phoneValidata) {
-                    $.omMessageBox.confirm({
-                        title: '提示',
-                        content: '请输入正确的电话号码！',
-                        onClose: function (v) {
-
-                        }
-                    });
-                }
-            }
-
-        })
-        TEmail.blur(function () {//email验证
-            var newEmail = TEmail.val();
-            if (oldInfo.TEmail != newEmail) {
-                var emailValidata = validateEmail(TEmail.get(0), $("#TEmailError").get(0));
-                if (!emailValidata) {
-                    $.omMessageBox.confirm({
-                        title: '提示',
-                        content: '请输入正确的邮箱格式！',
-                        onClose: function (v) {
-
-                        }
-                    });
-                }
-            }
-
-        })
-        TQQ.blur(function () {
-            var newQQ = TQQ.val();
-            if (oldInfo.TQQ != newQQ) {
-                var qqValidata = validateQQ(TQQ.get(0), $("#TQQError").get(0));
-                if (!qqValidata) {
-                    $.omMessageBox.confirm({
-                        title: '提示',
-                        content: '请输入正确的QQ格式！',
-                        onClose: function (v) {
-
-                        }
-                    });
-                }
-            }
-
-        })
-        TTeachNum.blur(function () {
-            var newTeacherNum = TTeachNum.val();
-            if (oldInfo.TTeachNum != newTeacherNum) {
-                var numValidata = validateNum(TTeachNum.get(0), $("#TTeachNumError").get(0));
-                if (!numValidata) {
-                    $.omMessageBox.confirm({
-                        title: '提示',
-                        content: '请输入0~20位数字串！',
-                        onClose: function (v) {
-
-                        }
-                    });
-                }
-            }
-
-        })
 
 
         $(".addTable input,.addTable textarea").removeAttr("readonly");
 
-    })
+    });
     $(".deleteOne").click(function () {//删除信息
         var $myThis = $(this);
         var teaId = $(this).parent().parent().attr("id");
@@ -309,7 +203,7 @@ $(function () {
                 }
             }
         });
-    })
+    });
 
 });
 
@@ -319,10 +213,11 @@ function getInfo() {
 }
 
 
-function setInfo(teaId, operate) {
+function setInfo(teaId, operate, oldInfo) {
     $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teaId }, function (data) {
         //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
+        console.log(data);
         TNo.val(info.TNo);
         TName.val(info.TName);
         TSex.val(info.TSex);
@@ -337,13 +232,46 @@ function setInfo(teaId, operate) {
             DepartmentId.append("<option selected='selected'>" + info.Department.DName + "</option>");
             MajorId.append("<option selected='selected'>" + info.Major.MName + "</option>");
         } else if (operate == "modify") {
-            //  DepartmentId.val(info.Department.DId);
+            loadDepartment(DepartmentId); //加载下拉列表
             DepartmentId.find("option[value=" + info.Department.DId + "]").attr("selected", "selected");
+            DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
             loadMajor(MajorId, info.Department.DId);
-            window.setTimeout(function () {
-                MajorId.val(info.Major.MId);
-            },200);
+            MajorId.val(info.Major.MId);
+            //            window.setTimeout(function () {
+            //                MajorId.val(info.Major.MId);
+            //            }, 200);
+            $("#addNew").omDialog({ title: "修改信息" });
+            $("#addNew").omDialog({ buttons: [
+            { text: "确定", click:
+                function () {
+                    if (modifyCount(teaId)) { //修改成功
+                        //关闭窗口
+                        $("#addNew").omDialog('close');
+                        $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
+                    }
+                    else {
+                        $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
+                    }
+                }
+            },
+
+            { text: "取消", click:
+                function () {
+                    $("#addNew").omDialog('close');
+                }
+            }
+         ]
+
+            });
+            $("#addNew").omDialog('open');
         }
+        oldInfo = getInfo();
+        console.log(oldInfo);
+        TNo.blur(checkTNo(oldInfo));
+        TPhone.blur(checkPhone(oldInfo));
+        TEmail.blur(checkEmail(oldInfo));
+        TQQ.blur(checkQQ(oldInfo));
+        TTeachNum.blur(checkTTeachNum(oldInfo));
     });
 }
 function addNewCount() {//添加新用户
@@ -415,4 +343,91 @@ function clear() {
     MajorId.empty();
     TTeachCourse.text("");
     TResearchFields.text("");
+}
+
+function checkPhone(oldInfo) {
+    var newPhone = TPhone.val();
+    if (oldInfo.TPhone != newPhone) {
+        var phoneValidata = validatePhone(TPhone.get(0), $("#TPhoneError").get(0));
+        if (!phoneValidata) {
+            $.omMessageBox.confirm({
+                title: '提示',
+                content: '请输入正确的电话号码！',
+                onClose: function (v) {
+
+                }
+            });
+        }
+    }
+
+}
+
+function checkEmail(oldInfo) {//email验证
+    var newEmail = TEmail.val();
+    if (oldInfo.TEmail != newEmail) {
+        var emailValidata = validateEmail(TEmail.get(0), $("#TEmailError").get(0));
+        if (!emailValidata) {
+            $.omMessageBox.confirm({
+                title: '提示',
+                content: '请输入正确的邮箱格式！',
+                onClose: function (v) {
+
+                }
+            });
+        }
+    }
+
+}
+
+function checkQQ(oldInfo) {
+    var newQQ = TQQ.val();
+    if (oldInfo.TQQ != newQQ) {
+        var qqValidata = validateQQ(TQQ.get(0), $("#TQQError").get(0));
+        if (!qqValidata) {
+            $.omMessageBox.confirm({
+                title: '提示',
+                content: '请输入正确的QQ格式！',
+                onClose: function (v) {
+
+                }
+            });
+        }
+    }
+
+}
+
+function checkTTeachNum(oldInfo) {
+    var newTeacherNum = TTeachNum.val();
+    if (oldInfo.TTeachNum != newTeacherNum) {
+        var numValidata = validateNum(TTeachNum.get(0), $("#TTeachNumError").get(0));
+        if (!numValidata) {
+            $.omMessageBox.confirm({
+                title: '提示',
+                content: '请输入0~20位数字串！',
+                onClose: function (v) {
+
+                }
+            });
+        }
+    }
+
+}
+
+function checkTNo(oldInfo) {
+    var newTno = TNo.val();
+    console.log(oldInfo.TNo);
+    //console.log(newTno);
+    if (oldInfo.TNo != newTno) {
+        var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
+        if (!numFieldValidata) {
+            $.omMessageBox.confirm({
+                title: '提示',
+                content: '请输入1~20位数字串！',
+                onClose: function (v) {
+
+                }
+            });
+        }
+        checkTNo(TNo.val());
+    }
 }
