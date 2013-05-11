@@ -39,6 +39,9 @@
                         班级
                     </td>
                     <td>
+                        是否选题
+                    </td>
+                    <td>
                         详细信息
                     </td>
                     <td>
@@ -71,6 +74,9 @@
                             </td>
                             <td>
                                 <%#Eval("ClassInfo.CName") %>
+                            </td>
+                            <td>
+                                <%#Eval("IsSelected") %>
                             </td>
                             <td>
                                 <a href="#">查看详情</a>

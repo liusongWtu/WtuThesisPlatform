@@ -144,6 +144,24 @@ namespace WtuThesisPlatform.MODEL
         }
 
         /// <summary>
+        /// 选题描述
+        /// </summary>
+        public string IsSelected
+        {
+            get
+            {
+                if (_sFlag)
+                {
+                    return "是";
+                }
+                else
+                {
+                    return "否";
+                }
+            }
+        }
+
+        /// <summary>
         ///  毕业届
         /// </summary>
         public string SYear

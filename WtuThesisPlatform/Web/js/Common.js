@@ -259,3 +259,16 @@ function validataNumField(txtNum,errorInfo) {
     }
 }
 
+//验证年份0001~9999
+function validateYear(txtNum, errorInfo) {
+    var yearPatrn = /^[0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3} $/;
+    if (yearPatrn.test(txtNum.value)) {
+        errorInfo.style.display = "none";
+        return true;
+    }
+    else {
+        errorInfo.style.display = "";
+        return false;
+    }
+}
+

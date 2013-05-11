@@ -423,7 +423,7 @@ function checkTNo(oldInfo) {
             $.omMessageBox.confirm({
                 title: '提示',
                 content: '请输入1~20位数字串！',
-                onClose: function (v) {
+                onClose: function (v) { 
 
                 }
             });
