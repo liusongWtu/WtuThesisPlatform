@@ -107,6 +107,8 @@
     <Content Include="images\teacher\save.gif" />
     <Content Include="images\teacher\tea_select.png" />
     <Content Include="js\admin\Admininfo.js" />
+    <Content Include="js\admin\AdminManager.js" />
+    <Content Include="js\admin\StudentManager.js" />
     <Content Include="js\admin\TeacherManager.js" />
     <Content Include="js\DataHelper.js" />
     <Content Include="js\MD5.js" />

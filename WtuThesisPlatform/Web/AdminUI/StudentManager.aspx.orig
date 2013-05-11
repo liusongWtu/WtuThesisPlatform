@@ -84,6 +84,7 @@
                             <td>
                                 <%#Eval("ClassInfo.CName") %>
                             </td>
+<<<<<<< HEAD
                             <td>
                                 <%#Eval("IsSelected") %>
                             </td>
@@ -99,6 +100,12 @@
                             <td>
                                 <a href="#">删除</a>
                             </td>
+=======
+                            <td><a href="#" class="checkDetail">查看详情</a></td>
+                            <td><a href="#">重置</a></td>
+                            <td><a href="#" class="modifyInfo">修改</a></td>
+                            <td><a href="#" class="deleteOne">删除</a></td>
+>>>>>>> e56ed843df49da11fdbc986babaa341cffb52efc
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>

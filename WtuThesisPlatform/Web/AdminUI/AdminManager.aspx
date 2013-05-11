@@ -4,6 +4,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="Stylesheet" type="text/css" href="../css/admin/adm_page.css" />
     <script type="text/javascript" src="../js/student/StuSelect.js"></script>
+    <script src="../js/DataHelper.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/admin/AdminManager.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">
@@ -68,10 +70,10 @@
                             <td><%#Eval("UName") %></td>
                             <td> <%#Eval("UPhone") %></td>
                             <td><%#Eval("UEmail") %></td>
-                            <td><a href="#">查看详情</a></td>
+                            <td><a href="#" class="checkDetail">查看详情</a></td>
                             <td><a href="#">重置</a></td>
-                            <td><a href="#">修改</a></td>
-                            <td><a href="#">删除</a></td>
+                            <td><a href="#" class="modifyInfo">修改</a></td>
+                            <td><a href="#" class="deleteOne">删除</a></td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -85,10 +87,12 @@
     </div>
     <div id="AdmAddNew">
         <table class="addTable">
-            <tr><td>登录名：</td><td><input type="text" class="UUserName" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;姓名：</td><td><input type="text" class="UName"/></td></tr>
-            <tr><td>电话：</td><td><input type="text" class="UPhone" /></td><td>&nbsp;&nbsp;&nbsp;&nbsp;EMAIL：</td><td><input type="text" class="UEmail" /></td></tr>
-            <tr><td>QQ：</td><td><input type="text"  class="UQQ" /></td></tr>
-            <tr><td>院系：</td><td><select  class="DepartmentId"></select></td><td>&nbsp;&nbsp;&nbsp;&nbsp;专业：</td><td><select  class="MajorId"></select></td></tr>
+            <tr><td>登录名：</td><td><input type="text" class="UUserName" /></td><td><span id="UUserNameError" style="color: Red;display: none"></span></td></tr>
+            <tr><td>姓名：</td><td><input type="text" class="UName"/></td><td><span  style="color: Red;display: none"></span></td></tr>
+            <tr><td>电话：</td><td><input type="text" class="UPhone" /></td><td><span id="UPhoneError" style="color: Red;display: none"></span></td></tr>
+            <tr><td>EMAIL：</td><td><input type="text" class="UEmail" /></td><td><span id="UEmailError" style="color: Red;display: none"></span></td></tr>
+            <tr><td>QQ：</td><td><input type="text"  class="UQQ" /></td><td colspan="4"><span id="UQQError" style="color: Red;display: none"></span></td></tr>
+            <tr><td>院系：</td><td colspan="5"><select  class="DepartmentId"></select></td></tr>
         </table>
     </div>
 </asp:Content>
