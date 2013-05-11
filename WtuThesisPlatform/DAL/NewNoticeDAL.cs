@@ -222,7 +222,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("NId,NoticeId,NUserType,NUserId)");
                 strSql.Append(" values (");
                 strSql.Append(" @NId,@NoticeId,@NUserType,@NUserId)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@NId", SqlDbType.Int,4),
                     new SqlParameter("@NoticeId", SqlDbType.Int,4),
@@ -233,7 +233,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[1].Value = model.NoticeId;
                 parameters[2].Value = model.NUserType;
                 parameters[3].Value = model.NUserId;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {

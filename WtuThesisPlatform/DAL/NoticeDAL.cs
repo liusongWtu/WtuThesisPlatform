@@ -234,7 +234,7 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel)");
                 strSql.Append(" values (");
                 strSql.Append(" @NId,@NLevel,@NName,@NPublisherId,@NPublishUnits,@NTitle,@NContent,@NPublishTime,@NDeadTime,@IsDel)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@NId", SqlDbType.Int,4),
                     new SqlParameter("@NLevel", SqlDbType.Int,4),
@@ -257,7 +257,7 @@ namespace WtuThesisPlatform.DAL
                 parameters[7].Value = model.NPublishTime;
                 parameters[8].Value = model.NDeadTime;
                 parameters[9].Value = model.IsDel;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
             }
             catch (Exception ex)
             {

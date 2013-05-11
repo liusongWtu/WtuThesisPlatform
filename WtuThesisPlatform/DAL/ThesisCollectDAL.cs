@@ -229,7 +229,7 @@ namespace WtuThesisPlatform.DAL
 				parameters[0].Value = model.CId;
                 parameters[1].Value = model.Student.SId;
                 parameters[2].Value = model.ThesisTitle.TId;
-                result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
+                result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
 
                 //更新选题中选择人数信息
                 string sql = "update ThesisTitle set TSelectedNum=TSelectedNum+1 where TId= "+model.ThesisTitle.TId;

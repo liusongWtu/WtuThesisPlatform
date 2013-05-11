@@ -27,7 +27,7 @@
             content: '确定要选择该题？',
             onClose: function (v) {
                 if (v) {
-                    $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": $myThis.parent().parent().attr("id"), "operate": "add" }, function (data) {
+                    $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": $myThis.parent().parent().attr("id"), "operate": "add","srcPage":"myStore" }, function (data) {
                         if (data == "ok") {
                             $myThis.parent().parent().remove(); //移除节点
                             $.omMessageTip.show({ content: '已选择该题！', timeout: 1000, type: 'alert' });
