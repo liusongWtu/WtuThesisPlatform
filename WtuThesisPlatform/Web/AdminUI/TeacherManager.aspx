@@ -102,7 +102,7 @@
             </div>
         </div>
     </div>
-    <div id="addNew" title="添加用户">
+    <div id="teaAddNew" title="添加用户">
         <table class="addTable">
             <tr><td>教工号：</td><td><input type="text" class="TNo" /></td><td><span id="TNoError" style="color: red; display: none">*</span></td><td>姓名：</td><td><input type="text" class="TName"/></td><td><span style="color: red; display: none">*</span></td></tr>
             <tr><td>性别：</td><td><input type="text"  class="TSex" /></td><td><span id="Span3" style="color: red; display: none">*</span></td><td>电话：</td><td><input type="text" class="TPhone" /></td><td><span id="TPhoneError" style="color: red; display: none">*</span></td></tr>

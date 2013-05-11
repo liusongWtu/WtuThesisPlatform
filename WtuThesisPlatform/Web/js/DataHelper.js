@@ -23,3 +23,16 @@ function loadMajor(sltMajor, departmentId) {
     }
     });
 }
+
+//加载班级下拉框
+function loadClass(sltClass, majorId) {
+    $.ajax({ data: "get", url: "../ashx/common/LoadSelect.ashx", data: "operate=getClass&mid=" + majorId, async: false, success: function (data) {
+        var dataJsonArr = eval("(" + data + ")");
+        sltClass.empty();
+        sltClass.append("<option selected=\"selected\">----请选择----</option>");
+        for (var i = 0; i < dataJsonArr.length; i++) {
+            sltClass.append("<option value=\"" + dataJsonArr[i].CId + "\">" + dataJsonArr[i].CName + "</option>");
+        }
+    }
+    });
+}
