@@ -30,7 +30,7 @@
                                 <a>忘记密码?</a></p>
                             <div class="ui-input-wap">
                                 <label for="password ">
-                                    密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" value="liu" class="ui-input  textInd70" />
+                                    密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" value="123" class="ui-input  textInd70" />
                             </div>
                             <p> 
                                 <input type="checkbox" id="isRemember" />记住我</p>

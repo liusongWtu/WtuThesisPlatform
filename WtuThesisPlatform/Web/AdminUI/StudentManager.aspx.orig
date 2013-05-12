@@ -84,21 +84,28 @@
                             <td>
                                 <%#Eval("ClassInfo.CName") %>
                             </td>
+<<<<<<< HEAD
                             <td>
                                 <%#Eval("IsSelected") %>
                             </td>
                             <td>
-                                <a href="#" class="checkDetail">查看详情</a>
+                                <a href="#">查看详情</a>
                             </td>
                             <td>
-                                <a href="#" class="resetPwd">重置</a>
+                                <a href="#">重置</a>
                             </td>
                             <td>
-                                <a href="#" class="modifyInfo">修改</a>
+                                <a href="#">修改</a>
                             </td>
                             <td>
-                                <a href="#" class="deleteOne">删除</a>
+                                <a href="#">删除</a>
                             </td>
+=======
+                            <td><a href="#" class="checkDetail">查看详情</a></td>
+                            <td><a href="#">重置</a></td>
+                            <td><a href="#" class="modifyInfo">修改</a></td>
+                            <td><a href="#" class="deleteOne">删除</a></td>
+>>>>>>> e56ed843df49da11fdbc986babaa341cffb52efc
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -116,8 +123,8 @@
             <tr><td>学号：</td><td><input type="text" class="SNo" /></td><td><span id="SNoError" style="color: red; display: none">*</span></td><td>姓名：</td><td><input type="text" class="SName"/></td><td><span id="TNoError" style="color: red; display: none">*</span></td></tr>
             <tr><td>性别：</td><td><input type="text" class="SSex" /></td><td><span id="SSexError" style="color: red; display: none">*</span></td><td>电话：</td><td><input type="text" class="SPhone" /></td><td><span id="SPhoneError" style="color: red; display: none">*</span></td></tr>
             <tr><td>QQ：</td><td><input type="text"  class="SQQ" /></td><td><span id="SQQError" style="color: red; display: none">*</span></td><td>EMAIL：</td><td><input type="text" class="SEmail" /></td><td><span id="SEmailError" style="color: red; display: none">*</span></td></tr>
-            <tr><td>院系：</td><td ><select  class="DId"></select></td><td><span id="Span1" style="color: red; display: none">*</span></td><td>毕业届：</td><td><input type="text"  class="SYear" /></td><td><span id="SYearError" style="color: red; display: none">*</span></td></tr>
-            <tr><td>专业：</td><td colspan="2"><select  class="MId"></select></td><td>班级：</td><td colspan="2"><select class="CId"></select></td></tr>
+            <tr><td>班级：</td><td><select class="CId"></select></td><td><span id="Span1" style="color: red; display: none">*</span></td><td>毕业届：</td><td><input type="text"  class="SYear" /></td><td><span id="SYearError" style="color: red; display: none">*</span></td></tr>
+            <tr><td>院系：</td><td colspan="2"><select  class="DId"></select></td><td>专业：</td><td colspan="2"><select  class="MId"></select></td></tr>
         </table>
     </div>
 </asp:Content>

@@ -12,7 +12,6 @@ $(function () {
     UPhone = $(".UPhone");
     UEmail = $(".UEmail");
     UQQ = $(".UQQ");
-    DepartmentId = $(".DepartmentId");
     //初始化弹出框
     $("#AdmAddNew").omDialog({
         autoOpen: false,
@@ -23,8 +22,6 @@ $(function () {
 
     //添加用户
     $("#add").click(function () {
-        //加载下拉列表
-        loadDepartment(DepartmentId);
         $("#AdmAddNew").omDialog({ title: "添加用户" });
         $("#AdmAddNew").omDialog('open');
         $("#AdmAddNew").omDialog({ buttons: [
@@ -122,7 +119,7 @@ $(function () {
                     function () {
                         if (modifyCount(admId)) { //修改成功
                             //关闭窗口
-                            $("#addNew").omDialog('close');
+                            $("#AdmAddNew").omDialog('close');
                             $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
                         }
                         else {
@@ -133,7 +130,7 @@ $(function () {
 
                 { text: "取消", click:
                     function () {
-                        $("#addNew").omDialog('close');
+                        $("#AdmAddNew").omDialog('close');
                     }
                 }
             ]
@@ -144,6 +141,26 @@ $(function () {
 
     });
 
+
+    //重置密码
+    $(".resetPwd").click(function () {
+        var admId = $(this).parent().parent().attr("id");
+        $.omMessageBox.confirm({
+            title: '密码重置？',
+            content: '确定要重置该用户密码？',
+            onClose: function (value) {
+                if (value) {
+                    $.post("../../ashx/admin/AdminManager.ashx", { "operate": "resetPwd", "aid": admId }, function (data) {
+                        if (data == "ok") {
+                            $.omMessageTip.show({ content: '重置成功！', timeout: 1000, type: 'success' });
+                        } else {
+                            $.omMessageTip.show({ content: '重置失败！', timeout: 1000, type: 'error' });
+                        }
+                    });
+                }
+            }
+        });
+    });
 
     //删除用户信息
     $(".deleteOne").click(function () {
@@ -169,13 +186,13 @@ $(function () {
 });
 
 //function getInfo() {
-    //var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
-    //return info;
+//var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
+//return info;
 //}
 
 
 function setInfo(admId, operate) {
-    $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "adminId": admId }, function (data) {
+    $.get("../../ashx/admin/AdminManager.ashx", { "operate": "getAInfo", "adminId": admId }, function (data) {
         //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
         UUserName.val(info.UUserName);
@@ -184,10 +201,7 @@ function setInfo(admId, operate) {
         UEmail.val(info.UEmail);
         UQQ.val(info.UQQ);
         if (operate == "detail") {
-            DepartmentId.append("<option selected='selected'>" + info.Department.DName + "</option>");
-        } else if (operate == "modify") {
-            loadDepartment(DepartmentId); //加载下拉列表
-            DepartmentId.find("option[value=" + info.Department.DId + "]").attr("selected", "selected");
+            return;
         }
         //验证
         //var oldInfo = getInfo();
@@ -216,57 +230,75 @@ function setInfo(admId, operate) {
 }
 
 function addNewCount() {//添加新用户
-    var result = $.post("../../ashx/admin/AdminManager.ashx",
-            { "operate": "addNew", "uUserName": UUserName.val(), "uName": UName.val(), "uPhone": UPhone.val(),
-                "uEmail": UEmail.val(), "uQQ": UQQ.val(), "DepartmentId": DepartmentId.val()
-            },
-             function (data) {
-                 if (data == "ok") {
-                     return true;
-                 } else {
-                     return false;
-                 }
-             });
-    return result;
-}
-function deleteCount(aid) {//删除用户
-    var result = $.post("../../ashx/admin/AdminManager.ashx", { "operate": "del", "aid": aid }, function (data) {
-        if (data == "ok") {
-            return true;
-        } else {
-            return false;
+    var result = false;
+    $.ajax({ data: "post",
+        url: "../../ashx/admin/AdminManager.ashx",
+        data: "operate=addNew&uUserName=" + UUserName.val() + "&uName=" + UName.val() + "&uPhone=" + UPhone.val() +
+                "&uEmail=" + UEmail.val() + "&uQQ=" + UQQ.val(),
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                result = true;
+            } else {
+                result = false;
+            }
         }
     });
     return result;
 }
-function modifyCount(aid) {//修改用户
-    var ope = $.post("../../ashx/admin/AdminManager.ashx", { "operate": "modify", "aid": aid, "uUserName": UUserName.val(), "uName": UName.val(), "uPhone": UPhone.val(),
-        "uEmail": UEmail.val(), "uQQ": UQQ.val(), "DepartmentId": DepartmentId.val()
-    },
-                    function (data) {
-                        if (data == "ok") {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    });
 
-    return ope;
+//删除用户
+function deleteCount(aid) {
+    var result = false;
+    $.ajax({ data: "post",
+        url: "../../ashx/admin/AdminManager.ashx",
+        data: "operate=del&aid=" + aid,
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                result = true;
+            } else {
+                result = false;
+            }
+        }
+    });
+    return result;
+}
+
+
+//修改用户
+function modifyCount(aid) {
+    var result = false;
+    $.ajax({ data: "post",
+        url: "../../ashx/admin/AdminManager.ashx",
+        data: "operate=modify&aid=" + aid + "&uUserName=" + UUserName.val() + "&uName=" + UName.val() + "&uPhone=" +
+             UPhone.val() + "&uEmail=" + UEmail.val() + "&uQQ=" + UQQ.val(),
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                result = true;
+            } else {
+                result = false;
+            }
+        }
+    });
+
+    return result;
 }
 
 //验证登录名是否存在
 /*function checkTNoDB(tno) {
-    $.get("../../ashx/admin/AdminManager.ashx", { "operate": "checkTNo", "TNo": tno }, function (data) {
-        if (data == "ok") {
+$.get("../../ashx/admin/AdminManager.ashx", { "operate": "checkTNo", "TNo": tno }, function (data) {
+if (data == "ok") {
 
-        } else {
-            $.omMessageBox.confirm({
-                title: '提示',
-                content: '您输入的教工号已存在！',
-                onClose: function (v) { }
-            });
-        }
-    });
+} else {
+$.omMessageBox.confirm({
+title: '提示',
+content: '您输入的教工号已存在！',
+onClose: function (v) { }
+});
+}
+});
 }*/
 function checkPhone() {
     var phoneValidata = validatePhone(UPhone.get(0), $("#UPhoneError").get(0));
@@ -309,17 +341,17 @@ function checkQQ() {
 
 //留着给管理员的登录名备用
 /*function checkTNo() {
-    var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
-    if (!numFieldValidata) {
-        $.omMessageBox.confirm({
-            title: '提示',
-            content: '请输入1~20位数字串！',
-            onClose: function (v) {
+var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
+if (!numFieldValidata) {
+$.omMessageBox.confirm({
+title: '提示',
+content: '请输入1~20位数字串！',
+onClose: function (v) {
 
-            }
-        });
-    }
-    checkTNoDB(TNo.val());
+}
+});
+}
+checkTNoDB(TNo.val());
 }
 */
 //清空

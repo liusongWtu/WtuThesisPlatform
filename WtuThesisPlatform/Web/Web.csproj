@@ -88,6 +88,7 @@
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
+    <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="bll\NPOI.DDF.dll" />
     <Content Include="bll\NPOI.dll" />
     <Content Include="bll\NPOI.HPSF.dll" />
@@ -1008,8 +1009,15 @@
     <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
       <DependentUpon>ZhiChengManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\admin\AdminManager.ashx.cs">
+      <DependentUpon>AdminManager.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\StudentManager.ashx.cs">
+      <DependentUpon>StudentManager.ashx</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ashx\admin\TeacherManager.ashx.cs">
       <DependentUpon>TeacherManager.ashx</DependentUpon>
@@ -1215,6 +1223,7 @@
     <Content Include="AdminUI\AdminMasterPage.Master" />
     <Content Include="ashx\admin\ModifyInfo.ashx" />
     <Content Include="ashx\admin\TeacherManager.ashx" />
+    <Content Include="ashx\admin\AdminManager.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

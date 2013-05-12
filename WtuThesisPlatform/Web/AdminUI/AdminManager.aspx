@@ -64,16 +64,32 @@
                     <ItemTemplate>
                         <tr class="list-content" id="<%#Eval("UId") %>">
                             <td>
-                                <input type="checkbox" name="topiclist"  />
+                                <input type="checkbox" name="topiclist" />
                             </td>
-                            <td class="first"><%#Eval("UUserName") %></td>
-                            <td><%#Eval("UName") %></td>
-                            <td> <%#Eval("UPhone") %></td>
-                            <td><%#Eval("UEmail") %></td>
-                            <td><a href="#" class="checkDetail">查看详情</a></td>
-                            <td><a href="#">重置</a></td>
-                            <td><a href="#" class="modifyInfo">修改</a></td>
-                            <td><a href="#" class="deleteOne">删除</a></td>
+                            <td class="first">
+                                <%#Eval("UUserName") %>
+                            </td>
+                            <td>
+                                <%#Eval("UName") %>
+                            </td>
+                            <td>
+                                <%#Eval("UPhone") %>
+                            </td>
+                            <td>
+                                <%#Eval("UEmail") %>
+                            </td>
+                            <td>
+                                <a href="#" class="checkDetail">查看详情</a>
+                            </td>
+                            <td>
+                                <a href="#" class="resetPwd">重置</a>
+                            </td>
+                            <td>
+                                <a href="#" class="modifyInfo">修改</a>
+                            </td>
+                            <td>
+                                <a href="#" class="deleteOne">删除</a>
+                            </td>
                         </tr>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -81,18 +97,68 @@
         </div>
         <div class="content-bottom">
             <div class="pagechange">
-                    <div id="pageBar"><%=pageBar%></div>
+                <div id="pageBar">
+                    <%=pageBar%></div>
             </div>
         </div>
     </div>
     <div id="AdmAddNew">
         <table class="addTable">
-            <tr><td>登录名：</td><td><input type="text" class="UUserName" /></td><td><span id="UUserNameError" style="color: Red;display: none"></span></td></tr>
-            <tr><td>姓名：</td><td><input type="text" class="UName"/></td><td><span  style="color: Red;display: none"></span></td></tr>
-            <tr><td>电话：</td><td><input type="text" class="UPhone" /></td><td><span id="UPhoneError" style="color: Red;display: none"></span></td></tr>
-            <tr><td>EMAIL：</td><td><input type="text" class="UEmail" /></td><td><span id="UEmailError" style="color: Red;display: none"></span></td></tr>
-            <tr><td>QQ：</td><td><input type="text"  class="UQQ" /></td><td colspan="4"><span id="UQQError" style="color: Red;display: none"></span></td></tr>
-            <tr><td>院系：</td><td colspan="5"><select  class="DepartmentId"></select></td></tr>
+            <tr>
+                <td>
+                    登录名：
+                </td>
+                <td>
+                    <input type="text" class="UUserName" />
+                </td>
+                <td>
+                    <span id="UUserNameError" style="color: Red; display: none"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    姓名：
+                </td>
+                <td>
+                    <input type="text" class="UName" />
+                </td>
+                <td>
+                    <span style="color: Red; display: none"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    电话：
+                </td>
+                <td>
+                    <input type="text" class="UPhone" />
+                </td>
+                <td>
+                    <span id="UPhoneError" style="color: Red; display: none"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    EMAIL：
+                </td>
+                <td>
+                    <input type="text" class="UEmail" />
+                </td>
+                <td>
+                    <span id="UEmailError" style="color: Red; display: none"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    QQ：
+                </td>
+                <td>
+                    <input type="text" class="UQQ" />
+                </td>
+                <td colspan="4">
+                    <span id="UQQError" style="color: Red; display: none"></span>
+                </td>
+            </tr>
         </table>
     </div>
 </asp:Content>

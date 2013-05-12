@@ -116,7 +116,7 @@ $(function () {
 
 
     //查看用户详情
-    $(".checkDetail").click(function () { 
+    $(".checkDetail").click(function () {
         var teaId = $(this).parent().parent().attr("id");
         $("#teaAddNew").omDialog({ title: "用户信息" });
         $("#teaAddNew").omDialog({ buttons: {} });
@@ -128,7 +128,7 @@ $(function () {
 
 
     //修改用户信息
-    $(".modifyInfo").click(function () { 
+    $(".modifyInfo").click(function () {
         //初始化
         var teaId = $(this).parent().parent().attr("id");
         $("#teaAddNew").omDialog({ title: "修改信息" });
@@ -153,12 +153,31 @@ $(function () {
                 }
             ]
         });
-            $("#teaAddNew").omDialog('open');
+        $("#teaAddNew").omDialog('open');
         setInfo(teaId, "modify");
         $(".addTable input,.addTable textarea").removeAttr("readonly");
 
     });
 
+    //重置密码
+    $(".resetPwd").click(function () {
+        var teaId = $(this).parent().parent().attr("id");
+        $.omMessageBox.confirm({
+            title: '密码重置？',
+            content: '确定要重置该用户密码？',
+            onClose: function (value) {
+                if (value) {
+                    $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "resetPwd", "tid": teaId }, function (data) {
+                        if (data == "ok") {
+                            $.omMessageTip.show({ content: '重置成功！', timeout: 1000, type: 'success' });
+                        } else {
+                            $.omMessageTip.show({ content: '重置失败！', timeout: 1000, type: 'error' });
+                        }
+                    });
+                }
+            }
+        });
+    });
 
     //删除用户信息
     $(".deleteOne").click(function () {
@@ -212,82 +231,97 @@ function setInfo(teaId, operate) {
             DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
             loadMajor(MajorId, info.Department.DId);
             MajorId.val(info.Major.MId);
-        }
-        //验证
-        var oldInfo = getInfo();
-        $("#teaAddNew").attr("tabindex", 0);
-        $("#teaAddNew").focus();
-        TNo.blur(function () {
-            var newNo = TNo.val();
-            if (oldInfo.TNo != newNo) {
-                checkTNo(oldInfo);
-            }
-        });
-        TPhone.blur(function () {
-            var newPhone = TPhone.val();
-            if (oldInfo.TPhone != newPhone) {
-                checkPhone(oldInfo);
-            }
-        });
-        TEmail.blur(function () {
-            var newEmail = TEmail.val();
-            if (oldInfo.TEmail != newEmail) {
-                checkEmail(oldInfo);
-            }
-        });
-        TQQ.blur(function () {
-            var newQQ = TQQ.val();
-            if (oldInfo.TQQ != newQQ) {
-                checkQQ(oldInfo);
-            }
 
-        });
-        TTeachNum.blur(function () {
-            var newTeachNum = TTeachNum.val();
-            if (oldInfo.TTeachNum != newTeachNum) {
-                checkTTeachNum(oldInfo);
-            }
-        });
+            //验证
+            var oldInfo = getInfo();
+            $("#teaAddNew").attr("tabindex", 0);
+            $("#teaAddNew").focus();
+            TNo.blur(function () {
+                var newNo = TNo.val();
+                if (oldInfo.TNo != newNo) {
+                    checkTNo(oldInfo);
+                }
+            });
+            TPhone.blur(function () {
+                var newPhone = TPhone.val();
+                if (oldInfo.TPhone != newPhone) {
+                    checkPhone(oldInfo);
+                }
+            });
+            TEmail.blur(function () {
+                var newEmail = TEmail.val();
+                if (oldInfo.TEmail != newEmail) {
+                    checkEmail(oldInfo);
+                }
+            });
+            TQQ.blur(function () {
+                var newQQ = TQQ.val();
+                if (oldInfo.TQQ != newQQ) {
+                    checkQQ(oldInfo);
+                }
+
+            });
+            TTeachNum.blur(function () {
+                var newTeachNum = TTeachNum.val();
+                if (oldInfo.TTeachNum != newTeachNum) {
+                    checkTTeachNum(oldInfo);
+                }
+            });
+        }
+
     });
 }
 
 function addNewCount() {//添加新用户
-    var result = $.post("../../ashx/admin/TeacherManager.ashx",
-            { "operate": "addNew", "tNo": TNo.val(), "tName": TName.val(), "tPhone": TPhone.val(),
-                "tSex": TSex.val(), "tEmail": TEmail.val(), "tQQ": TQQ.val(), "tZhiCheng": TZhiCheng.val(), "tTeachNum": TTeachNum.val(),
-                "tTeachCourse": TTeachCourse.val(), "tResearchFields": TResearchFields.val(), "did": DepartmentId.val(), "mid": MajorId.val()
-            },
-             function (data) {
-                 if (data == "ok") {
-                     return true;
-                 } else {
-                     return false;
-                 }
-             });
-    return result;
-}
-function deleteCount(tid) {//删除用户
-    var result = $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "del", "tid": tid }, function (data) {
-        if (data == "ok") {
-            return true;
-        } else {
-            return false;
+    var result = false;
+    $.ajax({ data: "post",
+        url: "../../ashx/admin/TeacherManager.ashx",
+        data: "operate=addNew&tNo=" + TNo.val() + "&tName=" + TName.val() + "&tPhone=" + TPhone.val() + "&tSex=" + TSex.val() +
+             "&tEmail=" + TEmail.val() + "&tQQ=" + TQQ.val() + "&tZhiCheng=" + TZhiCheng.val() + "&tTeachNum=" + TTeachNum.val() + "&tTeachCourse=" +
+            TTeachCourse.val() + "&tResearchFields=" + TResearchFields.val() + "&did=" + DepartmentId.val() + "&mid=" + MajorId.val(),
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                result = true;
+            } else {
+                result = false;
+            }
         }
     });
     return result;
 }
-function modifyCount(tid) {//修改用户
-    var ope = $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "modify","tid":tid, "tNo": TNo.val(), "tName": TName.val(), "tPhone": TPhone.val(),
-        "tSex": TSex.val(), "tEmail": TEmail.val(), "tQQ": TQQ.val(), "tZhiCheng": TZhiCheng.val(), "tTeachNum": TTeachNum.val(),
-        "tTeachCourse": TTeachCourse.val(), "tResearchFields": TResearchFields.val(), "did": DepartmentId.val(), "mid": MajorId.val()
-    },
-                    function (data) {
-                        if (data == "ok") {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    });
+
+//删除用户
+function deleteCount(tid) {
+    var result = false;
+    $.ajax({ data: "post", url: "../../ashx/admin/TeacherManager.ashx", data: "operate=del&tid=" + tid, async: false, success: function (data) {
+        if (data == "ok") {
+            result = true;
+        } else {
+            result = false;
+        }
+    }
+    });
+    return result;
+}
+
+//修改用户
+function modifyCount(tid) {
+    var ope = false;
+    $.ajax({ data: "post",
+        url: "../../ashx/admin/TeacherManager.ashx",
+        data: "operate=modify&tid=" + tid + "&tNo=" + TNo.val() + "&tName=" + TName.val() + "&tPhone=" + TPhone.val() + "&tSex=" + TSex.val() +
+             "&tEmail=" + TEmail.val() + "&tQQ=" + TQQ.val() + "&tZhiCheng=" + TZhiCheng.val() + "&tTeachNum=" + TTeachNum.val() + "&tTeachCourse=" +
+            TTeachCourse.val() + "&tResearchFields=" + TResearchFields.val() + "&did=" + DepartmentId.val() + "&mid=" + MajorId.val(),
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                ope = true;
+            } else {
+                ope = false;
+            }
+        }
+    });
 
     return ope;
 }
@@ -296,12 +330,12 @@ function modifyCount(tid) {//修改用户
 function checkTNoDB(tno) {
     $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "checkTNo", "TNo": tno }, function (data) {
         if (data == "ok") {
-            
+
         } else {
             $.omMessageBox.confirm({
                 title: '提示',
                 content: '您输入的教工号已存在！',
-                onClose: function(v){}
+                onClose: function (v) { }
             });
         }
     });
