@@ -19,6 +19,7 @@ namespace Web.ashx.admin
 
         public void ProcessRequest(HttpContext context)
         {
+            this.context = context;
             context.Response.ContentType = "text/plain";
             string operate = context.Request["operate"];
             switch (operate)
@@ -38,8 +39,29 @@ namespace Web.ashx.admin
                 case "del":
                     DelAStudent();
                     break;
+                case "resetPwd":
+                    ResetPwd();
+                    break;
                 default:
                     break;
+            }
+        }
+
+        /// <summary>
+        /// 重置密码
+        /// </summary>
+        private void ResetPwd()
+        {
+            string sid=context.Request["sid"];
+            Student student = bll.GetModel(Convert.ToInt32(sid));
+            student.SPassword = CommonCode.Md5Compute(student.SNo);
+            if (bll.Update(student) > 0)
+            {
+                context.Response.Write("ok");
+            }
+            else
+            {
+                context.Response.Write("failed");
             }
         }
 

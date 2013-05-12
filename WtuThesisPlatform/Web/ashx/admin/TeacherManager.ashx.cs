@@ -40,8 +40,27 @@ namespace Web.ashx.admin
                 case "del":
                     DelATeacher();
                     break;
+                case "resetPwd":
+                    ResetPwd();
+                    break;
                 default:
                     break;
+            }
+        }
+
+        //重置用户密码
+        private void ResetPwd()
+        {
+            string tid=context.Request["tid"];
+            Teacher teacher = bll.GetModel(Convert.ToInt32(tid));
+            teacher.TPassword = CommonCode.Md5Compute(teacher.TNo);
+            if (bll.Update(teacher) > 0)
+            {
+                context.Response.Write("ok");
+            }
+            else
+            {
+                context.Response.Write("failed");
             }
         }
 

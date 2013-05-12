@@ -33,6 +33,7 @@ $(function () {
         //加载下拉列表
         loadDepartment(DepartmentId); //加载下拉列表
         DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
+        MajorId.change(function () { loadClass(SClass, MajorId.val()); });
         $("#StuAddNew").omDialog({ title: "添加用户" });
         $("#StuAddNew").omDialog('open');
         $("#StuAddNew").omDialog({ buttons: [
@@ -130,7 +131,7 @@ $(function () {
         $("#StuAddNew").omDialog({ buttons: [
                 { text: "确定", click:
                     function () {
-                        if (modifyCount(teaId)) { //修改成功
+                        if (modifyCount(stuId)) { //修改成功
                             //关闭窗口
                             $("#StuAddNew").omDialog('close');
                             $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
@@ -154,6 +155,25 @@ $(function () {
 
     });
 
+    //重置密码
+    $(".resetPwd").click(function () {
+        var stuId = $(this).parent().parent().attr("id");
+        $.omMessageBox.confirm({
+            title: '密码重置？',
+            content: '确定要重置该用户密码？',
+            onClose: function (value) {
+                if (value) {
+                    $.post("../../ashx/admin/StudentManager.ashx", { "operate": "resetPwd", "sid": stuId }, function (data) {
+                        if (data == "ok") {
+                            $.omMessageTip.show({ content: '重置成功！', timeout: 1000, type: 'success' });
+                        } else {
+                            $.omMessageTip.show({ content: '重置失败！', timeout: 1000, type: 'error' });
+                        }
+                    });
+                }
+            }
+        });
+    });
 
     //删除用户信息
     $(".deleteOne").click(function () {
@@ -185,9 +205,10 @@ $(function () {
 
 
 function setInfo(stuId, operate) {
-    $.get("../../ashx/admin/STudentManager.ashx", { "operate": "getAInfo", "studentId": stuId }, function (data) {
+    $.get("../../ashx/admin/StudentManager.ashx", { "operate": "getAInfo", "studentId": stuId }, function (data) {
         //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
+        console.log(data);
         SNo.val(info.SNo);
         SName.val(info.SName);
         SSex.val(info.SSex);
@@ -208,84 +229,100 @@ function setInfo(stuId, operate) {
             MajorId.change(function () { loadClass(SClass, MajorId.val()); });
             loadClass(SClass, MajorId.val()); //加载班级下拉列表
             SClass.val(info.ClassInfo.CId);
-        }
-        //验证
-        //var oldInfo = getInfo();
-        $("#addNew").attr("tabindex", 0);
-        $("#addNew").focus();
-        SNo.blur(function () {
-            var newNo = SNo.val();
-            if (info.SNo != newNo) {
-                checkTNo();
-            }
-        });
-        SPhone.blur(function () {
-            var newPhone = SPhone.val();
-            if (info.SPhone != newPhone) {
-                checkPhone();
-            }
-        });
-        SEmail.blur(function () {
-            var newEmail = SEmail.val();
-            if (info.SEmail != newEmail) {
-                checkEmail();
-            }
-        });
-        SQQ.blur(function () {
-            var newQQ = SQQ.val();
-            if (info.SQQ != newQQ) {
-                checkQQ();
-            }
+            //验证
+            //var oldInfo = getInfo();
+            $("#addNew").attr("tabindex", 0);
+            $("#addNew").focus();
+            SNo.blur(function () {
+                var newNo = SNo.val();
+                if (info.SNo != newNo) {
+                    checkTNo();
+                }
+            });
+            SPhone.blur(function () {
+                var newPhone = SPhone.val();
+                if (info.SPhone != newPhone) {
+                    checkPhone();
+                }
+            });
+            SEmail.blur(function () {
+                var newEmail = SEmail.val();
+                if (info.SEmail != newEmail) {
+                    checkEmail();
+                }
+            });
+            SQQ.blur(function () {
+                var newQQ = SQQ.val();
+                if (info.SQQ != newQQ) {
+                    checkQQ();
+                }
 
-        });
-        SYear.blur(function () {
-            var newYear = SYear.val();
-            if (info.SYear != newYear) {
-                checkYear();
-            }
-        })
+            });
+            SYear.blur(function () {
+                var newYear = SYear.val();
+                if (info.SYear != newYear) {
+                    checkYear();
+                }
+            })
+        }
+
     });
 }
 
-function addNewCount() {//添加新用户
-    var result = $.post("../../ashx/admin/STudentManager.ashx",
-            { "operate": "addNew", "sNo": SNo.val(), "sName": SName.val(), "sPhone": SPhone.val(),
-                "sSex": SSex.val(), "sEmail": SEmail.val(), "sQQ": SQQ.val(),"sClass": SClass.val(),"sYear": SYear.val(),
-                "did": DepartmentId.val(), "mid": MajorId.val()
-            },
-             function (data) {
-                 if (data == "ok") {
-                     return true;
-                 } else {
-                     return false;
-                 }
-             });
+//添加新用户
+function addNewCount() {
+    var result = false;
+    $.ajax({ data: "post",
+        url: "../../ashx/admin/STudentManager.ashx",
+        data: "operate=addNew&sNo=" + SNo.val() + "&sName=" + SName.val() + "&sPhone=" + SPhone.val() +
+                "&sSex=" + SSex.val() + "&sEmail=" + SEmail.val() + "&sQQ=" + SQQ.val() + "&cid=" + SClass.val() +
+                "&sYear=" + SYear.val() + "&did=" + DepartmentId.val() + "&mid=" + MajorId.val(),
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                result = true;
+            } else {
+                result = false;
+            }
+        }
+    });
     return result;
 }
-function deleteCount(sid) {//删除用户
-    var result = $.post("../../ashx/admin/STudentManager.ashx", { "operate": "del", "sid": sid }, function (data) {
-        if (data == "ok") {
-            return true;
-        } else {
-            return false;
+
+//删除用户
+function deleteCount(sid) {
+    var result = false;
+    $.ajax({ data: "post",
+        url: "../../ashx/admin/STudentManager.ashx",
+        data: "operate=del&sid=" + sid,
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                result = true;
+            } else {
+                result = false;
+            }
         }
     });
     return result;
 }
 function modifyCount(sid) {//修改用户
-    var ope = $.post("../../ashx/admin/STudentManager.ashx", { "operate": "modify", "sid": sid, "sNo": SNo.val(), "sName": SName.val(), "sPhone": SPhone.val(),
-        "sSex": SSex.val(), "sEmail": SEmail.val(), "sQQ": SQQ.val(), "sClass": SClass.val(), "sYear": SYear.val(),
-        "did": DepartmentId.val(), "mid": MajorId.val()
-    },
-                    function (data) {
-                        if (data == "ok") {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    });
-
-    return ope;
+    var result = false;
+    $.ajax({ data: "get",
+        url: "../../ashx/admin/StudentManager.ashx",
+        data: "operate=modify&sid=" + sid + "&sNo=" + SNo.val() + "&sName=" + SName.val() + "&sPhone=" + SPhone.val() +
+                "&sSex=" + SSex.val() + "&sEmail=" + SEmail.val() + "&sQQ=" + SQQ.val() + "&cid=" + SClass.val() + "&sYear=" + SYear.val() +
+                "&did=" + DepartmentId.val() + "&mid=" + MajorId.val(),
+        async: false,
+        success: function (data) {
+            if (data == "ok") {
+                result = true;
+            } else {
+                result = false;
+            }
+        }
+    });
+    return result;
 }
 
 //验证学号是否存在
@@ -359,7 +396,7 @@ function checkTNo() {
 
 //清空
 function clear() {
-    $("#addNew input").val("");
-    $("#addNew textarea").val("");
-    $("#addNew select").val("");
+    $("#StuAddNew input").val("");
+    $("#StuAddNew textarea").val("");
+    $("#StuAddNew select").val("");
 }

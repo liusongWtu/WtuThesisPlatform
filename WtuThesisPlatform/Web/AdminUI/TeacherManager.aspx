@@ -83,7 +83,7 @@
                                     查看详情</a>
                             </td>
                             <td>
-                                <a href="#">重置</a>
+                                <a href="#" class="resetPwd">重置</a>
                             </td>
                             <td>
                                 <a href="#" class="modifyInfo">修改</a>
