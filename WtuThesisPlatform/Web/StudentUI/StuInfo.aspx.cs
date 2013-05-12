@@ -12,21 +12,21 @@ namespace Web.StudentUI
 {
     public partial class StuInfo : System.Web.UI.Page
     {
-        private Student currStudent = null;
+        protected Student currStudent = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             currStudent = Session["currUser"] as Student;
             if (currStudent != null)
             {
-                sName.Value = currStudent.SName;
-                sNo.Value = currStudent.SNo;
-                sYear.Value = currStudent.SYear;
-                sPhone.Value = currStudent.SPhone;
-                sEmail.Value = currStudent.SEmail;
-                sQQ.Value = currStudent.SQQ;
-                sSex.Value = currStudent.SSex;
-
+                //sName.Value = currStudent.SName;
+                //sNo.Value = currStudent.SNo;
+                //sYear.Value = currStudent.SYear;
+                //sPhone.Value = currStudent.SPhone;
+                //sEmail.Value = currStudent.SEmail;
+                //sQQ.Value = currStudent.SQQ;
+                //sSex.Value = currStudent.SSex;
+               
                 LoadSelect(currStudent);
             }
         }

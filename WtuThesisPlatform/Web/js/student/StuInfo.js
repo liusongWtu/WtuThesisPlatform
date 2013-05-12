@@ -19,11 +19,9 @@ $(function () {
     sEmail = $(".sEmail");
     sQQ = $(".sQQ");
     oldInfo = getInfo(); //刚进入的时候获取各项值
-    //console.log(oldInfo);
     $("#mInfo").click(function () {
-        //console.log(flag);
         if (!flag) {
-            $(".person-info input:not('#ContentPlaceHolderBody_sName,#ContentPlaceHolderBody_sSex,#ContentPlaceHolderBody_sNo,#ContentPlaceHolderBody_sYear')").removeAttr("readonly")
+            $(".person-info input:not('.sName,.sSex,.sNo,.sYear')").removeAttr("readonly")
 .addClass("active")
 .click(function () {
     $(this).focus();
@@ -32,58 +30,64 @@ $(function () {
             var addDiv = $("<div id='button'><button id='modify-ok' class='modify-ok button dis-inline-block'></button><button id='modify-no' class='modify-no button dis-inline-block'></button></div>");
 
             //绑定院系选择变化事件
-            $("#ContentPlaceHolderBody_sFaculty").change(function () { loadMajor(); });
+            sFaculty.change(function () { loadMajor(); });
             //绑定专业选择变化事件
-            $("#ContentPlaceHolderBody_sProfession").change(function () { loadClass(); });
+            sProfession.change(function () { loadClass(); });
             //绑定邮箱验证事件
-            sEmail.blur(function () {
-                emailValidate = validateEmail(sEmail.get(0), $("#emailError").get(0));
+            /*sEmail.blur(function () {
+            emailValidate = validateEmail(sEmail, $("#emailError"));
             });
             //绑定电话验证事件
             sPhone.blur(function () {
-                phoneValidate = validatePhone(sPhone.get(0), $("#phoneError").get(0));
+            phoneValidate = validatePhone(sPhone, $("#phoneError"));
             });
 
             //绑定QQ验证事件
             sQQ.blur(function () {
-                qqValidate = validateQQ(sQQ[0], $("#qqError")[0]);
-            });
-
+            qqValidate = validateQQ(sQQ, $("#qqError"));
+            });*/
+            var test = Validata();
+            //console.log(test);
             flag = true;
             $(".person-info").append(addDiv);
             $("#modify-ok").click(function () {
                 //检查页面验证是否通过
-                if (phoneValidate == false || emailValidate == false || qqValidate == false) {
+                //console.log(sPhone.val());
+                //if (phoneValidate == false || emailValidate == false || qqValidate == false) {
+                //return;
+                //}
+                //console.log(test);
+                if (test != 0) {
                     return;
                 }
-                //取得各项值
-                var newInfo = getInfo(); //点击更新的时候获取新的各项值
-                console.log(newInfo);
 
-                $.post("../../ashx/student/ModifyInfo.ashx",
-                    { "did": sFaculty.val(), "mid": sProfession.val(), "cid": sClass.val(), "phone": sPhone.val(), "email": sEmail.val(), "qq": sQQ.val() },
-                    function (data) {
-                        if (data == "ok") {
-                            setInfo(newInfo); //将各项值更新
-                            sFaculty.find("option[value=" + newInfo.sFaculty + "]").attr("selected", "selected");
-                            $(".button").remove();
-                            $(".person-info input").removeClass("active").attr("readonly", "readonly");
-                            $(".person-info select").removeClass("active").attr("disabled", "disabled");
-                            oldInfo = getInfo(); //更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
-                            //console.log(oldInfo);
-                            flag = false;
-                            $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
-                        } else {
-                            $.omMessageTip.show({ content: '更新失败！', timeout: 1000, type: 'error' });
-                        }
-                    });
+                //取得各项值
+                else {
+                    var newInfo = getInfo(); //点击更新的时候获取新的各项值
+                    $.post("../../ashx/student/ModifyInfo.ashx",
+                        { "did": sFaculty.val(), "mid": sProfession.val(), "cid": sClass.val(), "phone": sPhone.val(), "email": sEmail.val(), "qq": sQQ.val() },
+                        function (data) {
+                            if (data == "ok") {
+                                setInfo(newInfo); //将各项值更新
+                                sFaculty.find("option[value=" + newInfo.sFaculty + "]").attr("selected", "selected");
+                                $(".button").remove();
+                                $(".person-info input").removeClass("active").attr("readonly", "readonly");
+                                $(".person-info select").removeClass("active").attr("disabled", "disabled");
+                                oldInfo = getInfo(); //更新成功之后表示数据已经进入数据库，此时要再次获得各项信息
+                                //console.log(oldInfo);
+                                flag = false;
+                                $.omMessageTip.show({ content: '更新成功！', timeout: 1000, type: 'success' });
+                            } else {
+                                $.omMessageTip.show({ content: '更新失败！', timeout: 1000, type: 'error' });
+                            }
+                        });
+                }
+
                 return false;
             })
             $("#modify-no").click(function () {
                 setInfo(oldInfo); //将各项值设置为原来的
-                //console.log(oldInfo);
-                $("#emailError").hide();
-                $("#phoneError").hide();
+                $(".error:not(input)").hide();
                 sFaculty.find("option[value=" + oldInfo.sFaculty + "]").attr("selected", "selected");
                 loadMajor();
                 $(".button").remove();

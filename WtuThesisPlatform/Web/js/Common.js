@@ -198,40 +198,72 @@ function getViewportWidth() {
 
 //验证邮箱,txtEmail：邮箱标签；errorInfo：显示错误信息标签
 function validateEmail(txtEmail, errorInfo) {
+    var email = txtEmail.val().trim();
+    console.log(email);
     var emailPatrn = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (emailPatrn.test(txtEmail.value)) {
-        errorInfo.style.display = "none";
-        return true;
-    } else {
-        errorInfo.style.display = "";
-        return false;
+    if (email == "") {
+        errorInfo.text("*邮箱不能为空！").show();
+        txtEmail.focus();
+        //return false;
+    }
+    else {
+        if (emailPatrn.test(email)) {
+            errorInfo.hide();
+            //return true;
+        } else {
+            errorInfo.text("*邮箱格式不对！").show();
+            txtEmail.focus();
+            txtEmail.select();
+            
+           // return false;
+        }
     }
 }
 
 //验证电话,各参数类似验证邮箱
 function validatePhone(txtPhone, errorInfo) {
+    var phone = txtPhone.val().trim();
     var phonePatrn = /^(?:13\d|15[89])-?\d{5}(\d{3}|\*{3})$/; //手机
     var telPatrn = /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/; //电话
-    if (phonePatrn.test(txtPhone.value) || telPatrn.test(txtPhone.value)) {
-        errorInfo.style.display = "none";
-        return true;
-    } else {
-        errorInfo.style.display = "";
+    if (phone == "") {
+        errorInfo.text("*电话号码不能为空！").show();
+        txtPhone.focus();
         return false;
     }
+    else { 
+        if (phonePatrn.test(phone) || telPatrn.test(phone)) {
+            errorInfo.hide();
+            return true;
+        } else {
+            errorInfo.text("电话号码格式不对！").show();
+            txtPhone.focus();
+            return false;
+        }
+        }
+    
 }
 
 //验证QQ
 function validateQQ(txtQQ, errorInfo) {
+    var QQ = txtQQ.val().trim();
     var qqPatrn = /^[0-9][0-9]{4,}$/;
-    if (qqPatrn.test(txtQQ.value)) {
-        errorInfo.style.display = "none";
-        return true;
-    } else {
-        errorInfo.style.display = "";
-        return false;
+    if (QQ == "") {
+        errorInfo.text("*QQ不能为空").show();
+        txtQQ.focus();
     }
+    else { 
+        if (qqPatrn.test(QQ)) {
+            errorInfo.hide();
+            return true;
+        } else {
+            errorInfo.text("*QQ号码格式不对！").show();
+            txtQQ.focus();
+            return false;
+        }
+    }
+
 }
+
 
 //验证数值范围0~20
 function validateNum(txtNum, errorInfo) {

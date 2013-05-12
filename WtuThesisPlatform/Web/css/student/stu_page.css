@@ -178,21 +178,7 @@
 }
 
 
-/*密码修改的样式*/
 
-.stu-modify_password dt h1{
-	font-weight: bold;
-	display: inline-block;
-	width: 100%;
-	height: 42px;
-	padding-left: 40px;
-	background: url(../../images/student/modify_password_icon.gif) 0 0 no-repeat;
-}
-.stu-modify_password input{
-	width: 200px;
-	height: 25px;
-	margin: 10px;
-}
 
 /*选题详细信息*/
 .topic-single{

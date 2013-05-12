@@ -111,6 +111,7 @@
     <Content Include="js\admin\TeacherManager.js" />
     <Content Include="js\DataHelper.js" />
     <Content Include="js\MD5.js" />
+    <Content Include="js\om\ui\rules.js" />
     <Content Include="js\student\StuInfo.js" />
     <Content Include="css\common_index.css" />
     <Content Include="css\student\stu_page.css" />
@@ -864,6 +865,7 @@
     <Content Include="js\student\StuSelect.js" />
     <Content Include="js\student\stu_pages.js" />
     <Content Include="js\teacher\AllTopic.js" />
+    <Content Include="js\teacher\Teacherinfo.js" />
     <Content Include="js\teacher\TeacherSelect.js" />
     <Content Include="js\template.js" />
     <Content Include="Login.aspx" />

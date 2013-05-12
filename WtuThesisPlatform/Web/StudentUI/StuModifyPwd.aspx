@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
-        <div class="stu-modify_password">
+        <div class="modify_password">
             <dl>
                 <dt>
                     <h1>

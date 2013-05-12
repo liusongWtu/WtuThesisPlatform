@@ -49,24 +49,6 @@ namespace Web.TeacherUI {
         protected global::System.Web.UI.HtmlControls.HtmlInputText tZhiCheng;
         
         /// <summary>
-        /// tFaculty 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect tFaculty;
-        
-        /// <summary>
-        /// tProfession 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect tProfession;
-        
-        /// <summary>
         /// tPhone 控件。
         /// </summary>
         /// <remarks>
@@ -94,12 +76,21 @@ namespace Web.TeacherUI {
         protected global::System.Web.UI.HtmlControls.HtmlInputText tQQ;
         
         /// <summary>
-        /// tTeachCourse 控件。
+        /// tFaculty 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tTeachCourse;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect tFaculty;
+        
+        /// <summary>
+        /// tProfession 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect tProfession;
     }
 }
