@@ -57,7 +57,8 @@ $(function () {
                 //return;
                 //}
                 //console.log(test);
-                if (test != 0) {
+                var errorNum = $("label.error").length;
+                if (errorNum != 0) {
                     return;
                 }
 

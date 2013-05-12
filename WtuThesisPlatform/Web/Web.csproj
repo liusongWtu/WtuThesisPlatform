@@ -88,7 +88,6 @@
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
-    <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="bll\NPOI.DDF.dll" />
     <Content Include="bll\NPOI.dll" />
     <Content Include="bll\NPOI.HPSF.dll" />
@@ -103,6 +102,10 @@
     <Content Include="images\admin\add.png" />
     <Content Include="images\admin\blue-document-export.png" />
     <Content Include="images\admin\blue-document-import.png" />
+    <Content Include="images\notice_bg.gif" />
+    <Content Include="images\notice_bot.gif" />
+    <Content Include="images\notice_leftborder.gif" />
+    <Content Include="images\notice_title.gif" />
     <Content Include="images\student\buttons.gif" />
     <Content Include="images\teacher\save.gif" />
     <Content Include="images\teacher\tea_select.png" />
@@ -869,6 +872,7 @@
     <Content Include="js\teacher\Teacherinfo.js" />
     <Content Include="js\teacher\TeacherSelect.js" />
     <Content Include="js\template.js" />
+    <Content Include="js\Validata.js" />
     <Content Include="Login.aspx" />
     <Content Include="StudentUI\forgetPsd.html" />
     <Content Include="StudentUI\index.html" />
@@ -889,9 +893,12 @@
     <Content Include="StudentUI\stu_topic_detail.html" />
     <Content Include="StudentUI\stu_topic_info.html" />
     <Content Include="StudentUI\StuTopicInfo.aspx" />
+    <Content Include="TeacherUI\AllNotice.aspx" />
     <Content Include="TeacherUI\AllTopic.aspx" />
     <Content Include="TeacherUI\allTopic.html" />
     <Content Include="TeacherUI\applyExcel.htm" />
+    <Content Include="TeacherUI\Notice.aspx" />
+    <Content Include="TeacherUI\PublishNotice.aspx" />
     <Content Include="TeacherUI\TeacherApply.aspx" />
     <Content Include="TeacherUI\TeacherInfo.aspx" />
     <Content Include="TeacherUI\TeacherModifyPwd.aspx" />
@@ -1009,15 +1016,8 @@
     <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
       <DependentUpon>ZhiChengManager.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ashx\admin\AdminManager.ashx.cs">
-      <DependentUpon>AdminManager.ashx</DependentUpon>
-    </Compile>
     <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="ashx\admin\StudentManager.ashx.cs">
-      <DependentUpon>StudentManager.ashx</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ashx\admin\TeacherManager.ashx.cs">
       <DependentUpon>TeacherManager.ashx</DependentUpon>
@@ -1131,12 +1131,33 @@
     <Compile Include="StudentUI\StuTopicInfo.aspx.designer.cs">
       <DependentUpon>StuTopicInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeacherUI\AllNotice.aspx.cs">
+      <DependentUpon>AllNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\AllNotice.aspx.designer.cs">
+      <DependentUpon>AllNotice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TeacherUI\AllTopic.aspx.cs">
       <DependentUpon>AllTopic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
       <DependentUpon>AllTopic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\PublishNotice.aspx.cs">
+      <DependentUpon>PublishNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\PublishNotice.aspx.designer.cs">
+      <DependentUpon>PublishNotice.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherUI\TeacherInfo.aspx.cs">
       <DependentUpon>TeacherInfo.aspx</DependentUpon>
@@ -1223,7 +1244,6 @@
     <Content Include="AdminUI\AdminMasterPage.Master" />
     <Content Include="ashx\admin\ModifyInfo.ashx" />
     <Content Include="ashx\admin\TeacherManager.ashx" />
-    <Content Include="ashx\admin\AdminManager.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

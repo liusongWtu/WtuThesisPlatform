@@ -1,5 +1,4 @@
 ﻿function Validata() {
-    var errorNum = 0;
     var test = $("#form1").validate({
         rules: {
             isMobilePhone: {
@@ -29,13 +28,7 @@
                 isQQ: "您输入的QQ号码格式不对"
             }
         },
-        //submitHandler: function () {
-        //alert('提交成功！');
-        //$(this)[0].currentForm.reset()
-        //return false;
-        //},
         showErrors: function (errorMap, errorList) {
-            errorNum = errorList.length;
             if (errorList && errorList.length > 0) {
                 $.each(errorList, function (index, obj) {
                     $(obj.element).next().show();
@@ -53,7 +46,5 @@
             });
         }
     });
-    console.log(errorNum);
-    return errorNum;
 }; 
     
