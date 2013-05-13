@@ -9,13 +9,12 @@
         <div class="topic">
             <dl>
                 <dt>
-                    <h1>
-                        学生选题情况</h1>
+                        学生选题情况
                 </dt>
             </dl>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
                 <tr class="list-header">
-                    <td style="width: 40%">
+                    <td style="width: 40%" class="left">
                         选题名称
                     </td>
                     <td style="width: 20%">
@@ -31,7 +30,7 @@
                 <asp:Repeater ID="rptThesis" runat="server">
                     <ItemTemplate>
                         <tr class="list-content">
-                            <td class="topicName">
+                            <td class="topicName bold left">
                                 <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("TId") %>">
                                     <%#Eval("TName")%>
                                 </a>

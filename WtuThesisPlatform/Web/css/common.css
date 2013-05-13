@@ -250,7 +250,7 @@ body{
 /*表格表头样式*/
 .topic-list{
 	width:95%;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 .topic-list td{
 	white-space: nowrap;

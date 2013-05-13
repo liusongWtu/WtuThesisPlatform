@@ -93,14 +93,13 @@
 	text-align: center;
 }
 .apply-table{
-    width: 800px;
-	border-bottom: 1px solid #E9EDF1;
-	border-left: 1px solid #E9EDF1;
-	border-top: 1px solid #E9EDF1;
+	border-bottom: 1px solid rgb(198,198,198);
+	border-left: 1px solid rgb(198,198,198);
+	border-top: 1px solid rgb(198,198,198);
 }
 .apply-table td{
-	border-right : 1px solid #E9EDF1;
-	border-bottom: 1px solid #E9EDF1;
+	border-right : 1px solid rgb(198,198,198);
+	border-bottom: 1px solid rgb(198,198,198);
 	padding: 8px;
 	text-align: left;
 }
@@ -110,7 +109,7 @@
 	margin: 20px 0;
 }
 .col-name{
-	width: 100px;
+	width: 150px;
 	background: #F3F6F9;
 }
 .input-style{
@@ -119,7 +118,7 @@
 	border: none;
 }
 .td-height{
-	height: 200px;
+	height: 150px;
 }
 .apply{
 	border: none;
