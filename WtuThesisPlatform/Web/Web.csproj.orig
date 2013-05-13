@@ -88,22 +88,14 @@
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
-<<<<<<< HEAD
     <Content Include="ashx\admin\StudentManager.ashx" />
+    <Content Include="css\common_goodwork.css" />
     <Content Include="lib\NPOI.DDF.dll" />
     <Content Include="lib\NPOI.dll" />
     <Content Include="lib\NPOI.HPSF.dll" />
     <Content Include="lib\NPOI.HSSF.dll" />
     <Content Include="lib\NPOI.POIFS.dll" />
     <Content Include="lib\NPOI.Util.dll" />
-=======
-    <Content Include="bll\NPOI.DDF.dll" />
-    <Content Include="bll\NPOI.dll" />
-    <Content Include="bll\NPOI.HPSF.dll" />
-    <Content Include="bll\NPOI.HSSF.dll" />
-    <Content Include="bll\NPOI.POIFS.dll" />
-    <Content Include="bll\NPOI.Util.dll" />
->>>>>>> 933d10c54a99d43f1af61a943cd6763a5b3dbae2
     <Content Include="css\admin\adm_page.css" />
     <Content Include="css\base.css" />
     <Content Include="css\common.css" />
@@ -906,9 +898,12 @@
     <Content Include="TeacherUI\AllNotice.aspx" />
     <Content Include="TeacherUI\AllTopic.aspx" />
     <Content Include="TeacherUI\allTopic.html" />
+    <Content Include="TeacherUI\ApplyExcel.aspx" />
     <Content Include="TeacherUI\applyExcel.htm" />
+    <Content Include="TeacherUI\GoodWork.aspx" />
     <Content Include="TeacherUI\Notice.aspx" />
     <Content Include="TeacherUI\PublishNotice.aspx" />
+    <Content Include="TeacherUI\SingleWork.aspx" />
     <Content Include="TeacherUI\TeacherApply.aspx" />
     <Content Include="TeacherUI\TeacherInfo.aspx" />
     <Content Include="TeacherUI\TeacherModifyPwd.aspx" />
@@ -917,6 +912,7 @@
     <Content Include="TeacherUI\teacher_index .html" />
     <Content Include="TeacherUI\teacher_select.html" />
     <Content Include="TeacherUI\TeacherIndex.aspx" />
+    <Content Include="TeacherUI\TopicDetail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1026,8 +1022,15 @@
     <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
       <DependentUpon>ZhiChengManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\admin\AdminManager.ashx.cs">
+      <DependentUpon>AdminManager.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\StudentManager.ashx.cs">
+      <DependentUpon>StudentManager.ashx</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ashx\admin\TeacherManager.ashx.cs">
       <DependentUpon>TeacherManager.ashx</DependentUpon>
@@ -1064,6 +1067,9 @@
     </Compile>
     <Compile Include="ashx\student\StoreManager.ashx.cs">
       <DependentUpon>StoreManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\teacher\ModifyInfo.ashx.cs">
+      <DependentUpon>ModifyInfo.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Common\ConfigurationOperator.cs" />
@@ -1156,6 +1162,23 @@
     <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
       <DependentUpon>AllTopic.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="TeacherUI\ApplyExcel.aspx.cs">
+      <DependentUpon>ApplyExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\ApplyExcel.aspx.designer.cs">
+      <DependentUpon>ApplyExcel.aspx</DependentUpon>
+    </Compile>
+=======
+>>>>>>> e13e0231e9a316445bda22d982bb8cfc767f1240
+    <Compile Include="TeacherUI\GoodWork.aspx.cs">
+      <DependentUpon>GoodWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\GoodWork.aspx.designer.cs">
+      <DependentUpon>GoodWork.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TeacherUI\Notice.aspx.cs">
       <DependentUpon>Notice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1169,6 +1192,13 @@
     </Compile>
     <Compile Include="TeacherUI\PublishNotice.aspx.designer.cs">
       <DependentUpon>PublishNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\SingleWork.aspx.cs">
+      <DependentUpon>SingleWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\SingleWork.aspx.designer.cs">
+      <DependentUpon>SingleWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherUI\TeacherInfo.aspx.cs">
       <DependentUpon>TeacherInfo.aspx</DependentUpon>
@@ -1219,9 +1249,16 @@
     <Compile Include="TeacherUI\TeacherStuInfo.aspx.designer.cs">
       <DependentUpon>TeacherStuInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeacherUI\TopicDetail.aspx.cs">
+      <DependentUpon>TopicDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TopicDetail.aspx.designer.cs">
+      <DependentUpon>TopicDetail.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ashx\teacher\" />
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -1254,6 +1291,8 @@
     <Content Include="AdminUI\AdminMasterPage.Master" />
     <Content Include="ashx\admin\ModifyInfo.ashx" />
     <Content Include="ashx\admin\TeacherManager.ashx" />
+    <Content Include="ashx\admin\AdminManager.ashx" />
+    <Content Include="ashx\teacher\ModifyInfo.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

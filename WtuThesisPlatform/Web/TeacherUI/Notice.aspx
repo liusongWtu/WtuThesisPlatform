@@ -3,10 +3,9 @@
     <link rel="stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <div class="wrapNotice">
-        
-        <div class="singleNoticeBg">
-            <div class="singleNotice">
+    <div class="wrap-teavher">      
+        <div class="singleBg">
+            <div class="single">
                   <dl>
                     <dt class="top">
                         <h1 class="noticeTitle">关于毕业答辩的具体时间</h1>

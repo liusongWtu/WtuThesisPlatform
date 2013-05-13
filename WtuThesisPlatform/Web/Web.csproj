@@ -89,6 +89,7 @@
     <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
     <Content Include="ashx\admin\StudentManager.ashx" />
+    <Content Include="css\common_goodwork.css" />
     <Content Include="lib\NPOI.DDF.dll" />
     <Content Include="lib\NPOI.dll" />
     <Content Include="lib\NPOI.HPSF.dll" />
@@ -902,6 +903,7 @@
     <Content Include="TeacherUI\GoodWork.aspx" />
     <Content Include="TeacherUI\Notice.aspx" />
     <Content Include="TeacherUI\PublishNotice.aspx" />
+    <Content Include="TeacherUI\SingleWork.aspx" />
     <Content Include="TeacherUI\TeacherApply.aspx" />
     <Content Include="TeacherUI\TeacherInfo.aspx" />
     <Content Include="TeacherUI\TeacherModifyPwd.aspx" />
@@ -1160,8 +1162,8 @@
     <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
       <DependentUpon>AllTopic.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TeacherUI\ApplyExcel.aspx.cs">
-      <DependentUpon>ApplyExcel.aspx</DependentUpon>
+    <Compile Include="TeacherUI\GoodWork.aspx.cs">
+      <DependentUpon>GoodWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TeacherUI\ApplyExcel.aspx.designer.cs">
@@ -1187,6 +1189,13 @@
     </Compile>
     <Compile Include="TeacherUI\PublishNotice.aspx.designer.cs">
       <DependentUpon>PublishNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\SingleWork.aspx.cs">
+      <DependentUpon>SingleWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\SingleWork.aspx.designer.cs">
+      <DependentUpon>SingleWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherUI\TeacherInfo.aspx.cs">
       <DependentUpon>TeacherInfo.aspx</DependentUpon>
