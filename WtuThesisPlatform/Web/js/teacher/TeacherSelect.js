@@ -57,28 +57,31 @@ $(function () {
         var tid = $(".sTittle").attr("id");
         var sid = $(".sStuName").atte("id");
         if (!$(this).hasClass("selected")) {//如果还没有选择
-            $.ajax({ type: "post", url: "", data: "operate=select&tid=" + tid + "&sid" + sid ,success: function(data){
-                    if(data == "ok"){
-                        $(this).text("取消").addClass("selected");
-                        $.omMessageTip.show({ content: '选择成功！', timeout: 1000, type: 'success' });
-                    }
-                    else{
-                        $.omMessageTip.show({ content: '选择失败！', timeout: 1000, type: 'error' });
-                    }
-            
+            $.ajax({ type: "post", url: "", data: "operate=select&tid=" + tid + "&sid" + sid, success: function (data) {
+                if (data == "ok") {
+                    $(this).text("取消").addClass("selected");
+                    $.omMessageTip.show({ content: '选择成功！', timeout: 1000, type: 'success' });
                 }
+                if (data == "ThesisFull") {
+                    $.omMessageTip.show({ content: '该选题学生已满！', timeout: 1000, type: 'alert' });
+                }
+                else {
+                    $.omMessageTip.show({ content: '选择失败！', timeout: 1000, type: 'error' });
+                }
+
+            }
             })
         }
         else {//取消选择
             $.ajax({ type: "post", url: "", data: "operate=consoleSel&tid=" + tid + "&sid" + sid, success: function (data) {
-                    if (data == "ok") {
-                        $(this).text("选择").removeClass("selected");
-                        $.omMessageTip.show({ content: '退选成功！', timeout: 1000, type: 'success' });
-                    }
-                    else {
-                        $.omMessageTip.show({ content: '退选失败！', timeout: 1000, type: 'error' });
-                    }
+                if (data == "ok") {
+                    $(this).text("选择").removeClass("selected");
+                    $.omMessageTip.show({ content: '退选成功！', timeout: 1000, type: 'success' });
                 }
+                else {
+                    $.omMessageTip.show({ content: '退选失败！', timeout: 1000, type: 'error' });
+                }
+            }
             })
         }
     });
