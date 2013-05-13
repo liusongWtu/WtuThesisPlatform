@@ -181,7 +181,7 @@
     margin-top: 40px;   
 }
 
-.singleNoticeBg
+.singleBg
 {
     
     width: 800px;
@@ -189,7 +189,7 @@
     background: url(../../images/notice_bg.gif) right top repeat-y;
 }
 
-.singleNotice
+.single
 {
     padding-left: 1px;
     background: url(../../images/notice_leftborder.gif) repeat-y left top;
@@ -202,7 +202,7 @@
     padding: 0;
     border: 0;
 }
-.singleNotice dd
+.single dd
 {
     padding: 0;
 }
@@ -320,3 +320,14 @@
     height: 200px;
 }
 /*优秀毕业设计作品*/
+.workContent
+{
+    min-height: 700px;
+    width: 90%;
+    text-indent: 2em;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 14px;
+    color: #555555;
+    line-height: 22px;
+}

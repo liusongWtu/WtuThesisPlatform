@@ -242,6 +242,7 @@ body{
 }
 .wrap dd{
 	padding-left: 40px;
+	padding-top: 20px;
 }
 .wrap a:hover{
 	text-decoration: underline;

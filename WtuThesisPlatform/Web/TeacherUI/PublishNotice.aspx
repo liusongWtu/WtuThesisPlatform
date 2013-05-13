@@ -9,9 +9,9 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <div class="wrapNotice">
-        <div class="singleNoticeBg">
-            <div class="singleNotice">
+    <div class="wrap-teacher">
+        <div class="singleBg">
+            <div class="single">
                  <div class="top"><h1>公告发布表</h1></div>
                  <div class="line"></div>
                  <div class="noticeContent center">

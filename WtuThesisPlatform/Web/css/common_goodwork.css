@@ -1,0 +1,31 @@
+﻿.image
+{
+    width: 130px;
+    height: 130px;
+    text-align: left;
+    vertical-align: top;
+}
+.work-data
+{
+    width: 70px;
+    height: 25px;
+    font-size: 12px;
+    color: #1D9AE3;
+}
+.title
+{
+    width: 500px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 15px;
+    text-align: left;
+}
+.work-summary
+{
+    height: 70px;
+    font-size: 12px;
+    line-height: 20px;
+    vertical-align: top;
+    color: #010101;
+}
