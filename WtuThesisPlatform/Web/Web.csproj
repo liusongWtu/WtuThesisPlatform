@@ -88,12 +88,13 @@
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
-    <Content Include="bll\NPOI.DDF.dll" />
-    <Content Include="bll\NPOI.dll" />
-    <Content Include="bll\NPOI.HPSF.dll" />
-    <Content Include="bll\NPOI.HSSF.dll" />
-    <Content Include="bll\NPOI.POIFS.dll" />
-    <Content Include="bll\NPOI.Util.dll" />
+    <Content Include="ashx\admin\StudentManager.ashx" />
+    <Content Include="lib\NPOI.DDF.dll" />
+    <Content Include="lib\NPOI.dll" />
+    <Content Include="lib\NPOI.HPSF.dll" />
+    <Content Include="lib\NPOI.HSSF.dll" />
+    <Content Include="lib\NPOI.POIFS.dll" />
+    <Content Include="lib\NPOI.Util.dll" />
     <Content Include="css\admin\adm_page.css" />
     <Content Include="css\base.css" />
     <Content Include="css\common.css" />
@@ -1017,8 +1018,15 @@
     <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
       <DependentUpon>ZhiChengManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\admin\AdminManager.ashx.cs">
+      <DependentUpon>AdminManager.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\StudentManager.ashx.cs">
+      <DependentUpon>StudentManager.ashx</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="ashx\admin\TeacherManager.ashx.cs">
       <DependentUpon>TeacherManager.ashx</DependentUpon>
@@ -1057,6 +1065,7 @@
       <DependentUpon>StoreManager.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\CommonCode.cs" />
+    <Compile Include="Common\ConfigurationOperator.cs" />
     <Compile Include="Common\NPOIHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1252,6 +1261,7 @@
     <Content Include="AdminUI\AdminMasterPage.Master" />
     <Content Include="ashx\admin\ModifyInfo.ashx" />
     <Content Include="ashx\admin\TeacherManager.ashx" />
+    <Content Include="ashx\admin\AdminManager.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

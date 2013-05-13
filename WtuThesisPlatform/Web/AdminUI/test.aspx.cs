@@ -10,6 +10,7 @@ using Web.Common;
 using System.Collections;
 using System.Data;
 using System.Text;
+using System.Configuration;
 
 
 namespace Web.AdminUI
@@ -18,9 +19,11 @@ namespace Web.AdminUI
     {
         Admin currAdmin = null;
         protected string pageBar = string.Empty;
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label1.Text = ConfigurationManager.AppSettings["open"];
             currAdmin = Session["currUser"] as Admin;
             if (currAdmin == null)
                 return;
@@ -49,6 +52,7 @@ namespace Web.AdminUI
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Label1.Text = ConfigurationManager.AppSettings["open"];
             DataTable dtSource = new TeacherBLL().GetAll();
             StarTech.NPOI.NPOIHelper.ListColumnsName = new SortedList(new StarTech.NPOI.NoSort());
             StarTech.NPOI.NPOIHelper.ListColumnsName.Add("TNo", "工号");
@@ -74,6 +78,12 @@ namespace Web.AdminUI
             Response.AddHeader("Content-Disposition", "attachment;filename=" + HttpUtility.UrlEncode("11.xls", Encoding.UTF8));
             string filename = Server.MapPath("/download/11.xls");
             Response.TransmitFile(filename);
+        }
+
+        protected void changeConfig_Click(object sender, EventArgs e)
+        {
+            ConfigurationManager.AppSettings["open"] = "false";
+            Label1.Text = ConfigurationManager.AppSettings["open"];
         }
     }
 }

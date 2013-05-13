@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="test.aspx.cs" Inherits="Web.AdminUI.test" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
- <link rel="stylesheet" type="text/css" href="../css/admin/adm_page.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin/adm_page.css" />
     <script type="text/javascript" src="../js/admin/TeacherManager.js"></script>
     <script src="../js/DataHelper.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-<div class="select-list">
+    <div class="select-list">
         <div class="content-top">
             <div class="search fl fillet">
                 <label class="ablt">
@@ -18,6 +18,8 @@
         <div class="content-center">
             <!-- <table id="grid"></table>-->
             <ul class="toolBar">
+                <asp:Button ID="changeConfig" runat="server" Text="修改配置文件" 
+                    onclick="changeConfig_Click" />
                 <li id="add" class="opeAdd">添加</li>
                 <li id="delete" class="opeDelete">批量删除</li>
                 <li id="import" class="opeImport">导入</li>
@@ -25,6 +27,7 @@
                 <input id="File1" type="file" />
                 <asp:Button ID="Button1" runat="server" Text="导出.." onclick="Button1_Click" />
                 <asp:Button ID="Button2" runat="server" Text="下载.." onclick="Button2_Click"  />
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </ul>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
                 <tr class="list-header">
