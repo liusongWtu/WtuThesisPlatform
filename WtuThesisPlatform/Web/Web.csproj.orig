@@ -1,0 +1,1288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{084CC623-CB00-4B48-A071-BA78C23649D6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NPOI, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.DDF, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.DDF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HPSF, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.HPSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.HSSF, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.HSSF.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.POIFS, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.POIFS.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.Util, Version=1.2.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bll\NPOI.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminUI\AddNotice.aspx" />
+    <Content Include="AdminUI\AdminInfo.aspx" />
+    <Content Include="AdminUI\AdminManager.aspx" />
+    <Content Include="AdminUI\AdminModifyPwd.aspx" />
+    <Content Include="AdminUI\ClassManager.aspx" />
+    <Content Include="AdminUI\DepartmentManager.aspx" />
+    <Content Include="AdminUI\DictionaryManager.aspx" />
+    <Content Include="AdminUI\MajorManager.aspx" />
+    <Content Include="AdminUI\NoticeManager.aspx" />
+    <Content Include="AdminUI\StudentManager.aspx" />
+    <Content Include="AdminUI\TeacherManager.aspx" />
+    <Content Include="AdminUI\test.aspx" />
+    <Content Include="AdminUI\ZhiChengManager.aspx" />
+<<<<<<< HEAD
+    <Content Include="ashx\admin\StudentManager.ashx" />
+    <Content Include="lib\NPOI.DDF.dll" />
+    <Content Include="lib\NPOI.dll" />
+    <Content Include="lib\NPOI.HPSF.dll" />
+    <Content Include="lib\NPOI.HSSF.dll" />
+    <Content Include="lib\NPOI.POIFS.dll" />
+    <Content Include="lib\NPOI.Util.dll" />
+=======
+    <Content Include="bll\NPOI.DDF.dll" />
+    <Content Include="bll\NPOI.dll" />
+    <Content Include="bll\NPOI.HPSF.dll" />
+    <Content Include="bll\NPOI.HSSF.dll" />
+    <Content Include="bll\NPOI.POIFS.dll" />
+    <Content Include="bll\NPOI.Util.dll" />
+>>>>>>> 933d10c54a99d43f1af61a943cd6763a5b3dbae2
+    <Content Include="css\admin\adm_page.css" />
+    <Content Include="css\base.css" />
+    <Content Include="css\common.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\teacher\teacher_pages.css" />
+    <Content Include="images\admin\add.png" />
+    <Content Include="images\admin\blue-document-export.png" />
+    <Content Include="images\admin\blue-document-import.png" />
+    <Content Include="images\notice_bg.gif" />
+    <Content Include="images\notice_bot.gif" />
+    <Content Include="images\notice_leftborder.gif" />
+    <Content Include="images\notice_title.gif" />
+    <Content Include="images\student\buttons.gif" />
+    <Content Include="images\teacher\save.gif" />
+    <Content Include="images\teacher\tea_select.png" />
+    <Content Include="js\admin\Admininfo.js" />
+    <Content Include="js\admin\AdminManager.js" />
+    <Content Include="js\admin\StudentManager.js" />
+    <Content Include="js\admin\TeacherManager.js" />
+    <Content Include="js\DataHelper.js" />
+    <Content Include="js\MD5.js" />
+    <Content Include="js\om\ui\rules.js" />
+    <Content Include="js\student\StuInfo.js" />
+    <Content Include="css\common_index.css" />
+    <Content Include="css\student\stu_page.css" />
+    <Content Include="images\btn_bg.gif" />
+    <Content Include="images\get_offpic2.jpg" />
+    <Content Include="images\index_banner.jpg" />
+    <Content Include="images\index_banner.png" />
+    <Content Include="images\index_bg.jpg" />
+    <Content Include="images\index_logo.gif" />
+    <Content Include="images\index_logo.png" />
+    <Content Include="images\loader.gif" />
+    <Content Include="images\msg.gif" />
+    <Content Include="images\qzonebg.gif" />
+    <Content Include="images\right.gif" />
+    <Content Include="images\setting_bg.gif" />
+    <Content Include="images\square.png" />
+    <Content Include="images\student\comments.png" />
+    <Content Include="images\student\email.png" />
+    <Content Include="images\student\modify_password_icon.gif" />
+    <Content Include="images\student\new\mod_sub_nav.png" />
+    <Content Include="images\student\new\sub_nav_1.png" />
+    <Content Include="images\student\new\sub_nav_2.png" />
+    <Content Include="images\student\stu-subnav-icon.png" />
+    <Content Include="images\student\stu-subnav-icon2.png" />
+    <Content Include="images\student\stu_info.gif" />
+    <Content Include="images\student\stu_info_bg.gif" />
+    <Content Include="images\student\stu_info_cutline.png" />
+    <Content Include="images\student\stu_logo.png" />
+    <Content Include="images\student\stu_message.png" />
+    <Content Include="images\student\stu_photo.gif" />
+    <Content Include="images\student\stu_select\stu_page_down.gif" />
+    <Content Include="images\student\stu_select\stu_page_up.gif" />
+    <Content Include="images\student\stu_select\stu_select_pagedown.gif" />
+    <Content Include="images\student\stu_select\stu_select_pageup.gif" />
+    <Content Include="images\student\stu_select\stu_select_searchIcon.png" />
+    <Content Include="images\student\stu_select\stu_select_search_bg.gif" />
+    <Content Include="images\student\stu_select\stu_select_select.gif" />
+    <Content Include="images\student\stu_select\stu_select_star.gif" />
+    <Content Include="images\student\stu_select\stu_select_store.gif" />
+    <Content Include="images\student\stu_select\stu_select_table_bg.gif" />
+    <Content Include="images\student\stu_select\stu_select_top.gif" />
+    <Content Include="images\student\stu_setting.png" />
+    <Content Include="images\stu_signout.png" />
+    <Content Include="js\ajaxHelper.js" />
+    <Content Include="js\Common.js" />
+    <Content Include="js\jquery-1.4.4.min.js" />
+    <Content Include="js\login.js" />
+    <Content Include="js\msgBox.js" />
+    <Content Include="js\om\themes\apusic\images\accordion\bg.jpg" />
+    <Content Include="js\om\themes\apusic\images\accordion\drawer-tools.png" />
+    <Content Include="js\om\themes\apusic\images\borderlayout\tools.gif" />
+    <Content Include="js\om\themes\apusic\images\borderlayout\trigger_buttons_n.png" />
+    <Content Include="js\om\themes\apusic\images\borderlayout\trigger_buttons_s.png" />
+    <Content Include="js\om\themes\apusic\images\borderlayout\trigger_buttons_we.png" />
+    <Content Include="js\om\themes\apusic\images\buttonbar\button-hover-bg.png" />
+    <Content Include="js\om\themes\apusic\images\buttonbar\buttonbar-bg.jpg" />
+    <Content Include="js\om\themes\apusic\images\buttonbar\buttonbar-bg.png" />
+    <Content Include="js\om\themes\apusic\images\buttonbar\formbutton_bg_left.jpg" />
+    <Content Include="js\om\themes\apusic\images\buttonbar\formbutton_bg_right.jpg" />
+    <Content Include="js\om\themes\apusic\images\buttonbar\separtor-bg.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-focus-bg.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-focus-bgstyle1.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-hover-bg.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-hover-bgstyle1.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-mousedown-bg.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-mousedown-bgstyle1.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-nomal-bg.png" />
+    <Content Include="js\om\themes\apusic\images\button\button-nomal-bgstyle1.png" />
+    <Content Include="js\om\themes\apusic\images\calendar\calendar-trigger.png" />
+    <Content Include="js\om\themes\apusic\images\calendar\time_up_down.gif" />
+    <Content Include="js\om\themes\apusic\images\calendar\week_day_bkgd.gif" />
+    <Content Include="js\om\themes\apusic\images\calendar\year_head_bkgd.gif" />
+    <Content Include="js\om\themes\apusic\images\combo\combo-trigger.png" />
+    <Content Include="js\om\themes\apusic\images\combo\combo_selected.jpg" />
+    <Content Include="js\om\themes\apusic\images\dialog\close-hover.png" />
+    <Content Include="js\om\themes\apusic\images\dialog\close.png" />
+    <Content Include="js\om\themes\apusic\images\dialog\dialog-bg.png" />
+    <Content Include="js\om\themes\apusic\images\dialog\dialog-title-bg.png" />
+    <Content Include="js\om\themes\apusic\images\fileupload\cancel.gif" />
+    <Content Include="js\om\themes\apusic\images\fileupload\cancel.png" />
+    <Content Include="js\om\themes\apusic\images\fileupload\progressbar.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\data-header-1.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\data-header-2.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\data-header-3.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\data-header-4.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\group-header-1.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\group-header-2.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\group-header-3.png" />
+    <Content Include="js\om\themes\apusic\images\grid-group\group-header-4.png" />
+    <Content Include="js\om\themes\apusic\images\grid-roweditor\dirty.gif" />
+    <Content Include="js\om\themes\apusic\images\grid-roweditor\error.png" />
+    <Content Include="js\om\themes\apusic\images\grid-roweditor\new.png" />
+    <Content Include="js\om\themes\apusic\images\grid-rowexpander\grid-row-expand-sprite.gif" />
+    <Content Include="js\om\themes\apusic\images\grid-sort\sort-bg.png" />
+    <Content Include="js\om\themes\apusic\images\grid-sort\sort_asc.gif" />
+    <Content Include="js\om\themes\apusic\images\grid-sort\sort_desc.gif" />
+    <Content Include="js\om\themes\apusic\images\grid\bg.gif" />
+    <Content Include="js\om\themes\apusic\images\grid\fhbg.gif" />
+    <Content Include="js\om\themes\apusic\images\grid\grid-icons-ud.png" />
+    <Content Include="js\om\themes\apusic\images\grid\grid-icons.png" />
+    <Content Include="js\om\themes\apusic\images\grid\grid_header_bg.png" />
+    <Content Include="js\om\themes\apusic\images\grid\head-bg.png" />
+    <Content Include="js\om\themes\apusic\images\grid\hl.png" />
+    <Content Include="js\om\themes\apusic\images\grid\line.gif" />
+    <Content Include="js\om\themes\apusic\images\grid\pager-bg.png" />
+    <Content Include="js\om\themes\apusic\images\grid\space-bg.png" />
+    <Content Include="js\om\themes\apusic\images\grid\tool-bg.png" />
+    <Content Include="js\om\themes\apusic\images\grid\wbg.gif" />
+    <Content Include="js\om\themes\apusic\images\header_bg.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\add.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\add_hover.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\button_bg.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\button_bg_disabled.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\button_bg_hover.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\checkbox1.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\checkbox2.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\down.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\down_disable.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\header_bg.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\remove.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\remove_hover.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\up.png" />
+    <Content Include="js\om\themes\apusic\images\itemselector\up_disable.png" />
+    <Content Include="js\om\themes\apusic\images\load.gif" />
+    <Content Include="js\om\themes\apusic\images\menu\blank.png" />
+    <Content Include="js\om\themes\apusic\images\menu\line-sep.png" />
+    <Content Include="js\om\themes\apusic\images\menu\menu_bg.gif" />
+    <Content Include="js\om\themes\apusic\images\menu\menu_rightarrow.png" />
+    <Content Include="js\om\themes\apusic\images\messagebox\close-hover.png" />
+    <Content Include="js\om\themes\apusic\images\messagebox\close.png" />
+    <Content Include="js\om\themes\apusic\images\messagebox\messagebox-icons.png" />
+    <Content Include="js\om\themes\apusic\images\messagebox\title-bg.png" />
+    <Content Include="js\om\themes\apusic\images\messagebox\waiting.png" />
+    <Content Include="js\om\themes\apusic\images\messagetip\title-bg.png" />
+    <Content Include="js\om\themes\apusic\images\om-icons-default.png" />
+    <Content Include="js\om\themes\apusic\images\om-icons-hover.png" />
+    <Content Include="js\om\themes\apusic\images\panel\close_panel.png" />
+    <Content Include="js\om\themes\apusic\images\panel\down_panel.png" />
+    <Content Include="js\om\themes\apusic\images\panel\max_panel.png" />
+    <Content Include="js\om\themes\apusic\images\panel\min_panel.png" />
+    <Content Include="js\om\themes\apusic\images\panel\om-panel-header-bg-d.jpg" />
+    <Content Include="js\om\themes\apusic\images\panel\om-panel-header-bg-h.jpg" />
+    <Content Include="js\om\themes\apusic\images\panel\om-panel-header-bg-help-d.jpg" />
+    <Content Include="js\om\themes\apusic\images\panel\om-panel-header-bg-help-h.jpg" />
+    <Content Include="js\om\themes\apusic\images\panel\up_panel.png" />
+    <Content Include="js\om\themes\apusic\images\slider\arrows.png" />
+    <Content Include="js\om\themes\apusic\images\slider\bullets.gif" />
+    <Content Include="js\om\themes\apusic\images\slider\bullets.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\close.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-bg-h.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-bg.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-close.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-left-default.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-left-hover.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-right-default.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-right-hover.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-scroll-left-bg.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-scroll-left-hover.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-scroll-left.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-scroll-right-bg.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-scroll-right-hover.png" />
+    <Content Include="js\om\themes\apusic\images\tabs\om-tabs-scroll-right.png" />
+    <Content Include="js\om\themes\apusic\images\tooltip\tip-anchor-sprite.gif" />
+    <Content Include="js\om\themes\apusic\images\tree\checkbox.png" />
+    <Content Include="js\om\themes\apusic\images\tree\tree-icons.png" />
+    <Content Include="js\om\themes\apusic\images\tree\tree-loading.gif" />
+    <Content Include="js\om\themes\apusic\images\tree\treeview-default.png" />
+    <Content Include="js\om\themes\apusic\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="js\om\themes\apusic\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="js\om\themes\apusic\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="js\om\themes\apusic\om-accordion.css" />
+    <Content Include="js\om\themes\apusic\om-all.css" />
+    <Content Include="js\om\themes\apusic\om-base.css" />
+    <Content Include="js\om\themes\apusic\om-borderlayout.css" />
+    <Content Include="js\om\themes\apusic\om-button.css" />
+    <Content Include="js\om\themes\apusic\om-buttonbar.css" />
+    <Content Include="js\om\themes\apusic\om-calendar.css" />
+    <Content Include="js\om\themes\apusic\om-combo.css" />
+    <Content Include="js\om\themes\apusic\om-dialog.css" />
+    <Content Include="js\om\themes\apusic\om-fileupload.css" />
+    <Content Include="js\om\themes\apusic\om-grid-headergroup.css" />
+    <Content Include="js\om\themes\apusic\om-grid-roweditor.css" />
+    <Content Include="js\om\themes\apusic\om-grid-rowexpander.css" />
+    <Content Include="js\om\themes\apusic\om-grid-sort.css" />
+    <Content Include="js\om\themes\apusic\om-grid.css" />
+    <Content Include="js\om\themes\apusic\om-itemselector.css" />
+    <Content Include="js\om\themes\apusic\om-menu.css" />
+    <Content Include="js\om\themes\apusic\om-messagebox.css" />
+    <Content Include="js\om\themes\apusic\om-messagetip.css" />
+    <Content Include="js\om\themes\apusic\om-numberfield.css" />
+    <Content Include="js\om\themes\apusic\om-panel.css" />
+    <Content Include="js\om\themes\apusic\om-progressbar.css" />
+    <Content Include="js\om\themes\apusic\om-resizable.css" />
+    <Content Include="js\om\themes\apusic\om-scrollbar.css" />
+    <Content Include="js\om\themes\apusic\om-slider.css" />
+    <Content Include="js\om\themes\apusic\om-suggestion.css" />
+    <Content Include="js\om\themes\apusic\om-tabs.css" />
+    <Content Include="js\om\themes\apusic\om-theme.css" />
+    <Content Include="js\om\themes\apusic\om-tooltip.css" />
+    <Content Include="js\om\themes\apusic\om-tree.css" />
+    <Content Include="js\om\ui\editor\config.js" />
+    <Content Include="js\om\ui\editor\images\spacer.gif" />
+    <Content Include="js\om\ui\editor\lang\en.js" />
+    <Content Include="js\om\ui\editor\lang\zh-cn.js" />
+    <Content Include="js\om\ui\editor\lang\zh.js" />
+    <Content Include="js\om\ui\editor\lang\_languages.js" />
+    <Content Include="js\om\ui\editor\omeditor.js" />
+    <Content Include="js\om\ui\editor\omeditor_source.js" />
+    <Content Include="js\om\ui\editor\packager.jar" />
+    <Content Include="js\om\ui\editor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="js\om\ui\editor\plugins\a11yhelp\lang\en.js" />
+    <Content Include="js\om\ui\editor\plugins\a11yhelp\lang\he.js" />
+    <Content Include="js\om\ui\editor\plugins\about\dialogs\about.js" />
+    <Content Include="js\om\ui\editor\plugins\about\dialogs\logo_omeditor.png" />
+    <Content Include="js\om\ui\editor\plugins\adobeair\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\ajax\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\autogrow\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\bbcode\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="js\om\ui\editor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="js\om\ui\editor\plugins\devtools\lang\en.js" />
+    <Content Include="js\om\ui\editor\plugins\devtools\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="js\om\ui\editor\plugins\div\dialogs\div.js" />
+    <Content Include="js\om\ui\editor\plugins\docprops\dialogs\docprops.js" />
+    <Content Include="js\om\ui\editor\plugins\docprops\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\find\dialogs\find.js" />
+    <Content Include="js\om\ui\editor\plugins\flash\dialogs\flash.js" />
+    <Content Include="js\om\ui\editor\plugins\flash\images\placeholder.png" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\button.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\form.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\radio.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\select.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="js\om\ui\editor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="js\om\ui\editor\plugins\iframedialog\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="js\om\ui\editor\plugins\iframe\images\placeholder.png" />
+    <Content Include="js\om\ui\editor\plugins\image\dialogs\image.js" />
+    <Content Include="js\om\ui\editor\plugins\link\dialogs\anchor.js" />
+    <Content Include="js\om\ui\editor\plugins\link\dialogs\link.js" />
+    <Content Include="js\om\ui\editor\plugins\link\images\anchor.gif" />
+    <Content Include="js\om\ui\editor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="js\om\ui\editor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="js\om\ui\editor\plugins\pastefromword\filter\default.js" />
+    <Content Include="js\om\ui\editor\plugins\pastetext\dialogs\pastetext.js" />
+    <Content Include="js\om\ui\editor\plugins\placeholder\dialogs\placeholder.js" />
+    <Content Include="js\om\ui\editor\plugins\placeholder\lang\en.js" />
+    <Content Include="js\om\ui\editor\plugins\placeholder\lang\he.js" />
+    <Content Include="js\om\ui\editor\plugins\placeholder\placeholder.gif" />
+    <Content Include="js\om\ui\editor\plugins\placeholder\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\scayt\dialogs\options.js" />
+    <Content Include="js\om\ui\editor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_address.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_div.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_p.png" />
+    <Content Include="js\om\ui\editor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="js\om\ui\editor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\envelope.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\heart.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\kiss.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="js\om\ui\editor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="js\om\ui\editor\plugins\specialchar\lang\en.js" />
+    <Content Include="js\om\ui\editor\plugins\stylesheetparser\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\styles\styles\default.js" />
+    <Content Include="js\om\ui\editor\plugins\tableresize\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="js\om\ui\editor\plugins\table\dialogs\table.js" />
+    <Content Include="js\om\ui\editor\plugins\templates\dialogs\templates.js" />
+    <Content Include="js\om\ui\editor\plugins\templates\templates\default.js" />
+    <Content Include="js\om\ui\editor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="js\om\ui\editor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="js\om\ui\editor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\dialogs\uicolor.js" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\lang\en.js" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\lang\he.js" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\plugin.js" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\uicolor.gif" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\yui\assets\hue_bg.png" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\yui\assets\hue_thumb.png" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\yui\assets\picker_mask.png" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\yui\assets\picker_thumb.png" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\yui\assets\yui.css" />
+    <Content Include="js\om\ui\editor\plugins\uicolor\yui\yui.js" />
+    <Content Include="js\om\ui\editor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="js\om\ui\editor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="js\om\ui\editor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="js\om\ui\editor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="js\om\ui\editor\plugins\xml\plugin.js" />
+    <Content Include="js\om\ui\editor\skins\eac\dialog.css" />
+    <Content Include="js\om\ui\editor\skins\eac\editor.css" />
+    <Content Include="js\om\ui\editor\skins\eac\icons.png" />
+    <Content Include="js\om\ui\editor\skins\eac\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\eac\images\button_d.jpg" />
+    <Content Include="js\om\ui\editor\skins\eac\images\button_f.jpg" />
+    <Content Include="js\om\ui\editor\skins\eac\images\button_u.jpg" />
+    <Content Include="js\om\ui\editor\skins\eac\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\skins\eac\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\skins\eac\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\eac\images\mini.gif" />
+    <Content Include="js\om\ui\editor\skins\eac\images\noimage.png" />
+    <Content Include="js\om\ui\editor\skins\eac\images\sprites.png" />
+    <Content Include="js\om\ui\editor\skins\eac\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\skins\eac\images\toolbar_start.gif" />
+    <Content Include="js\om\ui\editor\skins\eac\images\ui-icons_222222_256x240.png" />
+    <Content Include="js\om\ui\editor\skins\eac\skin.js" />
+    <Content Include="js\om\ui\editor\skins\kama\dialog.css" />
+    <Content Include="js\om\ui\editor\skins\kama\editor.css" />
+    <Content Include="js\om\ui\editor\skins\kama\icons.png" />
+    <Content Include="js\om\ui\editor\skins\kama\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\kama\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\skins\kama\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\skins\kama\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\kama\images\mini.gif" />
+    <Content Include="js\om\ui\editor\skins\kama\images\noimage.png" />
+    <Content Include="js\om\ui\editor\skins\kama\images\sprites.png" />
+    <Content Include="js\om\ui\editor\skins\kama\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\skins\kama\images\toolbar_start.gif" />
+    <Content Include="js\om\ui\editor\skins\kama\skin.js" />
+    <Content Include="js\om\ui\editor\skins\kama\templates.css" />
+    <Content Include="js\om\ui\editor\skins\office2003\dialog.css" />
+    <Content Include="js\om\ui\editor\skins\office2003\editor.css" />
+    <Content Include="js\om\ui\editor\skins\office2003\icons.png" />
+    <Content Include="js\om\ui\editor\skins\office2003\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\office2003\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\skins\office2003\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\skins\office2003\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\office2003\images\mini.gif" />
+    <Content Include="js\om\ui\editor\skins\office2003\images\noimage.png" />
+    <Content Include="js\om\ui\editor\skins\office2003\images\sprites.png" />
+    <Content Include="js\om\ui\editor\skins\office2003\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\skins\office2003\skin.js" />
+    <Content Include="js\om\ui\editor\skins\office2003\templates.css" />
+    <Content Include="js\om\ui\editor\skins\v2\dialog.css" />
+    <Content Include="js\om\ui\editor\skins\v2\editor.css" />
+    <Content Include="js\om\ui\editor\skins\v2\icons.png" />
+    <Content Include="js\om\ui\editor\skins\v2\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\v2\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\skins\v2\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\skins\v2\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\skins\v2\images\mini.gif" />
+    <Content Include="js\om\ui\editor\skins\v2\images\noimage.png" />
+    <Content Include="js\om\ui\editor\skins\v2\images\sprites.png" />
+    <Content Include="js\om\ui\editor\skins\v2\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\skins\v2\images\toolbar_start.gif" />
+    <Content Include="js\om\ui\editor\skins\v2\skin.js" />
+    <Content Include="js\om\ui\editor\skins\v2\templates.css" />
+    <Content Include="js\om\ui\editor\themes\default\theme.js" />
+    <Content Include="js\om\ui\editor\_source\core\command.js" />
+    <Content Include="js\om\ui\editor\_source\core\commanddefinition.js" />
+    <Content Include="js\om\ui\editor\_source\core\config.js" />
+    <Content Include="js\om\ui\editor\_source\core\dataprocessor.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\comment.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\document.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\documentfragment.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\domobject.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\element.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\elementpath.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\event.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\node.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\nodelist.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\range.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\rangelist.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\text.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\walker.js" />
+    <Content Include="js\om\ui\editor\_source\core\dom\window.js" />
+    <Content Include="js\om\ui\editor\_source\core\dtd.js" />
+    <Content Include="js\om\ui\editor\_source\core\editor.js" />
+    <Content Include="js\om\ui\editor\_source\core\editor_basic.js" />
+    <Content Include="js\om\ui\editor\_source\core\env.js" />
+    <Content Include="js\om\ui\editor\_source\core\event.js" />
+    <Content Include="js\om\ui\editor\_source\core\eventInfo.js" />
+    <Content Include="js\om\ui\editor\_source\core\focusmanager.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser\basicwriter.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser\cdata.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser\comment.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser\element.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser\filter.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser\fragment.js" />
+    <Content Include="js\om\ui\editor\_source\core\htmlparser\text.js" />
+    <Content Include="js\om\ui\editor\_source\core\lang.js" />
+    <Content Include="js\om\ui\editor\_source\core\loader.js" />
+    <Content Include="js\om\ui\editor\_source\core\omeditor.js" />
+    <Content Include="js\om\ui\editor\_source\core\omeditor_base.js" />
+    <Content Include="js\om\ui\editor\_source\core\omeditor_basic.js" />
+    <Content Include="js\om\ui\editor\_source\core\plugindefinition.js" />
+    <Content Include="js\om\ui\editor\_source\core\plugins.js" />
+    <Content Include="js\om\ui\editor\_source\core\resourcemanager.js" />
+    <Content Include="js\om\ui\editor\_source\core\scriptloader.js" />
+    <Content Include="js\om\ui\editor\_source\core\skins.js" />
+    <Content Include="js\om\ui\editor\_source\core\themes.js" />
+    <Content Include="js\om\ui\editor\_source\core\tools.js" />
+    <Content Include="js\om\ui\editor\_source\core\ui.js" />
+    <Content Include="js\om\ui\editor\_source\core\_bootstrap.js" />
+    <Content Include="js\om\ui\editor\_source\lang\en.js" />
+    <Content Include="js\om\ui\editor\_source\lang\zh-cn.js" />
+    <Content Include="js\om\ui\editor\_source\lang\zh.js" />
+    <Content Include="js\om\ui\editor\_source\lang\_languages.js" />
+    <Content Include="js\om\ui\editor\_source\om-editor.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\a11yhelp\lang\en.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\a11yhelp\lang\he.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\a11yhelp\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\about\dialogs\about.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\about\dialogs\logo_omeditor.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\about\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\adobeair\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\ajax\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\autogrow\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\basicstyles\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\bbcode\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\bidi\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\blockquote\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\button\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\clipboard\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\colorbutton\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\colordialog\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\contextmenu\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\devtools\lang\en.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\devtools\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\dialogadvtab\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\dialogui\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\dialog\dialogDefinition.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\dialog\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\div\dialogs\div.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\div\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\docprops\dialogs\docprops.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\docprops\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\domiterator\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\editingblock\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\elementspath\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\enterkey\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\entities\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\fakeobjects\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\filebrowser\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\find\dialogs\find.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\find\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\flash\dialogs\flash.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\flash\images\placeholder.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\flash\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\floatpanel\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\font\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\format\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\button.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\form.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\radio.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\select.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\textarea.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\dialogs\textfield.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\forms\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\horizontalrule\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\htmldataprocessor\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\htmlwriter\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\iframedialog\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\iframe\images\placeholder.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\iframe\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\image\dialogs\image.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\image\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\indent\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\justify\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\keystrokes\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\link\dialogs\anchor.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\link\dialogs\link.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\link\images\anchor.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\link\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\listblock\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\liststyle\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\list\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\maximize\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\menubutton\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\menu\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\newpage\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\pagebreak\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\panelbutton\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\panel\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\pastefromword\filter\default.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\pastefromword\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\pastetext\dialogs\pastetext.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\pastetext\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\placeholder\dialogs\placeholder.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\placeholder\lang\en.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\placeholder\lang\he.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\placeholder\placeholder.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\placeholder\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\popup\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\preview\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\print\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\removeformat\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\resize\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\richcombo\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\save\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\scayt\dialogs\options.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="js\om\ui\editor\_source\plugins\scayt\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\selection\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_address.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_div.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_h1.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_h2.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_h3.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_h4.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_h5.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_h6.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_p.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\images\block_pre.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\showblocks\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\showborders\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\envelope.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\heart.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\kiss.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\smiley\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\sourcearea\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\specialchar\lang\en.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\specialchar\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\stylescombo\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\stylesheetparser\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\styles\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\styles\styles\default.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\tableresize\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\tabletools\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\table\dialogs\table.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\table\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\tab\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\templates\dialogs\templates.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\templates\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\templates\templates\default.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\templates\templates\images\template1.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\templates\templates\images\template2.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\templates\templates\images\template3.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\toolbar\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\dialogs\uicolor.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\lang\en.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\lang\he.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\uicolor.gif" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\yui\assets\hue_bg.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\yui\assets\hue_thumb.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\yui\assets\picker_mask.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\yui\assets\picker_thumb.png" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\yui\assets\yui.css" />
+    <Content Include="js\om\ui\editor\_source\plugins\uicolor\yui\yui.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\undo\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="js\om\ui\editor\_source\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="js\om\ui\editor\_source\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="js\om\ui\editor\_source\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\wsc\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\wysiwygarea\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\plugins\xml\plugin.js" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\dialog.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\editor.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\elementspath.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\icons.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\icons.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\button_d.jpg" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\button_f.jpg" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\button_u.jpg" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\mini.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\noimage.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\sprites.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\toolbar_start.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\images\ui-icons_222222_256x240.png" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\mainui.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\menu.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\panel.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\presets.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\reset.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\richcombo.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\skin.js" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\templates.css" />
+    <Content Include="js\om\ui\editor\_source\skins\eac\toolbar.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\dialog.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\editor.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\elementspath.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\icons.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\icons.png" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\mini.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\noimage.png" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\sprites.png" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\images\toolbar_start.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\mainui.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\menu.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\panel.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\presets.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\reset.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\richcombo.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\skin.js" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\templates.css" />
+    <Content Include="js\om\ui\editor\_source\skins\kama\toolbar.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\dialog.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\editor.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\elementspath.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\icons.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\icons.png" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\images\mini.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\images\noimage.png" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\images\sprites.png" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\mainui.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\menu.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\panel.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\presets.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\reset.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\richcombo.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\skin.js" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\templates.css" />
+    <Content Include="js\om\ui\editor\_source\skins\office2003\toolbar.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\dialog.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\editor.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\elementspath.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\icons.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\icons.png" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\icons_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\dialog_sides.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\dialog_sides.png" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\dialog_sides_rtl.png" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\mini.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\noimage.png" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\sprites.png" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\sprites_ie6.png" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\images\toolbar_start.gif" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\mainui.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\menu.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\panel.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\presets.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\reset.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\richcombo.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\skin.js" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\templates.css" />
+    <Content Include="js\om\ui\editor\_source\skins\v2\toolbar.css" />
+    <Content Include="js\om\ui\editor\_source\themes\default\theme.js" />
+    <Content Include="js\om\ui\lang\en-us.js" />
+    <Content Include="js\om\ui\lang\zh-tw.js" />
+    <Content Include="js\om\ui\om-accordion.js" />
+    <Content Include="js\om\ui\om-ajaxsubmit.js" />
+    <Content Include="js\om\ui\om-borderlayout.js" />
+    <Content Include="js\om\ui\om-button.js" />
+    <Content Include="js\om\ui\om-buttonbar.js" />
+    <Content Include="js\om\ui\om-calendar.js" />
+    <Content Include="js\om\ui\om-combo.js" />
+    <Content Include="js\om\ui\om-core.js" />
+    <Content Include="js\om\ui\om-dialog.js" />
+    <Content Include="js\om\ui\om-draggable.js" />
+    <Content Include="js\om\ui\om-droppable.js" />
+    <Content Include="js\om\ui\om-fileupload.js" />
+    <Content Include="js\om\ui\om-fileupload.swf" />
+    <Content Include="js\om\ui\om-grid-headergroup.js" />
+    <Content Include="js\om\ui\om-grid-roweditor.js" />
+    <Content Include="js\om\ui\om-grid-rowexpander.js" />
+    <Content Include="js\om\ui\om-grid-sort.js" />
+    <Content Include="js\om\ui\om-grid.js" />
+    <Content Include="js\om\ui\om-itemselector.js" />
+    <Content Include="js\om\ui\om-menu.js" />
+    <Content Include="js\om\ui\om-messagebox.js" />
+    <Content Include="js\om\ui\om-messagetip.js" />
+    <Content Include="js\om\ui\om-mouse.js" />
+    <Content Include="js\om\ui\om-numberfield.js" />
+    <Content Include="js\om\ui\om-panel.js" />
+    <Content Include="js\om\ui\om-position.js" />
+    <Content Include="js\om\ui\om-progressbar.js" />
+    <Content Include="js\om\ui\om-resizable.js" />
+    <Content Include="js\om\ui\om-scrollbar.js" />
+    <Content Include="js\om\ui\om-slider.js" />
+    <Content Include="js\om\ui\om-sortable.js" />
+    <Content Include="js\om\ui\om-suggestion.js" />
+    <Content Include="js\om\ui\om-tabs.js" />
+    <Content Include="js\om\ui\om-tooltip.js" />
+    <Content Include="js\om\ui\om-tree.js" />
+    <Content Include="js\om\ui\om-validate.js" />
+    <Content Include="js\operamasks-ui.min.js" />
+    <Content Include="js\popup\img\buttons.png" />
+    <Content Include="js\popup\jquery.confirm.css" />
+    <Content Include="js\popup\jquery.confirm.js" />
+    <Content Include="js\student\StuModifyPwd.js" />
+    <Content Include="js\student\StuMySelect.js" />
+    <Content Include="js\student\StuMyStore.js" />
+    <Content Include="js\student\StuSelect.js" />
+    <Content Include="js\student\stu_pages.js" />
+    <Content Include="js\teacher\AllTopic.js" />
+    <Content Include="js\teacher\Teacherinfo.js" />
+    <Content Include="js\teacher\TeacherSelect.js" />
+    <Content Include="js\template.js" />
+    <Content Include="js\Validata.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="StudentUI\forgetPsd.html" />
+    <Content Include="StudentUI\index.html" />
+    <Content Include="StudentUI\StuIndex.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="StudentUI\StuInfo.aspx" />
+    <Content Include="StudentUI\StuModifyPwd.aspx" />
+    <Content Include="StudentUI\StuMySelect.aspx" />
+    <Content Include="StudentUI\StuMyStore.aspx" />
+    <Content Include="StudentUI\StuSelect.aspx" />
+    <Content Include="StudentUI\StuTopicDetail.aspx" />
+    <Content Include="StudentUI\stu_index.html" />
+    <Content Include="StudentUI\stu_info.html" />
+    <Content Include="StudentUI\stu_modify_password.html" />
+    <Content Include="StudentUI\stu_myselect.html" />
+    <Content Include="StudentUI\stu_mystore.html" />
+    <Content Include="StudentUI\stu_select.html" />
+    <Content Include="StudentUI\stu_topic_detail.html" />
+    <Content Include="StudentUI\stu_topic_info.html" />
+    <Content Include="StudentUI\StuTopicInfo.aspx" />
+    <Content Include="TeacherUI\AllNotice.aspx" />
+    <Content Include="TeacherUI\AllTopic.aspx" />
+    <Content Include="TeacherUI\allTopic.html" />
+    <Content Include="TeacherUI\applyExcel.htm" />
+    <Content Include="TeacherUI\Notice.aspx" />
+    <Content Include="TeacherUI\PublishNotice.aspx" />
+    <Content Include="TeacherUI\TeacherApply.aspx" />
+    <Content Include="TeacherUI\TeacherInfo.aspx" />
+    <Content Include="TeacherUI\TeacherModifyPwd.aspx" />
+    <Content Include="TeacherUI\TeacherSelect.aspx" />
+    <Content Include="TeacherUI\TeacherStuInfo.aspx" />
+    <Content Include="TeacherUI\teacher_index .html" />
+    <Content Include="TeacherUI\teacher_select.html" />
+    <Content Include="TeacherUI\TeacherIndex.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminUI\AddNotice.aspx.cs">
+      <DependentUpon>AddNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AddNotice.aspx.designer.cs">
+      <DependentUpon>AddNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminInfo.aspx.cs">
+      <DependentUpon>AdminInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminInfo.aspx.designer.cs">
+      <DependentUpon>AdminInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminManager.aspx.cs">
+      <DependentUpon>AdminManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminManager.aspx.designer.cs">
+      <DependentUpon>AdminManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminMasterPage.Master.cs">
+      <DependentUpon>AdminMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminMasterPage.Master.designer.cs">
+      <DependentUpon>AdminMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\AdminModifyPwd.aspx.cs">
+      <DependentUpon>AdminModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\AdminModifyPwd.aspx.designer.cs">
+      <DependentUpon>AdminModifyPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\ClassManager.aspx.cs">
+      <DependentUpon>ClassManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ClassManager.aspx.designer.cs">
+      <DependentUpon>ClassManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\DepartmentManager.aspx.cs">
+      <DependentUpon>DepartmentManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\DepartmentManager.aspx.designer.cs">
+      <DependentUpon>DepartmentManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\DictionaryManager.aspx.cs">
+      <DependentUpon>DictionaryManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\DictionaryManager.aspx.designer.cs">
+      <DependentUpon>DictionaryManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\MajorManager.aspx.cs">
+      <DependentUpon>MajorManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\MajorManager.aspx.designer.cs">
+      <DependentUpon>MajorManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\NoticeManager.aspx.cs">
+      <DependentUpon>NoticeManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\NoticeManager.aspx.designer.cs">
+      <DependentUpon>NoticeManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\StudentManager.aspx.cs">
+      <DependentUpon>StudentManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\StudentManager.aspx.designer.cs">
+      <DependentUpon>StudentManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\TeacherManager.aspx.cs">
+      <DependentUpon>TeacherManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\TeacherManager.aspx.designer.cs">
+      <DependentUpon>TeacherManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\ZhiChengManager.aspx.cs">
+      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
+      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
+      <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\TeacherManager.ashx.cs">
+      <DependentUpon>TeacherManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\ChangePwd.ashx.cs">
+      <DependentUpon>ChangePwd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\CheckPwd.ashx.cs">
+      <DependentUpon>CheckPwd.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\CheckValidateCode.ashx.cs">
+      <DependentUpon>CheckValidateCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\LoadSelect.ashx.cs">
+      <DependentUpon>LoadSelect.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\LoginAjax.ashx.cs">
+      <DependentUpon>LoginAjax.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\LoginOut.ashx.cs">
+      <DependentUpon>LoginOut.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\common\SaveTreeState.ashx.cs">
+      <DependentUpon>SaveTreeState.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\student\GetThesisData.ashx.cs">
+      <DependentUpon>GetThesisData.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\student\ModifyInfo.ashx.cs">
+      <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\student\SelectedManager.ashx.cs">
+      <DependentUpon>SelectedManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\student\StoreManager.ashx.cs">
+      <DependentUpon>StoreManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CommonCode.cs" />
+    <Compile Include="Common\ConfigurationOperator.cs" />
+    <Compile Include="Common\NPOIHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentUI\StudentMasterPage.Master.cs">
+      <DependentUpon>StudentMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StudentMasterPage.Master.designer.cs">
+      <DependentUpon>StudentMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuIndex.aspx.cs">
+      <DependentUpon>StuIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuIndex.aspx.designer.cs">
+      <DependentUpon>StuIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuInfo.aspx.cs">
+      <DependentUpon>StuInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuInfo.aspx.designer.cs">
+      <DependentUpon>StuInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuModifyPwd.aspx.cs">
+      <DependentUpon>StuModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuModifyPwd.aspx.designer.cs">
+      <DependentUpon>StuModifyPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuMySelect.aspx.cs">
+      <DependentUpon>StuMySelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuMySelect.aspx.designer.cs">
+      <DependentUpon>StuMySelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuMyStore.aspx.cs">
+      <DependentUpon>StuMyStore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuMyStore.aspx.designer.cs">
+      <DependentUpon>StuMyStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuSelect.aspx.cs">
+      <DependentUpon>StuSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuSelect.aspx.designer.cs">
+      <DependentUpon>StuSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicDetail.aspx.cs">
+      <DependentUpon>StuTopicDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicDetail.aspx.designer.cs">
+      <DependentUpon>StuTopicDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicInfo.aspx.cs">
+      <DependentUpon>StuTopicInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\StuTopicInfo.aspx.designer.cs">
+      <DependentUpon>StuTopicInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\AllNotice.aspx.cs">
+      <DependentUpon>AllNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\AllNotice.aspx.designer.cs">
+      <DependentUpon>AllNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\AllTopic.aspx.cs">
+      <DependentUpon>AllTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
+      <DependentUpon>AllTopic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\PublishNotice.aspx.cs">
+      <DependentUpon>PublishNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\PublishNotice.aspx.designer.cs">
+      <DependentUpon>PublishNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherInfo.aspx.cs">
+      <DependentUpon>TeacherInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherInfo.aspx.designer.cs">
+      <DependentUpon>TeacherInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherMasterPage.Master.cs">
+      <DependentUpon>TeacherMasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherMasterPage.Master.designer.cs">
+      <DependentUpon>TeacherMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherApply.aspx.cs">
+      <DependentUpon>TeacherApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherApply.aspx.designer.cs">
+      <DependentUpon>TeacherApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherIndex.aspx.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherIndex.aspx.designer.cs">
+      <DependentUpon>TeacherIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherModifyPwd.aspx.cs">
+      <DependentUpon>TeacherModifyPwd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherModifyPwd.aspx.designer.cs">
+      <DependentUpon>TeacherModifyPwd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherSelect.aspx.cs">
+      <DependentUpon>TeacherSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherSelect.aspx.designer.cs">
+      <DependentUpon>TeacherSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherStuInfo.aspx.cs">
+      <DependentUpon>TeacherStuInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherStuInfo.aspx.designer.cs">
+      <DependentUpon>TeacherStuInfo.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ashx\teacher\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{8A657BD0-4CB9-47CA-9A81-06A3007FBB1B}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9D8AA97F-DE38-4D71-8C85-63352A225DE0}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="StudentUI\StudentMasterPage.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\common\CheckValidateCode.ashx" />
+    <Content Include="ashx\common\LoginAjax.ashx" />
+    <Content Include="ashx\common\ValidateCode.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\common\LoginOut.ashx" />
+    <Content Include="ashx\common\SaveTreeState.ashx" />
+    <Content Include="ashx\student\ModifyInfo.ashx" />
+    <Content Include="ashx\common\LoadSelect.ashx" />
+    <Content Include="ashx\common\CheckPwd.ashx" />
+    <Content Include="ashx\common\ChangePwd.ashx" />
+    <Content Include="ashx\student\StoreManager.ashx" />
+    <Content Include="ashx\student\SelectedManager.ashx" />
+    <Content Include="ashx\student\GetThesisData.ashx" />
+    <Content Include="AdminUI\AdminMasterPage.Master" />
+    <Content Include="ashx\admin\ModifyInfo.ashx" />
+    <Content Include="ashx\admin\TeacherManager.ashx" />
+    <None Include="js\om\ui\editor\omeditor.pack" />
+    <Content Include="TeacherUI\TeacherMasterPage.Master" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55560</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

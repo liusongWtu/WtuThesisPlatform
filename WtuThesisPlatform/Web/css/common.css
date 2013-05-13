@@ -281,9 +281,17 @@ body{
 	line-height: 30px;
 	border-bottom: 1px solid #e6e6e6;
 }
-.list-header .first,.list-content .first
+.list-header .first
 {
     border-left: 0;
+    text-align: left;
+}
+.list-header .left,.list-content .left
+{
+    text-align: left;
+}
+.list-content .first
+{
     text-align: left;
 }
 .last
