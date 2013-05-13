@@ -89,12 +89,12 @@
     <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
     <Content Include="ashx\admin\StudentManager.ashx" />
-    <Content Include="bll\NPOI.DDF.dll" />
-    <Content Include="bll\NPOI.dll" />
-    <Content Include="bll\NPOI.HPSF.dll" />
-    <Content Include="bll\NPOI.HSSF.dll" />
-    <Content Include="bll\NPOI.POIFS.dll" />
-    <Content Include="bll\NPOI.Util.dll" />
+    <Content Include="lib\NPOI.DDF.dll" />
+    <Content Include="lib\NPOI.dll" />
+    <Content Include="lib\NPOI.HPSF.dll" />
+    <Content Include="lib\NPOI.HSSF.dll" />
+    <Content Include="lib\NPOI.POIFS.dll" />
+    <Content Include="lib\NPOI.Util.dll" />
     <Content Include="css\admin\adm_page.css" />
     <Content Include="css\base.css" />
     <Content Include="css\common.css" />
@@ -869,6 +869,7 @@
     <Content Include="js\teacher\Teacherinfo.js" />
     <Content Include="js\teacher\TeacherSelect.js" />
     <Content Include="js\template.js" />
+    <Content Include="js\Validata.js" />
     <Content Include="Login.aspx" />
     <Content Include="StudentUI\forgetPsd.html" />
     <Content Include="StudentUI\index.html" />
@@ -1056,6 +1057,7 @@
       <DependentUpon>StoreManager.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\CommonCode.cs" />
+    <Compile Include="Common\ConfigurationOperator.cs" />
     <Compile Include="Common\NPOIHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1189,7 +1191,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="ashx\teacher\" />
   </ItemGroup>
   <ItemGroup>
