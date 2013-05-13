@@ -27,15 +27,21 @@ $(function () {
         $("#AdmAddNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
+                    var errorNum = Validata();
+                    console.log(errorNum);
+                    if (errorNum != 0) {
+                        return;
+                    } else {
+                        if (addNewCount()) { //添加新用户成功
 
-                    if (addNewCount()) { //添加新用户成功
-                        //关闭窗口
-                        $("#AdmAddNew").omDialog('close');
-                        $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                            $("#AdmAddNew").omDialog('close');
+                            $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                        }
+                        else {
+                            $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
+                        }
                     }
-                    else {
-                        $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
-                    }
+
                 }
             },
             { text: "继续添加", click:
@@ -58,16 +64,17 @@ $(function () {
         //验证
         $("#AdmAddNew").attr("tabindex", 0);
         $("#AdmAddNew").focus(); //不让输入框一开始就获得焦点
+        Validata();
         //管理员登录名是否需要验证？？？？
-        UPhone.blur(function () {//电话号码验证
-            checkPhone();
+        /*UPhone.blur(function () {//电话号码验证
+        checkPhone();
         })
         UEmail.blur(function () {//email验证
-            checkEmail();
+        checkEmail();
         })
         UQQ.blur(function () {//QQ验证
-            checkQQ();
-        })
+        checkQQ();
+        })*/
 
 
     });

@@ -46,7 +46,7 @@ $(function () {
             sQQ.blur(function () {
             qqValidate = validateQQ(sQQ, $("#qqError"));
             });*/
-            var test = Validata();
+            Validata();
             //console.log(test);
             flag = true;
             $(".person-info").append(addDiv);
@@ -57,7 +57,7 @@ $(function () {
                 //return;
                 //}
                 //console.log(test);
-                var errorNum = $("label.error").length;
+                var errorNum = Validata();
                 if (errorNum != 0) {
                     return;
                 }

@@ -12,6 +12,10 @@
             isQQ: {
                 required: true,
                 isQQ: true
+            },
+            isPasssword: {
+                required: true,
+                isPassword: true
             }
         },
         messages: {
@@ -26,8 +30,12 @@
             isQQ: {
                 required: "请输入QQ",
                 isQQ: "您输入的QQ号码格式不对"
+            },
+            isEmpty: {
+                required: "该项不能为空"
             }
         },
+        validateOnEmpty: true,
         showErrors: function (errorMap, errorList) {
             if (errorList && errorList.length > 0) {
                 $.each(errorList, function (index, obj) {
@@ -46,5 +54,6 @@
             });
         }
     });
+    return test.numberOfInvalids();
 }; 
     

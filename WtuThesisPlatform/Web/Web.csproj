@@ -865,7 +865,7 @@
     <Content Include="js\popup\img\buttons.png" />
     <Content Include="js\popup\jquery.confirm.css" />
     <Content Include="js\popup\jquery.confirm.js" />
-    <Content Include="js\student\StuModifyPwd.js" />
+    <Content Include="js\ModifyPwd.js" />
     <Content Include="js\student\StuMySelect.js" />
     <Content Include="js\student\StuMyStore.js" />
     <Content Include="js\student\StuSelect.js" />

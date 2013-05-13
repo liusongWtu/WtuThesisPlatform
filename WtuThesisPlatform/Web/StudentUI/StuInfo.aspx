@@ -37,7 +37,7 @@
                     <td><input type="text" name="isMobilePhone"  id="sPhone" class="sPhone"  value="<%=currStudent.SPhone %>" readonly="readonly" /></td>
                 </tr>
                 <tr><td>邮箱：</td>
-                    <td><input type="text"name ="isEmail" id="sEmail" class="sEmail"  value="<%=currStudent.SEmail %>" readonly="readonly" /></td>
+                    <td><input type="text" name ="isEmail" id="sEmail" class="sEmail"  value="<%=currStudent.SEmail %>" readonly="readonly" /></td>
                 </tr>
                 <tr><td>QQ：</td>
                     <td><input type="text" name="isQQ" id="sQQ" class="sQQ"  value="<%=currStudent.SQQ %>" readonly="readonly" /></td>

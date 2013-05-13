@@ -5,6 +5,9 @@
     <link rel="Stylesheet" type="text/css" href="../css/admin/adm_page.css" />
     <script type="text/javascript" src="../js/student/StuSelect.js"></script>
     <script src="../js/DataHelper.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/om/ui/rules.js"></script>
+    <script type="text/javascript" src="../js/om/ui/om-validate.js"></script>
+    <script type="text/javascript" src="../js/Validata.js"></script>
     <script type="text/javascript" src="../js/admin/AdminManager.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
@@ -131,7 +134,7 @@
                     电话：
                 </td>
                 <td>
-                    <input type="text" class="UPhone" />
+                    <input type="text" name="isMobilePhone" class="UPhone" />
                 </td>
                 <td>
                     <span id="UPhoneError" style="color: Red; display: none"></span>
@@ -142,7 +145,7 @@
                     EMAIL：
                 </td>
                 <td>
-                    <input type="text" class="UEmail" />
+                    <input type="text" name="isEmail" class="UEmail" />
                 </td>
                 <td>
                     <span id="UEmailError" style="color: Red; display: none"></span>
@@ -153,7 +156,7 @@
                     QQ：
                 </td>
                 <td>
-                    <input type="text" class="UQQ" />
+                    <input type="text" name="isQQ" class="UQQ" />
                 </td>
                 <td colspan="4">
                     <span id="UQQError" style="color: Red; display: none"></span>
