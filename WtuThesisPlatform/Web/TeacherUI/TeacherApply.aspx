@@ -20,12 +20,14 @@
                             <td>预览</td>
                             <td class="last">删除</td>
                         </tr>
-                        <tr class="list-content nohover">
+                       <asp:Repeater runat="server" ID="rptThesis">
+                       <ItemTemplate>
+                            <tr class="list-content nohover" id="<%#Eval("TId") %>">
                             <td class="bold">
-                                <a href="#">毕业设计选题系统</a>
+                                <a href="/TeacherUI/TopicDetail.aspx?tid=<%#Eval("TId") %>"><%#Eval("TName") %></a>
                             </td>
                             <td>
-                                <span class="tea-status">状态</span>
+                                <span class="tea-status"><%#Eval("StateString") %></span>
                             </td>
                             <td>
                                 <a class="tea-apply">申请</a>
@@ -40,6 +42,8 @@
                                 <a class="tea-delete">删除</a>
                             </td>
                         </tr>
+                        </ItemTemplate>
+                        </asp:Repeater>
                     </table>
                 </dd>
             </dl>

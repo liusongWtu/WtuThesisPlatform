@@ -10,24 +10,24 @@
 namespace Web.TeacherUI {
     
     
-    public partial class TeacherInfo {
+    public partial class ApplyExcel {
         
         /// <summary>
-        /// tFaculty 控件。
+        /// form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect tFaculty;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// tProfession 控件。
+        /// tTitle 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect tProfession;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText tTitle;
     }
 }

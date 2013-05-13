@@ -19,14 +19,6 @@ namespace Web.StudentUI
             currStudent = Session["currUser"] as Student;
             if (currStudent != null)
             {
-                //sName.Value = currStudent.SName;
-                //sNo.Value = currStudent.SNo;
-                //sYear.Value = currStudent.SYear;
-                //sPhone.Value = currStudent.SPhone;
-                //sEmail.Value = currStudent.SEmail;
-                //sQQ.Value = currStudent.SQQ;
-                //sSex.Value = currStudent.SSex;
-               
                 LoadSelect(currStudent);
             }
         }

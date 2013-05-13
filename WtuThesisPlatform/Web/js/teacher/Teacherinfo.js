@@ -58,7 +58,7 @@ $(function () {
                 }
                 //取得各项值
                 var newInfo = getInfo(); //点击更新的时候获取新的各项值
-                $.post("../../ashx/student/ModifyInfo.ashx",
+                $.post("../../ashx/teacher/ModifyInfo.ashx",
                     { "did": tFaculty.val(), "mid": tProfession.val(), "phone": tPhone.val(), "email": tEmail.val(), "qq": tQQ.val(), "teachCourse": tTeachCourse.val(), "tResearchFields": tResearchFields.val() },
                     function (data) {
                         if (data == "ok") {

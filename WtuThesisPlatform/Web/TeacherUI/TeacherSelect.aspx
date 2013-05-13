@@ -22,7 +22,7 @@
                         允许人数
                     </td>
                     <td style="width: 20%">
-                        已选人数
+                        新选人数
                     </td>
                     <td style="width: 20%;" class="last">
                         确定人数
@@ -32,18 +32,18 @@
                     <ItemTemplate>
                         <tr class="list-content">
                             <td class="topicName">
-                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("ThesisTitle.TId") %>">
-                                    <%#Eval("ThesisTitle.TName")%>
+                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("TId") %>">
+                                    <%#Eval("TName")%>
                                 </a>
                             </td>
                             <td>
                                 <%#Eval("TNumber") %>
                             </td>
                             <td>
-                                <a href="#"></a>
+                                <a href="#"><%#Eval("TNewNum")%></a>
                             </td>
                             <td>
-                                <a href="#">3</a>
+                                <a href="#"><%#Eval("TAcceptNum")%></a>
                             </td>
                         </tr>
                     </ItemTemplate>

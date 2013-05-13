@@ -9,21 +9,20 @@ using WtuThesisPlatform.BLL;
 
 namespace Web.TeacherUI
 {
-    public partial class TeacherSelect1 : System.Web.UI.Page
+    public partial class TopicDetail : System.Web.UI.Page
     {
         Teacher currTeacher = null;
+        protected ThesisTitle currThesisTitle = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            currTeacher = Session["currUser"] as Teacher;
+            currTeacher=Session["currUser"] as Teacher;
             if (currTeacher != null)
             {
-                ThesisTitleBLL bll = new ThesisTitleBLL();
-                IList<ThesisTitle> lstThesisTitle = bll.GetListByTId(currTeacher.TId.ToString());
-                rptThesis.DataSource = lstThesisTitle;
-                rptThesis.DataBind();
-            }
+                string thesisTitleId=Request["tid"];
+                currThesisTitle = new ThesisTitleBLL().GetModel(Convert.ToInt32(thesisTitleId));
 
+            }
         }
     }
 }

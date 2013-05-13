@@ -352,7 +352,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@DepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@MajorId", SqlDbType.Int,4),
                     new SqlParameter("@TTeachCourse", SqlDbType.VarChar,200),
-                    new SqlParameter("@TResearchFields", SqlDbType.VarChar,16),
+                    new SqlParameter("@TResearchFields", SqlDbType.VarChar,500),
                     new SqlParameter("@TCheckCode", SqlDbType.VarChar,36),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};

@@ -142,6 +142,26 @@ namespace WtuThesisPlatform.MODEL
             get { return _tState; }
         }
 
+        public string StateString
+        {
+            get
+            {
+                if (_tState == 0)
+                {
+                    return "未审核";
+                }
+                else if (_tState == 1)
+                {
+                    return "通过";
+                }
+                else if (_tState == 2)
+                {
+                    return "未通过";
+                }
+                return "";
+            }
+        }
+
         /// <summary>
         ///  届数
         /// </summary>
