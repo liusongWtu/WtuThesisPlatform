@@ -1169,10 +1169,6 @@
     <Compile Include="TeacherUI\ApplyExcel.aspx.designer.cs">
       <DependentUpon>ApplyExcel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TeacherUI\GoodWork.aspx.cs">
-      <DependentUpon>GoodWork.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="TeacherUI\GoodWork.aspx.designer.cs">
       <DependentUpon>GoodWork.aspx</DependentUpon>
     </Compile>
