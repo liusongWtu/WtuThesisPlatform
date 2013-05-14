@@ -30,7 +30,7 @@ $(function () {
                 if (errorNum != 0) {
                     return;
                 }
-                else { 
+                else {
                     var newInfo = getInfo(); //点击更新的时候获取新的各项值
                     //console.log(newInfo);
                     if (modifyInfo()) {//如果更新成功
@@ -47,7 +47,7 @@ $(function () {
                     }
                 }
                 //取得各项值
-                
+
                 return false;
             })
             $("#modify-no").click(function () {
@@ -55,7 +55,8 @@ $(function () {
                 //console.log(oldInfo);
                 //$("#emailError").hide();
                 //$("#phoneError").hide();
-                $(".error:not(input)").hide();
+                $("input.error").removeClass("error");
+                $(".errorImg,.errorMsg").hide();
                 //$("#qqError").hide();
                 $(".button").remove();
                 $(".person-info input").removeClass("active").attr("readonly", "readonly");

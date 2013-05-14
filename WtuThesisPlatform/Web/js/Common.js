@@ -197,7 +197,7 @@ function getViewportWidth() {
 /*************************************验证****************************************************/
 
 //验证邮箱,txtEmail：邮箱标签；errorInfo：显示错误信息标签
-function validateEmail(txtEmail, errorInfo) {
+/*function validateEmail(txtEmail, errorInfo) {
     var email = txtEmail.val().trim();
     console.log(email);
     var emailPatrn = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -302,5 +302,5 @@ function validateYear(txtNum, errorInfo) {
         errorInfo.style.display = "";
         return false;
     }
-}
+}*/
 

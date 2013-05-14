@@ -12,7 +12,11 @@ $(function(){
             notDate:"非法日期格式",
             checkTime:"时间格式非法",
             notFullTime:"日期格式非法",
-    };
+            notTeaNum:"限带人数不合法"
+        };
+    $.validator.addMethod("isTeaNum", function (value) {
+        return checkTeaNum(value);
+    }, $.omRules.lang.notTeaNum);
     /**
      * ruleName : isNum
      */
@@ -85,7 +89,14 @@ $(function(){
     }, $.omRules.lang.notFullTime);
 
 });
-
+function checkTeaNum(str) {
+    if (str.match(/^\d$|^1\d$|^20$/) == null) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
 /**
  * 检查输入的一串字符是否全部是数字
  * 输入:str  字符串

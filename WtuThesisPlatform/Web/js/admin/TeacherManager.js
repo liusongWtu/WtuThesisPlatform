@@ -10,7 +10,6 @@ var DepartmentId;
 var MajorId;
 var TTeachCourse;
 var TResearchFields;
-
 $(function () {
     TNo = $(".TNo");
     TSex = $(".TSex");
@@ -31,33 +30,55 @@ $(function () {
         width: 550,
         modal: true
     });
-
     //添加用户
     $("#add").click(function () {
-        loadDepartment(DepartmentId); //加载下拉列表
+        //加载下拉列表
+        TSex.empty();
+        TSex.append("<option>男</option><option>女</option>");
+        loadDepartment(DepartmentId); 
+        loadMajor(MajorId, DepartmentId.val());
         DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
         $("#teaAddNew").omDialog({ title: "添加用户" });
         $("#teaAddNew").omDialog('open');
         $("#teaAddNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
-
-                    if (addNewCount()) { //添加新用户成功
-                        //关闭窗口
-                        $("#teaAddNew").omDialog('close');
-                        $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                    //var errorNum = Validata();
+                    //console.log(errorNum);
+                    //if (errorNum != 0) {
+                    //return;
+                    //}
+                    var error = $("span.errorImg:visible").length;
+                    if (error != 0) {
+                        return;
                     }
                     else {
-                        $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
+                        if (addNewCount()) { //添加新用户成功
+                            //关闭窗口
+                            $("#teaAddNew").omDialog('close');
+                            $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                        }
+                        else {
+                            $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
+                        }
                     }
+                    window.location.reload();
+
                 }
             },
             { text: "继续添加", click:
                 function () {
-                    if (addNewCount()) {//添加成功
-                        $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
-                        $("#teaAddNew input").val("");
-                        $("#teaAddNew textarea").val("");
+                    var error = $("span.errorImg:visible").length;
+                    if (error != 0) {
+                        return;
+                    }
+                    else {
+                        if (addNewCount()) {//添加成功
+                            $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                            $("#teaAddNew input").val("");
+                            $("#teaAddNew textarea").val("");
+                            
+                        }
                     }
                 }
             },
@@ -72,21 +93,33 @@ $(function () {
         //验证
         $("#teaAddNew").attr("tabindex", 0);
         $("#teaAddNew").focus(); //不让输入框一开始就获得焦点
-        TNo.blur(function () {//教工号验证
-            checkTNo();
+        TNo.blur(function () {
+            checkTNoDB(TNo.val());
+        })
+
+        /*TNo.blur(function () {//教工号验证
+        checkTNo();
         })
         TPhone.blur(function () {//电话号码验证
-            checkPhone();
+        checkPhone();
         })
         TEmail.blur(function () {//email验证
-            checkEmail();
+        checkEmail();
         })
         TQQ.blur(function () {//QQ验证
-            checkQQ();
+        checkQQ();
         })
         TTeachNum.blur(function () {//教师限带人数验证
-            checkTTeachNum();
-        })
+        checkTTeachNum();
+        })*/
+        Validata();
+        $("#teaAddNew").omDialog({ onClose: function () {
+            clear();
+            $(".errorImg,.errorMsg").hide();
+            TNo.unbind("blur");
+            
+        }
+        });
 
     });
 
@@ -123,7 +156,11 @@ $(function () {
         $("#teaAddNew").omDialog('open');
         setInfo(teaId, "detail");
         $(".addTable input,.addTable textarea").attr("readonly", "readonly");
-        $("#teaAddNew").omDialog({ onClose: function () { clear(); } });
+        $("#teaAddNew").omDialog({ onClose: function () {
+            clear();
+            $(".errorImg,.errorMsg").hide();
+        }
+        });
     });
 
 
@@ -135,14 +172,21 @@ $(function () {
         $("#teaAddNew").omDialog({ buttons: [
                 { text: "确定", click:
                     function () {
-                        if (modifyCount(teaId)) { //修改成功
-                            //关闭窗口
-                            $("#teaAddNew").omDialog('close');
-                            $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
+                        var error = $("span.errorImg:visible").length;
+                        if (error != 0) {
+                            return;
+                        } else {
+                            if (modifyCount(teaId)) { //修改成功
+                                //关闭窗口
+                                $("#teaAddNew").omDialog('close');
+                                $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
+                                
+                            }
+                            else {
+                                $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
+                            }
                         }
-                        else {
-                            $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
-                        }
+                        window.location.reload();
                     }
                 },
 
@@ -156,7 +200,12 @@ $(function () {
         $("#teaAddNew").omDialog('open');
         setInfo(teaId, "modify");
         $(".addTable input,.addTable textarea").removeAttr("readonly");
-
+        $("#teaAddNew").omDialog({ onClose: function () {
+            clear();
+            $("input.error").removeClass("error");
+            $(".errorImg,.errorMsg").hide();
+        }
+        });
     });
 
     //重置密码
@@ -199,9 +248,39 @@ $(function () {
             }
         });
     });
+    /*var oldTNo = TNo.val();
+    TNo.blur(function () {
+    if (oldTNo == "") {
+    checkTNoDB(TNo.val());
+    }
+    else { 
+    var newNo = TNo.val();
+    if (oldInfo.TNo != newNo) {
+    checkTNoDB(TNo.val());
+    }
+    }
+        
+
+    });
+    oldNo = TNo.val();
+    newNo = TNo.val();
+    TNo.blur(function(){
+    newNo = TNo.val();
+    TNo.trigger("b");
+    })
+    TNo.bind("b",function(){
+    f(oldNo,newNo);
+    })*/
 
 });
-
+/*function f(oldI,newI){
+    if(oldI == ""){
+        checkTNoDB(newI);
+    }
+    else if(oldI != newI){
+        checkTNoDB(newI);
+    }
+}*/
 function getInfo() {
     var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
     return info;
@@ -214,18 +293,22 @@ function setInfo(teaId, operate) {
         info = eval("(" + data + ")");
         TNo.val(info.TNo);
         TName.val(info.TName);
-        TSex.val(info.TSex);
+        //TSex.val(info.TSex);
         TPhone.val(info.TPhone);
         TEmail.val(info.TEmail);
         TQQ.val(info.TQQ);
         TZhiCheng.val(info.TZhiCheng);
         TTeachNum.val(info.TTeachNum);
-        TTeachCourse.text(info.TTeachCourse);
-        TResearchFields.text(info.TResearchFields);
+        TTeachCourse.val(info.TTeachCourse);
+        TResearchFields.val(info.TResearchFields);
         if (operate == "detail") {
+            TSex.empty();
+            TSex.append("<option selected='selected'>" + info.TSex + "</option>");
             DepartmentId.append("<option selected='selected'>" + info.Department.DName + "</option>");
             MajorId.append("<option selected='selected'>" + info.Major.MName + "</option>");
         } else if (operate == "modify") {
+            TSex.empty();
+            TSex.append("<option>男</option><option>女</option>");
             loadDepartment(DepartmentId); //加载下拉列表
             DepartmentId.find("option[value=" + info.Department.DId + "]").attr("selected", "selected");
             DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
@@ -234,42 +317,58 @@ function setInfo(teaId, operate) {
 
             //验证
             var oldInfo = getInfo();
-            $("#teaAddNew").attr("tabindex", 0);
-            $("#teaAddNew").focus();
-            TNo.blur(function () {
-                var newNo = TNo.val();
-                if (oldInfo.TNo != newNo) {
-                    checkTNo(oldInfo);
-                }
+            //$("#teaAddNew").attr("tabindex", 0);
+            // $("#teaAddNew").focus();
+            /*TNo.blur(function () {
+            var newNo = TNo.val();
+            if (oldInfo.TNo != newNo) {
+            checkTNo(oldInfo);
+            }
             });
             TPhone.blur(function () {
-                var newPhone = TPhone.val();
-                if (oldInfo.TPhone != newPhone) {
-                    checkPhone(oldInfo);
-                }
+            var newPhone = TPhone.val();
+            if (oldInfo.TPhone != newPhone) {
+            checkPhone(oldInfo);
+            }
             });
             TEmail.blur(function () {
-                var newEmail = TEmail.val();
-                if (oldInfo.TEmail != newEmail) {
-                    checkEmail(oldInfo);
-                }
+            var newEmail = TEmail.val();
+            if (oldInfo.TEmail != newEmail) {
+            checkEmail(oldInfo);
+            }
             });
             TQQ.blur(function () {
-                var newQQ = TQQ.val();
-                if (oldInfo.TQQ != newQQ) {
-                    checkQQ(oldInfo);
-                }
+            var newQQ = TQQ.val();
+            if (oldInfo.TQQ != newQQ) {
+            checkQQ(oldInfo);
+            }
 
             });
             TTeachNum.blur(function () {
-                var newTeachNum = TTeachNum.val();
-                if (oldInfo.TTeachNum != newTeachNum) {
-                    checkTTeachNum(oldInfo);
+            var newTeachNum = TTeachNum.val();
+            if (oldInfo.TTeachNum != newTeachNum) {
+            checkTTeachNum(oldInfo);
+            }
+            });*/
+            TNo.blur(function () {
+                var newNo = TNo.val();
+                if (info.TNo != newNo) {
+                    checkTNoDB(TNo.val());
                 }
+            })
+            Validata();
+
+            $("#teaAddNew").omDialog({ onClose: function () {
+                clear();
+                $("input.error").removeClass("error");
+                $(".errorImg .errorMsg").hide();
+                TNo.unbind("blur");
+            }
             });
         }
 
     });
+
 }
 
 function addNewCount() {//添加新用户
@@ -332,16 +431,15 @@ function checkTNoDB(tno) {
         if (data == "ok") {
 
         } else {
-            $.omMessageBox.confirm({
-                title: '提示',
-                content: '您输入的教工号已存在！',
-                onClose: function (v) { }
-            });
+            //$.omMessageTip.show({ content: '您输入的教工号已存在！', timeout: 1500, type: 'tip' });
+            TNo.parent().next().children("span.errorImg").css("display", "block");
+            TNo.parent().next().children("span.errorMsg").text("您输入的教工号已存在");
+            return;
         }
     });
 }
 
-function checkPhone() {
+/*function checkPhone() {
     var phoneValidata = validatePhone(TPhone.get(0), $("#TPhoneError").get(0));
     if (!phoneValidata) {
         $.omMessageBox.confirm({
@@ -405,7 +503,7 @@ function checkTNo() {
         });
     }
     checkTNoDB(TNo.val());
-}
+}*/
 
 //清空
 function clear() {

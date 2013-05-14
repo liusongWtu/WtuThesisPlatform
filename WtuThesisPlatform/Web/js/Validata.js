@@ -16,6 +16,16 @@
             isPasssword: {
                 required: true,
                 isPassword: true
+            },
+            isNameEmpty: {
+                required: true
+            },
+            isUserNameEmpty: {
+                required: true
+            },
+            isTeaNum: {
+                required: true,
+                isTeaNum: true
             }
         },
         messages: {
@@ -31,28 +41,55 @@
                 required: "请输入QQ",
                 isQQ: "您输入的QQ号码格式不对"
             },
-            isEmpty: {
+            isNameEmpty: {
                 required: "该项不能为空"
+            },
+            isUserNameEmpty: {
+                required: "该项不能为空"
+            },
+            isTeaNum: {
+                required: "该项不能为空",
+                isTeaNum: "教师限带人数范围是0~20"
             }
         },
         validateOnEmpty: true,
+        errorPlacement: function (error, element) {
+            if (error.html()) {
+                $(element).parents().map(function () {
+                    if (this.tagName.toLowerCase() == 'td') {
+                        var attentionElement = $(this).next().children().eq(0);
+                        attentionElement.css('display', 'block');
+                        attentionElement.next().html(error);
+                    }
+                });
+            }
+        },
         showErrors: function (errorMap, errorList) {
             if (errorList && errorList.length > 0) {
                 $.each(errorList, function (index, obj) {
-                    $(obj.element).next().show();
+                    var msg = this.message;
+                    $(obj.element).parents().map(function () {
+                        if (this.tagName.toLowerCase() == 'td') {
+                            var attentionElement = $(this).next().children().eq(0);
+                            attentionElement.show();
+                            attentionElement.next().html(msg);
+                        }
+                    });
                 });
-                this.defaultShowErrors();
             } else {
-                var hideEmpError = $(this.currentElements).next();
-                if (hideEmpError.length > 0 && hideEmpError[0].tagName == 'LABEL' && hideEmpError.hasClass('error'))
-                    hideEmpError.hide();
+                $(this.currentElements).parents().map(function () {
+                    if (this.tagName.toLowerCase() == 'td') {
+                        $(this).next().children().eq(0).hide();
+                    }
+                });
             }
-            $(this.currentElements).each(function (index, item) {
-                if ($(item).hasClass("valid")) {
-                    $(item).next(".error").hide();
-                }
-            });
+            this.defaultShowErrors();
         }
+    });
+    $('.errorImg').bind('mouseover', function () {
+        $(this).next().css('display', 'block');
+    }).bind('mouseout', function () {
+        $(this).next().css('display', 'none');
     });
     return test.numberOfInvalids();
 }; 

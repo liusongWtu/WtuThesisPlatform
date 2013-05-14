@@ -49,3 +49,23 @@
 {
     border: none;
 }
+
+
+
+ .errorImg
+ {
+     background: url("../../images/msg_bg.png") no-repeat scroll 0 0 transparent;
+     height: 16px;
+     width: 16px;
+     cursor: pointer;
+ }
+.errorMsg
+{
+    border: 1px solid gray;
+    background-color: #FCEFE3;
+    display: none;
+    position: absolute;
+    margin-top: -18px;
+    margin-left: 18px;
+    line-height: 20px;
+}

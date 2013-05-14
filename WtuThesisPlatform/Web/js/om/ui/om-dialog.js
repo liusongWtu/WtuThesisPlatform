@@ -285,7 +285,7 @@ $.omWidget("om.omDialog", {
 			titleId = $.om.omDialog.getTitleId(self.element),
 
 			uiDialog = (self.uiDialog = $('<div></div>'))
-				.appendTo(document.body)
+				.appendTo(document.getElementById("form1"))
 				.hide()
 				.addClass(uiDialogClasses + options.dialogClass)
 				.css({

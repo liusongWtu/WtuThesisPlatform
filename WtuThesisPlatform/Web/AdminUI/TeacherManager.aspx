@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="TeacherManager.aspx.cs" Inherits="Web.AdminUI.TeacherManager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/admin/adm_page.css" />
+    <script type="text/javascript" src="../js/om/ui/rules.js"></script>
+    <script type="text/javascript" src="../js/om/ui/om-validate.js"></script>
+    <script type="text/javascript" src="../js/Validata.js"></script>
     <script type="text/javascript" src="../js/admin/TeacherManager.js"></script>
     <script src="../js/DataHelper.js" type="text/javascript"></script>
 
@@ -104,11 +107,11 @@
     </div>
     <div id="teaAddNew" title="添加用户">
         <table class="addTable">
-            <tr><td>教工号：</td><td><input type="text" class="TNo" /></td><td><span id="TNoError" style="color: red; display: none">*</span></td><td>姓名：</td><td><input type="text" class="TName"/></td><td><span style="color: red; display: none">*</span></td></tr>
-            <tr><td>性别：</td><td><input type="text"  class="TSex" /></td><td><span id="Span3" style="color: red; display: none">*</span></td><td>电话：</td><td><input type="text" class="TPhone" /></td><td><span id="TPhoneError" style="color: red; display: none">*</span></td></tr>
-            <tr><td>EMAIL：</td><td><input type="text" class="TEmail" /></td><td><span id="TEmailError" style="color: red; display: none">*</span></td><td>QQ：</td><td><input type="text"  class="TQQ" /></td><td><span id="TQQError" style="color: red; display: none">*</span></td></tr>
-            <tr><td>职称：</td><td><input type="text"  class="TZhiCheng" /></td><td><span id="Span7" style="color: red; display: none">*</span></td><td>限带人数：</td><td><input type="text"  class="TTeachNum" /></td><td><span id="TTeachNumError" style="color: red; display: none">*</span></td></tr>
-            <tr><td>院系：</td><td><select  class="DepartmentId"></select></td><td><span id="Span8" style="color: red; display: none">*</span></td><td>专业：</td><td><select  class="MajorId"></select></td><td><span id="Span9" style="color: red; display: none">*</span></td></tr>
+            <tr><td>教工号：</td><td><input type="text" class="TNo" name="isUserNameEmpty" /></td><td><span class="errorImg"></span><span class="errorMsg"></span></td><td>姓名：</td><td><input type="text" name="isNameEmpty" class="TName"/></td><td><span class="errorImg"></span><span class="errorMsg"></span></td></tr>
+            <tr><td>性别：</td><td><select class="TSex"><option>男</option><option>女</option></select></td><td><span class="errorImg"></span><span class="errorMsg"></span></td><td>电话：</td><td><input type="text" name="isMobilePhone" class="TPhone" /></td><td><span class="errorImg"></span><span class="errorMsg"></span></td></tr>
+            <tr><td>EMAIL：</td><td><input type="text" name="isEmail" class="TEmail" /></td><td><span class="errorImg"></span><span class="errorMsg"></span></td><td>QQ：</td><td><input type="text" name="isQQ"  class="TQQ" /></td><td><span class="errorImg"></span><span class="errorMsg"></span></td></tr>
+            <tr><td>职称：</td><td><input type="text"  class="TZhiCheng" /></td><td><span class="errorImg"></span><span class="errorMsg"></span></td><td>限带人数：</td><td><input type="text" name="isTeaNum"  class="TTeachNum" /></td><td><span class="errorImg"></span><span class="errorMsg"></span></td></tr>
+            <tr><td>院系：</td><td><select  class="DepartmentId"></select></td><td><span class="errorImg"></span><span class="errorMsg"></span></td><td>专业：</td><td><select  class="MajorId"></select></td><td><span class="errorImg"></span><span class="errorMsg"></span></td></tr>
             <tr><td>主讲课程：</td><td colspan="5"><textarea   class="TTeachCourse" rows="10" cols="10"></textarea></td></tr>
             <tr><td>研究方向：</td><td colspan="5"><textarea  class="TResearchFields" rows="10" cols="10"></textarea></td></tr>
         </table>
