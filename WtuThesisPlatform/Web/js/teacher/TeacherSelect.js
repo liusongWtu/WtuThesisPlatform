@@ -13,15 +13,19 @@ $(function () {
     }*/
     $(".tea-apply").click(function () {//申请选题
         if (!$(this).hasClass("applyed")) {
-            $(this).text("取消").addClass("applyed");
-            $(this).parent().prev().children("span").text("处理中...").css("color", "red");
-            $.post("", {}, function (data) {
-
+            var myThis = $(this);
+            $.post("../../ashx/teacher/TeacherApply.ashx", { "operate": "apply", "tid": $(this).parent().parent().attr("id") }, function (data) {
+                if (data == "ok") {
+                    $(myThis).text("取消").addClass("applyed");
+                    $(myThis).parent().prev().children("span").text("处理中...").css("color", "red");
+                    $.omMessageTip.show({ content: '已申请，等待审批！', timeout: 1000, type: 'success' });
+                } else {
+                    $.omMessageTip.show({ content: '网络异常，请稍后操作！', timeout: 1000, type: 'error' });
+                }
             });
-            $.omMessageTip.show({ content: '已申请，等待审批！', timeout: 1000, type: 'success' });
         }
         else {
-            if (cansoleApply()) {//取消申请
+            if (cansoleApply($(this).parent().parent().attr("id"))) {//取消申请
                 $(this).text("申请").removeClass("applyed");
                 $(".tea-status").text("状态").css("color", "black");
                 $.omMessageTip.show({ content: '取消成功！', timeout: 1000, type: 'success' });
@@ -39,7 +43,7 @@ $(function () {
             content: '确定要将所选项删除？',
             onClose: function (value) {
                 if (value) {
-                    $.ajax({ type: "post", url: "", data: "operate=del&tid=" + aid, async: true, success: function (data) {
+                    $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", data: "operate=del&tid=" + aid, async: true, success: function (data) {
                         if (data == "ok") {
                             myThis.parent().parent().remove(); //这个就是删除标签，好像没起作用
                             $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
@@ -101,7 +105,7 @@ $(function () {
                 if (value) {
                     $checked.each(function () {
                         var aid = $(this).parent().parent().attr("id");
-                        $.ajax({ type: "post", url: "", data: "operate=del&tid=" + aid, success: function (data) {
+                        $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", data: "operate=del&tid=" + aid, success: function (data) {
                             if (data == "ok") {
                                 $(this).parent().parent().remove();
                                 tag = true;

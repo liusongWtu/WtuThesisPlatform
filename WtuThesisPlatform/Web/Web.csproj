@@ -1071,6 +1071,9 @@
     <Compile Include="ashx\teacher\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\teacher\TeacherApply.ashx.cs">
+      <DependentUpon>TeacherApply.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\teacher\TeacherSelect.ashx.cs">
       <DependentUpon>TeacherSelect.ashx</DependentUpon>
     </Compile>
@@ -1290,6 +1293,7 @@
     <Content Include="ashx\admin\AdminManager.ashx" />
     <Content Include="ashx\teacher\ModifyInfo.ashx" />
     <Content Include="ashx\teacher\TeacherSelect.ashx" />
+    <Content Include="ashx\teacher\TeacherApply.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>
