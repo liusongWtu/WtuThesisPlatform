@@ -10,22 +10,7 @@
             <dd>
                 <ul>
                     <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li class="fn-ellipsis"><a href="#">毕业设计选题系统作品欣赏</a></li>
+        
                 </ul>
             </dd>
         </dl>
@@ -37,8 +22,6 @@
                 <dd>
                     <ul>
                         <li class="fn-ellipsis"><a href="#">马上要交毕业设计了，你们赶紧的啊~~</a></li>
-                        <li class="fn-ellipsis"><a href="#">马上要交毕业设计了，你们赶紧的啊~~</a></li>
-                        <li class="fn-ellipsis"><a href="#">马上要交毕业设计了，你们赶紧的啊~~</a></li>
                     </ul>
                 </dd>
             </dl>
@@ -48,8 +31,6 @@
                 <dt class="fn-ellipsis">相关文档下载<span class="fr more"><a href="#">>>更多</a></span></dt>
                 <dd>
                     <ul>
-                        <li class="fn-ellipsis"><a href="#">毕业设计各种作弊方法大全</a></li>
-                        <li class="fn-ellipsis"><a href="#">毕业设计各种作弊方法大全</a></li>
                         <li class="fn-ellipsis"><a href="#">毕业设计各种作弊方法大全</a></li>
                     </ul>
                 </dd>

@@ -83,6 +83,7 @@ $(function(){
     $.validator.addMethod("isFullTime", function(value) {
         return checkFullTime(value);
     }, $.omRules.lang.notFullTime);
+
 });
 
 /**
