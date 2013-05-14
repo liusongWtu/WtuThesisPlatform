@@ -80,5 +80,8 @@
         </div>
     </div>
     </form>
+    <form id="f1" action="AddNotice.aspx">
+        <input type="text" />
+    </form>
 </body>
 </html>

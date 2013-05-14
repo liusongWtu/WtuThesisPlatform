@@ -31,7 +31,7 @@
                                 <span class="tea-status"><%#Eval("StateString") %></span>
                             </td>
                             <td>
-                                <a class="tea-apply">申请</a>
+                                <a class="tea-apply" state="<%#Eval("IsDel") %>">申请</a>
                             </td>
                             <td>
                                 <a class="tea-modify">修改</a>

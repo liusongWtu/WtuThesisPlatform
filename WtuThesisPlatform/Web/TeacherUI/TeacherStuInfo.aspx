@@ -34,7 +34,9 @@
                         操作
                     </td>
                 </tr>
-                <tr class="list-content">
+               <asp:Repeater ID="rptStudent" runat="server">
+                <ItemTemplate>
+                     <tr class="list-content">
                     <td class="bold left sTittle">
                         <a href="#">酒店管理系统</a>
                     </td>
@@ -54,6 +56,8 @@
                         <a class="selectStatus">选择</a>
                     </td>
                 </tr>
+                </ItemTemplate>
+               </asp:Repeater>
             </table>
         </div>
     </div>

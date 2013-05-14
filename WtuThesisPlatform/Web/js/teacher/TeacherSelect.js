@@ -12,12 +12,13 @@ $(function () {
     tReqire: '',
     }*/
     $(".tea-apply").click(function () {//申请选题
+        var myThis = $(this);
         if (!$(this).hasClass("applyed")) {
-            var myThis = $(this);
             $.post("../../ashx/teacher/TeacherApply.ashx", { "operate": "apply", "tid": $(this).parent().parent().attr("id") }, function (data) {
-                if (data == "ok") {
+                var jsonArr = eval("(" + data + ")");
+                if (jsonArr.result == "ok") {
                     $(myThis).text("取消").addClass("applyed");
-                    $(myThis).parent().prev().children("span").text("处理中...").css("color", "red");
+                    //$(myThis).parent().prev().children("span").text("处理中...").css("color", "red");
                     $.omMessageTip.show({ content: '已申请，等待审批！', timeout: 1000, type: 'success' });
                 } else {
                     $.omMessageTip.show({ content: '网络异常，请稍后操作！', timeout: 1000, type: 'error' });
@@ -25,14 +26,17 @@ $(function () {
             });
         }
         else {
-            if (cansoleApply($(this).parent().parent().attr("id"))) {//取消申请
-                $(this).text("申请").removeClass("applyed");
-                $(".tea-status").text("状态").css("color", "black");
-                $.omMessageTip.show({ content: '取消成功！', timeout: 1000, type: 'success' });
-            }
-            else {
-                $.omMessageTip.show({ content: '取消失败！', timeout: 1000, type: 'error' });
-            }
+            $.post("../../ashx/teacher/TeacherApply.ashx", { "operate": "cancel", "tid": $(this).parent().parent().attr("id") }, function (data) {
+                var jsonArr = eval("(" + data + ")");
+                if (jsonArr.result == "ok") {
+                    //取消申请
+                    $(myThis).text("申请").removeClass("applyed");
+                    $(myThis).parent().prev().children("span").text(jsonArr.state);
+                    $.omMessageTip.show({ content: '取消成功！', timeout: 1000, type: 'success' });
+                } else {
+                    $.omMessageTip.show({ content: '取消失败！', timeout: 1000, type: 'error' });
+                }
+            });
         }
     });
     $(".tea-delete").click(function () {//删除申请
@@ -127,9 +131,5 @@ $(function () {
         });
     });
 });
-
-function cansoleApply() { //取消申请
-    return true;
-}
 
 
