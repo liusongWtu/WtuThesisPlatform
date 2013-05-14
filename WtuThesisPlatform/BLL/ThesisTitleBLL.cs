@@ -52,6 +52,11 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetModel(intId);
         }
+
+        public object GetModel(int teacherId, string title,string year)
+        {
+            return dal.GetModel(" TTeacherId="+teacherId+" and TName='"+title+"' and TYear='"+year+"'");
+        }
         #endregion
 
         #region GET DATA LIST
@@ -143,5 +148,7 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList("TTeacherId=" + teacherId+(year==""? "":" and TYear="+year)+" and TState"+(pass? "=1":"!=1"));
         }
         #endregion
+
+        
     }
 }

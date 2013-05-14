@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master" AutoEventWireup="true" CodeBehind="PublishNotice.aspx.cs" Inherits="Web.TeacherUI.PublishNotice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
+    <script src="../js/teacher/ApplyExcel.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap-teacher">
@@ -10,18 +11,14 @@
                  <div class="line"></div>
                  <div class="apply-table-wrap center">
                      <table cellspacing="0" cellpadding="0" align="center" class="apply-table">
-                        <tr><td class="col-name">题目：</td><td colspan="3"><input class="input-style" type="text" /></td></tr>
+                        <tr><td class="col-name">题目：</td><td colspan="3"><input class="input-style" id="txtTitle" type="text" /></td></tr>
+                        <tr><td class="col-name">开发平台</td><td><input class="input-style" id="platform" type="text" /></td><td class="col-name">限选人数</td><td><input id="number" class="input-style" type="text" /></td></tr>
                         <tr><td colspan="4" class="col-name">课题内容 ( 国内外现状,重点要解决的问题 )简介：</td></tr>
-				        <tr><td colspan="4"><textarea class="input-style td-height"></textarea></td></tr>
+				        <tr><td colspan="4"><textarea id="txtIntroduct" class="input-style td-height"></textarea></td></tr>
                         <tr><td colspan="4"  class="col-name">课题的准备情况及对学生的要求（文献、仪器设备、材料、工作地点及学生须具备的技能）：</td></tr>
-				        <tr><td colspan="4"><textarea  class="input-style td-height"></textarea></td></tr>
-                        <tr><td class="col-name">课题内容性质：</td><td colspan="3"><input class="input-style" type="text" /></td></tr>
-                        <tr><td class="col-name">课题来源性质：</td><td><input class="input-style" type="text" /></td><td class="col-name">类型：</td><td><input class="input-style" type="text" /></td></tr>
-                        <tr><td colspan="4" class="col-name">系主任审核意见： </td></tr>
-				        <tr><td colspan="4"><textarea  class="input-style td-height"></textarea></td></tr>
-                        <tr><td colspan="4" class="col-name">教学督导组审核意见： </td></tr>
-				        <tr><td colspan="4"><textarea  class="input-style td-height"></textarea></td></tr>
-				        <tr><td colspan="4"><button>保存</button></td></tr>
+				        <tr><td colspan="4"><textarea id="txtRequire"  class="input-style td-height"></textarea></td></tr>
+				        <tr><td colspan="4"> <input type="button" id="btnSave" class="btnSave" value="保 存" />
+                            </td></tr>
                      </table>
                  </div>
                  

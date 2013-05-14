@@ -263,7 +263,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.TId;
-                parameters[1].Value = model.Teacher;
+                parameters[1].Value = model.Teacher.TId;
                 parameters[2].Value = model.TName;
                 parameters[3].Value = model.TLevel;
                 parameters[4].Value = model.TNumber;

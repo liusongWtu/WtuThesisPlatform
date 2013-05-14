@@ -64,10 +64,11 @@ $(function () {
     $(".selectStatus").click(function () {//选择学生
         var tid = $(".sTittle").attr("id");
         var sid = $(".sStuName").atte("id");
+        var myThis = $(this);
         if (!$(this).hasClass("selected")) {//如果还没有选择
-            $.ajax({ type: "post", url: "", data: "operate=select&tid=" + tid + "&sid" + sid, success: function (data) {
+            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=select&tid=" + tid + "&sid" + sid, success: function (data) {
                 if (data == "ok") {
-                    $(this).text("取消").addClass("selected");
+                    $(myThis).text("取消").addClass("selected");
                     $.omMessageTip.show({ content: '选择成功！', timeout: 1000, type: 'success' });
                 }
                 if (data == "ThesisFull") {

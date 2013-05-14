@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master"
-    AutoEventWireup="true" CodeBehind="TeacherStuInfo.aspx.cs" Inherits="Web.TeacherUI.TeacherStuInfo" %>
+    AutoEventWireup="true" CodeBehind="TeacherSelectStu.aspx.cs" Inherits="Web.TeacherUI.TeacherStuInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="Stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
@@ -37,20 +37,20 @@
                <asp:Repeater ID="rptStudent" runat="server">
                 <ItemTemplate>
                      <tr class="list-content">
-                    <td class="bold left sTittle">
-                        <a href="#">酒店管理系统</a>
+                    <td class="bold left sTittle" id="<%#Eval("ThesisTitle.TId") %>">
+                        <a href="#"><%#Eval("ThesisTitle.TName") %></a>
                     </td>
-                    <td class="sStuName">
-                        <a href="#">刘大姐</a>
-                    </td>
-                    <td>
-                        女
+                    <td class="sStuName" id="<%#Eval("Student.SId") %>">
+                        <a href="#"><%#Eval("Student.SName") %></a>
                     </td>
                     <td>
-                        0904681111
+                        <%#Eval("Student.SSex") %>
                     </td>
                     <td>
-                        软件工程
+                        <%#Eval("Student.SNo") %>
+                    </td>
+                    <td>
+                        <%#Eval("Student.Major.MName") %>
                     </td>
                     <td>
                         <a class="selectStatus">选择</a>

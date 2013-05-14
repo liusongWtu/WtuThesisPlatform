@@ -144,5 +144,10 @@ namespace WtuThesisPlatform.BLL
             return obj == null ? false : true;
         } 
         #endregion
+
+        public IList<ThesisSelected> GetListByThesisId(string thesisTitleId)
+        {
+            return dal.GetList(" ThesisTitleId="+thesisTitleId);
+        }
     }
 }

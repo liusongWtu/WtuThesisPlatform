@@ -39,7 +39,7 @@
                                 <%#Eval("TNumber") %>
                             </td>
                             <td>
-                                <a href="#"><%#Eval("TNewNum")%></a>
+                                <a href="/TeacherUI/TeacherSelectStu.aspx?tid=<%#Eval("TId") %>"><%#Eval("TNewNum")%></a>
                             </td>
                             <td>
                                 <a href="#"><%#Eval("TAcceptNum")%></a>
