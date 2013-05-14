@@ -138,9 +138,9 @@ namespace WtuThesisPlatform.BLL
         /// </summary>
         /// <param name="teacherId"></param>
         /// <returns></returns>
-        public IList<ThesisTitle> GetAllListByTId(string teacherId,string year)
+        public IList<ThesisTitle> GetAllListByTId(string teacherId,string year,bool pass)
         {
-            return dal.GetList("TTeacherId=" + teacherId+(year==""? "":" and TYear="+year));
+            return dal.GetList("TTeacherId=" + teacherId+(year==""? "":" and TYear="+year)+" and TState"+(pass? "=1":"!=1"));
         }
         #endregion
     }

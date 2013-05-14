@@ -31,7 +31,7 @@
                     <ItemTemplate>
                         <tr class="list-content">
                             <td class="topicName bold left">
-                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("TId") %>">
+                                <a href="/TeacherUI/TopicDetail.aspx?tid=<%#Eval("TId") %>">
                                     <%#Eval("TName")%>
                                 </a>
                             </td>

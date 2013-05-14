@@ -60,13 +60,14 @@ namespace Web.ashx.teacher
         private void ChangeDel(bool isDel)
         {
             string tid=context.Request["tid"];
+            ThesisTitle thesisTitle = bll.GetModel(Convert.ToInt32(tid));
             if (bll.UpdateDel(tid, isDel) > 0)
             {
-                context.Response.Write("ok");
+                context.Response.Write("{result:'ok',state:'"+thesisTitle.StateString+"'}");
             }
             else
             {
-                context.Response.Write("failed");
+                context.Response.Write("{result:failed}");
             }
         }
 
