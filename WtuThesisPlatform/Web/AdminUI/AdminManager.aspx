@@ -105,6 +105,7 @@
             </div>
         </div>
     </div>
+    
     <div id="AdmAddNew">
         <table class="addTable">
             <tr>
@@ -112,22 +113,18 @@
                     登录名：
                 </td>
                 <td>
-                    <input type="text" class="UUserName" />
+                    <input type="text" name="isUserNameEmpty" class="UUserName" />
                 </td>
-                <td>
-                    <span id="UUserNameError" style="color: Red; display: none"></span>
-                </td>
+                <td><span class="errorImg"></span><span class="errorMsg"></span></td>
             </tr>
             <tr>
                 <td>
                     姓名：
                 </td>
                 <td>
-                    <input type="text" class="UName" />
+                    <input type="text" name="isNameEmpty" class="UName" />
                 </td>
-                <td>
-                    <span style="color: Red; display: none"></span>
-                </td>
+                <td><span class="errorImg"></span><span class="errorMsg"></span></td>
             </tr>
             <tr>
                 <td>
@@ -135,10 +132,8 @@
                 </td>
                 <td>
                     <input type="text" name="isMobilePhone" class="UPhone" />
-                </td>
-                <td>
-                    <span id="UPhoneError" style="color: Red; display: none"></span>
-                </td>
+                </td>   
+                <td><span class="errorImg"></span><span class="errorMsg"></span></td>         
             </tr>
             <tr>
                 <td>
@@ -147,9 +142,7 @@
                 <td>
                     <input type="text" name="isEmail" class="UEmail" />
                 </td>
-                <td>
-                    <span id="UEmailError" style="color: Red; display: none"></span>
-                </td>
+                <td><span class="errorImg"></span><span class="errorMsg"></span></td>
             </tr>
             <tr>
                 <td>
@@ -158,9 +151,7 @@
                 <td>
                     <input type="text" name="isQQ" class="UQQ" />
                 </td>
-                <td colspan="4">
-                    <span id="UQQError" style="color: Red; display: none"></span>
-                </td>
+                <td><span class="errorImg"></span><span class="errorMsg"></span></td>
             </tr>
         </table>
     </div>

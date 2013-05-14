@@ -90,6 +90,11 @@
     <Content Include="AdminUI\ZhiChengManager.aspx" />
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
+<<<<<<< HEAD
+    <Content Include="js\teacher\ApplyExcel.js" />
+=======
+    <Content Include="images\msg_bg.png" />
+>>>>>>> c77362f7d648f57d778736f62d92b491bdbcb1ae
     <Content Include="lib\NPOI.DDF.dll" />
     <Content Include="lib\NPOI.dll" />
     <Content Include="lib\NPOI.HPSF.dll" />
@@ -865,7 +870,7 @@
     <Content Include="js\popup\img\buttons.png" />
     <Content Include="js\popup\jquery.confirm.css" />
     <Content Include="js\popup\jquery.confirm.js" />
-    <Content Include="js\student\StuModifyPwd.js" />
+    <Content Include="js\ModifyPwd.js" />
     <Content Include="js\student\StuMySelect.js" />
     <Content Include="js\student\StuMyStore.js" />
     <Content Include="js\student\StuSelect.js" />
@@ -908,7 +913,7 @@
     <Content Include="TeacherUI\TeacherInfo.aspx" />
     <Content Include="TeacherUI\TeacherModifyPwd.aspx" />
     <Content Include="TeacherUI\TeacherSelect.aspx" />
-    <Content Include="TeacherUI\TeacherStuInfo.aspx" />
+    <Content Include="TeacherUI\TeacherSelectStu.aspx" />
     <Content Include="TeacherUI\teacher_index .html" />
     <Content Include="TeacherUI\teacher_select.html" />
     <Content Include="TeacherUI\TeacherIndex.aspx" />
@@ -1068,8 +1073,17 @@
     <Compile Include="ashx\student\StoreManager.ashx.cs">
       <DependentUpon>StoreManager.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\teacher\ApplyExcel.ashx.cs">
+      <DependentUpon>ApplyExcel.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\teacher\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\teacher\TeacherApply.ashx.cs">
+      <DependentUpon>TeacherApply.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\teacher\TeacherSelect.ashx.cs">
+      <DependentUpon>TeacherSelect.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Common\ConfigurationOperator.cs" />
@@ -1162,19 +1176,12 @@
     <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
       <DependentUpon>AllTopic.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="TeacherUI\ApplyExcel.aspx.cs">
-      <DependentUpon>ApplyExcel.aspx</DependentUpon>
+    <Compile Include="TeacherUI\GoodWork.aspx.cs">
+      <DependentUpon>GoodWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TeacherUI\ApplyExcel.aspx.designer.cs">
       <DependentUpon>ApplyExcel.aspx</DependentUpon>
-    </Compile>
-=======
->>>>>>> e13e0231e9a316445bda22d982bb8cfc767f1240
-    <Compile Include="TeacherUI\GoodWork.aspx.cs">
-      <DependentUpon>GoodWork.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TeacherUI\GoodWork.aspx.designer.cs">
       <DependentUpon>GoodWork.aspx</DependentUpon>
@@ -1242,12 +1249,12 @@
     <Compile Include="TeacherUI\TeacherSelect.aspx.designer.cs">
       <DependentUpon>TeacherSelect.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TeacherUI\TeacherStuInfo.aspx.cs">
-      <DependentUpon>TeacherStuInfo.aspx</DependentUpon>
+    <Compile Include="TeacherUI\TeacherSelectStu.aspx.cs">
+      <DependentUpon>TeacherSelectStu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TeacherUI\TeacherStuInfo.aspx.designer.cs">
-      <DependentUpon>TeacherStuInfo.aspx</DependentUpon>
+    <Compile Include="TeacherUI\TeacherSelectStu.aspx.designer.cs">
+      <DependentUpon>TeacherSelectStu.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherUI\TopicDetail.aspx.cs">
       <DependentUpon>TopicDetail.aspx</DependentUpon>
@@ -1293,6 +1300,9 @@
     <Content Include="ashx\admin\TeacherManager.ashx" />
     <Content Include="ashx\admin\AdminManager.ashx" />
     <Content Include="ashx\teacher\ModifyInfo.ashx" />
+    <Content Include="ashx\teacher\TeacherSelect.ashx" />
+    <Content Include="ashx\teacher\TeacherApply.ashx" />
+    <Content Include="ashx\teacher\ApplyExcel.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

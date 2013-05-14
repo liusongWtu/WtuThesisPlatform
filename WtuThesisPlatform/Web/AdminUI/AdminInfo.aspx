@@ -2,7 +2,7 @@
     AutoEventWireup="true" CodeBehind="AdminInfo.aspx.cs" Inherits="Web.AdminUI.AdminInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" type="text/css" href="../css/student/stu_page.css" />
+    <link rel="stylesheet" type="text/css" href="../css/admin/adm_page.css" />
 
     <script src="../js/Common.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/om/ui/rules.js"></script>
@@ -20,17 +20,23 @@
             </dl>
             <table>
                 <tr>
-                    <td>姓 名：</td><td><input type="text" id="aName" class="aName" value="<%=currAdmin.UUserName %>" readonly="readonly" /></td></tr>
+                    <td>姓 名：</td>
+                    <td><input type="text" id="aName" class="aName" value="<%=currAdmin.UUserName %>" readonly="readonly" /></td></tr>
                 <tr>
-                    <td>电 话：</td><td><input type="text" name="isMobilePhone" id="aPhone" class="aPhone" value="<%=currAdmin.UPhone %>" readonly="readonly" />
-                </td></tr>
+                    <td>电 话：</td>
+                    <td><input type="text" name="isMobilePhone" id="aPhone" class="aPhone" value="<%=currAdmin.UPhone %>" readonly="readonly" /></td>
+                    <td><span class="errorImg"></span><span class="errorMsg"></span></td>
+                    </tr>
                 <tr>
-                    <td>邮 箱：</td><td><input type="text" name ="isEmail" id="aEmail" class="aEmail" value="<%=currAdmin.UEmail %>" readonly="readonly" />
-                </td></tr>
+                    <td>邮 箱：</td>
+                    <td><input type="text" name ="isEmail" id="aEmail" class="aEmail" value="<%=currAdmin.UEmail %>" readonly="readonly" /></td>
+                    <td><span class="errorImg"></span><span class="errorMsg"></span></td>
+                </tr>
                 <tr>
-                    <td>Q Q：</td><td>
-                    <input type="text" name="isQQ" id="aQQ" class="aQQ" value="<%=currAdmin.UQQ %>" readonly="readonly" />
-                    </td></tr>
+                    <td>Q Q：</td>
+                    <td><input type="text" name="isQQ" id="aQQ" class="aQQ" value="<%=currAdmin.UQQ %>" readonly="readonly" /></td>
+                    <td><span class="errorImg"></span><span class="errorMsg"></span></td>
+                    </tr>
             </table>
         </div>
     </div>

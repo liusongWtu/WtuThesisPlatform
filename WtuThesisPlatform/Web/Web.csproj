@@ -91,6 +91,7 @@
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
     <Content Include="js\teacher\ApplyExcel.js" />
+    <Content Include="images\msg_bg.png" />
     <Content Include="lib\NPOI.DDF.dll" />
     <Content Include="lib\NPOI.dll" />
     <Content Include="lib\NPOI.HPSF.dll" />

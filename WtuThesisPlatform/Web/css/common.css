@@ -553,7 +553,7 @@ body{
 }
 
 /*错误信息样式*/
-label.error{
+/*label.error{
     background: #fff6bf url(images/alert.png) center no-repeat;
 	background-position: 5px 50%;
 	text-align: left;
@@ -562,4 +562,4 @@ label.error{
 	display: none;
 	width: 200px;
 	margin-left: 10px;
-}
+}*/

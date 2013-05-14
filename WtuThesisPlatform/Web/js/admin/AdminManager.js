@@ -16,7 +16,7 @@ $(function () {
     $("#AdmAddNew").omDialog({
         autoOpen: false,
         height: 400,
-        width: 300,
+        width: 450,
         modal: true
     });
 
@@ -27,9 +27,9 @@ $(function () {
         $("#AdmAddNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
-                    var errorNum = Validata();
-                    console.log(errorNum);
-                    if (errorNum != 0) {
+                    var error = $("span.errorImg:visible").length;
+                    //alert(error);
+                    if (error != 0) {
                         return;
                     } else {
                         if (addNewCount()) { //添加新用户成功
@@ -46,10 +46,16 @@ $(function () {
             },
             { text: "继续添加", click:
                 function () {
-                    if (addNewCount()) {//添加成功
-                        $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
-                        $("#AdmAddNew input").val("");
-                        $("#AdmAddNew textarea").val("");
+                    var error = $("span.errorImg:visible").length;
+                    //alert(error);
+                    if (error != 0) {
+                        return;
+                    } else {
+                        if (addNewCount()) {//添加成功
+                            $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
+                            $("#AdmAddNew input").val("");
+                            $("#AdmAddNew textarea").val("");
+                        }
                     }
                 }
             },
@@ -64,6 +70,9 @@ $(function () {
         //验证
         $("#AdmAddNew").attr("tabindex", 0);
         $("#AdmAddNew").focus(); //不让输入框一开始就获得焦点
+        UUserName.blur(function () {
+            checkUserNameDB(UUserName.val());
+        });
         Validata();
         //管理员登录名是否需要验证？？？？
         /*UPhone.blur(function () {//电话号码验证
@@ -75,7 +84,12 @@ $(function () {
         UQQ.blur(function () {//QQ验证
         checkQQ();
         })*/
-
+        $("#AdmAddNew").omDialog({ onClose: function () {
+            clear();
+            UUserName.unbind("blur");
+            $(".errorImg,.errorMsg").hide();
+        }
+        });
 
     });
 
@@ -124,14 +138,21 @@ $(function () {
         $("#AdmAddNew").omDialog({ buttons: [
                 { text: "确定", click:
                     function () {
-                        if (modifyCount(admId)) { //修改成功
-                            //关闭窗口
-                            $("#AdmAddNew").omDialog('close');
-                            $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
+                        var error = $("span.errorImg:visible").length;
+                        //alert(error);
+                        if (error != 0) {
+                            return;
+                        } else {
+                            if (modifyCount(admId)) { //修改成功
+                                //关闭窗口
+                                $("#AdmAddNew").omDialog('close');
+                                $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
+                            }
+                            else {
+                                $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
+                            }
                         }
-                        else {
-                            $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
-                        }
+
                     }
                 },
 
@@ -145,7 +166,12 @@ $(function () {
         $("#AdmAddNew").omDialog('open');
         setInfo(admId, "modify");
         $(".addTable input,.addTable textarea").removeAttr("readonly");
-
+        $("#AdmAddNew").omDialog({ onClose: function () {
+            clear();
+            UUserName.unbind("blur");
+            $(".errorImg,.errorMsg").hide();
+        }
+        });
     });
 
 
@@ -193,8 +219,8 @@ $(function () {
 });
 
 //function getInfo() {
-//var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
-//return info;
+    //var info = { 'UUserName': UUserName.val(), 'UName': UName.val(), 'UPhone': UPhone.val(), 'UEmail': UEmail.val(), 'UQQ': UQQ.val()};
+    //return info;
 //}
 
 
@@ -214,25 +240,33 @@ function setInfo(admId, operate) {
         //var oldInfo = getInfo();
         $("#AdmAddNew").attr("tabindex", 0);
         $("#AdmAddNew").focus();
-        UPhone.blur(function () {
-            var newPhone = UPhone.val();
-            if (info.UPhone != newPhone) {
-                checkPhone();
-            }
-        });
-        UEmail.blur(function () {
-            var newEmail = UEmail.val();
-            if (info.UEmail != newEmail) {
-                checkEmail();
-            }
-        });
-        UQQ.blur(function () {
-            var newQQ = UQQ.val();
-            if (info.UQQ != newQQ) {
-                checkQQ();
+        UUserName.bind("blur", function () {
+            var newUserName = UUserName.val();
+            if (info.UUserName != newUserName) {
+                checkUserNameDB(UUserName.val());
             }
 
         });
+        Validata();
+        /*UPhone.blur(function () {
+        var newPhone = UPhone.val();
+        if (info.UPhone != newPhone) {
+        checkPhone();
+        }
+        });
+        UEmail.blur(function () {
+        var newEmail = UEmail.val();
+        if (info.UEmail != newEmail) {
+        checkEmail();
+        }
+        });
+        UQQ.blur(function () {
+        var newQQ = UQQ.val();
+        if (info.UQQ != newQQ) {
+        checkQQ();
+        }
+
+        });*/
     });
 }
 
@@ -294,20 +328,18 @@ function modifyCount(aid) {
 }
 
 //验证登录名是否存在
-/*function checkTNoDB(tno) {
-$.get("../../ashx/admin/AdminManager.ashx", { "operate": "checkTNo", "TNo": tno }, function (data) {
-if (data == "ok") {
+function checkUserNameDB(username) {
+    $.get("../../ashx/admin/AdminManager.ashx", { "operate": "checkUUserName", "UUserName": username }, function (data) {
+        if (data == "ok") {
 
-} else {
-$.omMessageBox.confirm({
-title: '提示',
-content: '您输入的教工号已存在！',
-onClose: function (v) { }
-});
+        } else {
+            UUserName.parent().next().children("span.errorImg").css("display", "block");
+            UUserName.parent().next().children("span.errorMsg").text("您输入的教工号已存在");
+            return;
+        }
+    });
 }
-});
-}*/
-function checkPhone() {
+/*function checkPhone() {
     var phoneValidata = validatePhone(UPhone.get(0), $("#UPhoneError").get(0));
     if (!phoneValidata) {
         $.omMessageBox.confirm({
