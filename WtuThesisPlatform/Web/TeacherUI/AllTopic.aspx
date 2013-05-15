@@ -28,13 +28,21 @@
                     <td class="last td-wid1" style="width: 50%">
                         出题时间
                     </td>
+                    <td>
+                        审核结果
+                    </td>
                 </tr>
-                <tr class="list-content">
+                <asp:Repeater ID="rptThesis" runat="server">
+                <ItemTemplate>
+                    <tr class="list-content">
                     <td class="bold">
-                        <a>毕业设计选题系统</a>
+                        <a><%#Eval("TName") %></a>
                     </td>
                     <td>
-                        2012-04-12
+                        <%#Eval("TYear") %>
+                    </td>
+                    <td>
+                        <%#Eval("StateString")%>
                     </td>
                 </tr>
                 <tr class="detail nohover hide">
@@ -42,27 +50,28 @@
                         <table>
                             <tr class="nohover">
                                 <td>开发平台
-                                    <p id="developTool">Visual C++</p>
+                                    <p id="developTool"><%#Eval("TPlatform") %></p>
                                 </td>
                             </tr>
                             <tr class="nohover">
                                 <td>题目简介
                                     <p id="topicIntro" class="fn-text-wrap">
-                                        视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。
-                                        视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。
+                                        <%#Eval("TIntroduct") %>
                                     </p>
                                 </td>
                             </tr>
                             <tr class="nohover">
                                 <td>设计功能与实现目标
                                     <p id="target" class="fn-text-wrap">
-                                        视觉目标的自动跟踪是一个有趣的视频应用，实际应用十分广泛。但现实应用中常需要解决很多问题，比如光照、尺度、旋转等的变化，噪声的影响。通过在实践经典跟踪算法过程中，学习并改进算法，展现跟踪效果。
+                                    <%#Eval("TRequire") %>    
                                     </p>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
+                </ItemTemplate>
+                </asp:Repeater>
 
             </table>
         </div>

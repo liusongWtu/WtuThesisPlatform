@@ -37,7 +37,7 @@
                <asp:Repeater ID="rptStudent" runat="server">
                 <ItemTemplate>
                      <tr class="list-content">
-                    <td class="bold left sTittle" id="<%#Eval("ThesisTitle.TId") %>">
+                    <td class="bold left sTittle" id="<%#Eval("TId") %>">
                         <a href="#"><%#Eval("ThesisTitle.TName") %></a>
                     </td>
                     <td class="sStuName" id="<%#Eval("Student.SId") %>">
@@ -53,7 +53,7 @@
                         <%#Eval("Student.Major.MName") %>
                     </td>
                     <td>
-                        <a class="selectStatus">选择</a>
+                        <a class="selectStatus <%#Eval("TPassed") %>">选择</a>
                     </td>
                 </tr>
                 </ItemTemplate>

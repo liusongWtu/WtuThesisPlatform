@@ -135,6 +135,16 @@ namespace WtuThesisPlatform.BLL
 		}
         #endregion
 
+        public int SelectStudent(ThesisSelected thesisSelect)
+        {
+            return dal.SelectStudent(thesisSelect);
+        }
+
+        public int DelStudent(ThesisSelected thesisSelect)
+        {
+            return dal.DelStudent(thesisSelect);
+        }
+
         public DataTable GetAll()
         {
             return dal.GetAll();            
