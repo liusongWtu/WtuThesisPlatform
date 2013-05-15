@@ -204,6 +204,7 @@ $(function () {
             clear();
             $("input.error").removeClass("error");
             $(".errorImg,.errorMsg").hide();
+            TNo.unbind("blur");
         }
         });
     });
@@ -358,13 +359,13 @@ function setInfo(teaId, operate) {
             })
             Validata();
 
-            $("#teaAddNew").omDialog({ onClose: function () {
-                clear();
-                $("input.error").removeClass("error");
-                $(".errorImg .errorMsg").hide();
-                TNo.unbind("blur");
-            }
-            });
+//            $("#teaAddNew").omDialog({ onClose: function () {
+//                clear();
+//                $("input.error").removeClass("error");
+//                $(".errorImg .errorMsg").hide();
+//                TNo.unbind("blur");
+//            }
+//            });
         }
 
     });
