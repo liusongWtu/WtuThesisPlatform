@@ -330,3 +330,7 @@
     color: #555555;
     line-height: 22px;
 }
+.error
+{
+    border: 1px solid red;    
+}

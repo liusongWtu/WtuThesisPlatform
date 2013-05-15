@@ -110,17 +110,22 @@ $(function () {
                     $checked.each(function () {
                         var aid = $(this).parent().parent().attr("id");
                         var myThis = $(this);
+<<<<<<< HEAD
                         $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", async: false, data: "operate=del&tid=" + aid, success: function (data) {
                             if (data == "ok") {
+                                $(myThis).parent().parent().remove();
+                                tag = true;
+=======
+                        $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", data: "operate=del&tid=" + aid, success: function (data) {
+                            if (data == "ok") {
                                 myThis.parent().parent().remove();
-                                
+>>>>>>> 7405c767acb328652633969c89b5ea9bd9231358
                             } else {
                                 $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
                             }
                         }
 
                         });
-
                         $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
                     });
 
