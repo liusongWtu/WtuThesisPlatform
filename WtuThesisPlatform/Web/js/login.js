@@ -11,6 +11,8 @@ window.onload = function () {
     code = gel("txtCode");
     username = gel("username");
     password = gel("password");
+    radio = $(".radioWrap");
+    checkbox = $(".checkboxWrap");
 
     xhr = createXhr();
     msgBox = new MsgBox();
@@ -18,6 +20,26 @@ window.onload = function () {
     gel("btnLogin").focus();
     bindEvent("codeSpan", "onclick", "changeCode()");
     bindEvent("btnLogin", "onclick", "checkLogin()");
+    document.onkeydown = function (event) {//回车自动登录
+        e = event ? event : (window.event ? window.event : null);
+        if (e.keyCode == 13) {
+            gel("btnLogin").focus();
+            bindEvent("btnLogin", "onclick", "checkLogin()");
+        }
+    }
+    radio.click(function () {
+        $(this).children("input").attr("checked", "checked");
+    })
+    checkbox.click(function () {
+        input = $(this).children("input");
+        console.log(input.attr("checked"));
+        if (input.attr("checked")) {
+            input.removeAttr("checked");
+        }
+        else {
+            input.attr("checked", "checked");
+        }
+    })
 };
 
 //换一张验证码
@@ -39,7 +61,6 @@ function checkCode() {
         } else {
             $(".verification-msg").css("background", "url(../images/wrong.png)");
             changeCode();
-            code.select();
         }
     }
     });

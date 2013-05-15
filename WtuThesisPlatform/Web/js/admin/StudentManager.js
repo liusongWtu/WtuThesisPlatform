@@ -31,6 +31,7 @@ $(function () {
     //添加用户
     $("#add").click(function () {
         //加载下拉列表
+        $(".errorImg,.errorMsg").hide();
         SSex.empty();
         SSex.append("<option>男</option><option>女</option>");
         loadDepartment(DepartmentId); 
@@ -137,6 +138,7 @@ $(function () {
 
     //查看用户详情
     $(".checkDetail").click(function () {
+        $(".errorImg,.errorMsg").hide();
         var stuId = $(this).parent().parent().attr("id");
         $("#StuAddNew").omDialog({ title: "用户信息" });
         $("#StuAddNew").omDialog({ buttons: {} });
@@ -150,6 +152,7 @@ $(function () {
     //修改用户信息
     $(".modifyInfo").click(function () {
         //初始化
+        $(".errorImg,.errorMsg").hide();
         var stuId = $(this).parent().parent().attr("id");
         $("#StuAddNew").omDialog({ title: "修改信息" });
         $("#StuAddNew").omDialog({ buttons: [
@@ -183,9 +186,9 @@ $(function () {
         setInfo(stuId, "modify");
         $(".addTable input,.addTable textarea").removeAttr("readonly");
         $("#StuAddNew").omDialog({ onClose: function () {
-            clear();
-            $(".errorImg,.errorMsg").hide();
             SNo.unbind("blur");
+            $(".errorImg,.errorMsg").hide();
+            clear();
         }
         });
 

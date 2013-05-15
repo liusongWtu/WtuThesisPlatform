@@ -91,6 +91,7 @@
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
     <Content Include="css\common_notice.css" />
+    <Content Include="images\banner_bg.png" />
     <Content Include="js\teacher\ApplyExcel.js" />
     <Content Include="images\msg_bg.png" />
     <Content Include="lib\NPOI.DDF.dll" />
@@ -126,8 +127,6 @@
     <Content Include="css\student\stu_page.css" />
     <Content Include="images\btn_bg.gif" />
     <Content Include="images\get_offpic2.jpg" />
-    <Content Include="images\index_banner.jpg" />
-    <Content Include="images\index_banner.png" />
     <Content Include="images\index_bg.jpg" />
     <Content Include="images\index_logo.gif" />
     <Content Include="images\index_logo.png" />
