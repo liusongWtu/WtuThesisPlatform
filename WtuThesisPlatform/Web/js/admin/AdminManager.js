@@ -68,8 +68,8 @@ $(function () {
         });
         $(".addTable input,.addTable textarea").removeAttr("readonly");
         //验证
-        $("#AdmAddNew").attr("tabindex", 0);
-        $("#AdmAddNew").focus(); //不让输入框一开始就获得焦点
+        //$("#AdmAddNew").attr("tabindex", 0);
+        //$("#AdmAddNew").focus(); //不让输入框一开始就获得焦点
         UUserName.blur(function () {
             checkUserNameDB(UUserName.val());
         });
@@ -126,7 +126,12 @@ $(function () {
         $("#AdmAddNew").omDialog('open');
         setInfo(admId, "detail");
         $(".addTable input,.addTable textarea").attr("readonly", "readonly");
-        $("#AdmAddNew").omDialog({ onClose: function () { clear(); } });
+        $("#AdmAddNew").omDialog({ onBeforeClose: function () {
+            clear();
+            UUserName.unbind("blur");
+            $(".errorImg,.errorMsg").hide();
+        } 
+        });
     });
 
 
@@ -166,7 +171,7 @@ $(function () {
         $("#AdmAddNew").omDialog('open');
         setInfo(admId, "modify");
         $(".addTable input,.addTable textarea").removeAttr("readonly");
-        $("#AdmAddNew").omDialog({ onClose: function () {
+        $("#AdmAddNew").omDialog({ onBeforeClose: function () {
             clear();
             UUserName.unbind("blur");
             $(".errorImg,.errorMsg").hide();
@@ -225,22 +230,22 @@ $(function () {
 
 
 function setInfo(admId, operate) {
-    $.get("../../ashx/admin/AdminManager.ashx", { "operate": "getAInfo", "adminId": admId }, function (data) {
-        //将返回的json数组字符串，转成 javascript的 数组对象
+    $.ajax({url:"../../ashx/admin/AdminManager.ashx",type:"get",data: "operate=getAInfo&adminId="+ admId ,async:false,success: function (data) {
         info = eval("(" + data + ")");
         UUserName.val(info.UUserName);
         UName.val(info.UName);
         UPhone.val(info.UPhone);
         UEmail.val(info.UEmail);
         UQQ.val(info.UQQ);
+        console.log(info.UQQ);
         if (operate == "detail") {
             return;
         }
         //验证
         //var oldInfo = getInfo();
-        $("#AdmAddNew").attr("tabindex", 0);
-        $("#AdmAddNew").focus();
-        UUserName.bind("blur", function () {
+        //$("#AdmAddNew").attr("tabindex", 0);
+        //$("#AdmAddNew").focus();
+        UUserName.blur(function () {
             var newUserName = UUserName.val();
             if (info.UUserName != newUserName) {
                 checkUserNameDB(UUserName.val());
@@ -267,6 +272,7 @@ function setInfo(admId, operate) {
         }
 
         });*/
+    }
     });
 }
 
