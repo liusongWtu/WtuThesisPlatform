@@ -334,7 +334,7 @@ function checkUserNameDB(username) {
 
         } else {
             UUserName.parent().next().children("span.errorImg").css("display", "block");
-            UUserName.parent().next().children("span.errorMsg").text("您输入的教工号已存在");
+            UUserName.parent().next().children("span.errorMsg").text("您输入的登录名已存在");
             return;
         }
     });

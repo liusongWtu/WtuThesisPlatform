@@ -24,6 +24,9 @@ namespace Web.ashx.admin
             string operate=context.Request["operate"];
             switch (operate)
             {
+                case "checkUUserName":
+                    CheckUserName();
+                    break;
                 case "getAInfo":
                     GetModelByAId();
                     break;
@@ -41,6 +44,22 @@ namespace Web.ashx.admin
                     break;
                 default:
                     break;
+            }
+        }
+
+        /// <summary>
+        /// 检查用户名是否存在
+        /// </summary>
+        private void CheckUserName()
+        {
+            string username = context.Request["UUserName"];
+            if (bll.GetModel(username) == null)
+            {
+                context.Response.Write("ok");
+            }
+            else
+            {
+                context.Response.Write("failed");
             }
         }
 
