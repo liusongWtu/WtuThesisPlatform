@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
    <div class="wrap">
-    <div class="select-list">
+    <div class="topic">
         <dl><dt>我的申请</dt></dl>
         <div class="content-center">
             <table id="applyTopicList" class="topic-list" cellspacing="0" cellpadding="0">

@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master" AutoEventWireup="true" CodeBehind="SingleWork.aspx.cs" Inherits="Web.TeacherUI.SingleWork" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentUI/StudentMasterPage.Master" AutoEventWireup="true" CodeBehind="SingleWork.aspx.cs" Inherits="Web.StudentUI.SingleWork" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/common_goodwork.css" />
     <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap-teavher">      
