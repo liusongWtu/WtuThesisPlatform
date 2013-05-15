@@ -34,10 +34,10 @@
                                 <a class="tea-apply" state="<%#Eval("IsDel") %>">申请</a>
                             </td>
                             <td>
-                                <a class="tea-modify">修改</a>
+                                <a class="tea-modify" href="/TeacherUI/ApplyExcel.aspx?nodeId=2011&operate=modify&tid=<%#Eval("TId") %>">修改</a>
                             </td>
                             <td>
-                                <a class="tea-check">预览</a>
+                                <a class="tea-check" href="/TeacherUI/ApplyExcel.aspx?nodeId=2011&operate=read&tid=<%#Eval("TId") %>">预览</a>
                             </td>
                             <td>
                                 <a class="tea-delete">删除</a>

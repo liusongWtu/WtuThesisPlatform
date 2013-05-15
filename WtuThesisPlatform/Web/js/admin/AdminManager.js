@@ -230,13 +230,19 @@ $(function () {
 
 
 function setInfo(admId, operate) {
-    $.ajax({url:"../../ashx/admin/AdminManager.ashx",type:"get",data: "operate=getAInfo&adminId="+ admId ,async:false,success: function (data) {
+    $.ajax({ url: "../../ashx/admin/AdminManager.ashx", type: "get", data: "operate=getAInfo&adminId=" + admId, async: false, success: function (data) {
         info = eval("(" + data + ")");
+       // UUserName.focus();
         UUserName.val(info.UUserName);
+       // UName.focus();
         UName.val(info.UName);
+       // UPhone.focus();
         UPhone.val(info.UPhone);
+       // UEmail.focus();
         UEmail.val(info.UEmail);
+       // UQQ.focus();
         UQQ.val(info.UQQ);
+        //UUserName.focus();
         console.log(info.UQQ);
         if (operate == "detail") {
             return;
@@ -278,7 +284,7 @@ function setInfo(admId, operate) {
 
 function addNewCount() {//添加新用户
     var result = false;
-    $.ajax({ data: "post",
+    $.ajax({ type: "post",
         url: "../../ashx/admin/AdminManager.ashx",
         data: "operate=addNew&uUserName=" + UUserName.val() + "&uName=" + UName.val() + "&uPhone=" + UPhone.val() +
                 "&uEmail=" + UEmail.val() + "&uQQ=" + UQQ.val(),
@@ -297,7 +303,7 @@ function addNewCount() {//添加新用户
 //删除用户
 function deleteCount(aid) {
     var result = false;
-    $.ajax({ data: "post",
+    $.ajax({ type: "post",
         url: "../../ashx/admin/AdminManager.ashx",
         data: "operate=del&aid=" + aid,
         async: false,
@@ -316,7 +322,7 @@ function deleteCount(aid) {
 //修改用户
 function modifyCount(aid) {
     var result = false;
-    $.ajax({ data: "post",
+    $.ajax({ type: "post",
         url: "../../ashx/admin/AdminManager.ashx",
         data: "operate=modify&aid=" + aid + "&uUserName=" + UUserName.val() + "&uName=" + UName.val() + "&uPhone=" +
              UPhone.val() + "&uEmail=" + UEmail.val() + "&uQQ=" + UQQ.val(),

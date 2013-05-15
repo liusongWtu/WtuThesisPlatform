@@ -66,13 +66,14 @@ $(function () {
         var sid = $(".sStuName").atte("id");
         var myThis = $(this);
         if (!$(this).hasClass("selected")) {//如果还没有选择
-            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=select&tid=" + tid + "&sid" + sid, success: function (data) {
+            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=select&tid=" + tid + "&sid=" + sid, success: function (data) {
                 if (data == "ok") {
                     $(myThis).text("取消").addClass("selected");
                     $.omMessageTip.show({ content: '选择成功！', timeout: 1000, type: 'success' });
-                }
-                if (data == "ThesisFull") {
+                } else if (data == "ThesisFull") {
                     $.omMessageTip.show({ content: '该选题学生已满！', timeout: 1000, type: 'alert' });
+                } else if (data == "SelectFull") {
+                    $.omMessageTip.show({ content: '您可选学生数已满！', timeout: 1000, type: 'alert' });
                 }
                 else {
                     $.omMessageTip.show({ content: '选择失败！', timeout: 1000, type: 'error' });
@@ -82,9 +83,9 @@ $(function () {
             })
         }
         else {//取消选择
-            $.ajax({ type: "post", url: "", data: "operate=consoleSel&tid=" + tid + "&sid" + sid, success: function (data) {
+            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=cancel&tid=" + tid + "&sid=" + sid, success: function (data) {
                 if (data == "ok") {
-                    $(this).text("选择").removeClass("selected");
+                    $(myThis).text("选择").removeClass("selected");
                     $.omMessageTip.show({ content: '退选成功！', timeout: 1000, type: 'success' });
                 }
                 else {
@@ -113,7 +114,7 @@ $(function () {
                         $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", async: false, data: "operate=del&tid=" + aid, success: function (data) {
                             if (data == "ok") {
                                 myThis.parent().parent().remove();
-                                
+
                             } else {
                                 $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
                             }

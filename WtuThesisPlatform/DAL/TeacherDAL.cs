@@ -242,7 +242,7 @@ namespace WtuThesisPlatform.DAL
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
             }
-
+            model.CurrNum= DbHelperSQL.ExcuteScalar("select COUNT(*) from View_TeacherTeach where TTeacherId="+model.TId);
         }
         #endregion
 

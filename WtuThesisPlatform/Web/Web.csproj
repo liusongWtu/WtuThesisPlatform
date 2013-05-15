@@ -1173,6 +1173,10 @@
     <Compile Include="TeacherUI\AllTopic.aspx.designer.cs">
       <DependentUpon>AllTopic.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TeacherUI\ApplyExcel.aspx.cs">
+      <DependentUpon>ApplyExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="TeacherUI\GoodWork.aspx.cs">
       <DependentUpon>GoodWork.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
