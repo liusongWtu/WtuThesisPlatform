@@ -110,9 +110,10 @@ $(function () {
                 if (value) {
                     $checked.each(function () {
                         var aid = $(this).parent().parent().attr("id");
-                        $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", data: "operate=del&tid=" + aid, success: function (data) {
+                        var myThis = $(this);
+                        $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", async: false, data: "operate=del&tid=" + aid, success: function (data) {
                             if (data == "ok") {
-                                $(this).parent().parent().remove();
+                                $(myThis).parent().parent().remove();
                                 tag = true;
                             } else {
                                 tag = false;

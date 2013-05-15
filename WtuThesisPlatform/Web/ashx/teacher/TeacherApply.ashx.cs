@@ -45,7 +45,14 @@ namespace Web.ashx.teacher
             ThesisTitle thesisTitle = bll.GetModel(Convert.ToInt32(tid));
             if (thesisTitle.TState != 1)//审核通过的选题不能删除
             {
-                context.Response.Write("ok");
+                if (bll.Del(tid) > 0)
+                {
+                    context.Response.Write("ok");
+                }
+                else
+                {
+                    context.Response.Write("failed");
+                }
             }
             else
             {
