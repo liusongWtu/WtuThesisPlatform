@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master" AutoEventWireup="true" CodeBehind="Notice.aspx.cs" Inherits="Web.TeacherUI.Notice" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentUI/StudentMasterPage.Master" AutoEventWireup="true" CodeBehind="Notice.aspx.cs" Inherits="Web.StudentUI.Notice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
-    <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
+<link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap-teavher">      
@@ -25,6 +24,5 @@
                  
             </div>
         </div>
-    </div> 
-        
+    </div>
 </asp:Content>

@@ -90,6 +90,8 @@
     <Content Include="AdminUI\ZhiChengManager.aspx" />
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
+    <Content Include="css\common_notice.css" />
+    <Content Include="images\banner_bg.png" />
     <Content Include="js\teacher\ApplyExcel.js" />
     <Content Include="images\msg_bg.png" />
     <Content Include="lib\NPOI.DDF.dll" />
@@ -125,8 +127,6 @@
     <Content Include="css\student\stu_page.css" />
     <Content Include="images\btn_bg.gif" />
     <Content Include="images\get_offpic2.jpg" />
-    <Content Include="images\index_banner.jpg" />
-    <Content Include="images\index_banner.png" />
     <Content Include="images\index_bg.jpg" />
     <Content Include="images\index_logo.gif" />
     <Content Include="images\index_logo.png" />
@@ -878,8 +878,12 @@
     <Content Include="js\template.js" />
     <Content Include="js\Validata.js" />
     <Content Include="Login.aspx" />
+    <Content Include="StudentUI\AllNotice.aspx" />
     <Content Include="StudentUI\forgetPsd.html" />
+    <Content Include="StudentUI\GoodWork.aspx" />
     <Content Include="StudentUI\index.html" />
+    <Content Include="StudentUI\Notice.aspx" />
+    <Content Include="StudentUI\SingleWork.aspx" />
     <Content Include="StudentUI\StuIndex.aspx" />
     <Content Include="Global.asax" />
     <Content Include="StudentUI\StuInfo.aspx" />
@@ -1096,6 +1100,34 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentUI\AllNotice.aspx.cs">
+      <DependentUpon>AllNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\AllNotice.aspx.designer.cs">
+      <DependentUpon>AllNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\GoodWork.aspx.cs">
+      <DependentUpon>GoodWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\GoodWork.aspx.designer.cs">
+      <DependentUpon>GoodWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\SingleWork.aspx.cs">
+      <DependentUpon>SingleWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\SingleWork.aspx.designer.cs">
+      <DependentUpon>SingleWork.aspx</DependentUpon>
+    </Compile>
     <Compile Include="StudentUI\StudentMasterPage.Master.cs">
       <DependentUpon>StudentMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

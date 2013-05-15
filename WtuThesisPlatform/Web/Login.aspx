@@ -13,11 +13,13 @@
         <div class="outer">
             <div class="mb30">
                 <a href="#">
-                    <img id="logo" alt="logo" src="images/index_logo.png" /></a></div>
+                    <img id="logo" alt="logo" src="images/index_logo.png" />
+                </a>
+             </div>
             <div class="mainCl">
                 <div class="bannerCl">
                 </div>
-                <div id="login" class="loginCl ml60">
+                <div id="login" class="loginCl">
                     <h1>
                         毕业设计选题系统</h1>
                     <fieldset>
@@ -26,14 +28,11 @@
                                 <label for="username">
                                     用户名&nbsp;|</label><input type="text" id="username" value="admin" class="ui-input  textInd70" />
                             </div>
-                            <p>
-                                <a>忘记密码?</a></p>
                             <div class="ui-input-wap">
                                 <label for="password ">
                                     密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" value="123" class="ui-input  textInd70" />
                             </div>
-                            <p> 
-                                <input type="checkbox" id="isRemember" />记住我</p>
+                            <div class="checkboxWrap"><input type="checkbox" id="isRemember" />记住我</div>
                             <div class="ui-input-wap">
                                 <label for="verification">
                                     验证码&nbsp;|</label>
@@ -42,9 +41,9 @@
                                 <a href="javascript:changeCode()" >看不清，换一张</a>
                             </div>
                             <div class="chooseid">
-                                <input type="radio" name="ID" checked="checked" class="chooseidItem" value="1" />学生
-                                <input type="radio" name="ID" class="chooseidItem" value="2" />教师
-                                <input type="radio" name="ID" class="chooseidItem" value="3" />管理员
+                                <div class="radioWrap"><input type="radio" name="ID" checked="checked" class="chooseidItem" value="1" />学生</div>
+                                <div class="radioWrap"><input type="radio" name="ID" class="chooseidItem" value="2" />教师</div>
+                                <div class="radioWrap"><input type="radio" name="ID" class="chooseidItem" value="3" />管理员</div>
                             </div>
                         </div>
                         <div class="btn">

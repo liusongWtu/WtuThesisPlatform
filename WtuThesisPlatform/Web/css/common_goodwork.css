@@ -29,3 +29,15 @@
     vertical-align: top;
     color: #010101;
 }
+/*优秀毕业设计作品*/
+.workContent
+{
+    min-height: 700px;
+    width: 90%;
+    text-indent: 2em;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 14px;
+    color: #555555;
+    line-height: 22px;
+}

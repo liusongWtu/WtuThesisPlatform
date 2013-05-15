@@ -32,22 +32,18 @@ $(function () {
     });
     //添加用户
     $("#add").click(function () {
-        //加载下拉列表
+        //初始化
+        $(".errorImg,.errorMsg").hide();
         TSex.empty();
         TSex.append("<option>男</option><option>女</option>");
         loadDepartment(DepartmentId); 
         loadMajor(MajorId, DepartmentId.val());
         DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
         $("#teaAddNew").omDialog({ title: "添加用户" });
-        $("#teaAddNew").omDialog('open');
+        
         $("#teaAddNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
-                    //var errorNum = Validata();
-                    //console.log(errorNum);
-                    //if (errorNum != 0) {
-                    //return;
-                    //}
                     var error = $("span.errorImg:visible").length;
                     if (error != 0) {
                         return;
@@ -90,28 +86,11 @@ $(function () {
          ]
         });
         $(".addTable input,.addTable textarea").removeAttr("readonly");
+        $("#teaAddNew").omDialog('open');
         //验证
-        $("#teaAddNew").attr("tabindex", 0);
-        $("#teaAddNew").focus(); //不让输入框一开始就获得焦点
         TNo.blur(function () {
             checkTNoDB(TNo.val());
         })
-
-        /*TNo.blur(function () {//教工号验证
-        checkTNo();
-        })
-        TPhone.blur(function () {//电话号码验证
-        checkPhone();
-        })
-        TEmail.blur(function () {//email验证
-        checkEmail();
-        })
-        TQQ.blur(function () {//QQ验证
-        checkQQ();
-        })
-        TTeachNum.blur(function () {//教师限带人数验证
-        checkTTeachNum();
-        })*/
         Validata();
         $("#teaAddNew").omDialog({ onClose: function () {
             clear();
@@ -150,12 +129,13 @@ $(function () {
 
     //查看用户详情
     $(".checkDetail").click(function () {
+        $(".errorImg,.errorMsg").hide();
         var teaId = $(this).parent().parent().attr("id");
         $("#teaAddNew").omDialog({ title: "用户信息" });
         $("#teaAddNew").omDialog({ buttons: {} });
+        $(".addTable input,.addTable textarea").attr("readonly", "readonly");
         $("#teaAddNew").omDialog('open');
         setInfo(teaId, "detail");
-        $(".addTable input,.addTable textarea").attr("readonly", "readonly");
         $("#teaAddNew").omDialog({ onClose: function () {
             clear();
             $(".errorImg,.errorMsg").hide();
@@ -167,6 +147,7 @@ $(function () {
     //修改用户信息
     $(".modifyInfo").click(function () {
         //初始化
+        $(".errorImg,.errorMsg").hide();
         var teaId = $(this).parent().parent().attr("id");
         $("#teaAddNew").omDialog({ title: "修改信息" });
         $("#teaAddNew").omDialog({ buttons: [
@@ -201,10 +182,9 @@ $(function () {
         setInfo(teaId, "modify");
         $(".addTable input,.addTable textarea").removeAttr("readonly");
         $("#teaAddNew").omDialog({ onClose: function () {
-            clear();
-            $("input.error").removeClass("error");
-            $(".errorImg,.errorMsg").hide();
             TNo.unbind("blur");
+            $(".errorImg,.errorMsg").hide();
+            clear();
         }
         });
     });
@@ -249,39 +229,7 @@ $(function () {
             }
         });
     });
-    /*var oldTNo = TNo.val();
-    TNo.blur(function () {
-    if (oldTNo == "") {
-    checkTNoDB(TNo.val());
-    }
-    else { 
-    var newNo = TNo.val();
-    if (oldInfo.TNo != newNo) {
-    checkTNoDB(TNo.val());
-    }
-    }
-        
-
-    });
-    oldNo = TNo.val();
-    newNo = TNo.val();
-    TNo.blur(function(){
-    newNo = TNo.val();
-    TNo.trigger("b");
-    })
-    TNo.bind("b",function(){
-    f(oldNo,newNo);
-    })*/
-
-});
-/*function f(oldI,newI){
-    if(oldI == ""){
-        checkTNoDB(newI);
-    }
-    else if(oldI != newI){
-        checkTNoDB(newI);
-    }
-}*/
+    
 function getInfo() {
     var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
     return info;
@@ -290,11 +238,9 @@ function getInfo() {
 
 function setInfo(teaId, operate) {
     $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teaId }, function (data) {
-        //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
         TNo.val(info.TNo);
         TName.val(info.TName);
-        //TSex.val(info.TSex);
         TPhone.val(info.TPhone);
         TEmail.val(info.TEmail);
         TQQ.val(info.TQQ);
@@ -318,39 +264,7 @@ function setInfo(teaId, operate) {
 
             //验证
             var oldInfo = getInfo();
-            //$("#teaAddNew").attr("tabindex", 0);
-            // $("#teaAddNew").focus();
-            /*TNo.blur(function () {
-            var newNo = TNo.val();
-            if (oldInfo.TNo != newNo) {
-            checkTNo(oldInfo);
-            }
-            });
-            TPhone.blur(function () {
-            var newPhone = TPhone.val();
-            if (oldInfo.TPhone != newPhone) {
-            checkPhone(oldInfo);
-            }
-            });
-            TEmail.blur(function () {
-            var newEmail = TEmail.val();
-            if (oldInfo.TEmail != newEmail) {
-            checkEmail(oldInfo);
-            }
-            });
-            TQQ.blur(function () {
-            var newQQ = TQQ.val();
-            if (oldInfo.TQQ != newQQ) {
-            checkQQ(oldInfo);
-            }
-
-            });
-            TTeachNum.blur(function () {
-            var newTeachNum = TTeachNum.val();
-            if (oldInfo.TTeachNum != newTeachNum) {
-            checkTTeachNum(oldInfo);
-            }
-            });*/
+            
             TNo.blur(function () {
                 var newNo = TNo.val();
                 if (info.TNo != newNo) {
@@ -358,14 +272,6 @@ function setInfo(teaId, operate) {
                 }
             })
             Validata();
-
-//            $("#teaAddNew").omDialog({ onClose: function () {
-//                clear();
-//                $("input.error").removeClass("error");
-//                $(".errorImg .errorMsg").hide();
-//                TNo.unbind("blur");
-//            }
-//            });
         }
 
     });
@@ -432,80 +338,12 @@ function checkTNoDB(tno) {
         if (data == "ok") {
 
         } else {
-            //$.omMessageTip.show({ content: '您输入的教工号已存在！', timeout: 1500, type: 'tip' });
             TNo.parent().next().children("span.errorImg").css("display", "block");
             TNo.parent().next().children("span.errorMsg").text("您输入的教工号已存在");
             return;
         }
     });
 }
-
-/*function checkPhone() {
-    var phoneValidata = validatePhone(TPhone.get(0), $("#TPhoneError").get(0));
-    if (!phoneValidata) {
-        $.omMessageBox.confirm({
-            title: '提示',
-            content: '请输入正确的电话号码！',
-            onClose: function (v) {
-
-            }
-        });
-    }
-}
-
-function checkEmail() {//email验证
-    var emailValidata = validateEmail(TEmail.get(0), $("#TEmailError").get(0));
-    if (!emailValidata) {
-        $.omMessageBox.confirm({
-            title: '提示',
-            content: '请输入正确的邮箱格式！',
-            onClose: function (v) {
-
-            }
-        });
-    }
-}
-
-function checkQQ() {
-    var qqValidata = validateQQ(TQQ.get(0), $("#TQQError").get(0));
-    if (!qqValidata) {
-        $.omMessageBox.confirm({
-            title: '提示',
-            content: '请输入正确的QQ格式！',
-            onClose: function (v) {
-
-            }
-        });
-    }
-}
-
-function checkTTeachNum() {
-    var numValidata = validateNum(TTeachNum.get(0), $("#TTeachNumError").get(0));
-    if (!numValidata) {
-        $.omMessageBox.confirm({
-            title: '提示',
-            content: '请输入0~20的数字！',
-            onClose: function (v) {
-
-            }
-        });
-    }
-}
-
-function checkTNo() {
-    var numFieldValidata = validataNumField(TNo.get(0), $("#TNoError").get(0));
-    if (!numFieldValidata) {
-        $.omMessageBox.confirm({
-            title: '提示',
-            content: '请输入1~20位数字串！',
-            onClose: function (v) {
-
-            }
-        });
-    }
-    checkTNoDB(TNo.val());
-}*/
-
 //清空
 function clear() {
     $("#teaAddNew input").val("");

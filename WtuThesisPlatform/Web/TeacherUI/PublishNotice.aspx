@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master" AutoEventWireup="true" CodeBehind="PublishNotice.aspx.cs" Inherits="Web.TeacherUI.PublishNotice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
     <script type="text/javascript" src="../js/om/ui/om-calendar.js"></script>
     <script type="text/javascript">
         $(function () {

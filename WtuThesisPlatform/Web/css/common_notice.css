@@ -1,0 +1,110 @@
+﻿/*公告*/
+.notice
+{
+    margin-top: 40px;   
+}
+
+.singleBg
+{
+    
+    width: 800px;
+    margin: 40px auto;
+    background: url(../images/notice_bg.gif) right top repeat-y;
+}
+
+.single
+{
+    padding-left: 1px;
+    background: url(../images/notice_leftborder.gif) repeat-y left top;
+}
+.top
+{
+    text-align: center;
+    background: url(../images/notice_title.gif) right top no-repeat;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.single dd
+{
+    padding: 0;
+}
+
+.top h1
+{
+    text-align: center;
+    line-height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px auto 0 auto;
+}
+.publishTime,.publishUnits
+{
+    line-height: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+.line
+{
+    width: 90%;
+    height: 1px;
+    margin: 0 auto;
+    background: rgb(198,198,198);
+ }
+.noticeContent
+{
+    width: 90%;
+    text-indent: 2em;
+    margin: 20px auto;
+    padding: 10px;
+    min-height: 350px;
+    font-size: 14px;
+    color: #555555;
+    line-height: 22px;
+}
+.center
+{
+    text-align: center;
+}
+.bottom
+{
+    background: url(../images/notice_bot.gif) right bottom no-repeat;    
+}
+.tab-down
+{
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+    color: #11449E;
+    font-size: 12px;
+    font-weight: bold;
+}
+.download-list
+{
+    font-weight: normal;
+}
+.download-list a
+{
+    color: #205AA7; 
+    cursor: pointer;
+}
+.download-list a:hover
+{
+    color: #e54646; 
+    text-decoration: underline;
+}
+.backLink
+{
+    text-align: center;
+    padding: 0 0 40px 0; 
+}
+.backLink a
+{   
+    color: Gray;
+    font-weight: bold;
+    font-size: 14px;
+}
+.backLink a:hover
+{
+    text-decoration: underline;
+}
