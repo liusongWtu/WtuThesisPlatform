@@ -119,9 +119,9 @@ namespace WtuThesisPlatform.BLL
         /// <summary>
         /// ADD A RECORD
         /// </summary>
-        public int Add(Student model)
+        public int Add(Student model,out int sid)
         {
-            return dal.Add(model);
+            return dal.Add(model,out sid);
         }
         #endregion
 		

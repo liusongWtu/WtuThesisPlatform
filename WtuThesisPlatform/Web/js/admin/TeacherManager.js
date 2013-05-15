@@ -36,11 +36,11 @@ $(function () {
         $(".errorImg,.errorMsg").hide();
         TSex.empty();
         TSex.append("<option>男</option><option>女</option>");
-        loadDepartment(DepartmentId); 
+        loadDepartment(DepartmentId);
         loadMajor(MajorId, DepartmentId.val());
         DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
         $("#teaAddNew").omDialog({ title: "添加用户" });
-        
+
         $("#teaAddNew").omDialog({ buttons: [
             { text: "确定", click:
                 function () {
@@ -73,7 +73,7 @@ $(function () {
                             $.omMessageTip.show({ content: '添加成功！', timeout: 1000, type: 'success' });
                             $("#teaAddNew input").val("");
                             $("#teaAddNew textarea").val("");
-                            
+
                         }
                     }
                 }
@@ -96,7 +96,7 @@ $(function () {
             clear();
             $(".errorImg,.errorMsg").hide();
             TNo.unbind("blur");
-            
+
         }
         });
 
@@ -161,7 +161,7 @@ $(function () {
                                 //关闭窗口
                                 $("#teaAddNew").omDialog('close');
                                 $.omMessageTip.show({ content: '修改成功！', timeout: 1000, type: 'success' });
-                                
+
                             }
                             else {
                                 $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
@@ -229,6 +229,7 @@ $(function () {
             }
         });
     });
+});
     
 function getInfo() {
     var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
@@ -270,7 +271,7 @@ function setInfo(teaId, operate) {
                 if (info.TNo != newNo) {
                     checkTNoDB(TNo.val());
                 }
-            })
+            });
             Validata();
         }
 
@@ -287,7 +288,8 @@ function addNewCount() {//添加新用户
             TTeachCourse.val() + "&tResearchFields=" + TResearchFields.val() + "&did=" + DepartmentId.val() + "&mid=" + MajorId.val(),
         async: false,
         success: function (data) {
-            if (data == "ok") {
+            var jsonArr = eval("(" + data + ")");
+            if (jsonArr.result == "ok") {
                 result = true;
             } else {
                 result = false;
@@ -314,7 +316,7 @@ function deleteCount(tid) {
 //修改用户
 function modifyCount(tid) {
     var ope = false;
-    $.ajax({ data: "post",
+    $.ajax({ type: "post",
         url: "../../ashx/admin/TeacherManager.ashx",
         data: "operate=modify&tid=" + tid + "&tNo=" + TNo.val() + "&tName=" + TName.val() + "&tPhone=" + TPhone.val() + "&tSex=" + TSex.val() +
              "&tEmail=" + TEmail.val() + "&tQQ=" + TQQ.val() + "&tZhiCheng=" + TZhiCheng.val() + "&tTeachNum=" + TTeachNum.val() + "&tTeachCourse=" +

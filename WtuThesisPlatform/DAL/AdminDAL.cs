@@ -239,7 +239,7 @@ namespace WtuThesisPlatform.DAL
         /// <summary>
         /// Add a record
         /// </summary>
-        public int Add(Admin model)
+        public int Add(Admin model,out int uid)
         {
             int result = 0;
             try
@@ -249,7 +249,7 @@ namespace WtuThesisPlatform.DAL
                 {
                     model.UId = DbHelperSQL.GetNextValidID("Admin ", "UId");
                 }
-
+                
                  strSql.Append("insert into Admin(");
                  strSql.Append("UId,UUserName,UPassword,UName,UPhone,UEmail,UQQ,DepartmentId,RoleId,UCheckId,IsDel)");
                  strSql.Append(" values (");
@@ -285,6 +285,7 @@ namespace WtuThesisPlatform.DAL
             {
                 throw ex;
             }
+            uid = model.UId;
             return result;
         }
         #endregion

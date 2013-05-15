@@ -253,8 +253,8 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TLevel", SqlDbType.VarChar,20),
                     new SqlParameter("@TNumber", SqlDbType.Int,4),
                     new SqlParameter("@TPlatform", SqlDbType.VarChar,200),
-                    new SqlParameter("@TIntroduct", SqlDbType.VarChar,16),
-                    new SqlParameter("@TRequire", SqlDbType.VarChar,16),
+                    new SqlParameter("@TIntroduct", SqlDbType.VarChar,1000),
+                    new SqlParameter("@TRequire", SqlDbType.VarChar,1000),
                     new SqlParameter("@TSelectedNum", SqlDbType.Int,4),
                     new SqlParameter("@TAcceptNum", SqlDbType.Int,4),
                     new SqlParameter("@TState", SqlDbType.Int,4),
@@ -316,8 +316,8 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TLevel", SqlDbType.VarChar,20),
                     new SqlParameter("@TNumber", SqlDbType.Int,4),
                     new SqlParameter("@TPlatform", SqlDbType.VarChar,200),
-                    new SqlParameter("@TIntroduct", SqlDbType.VarChar,16),
-                    new SqlParameter("@TRequire", SqlDbType.VarChar,16),
+                    new SqlParameter("@TIntroduct", SqlDbType.VarChar,1000),
+                    new SqlParameter("@TRequire", SqlDbType.VarChar,1000),
                     new SqlParameter("@TSelectedNum", SqlDbType.Int,4),
                     new SqlParameter("@TAcceptNum", SqlDbType.Int,4),
                     new SqlParameter("@TState", SqlDbType.Int,4),
@@ -325,7 +325,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@TDepartmentId", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 			                parameters[0].Value = model.TId;
-                parameters[1].Value = model.Teacher;
+                parameters[1].Value = model.Teacher.TId;
                 parameters[2].Value = model.TName;
                 parameters[3].Value = model.TLevel;
                 parameters[4].Value = model.TNumber;

@@ -121,9 +121,10 @@ namespace Web.ashx.admin
         private void AddAdmin()
         {
             Admin admin = InitAdmin();
-            if (bll.Add(admin) > 0)
+            int uid = 0;
+            if (bll.Add(admin,out uid) > 0)
             {
-                context.Response.Write("ok");
+                context.Response.Write("{result:'ok',id:"+uid+"}");
             }
             else
             {

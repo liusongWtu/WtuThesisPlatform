@@ -10,6 +10,7 @@ namespace Web.TeacherUI
 {
     public partial class PublishNotice : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 

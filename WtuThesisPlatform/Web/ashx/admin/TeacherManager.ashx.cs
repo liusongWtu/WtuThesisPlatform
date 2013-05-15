@@ -118,9 +118,10 @@ namespace Web.ashx.admin
         private void AddTeacher()
         {
             Teacher teacher = InitTeacher();
-            if (bll.Add(teacher) > 0)
+            int tid = 0;
+            if (bll.Add(teacher,out tid) > 0)
             {
-                context.Response.Write("ok");
+                context.Response.Write("{result:'ok',id:" + tid + "}");
             }
             else
             {

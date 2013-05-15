@@ -21,6 +21,7 @@ namespace WtuThesisPlatform.MODEL
         protected string _tName = String.Empty;
         protected string _tZhiCheng = String.Empty;
         protected int _tTeachNum;
+        protected int _currNum;
         protected string _tSex = String.Empty;
         protected string _tPhone = String.Empty;
         protected string _tEmail = String.Empty;
@@ -97,6 +98,15 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_tTeachNum = value;}
             get {return _tTeachNum;}
+        }
+
+        /// <summary>
+        /// 当前已选人数
+        /// </summary>
+        public int CurrNum
+        {
+            set { _currNum = value; }
+            get { return _currNum; }
         }
 
         /// <summary>

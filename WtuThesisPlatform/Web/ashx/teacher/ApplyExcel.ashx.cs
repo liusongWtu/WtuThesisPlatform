@@ -34,14 +34,24 @@ namespace Web.ashx.teacher
                 return;
             }
             ThesisTitleBLL bll = new ThesisTitleBLL();
-            //获取当前届数
-            string year=System.Configuration.ConfigurationManager.AppSettings ["currentYear"];
-            if (bll.GetModel(currTeacher.TId, title,year) != null)
+            string year = System.Configuration.ConfigurationManager.AppSettings["currentYear"];
+            string operate=context.Request["operate"];
+            ThesisTitle thesisTitle=new ThesisTitle ();
+            if(operate=="modify")
             {
-                context.Response.Write("exist");
-                return;
+                string tid=context.Request["tid"];
+                thesisTitle = bll.GetModel(Convert.ToInt32(tid));
             }
-            ThesisTitle thesisTitle = new ThesisTitle();
+            else if (operate == "add")
+            {
+                //获取当前届数
+                if (bll.GetModel(currTeacher.TId, title, year) != null)
+                {
+                    context.Response.Write("exist");
+                    return;
+                }
+            }
+
             thesisTitle.TDepartmentId = currTeacher.Department.DId;
             thesisTitle.Teacher= currTeacher;
             thesisTitle.TIntroduct = introduct;
@@ -51,15 +61,28 @@ namespace Web.ashx.teacher
             thesisTitle.TRequire = require;
             thesisTitle.TYear = year;
 
-            if (bll.Add(thesisTitle) > 0)
+            if (operate == "add")
             {
-                context.Response.Write("ok");
+                if (bll.Add(thesisTitle) > 0)
+                {
+                    context.Response.Write("ok");
+                }
+                else
+                {
+                    context.Response.Write("failed");
+                }
             }
-            else
+            else if (operate == "modify")
             {
-                context.Response.Write("failed");
+                if (bll.Update(thesisTitle) > 0)
+                {
+                    context.Response.Write("ok");
+                }
+                else
+                {
+                    context.Response.Write("failed");
+                }
             }
-
 
         }
 
