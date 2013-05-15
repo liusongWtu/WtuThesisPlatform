@@ -101,7 +101,6 @@ $(function () {
     /**********批量删除***********/
 
     $("#deleteCount").click(function () {
-        var tag = false;
         var $checked = $("input[name='topiclist']:checked");
         $.omMessageBox.confirm({
             title: '确认删除？',
@@ -110,23 +109,19 @@ $(function () {
                 if (value) {
                     $checked.each(function () {
                         var aid = $(this).parent().parent().attr("id");
+                        var myThis = $(this);
                         $.ajax({ type: "post", url: "../../ashx/teacher/TeacherApply.ashx", data: "operate=del&tid=" + aid, success: function (data) {
                             if (data == "ok") {
-                                $(this).parent().parent().remove();
-                                tag = true;
+                                myThis.parent().parent().remove();
                             } else {
-                                tag = false;
-                                return false;
+                                $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
                             }
                         }
+
                         });
-                    });
-                    if (tag) {
                         $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
-                    }
-                    else {
-                        $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
-                    }
+                    });
+
                 }
             }
         });
