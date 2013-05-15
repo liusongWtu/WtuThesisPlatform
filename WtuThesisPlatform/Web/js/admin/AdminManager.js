@@ -258,8 +258,11 @@ function addNewCount() {//添加新用户
                 "&uEmail=" + UEmail.val() + "&uQQ=" + UQQ.val(),
         async: false,
         success: function (data) {
-            if (data == "ok") {
+            var jsonArr = eval("(" + data + ")");
+            if (jsonArr.result == "ok") {
                 result = true;
+                //页面添加相应变化
+
             } else {
                 result = false;
             }

@@ -331,7 +331,8 @@ function addNewCount() {
                 "&sYear=" + SYear.val() + "&did=" + DepartmentId.val() + "&mid=" + MajorId.val(),
         async: false,
         success: function (data) {
-            if (data == "ok") {
+            var jsonArr = eval("(" + data + ")");
+            if (jsonArr.result == "ok") {
                 result = true;
             } else {
                 result = false;
