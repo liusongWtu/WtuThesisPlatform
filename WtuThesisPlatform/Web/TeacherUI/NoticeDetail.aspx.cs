@@ -23,7 +23,9 @@ namespace Web.TeacherUI
             }
             string nid=Request["nid"];
             currNotice = new NoticeBLL().GetModel(Convert.ToInt32(nid));
-
+            
+            NewNoticeBLL newNoticeBll = new NewNoticeBLL();
+            newNoticeBll.Del(currNotice.NId, currTeacher.TId,2);
         }
     }
 }

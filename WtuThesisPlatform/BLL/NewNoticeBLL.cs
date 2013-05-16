@@ -123,5 +123,15 @@ namespace WtuThesisPlatform.BLL
             return dal.Update(model);
 		}
         #endregion
+
+        public int Del(int noticeId, int userId,int userType)
+        {
+            return dal.Del(noticeId, userId, userType);
+        }
+
+        public int GetNewNumByTid(int teacherId)
+        {
+            return dal.GetNewNumByTid(teacherId);
+        }
     }
 }

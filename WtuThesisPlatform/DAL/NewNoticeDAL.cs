@@ -278,5 +278,17 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+        public int Del(int noticeId, int userId, int userType)
+        {
+            string sql = "delete from NewNotice where NoticeId="+noticeId+" and NUserType="+userType+" and NUserId="+userId;
+            return DbHelperSQL.ExcuteNonQuery(sql);
+        }
+
+        public int GetNewNumByTid(int teacherId)
+        {
+            string sql = "select count(*) from NewNotice where NUserType=2 and NUserId="+teacherId;
+            return DbHelperSQL.ExcuteScalar(sql);
+        }
     }
 }

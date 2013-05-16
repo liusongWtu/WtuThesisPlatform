@@ -84,7 +84,7 @@ namespace WtuThesisPlatform.BLL
             {
                 foreach (NewNotice item in lstNewNotice)
                 {
-                    if (item.NUserId == noctice.NPublisherId)
+                    if (item.NoticeId == noctice.NId)
                     {
                         noctice.IsNew = true;
                         break;
@@ -135,7 +135,7 @@ namespace WtuThesisPlatform.BLL
             {
                 foreach (NewNotice item in lstNewNotice)
                 {
-                    if (item.NUserId == noctice.NPublisherId)
+                    if (item.NoticeId == noctice.NId)
                     {
                         noctice.IsNew = true;
                         break;
