@@ -75,10 +75,15 @@
 
             </table>
         </div>
-       <div class="content-bottom">
+       <%--<div class="content-bottom">
             <div class="pagechange">
                     <div id="pageBar"><%=pageBar%></div>
+<<<<<<< HEAD
+            </div>
+        </div>--%>
+=======
                     </div>
         </div>
+>>>>>>> 4f0cb08a538c9b127c0745cfc1b126122d2b9a16
     </div>
 </asp:Content>

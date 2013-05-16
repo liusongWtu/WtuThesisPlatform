@@ -62,6 +62,88 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetList(strWhere);
         }
+
+        /// <summary>
+        /// 根据教师id获取教师对应的公告
+        /// </summary>
+        /// <param name="teacherId"></param>
+        /// <returns></returns>
+        public IList<Notice> GetListByTId(int teacherId)
+        {
+            IList<Notice> lstNotice= dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId="+teacherId+" )");
+            IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=2 and NUserId="+teacherId);
+            if (lstNotice == null)
+            {
+                return null;
+            }
+            if (lstNewNotice == null)
+            {
+                lstNewNotice = new List<NewNotice>();
+            }
+            foreach (Notice noctice in lstNotice)
+            {
+                foreach (NewNotice item in lstNewNotice)
+                {
+                    if (item.NUserId == noctice.NPublisherId)
+                    {
+                        noctice.IsNew = true;
+                        break;
+                    }
+                }
+            }
+
+            return lstNotice;
+        }
+
+        /// <summary>
+        /// 根据学生id获取学生对应的公告
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
+        public IList<Notice> GetListBySId(Student student)
+        {
+            string sql = string.Empty ;
+            if (student.SFlag)//若学生已通过选题，则只能看到自己导师的公告及学校公告
+            {
+                sql = " StudentId="+student.SId+" and TPassed=1";
+            }
+            else//否则查看志愿中所有导师公告及学校公告
+            {
+                sql = " StudentId="+student.SId;
+            }
+            IList<ThesisSelected> lstThesisSelected = new ThesisSelectedBLL().GetList(sql);
+            StringBuilder sbFilter = new StringBuilder();
+            sbFilter.Append(" (");
+            foreach (ThesisSelected item in lstThesisSelected)
+            {
+                sbFilter.Append(item.ThesisTitle.Teacher.TId+",");
+            }
+            sbFilter.Remove(sbFilter.Length -2,1);
+            sbFilter.Append(")");
+            IList<Notice> lstNotice = dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId in " + sbFilter.ToString () + " )");
+            IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=1 and NUserId=" + student.SId);
+
+            if (lstNotice == null)
+            {
+                return null;
+            }
+            if (lstNewNotice == null)
+            {
+                lstNewNotice = new List<NewNotice>();
+            }
+            foreach (Notice noctice in lstNotice)
+            {
+                foreach (NewNotice item in lstNewNotice)
+                {
+                    if (item.NUserId == noctice.NPublisherId)
+                    {
+                        noctice.IsNew = true;
+                        break;
+                    }
+                }
+            }
+            return lstNotice;
+        }
         #endregion
 		
         #region RESTORE

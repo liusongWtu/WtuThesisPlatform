@@ -11,7 +11,7 @@ namespace Web.ashx.student
     /// <summary>
     /// SelectedManager 的摘要说明
     /// </summary>
-    public class SelectedManager : IHttpHandler,IRequiresSessionState
+    public class SelectedManager : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
@@ -42,6 +42,7 @@ namespace Web.ashx.student
             thesisSelected.Student = currStudent;
             ThesisSelectedBLL tsBll = new ThesisSelectedBLL();
             ThesisCollectBLL tcBll = new ThesisCollectBLL();
+            ThesisTitleBLL thesisTitleBll = new ThesisTitleBLL();
 
             if (operate == "add")
             {
@@ -51,7 +52,8 @@ namespace Web.ashx.student
                     context.Response.Write("ok");
                     return;
                 }
-                if (tsBll.Add(thesisSelected) > 0)
+                thesisSelected.ThesisTitle.TSelectedNum += 1;
+                if (tsBll.Add(thesisSelected) > 0 && thesisTitleBll.Update(thesisSelected.ThesisTitle) > 0)
                 {
                     context.Response.Write("ok");
                     return;
@@ -59,7 +61,18 @@ namespace Web.ashx.student
             }
             else if (operate == "del")
             {
-                if (tsBll.Del(thesisId) > 0)
+                thesisSelected.ThesisTitle.TSelectedNum -= 1;
+                if (thesisSelected.TPassed)
+                {
+                    thesisSelected.ThesisTitle.TAcceptNum -= 1;
+                    thesisSelected.Student.SFlag = false;
+                    StudentBLL studentBll= new StudentBLL();
+                    if (studentBll.Update(thesisSelected.Student) <= 0)
+                    {
+                        return;
+                    }
+                }
+                if (thesisTitleBll.Update(thesisSelected.ThesisTitle)>0&&tsBll.Del(thesisId) > 0)
                 {
                     context.Response.Write("ok");
                     return;

@@ -25,20 +25,24 @@
                             有效期限
                         </td>
                     </tr>
+                   <asp:Repeater ID="rptNotice" runat="server">
+                   <ItemTemplate>
                     <tr class="list-content">
                         <td class="left bold tr30">
-                            <a class="NTitle">公告标题</a>
+                            <a class="NTitle <%#Eval("IsNew") %>" href="/TeacherUI/NoticeDetail.aspx?nid=<%#Eval("NId") %>"><%#Eval("NTitle") %>></a>
                         </td>
                         <td  class="tr10">
-                            <span class="NPublishTime">2013-05-12</span>
+                            <span class="NPublishTime"><%#string.Format ("{0:yyyy/MM/dd}",Eval("NPublishTime")) %></span>
                         </td>
                         <td class="tr10">
-                            <span class="NPublishUnits">发布单位</span>
+                            <span class="NPublishUnits"><%#Eval("NPublishUnits")%></span>
                         </td>
                         <td class="tr10">
-                            <span class="NDeadTime">2013-12-12</span>
+                            <span class="NDeadTime"><%#string.Format ("{0:yyyy/MM/dd}",Eval("NDeadTime")) %></span>
                         </td>
                     </tr>
+                   </ItemTemplate>
+                   </asp:Repeater>
                 </table>
             </div>
         </div>

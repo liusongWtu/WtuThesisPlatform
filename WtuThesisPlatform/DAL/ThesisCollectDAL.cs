@@ -232,8 +232,8 @@ namespace WtuThesisPlatform.DAL
                 result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
 
                 //更新选题中选择人数信息
-                string sql = "update ThesisTitle set TSelectedNum=TSelectedNum+1 where TId= "+model.ThesisTitle.TId;
-                DbHelperSQL.ExcuteScalar(sql);
+                //string sql = "update ThesisTitle set TSelectedNum=TSelectedNum+1 where TId= "+model.ThesisTitle.TId;
+                //DbHelperSQL.ExcuteScalar(sql);
             }
             catch (Exception ex)
             {

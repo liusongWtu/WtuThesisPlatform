@@ -22,6 +22,7 @@ namespace WtuThesisPlatform.MODEL
         protected string _nContent = String.Empty;
         protected DateTime _nPublishTime;
         protected DateTime _nDeadTime;
+        protected bool _isNew;
         protected bool _isDel;
         #endregion
 		
@@ -114,6 +115,15 @@ namespace WtuThesisPlatform.MODEL
         {
             set {_isDel = value;}
             get {return _isDel;}
+        }
+
+        /// <summary>
+        /// 是否为未读信息
+        /// </summary>
+        public bool IsNew
+        {
+            set { _isNew = value; }
+            get { return _isNew; }
         }
         #endregion
     }

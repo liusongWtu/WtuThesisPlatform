@@ -145,9 +145,9 @@ namespace WtuThesisPlatform.BLL
         } 
         #endregion
 
-        public IList<ThesisSelected> GetListByThesisId(string thesisTitleId)
+        public IList<ThesisSelected> GetListByThesisId(string thesisTitleId,bool passed)
         {
-            return dal.GetList(" ThesisTitleId="+thesisTitleId);
+            return dal.GetList(" ThesisTitleId="+thesisTitleId+" and TPassed="+(passed? "1":"0"));
         }
 
        

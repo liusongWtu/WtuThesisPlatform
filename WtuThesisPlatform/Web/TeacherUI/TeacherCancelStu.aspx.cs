@@ -9,13 +9,13 @@ using WtuThesisPlatform.BLL;
 
 namespace Web.TeacherUI
 {
-    public partial class TeacherStuInfo : System.Web.UI.Page
+    public partial class TeacherCancelStu : System.Web.UI.Page
     {
         Teacher currTeacher = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            currTeacher=Session["currUser"] as Teacher;
+            currTeacher = Session["currUser"] as Teacher;
             if (currTeacher == null)
             {
                 return;
@@ -28,9 +28,9 @@ namespace Web.TeacherUI
         /// </summary>
         private void GetData()
         {
-            string thesisTitleId=Request["tid"];
+            string thesisTitleId = Request["tid"];
             ThesisSelectedBLL bll = new ThesisSelectedBLL();
-            IList<ThesisSelected> lstThesisSelected = bll.GetListByThesisId(thesisTitleId,false);
+            IList<ThesisSelected> lstThesisSelected = bll.GetListByThesisId(thesisTitleId, true);
             rptStudent.DataSource = lstThesisSelected;
             rptStudent.DataBind();
         }

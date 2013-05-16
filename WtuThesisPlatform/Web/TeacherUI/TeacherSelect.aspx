@@ -42,7 +42,7 @@
                                 <a href="/TeacherUI/TeacherSelectStu.aspx?tid=<%#Eval("TId") %>"><%#Eval("TNewNum")%></a>
                             </td>
                             <td>
-                                <a href="/TeacherUI/TeacherSelectStu.aspx?tid=<%#Eval("TId") %>"><%#Eval("TAcceptNum")%></a>
+                                <a href="/TeacherUI/TeacherCancelStu.aspx?tid=<%#Eval("TId") %>"><%#Eval("TAcceptNum")%></a>
                             </td>
                         </tr>
                     </ItemTemplate>
