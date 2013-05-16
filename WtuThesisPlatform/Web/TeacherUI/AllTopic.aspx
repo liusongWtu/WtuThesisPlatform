@@ -77,8 +77,8 @@
         </div>
        <div class="content-bottom">
             <div class="pagechange">
-                    <%--<div id="pageBar"><%=pageBar%></div>--%>
-            </div>
+                    <div id="pageBar"><%=pageBar%></div>
+                    </div>
         </div>
     </div>
 </asp:Content>

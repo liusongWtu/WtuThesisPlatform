@@ -1,12 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master"
-    AutoEventWireup="true" CodeBehind="TeacherSelectStu.aspx.cs" Inherits="Web.TeacherUI.TeacherStuInfo" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master" AutoEventWireup="true" CodeBehind="TeacherCancelStu.aspx.cs" Inherits="Web.TeacherUI.TeacherCancelStu" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="Stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
+<link rel="Stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
     <script type="text/javascript" src="../js/teacher/TeacherSelect.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <div class="wrap">
+ <div class="wrap">
         <div class="topic">
             <dl>
                 <dt>
@@ -53,7 +51,7 @@
                         <%#Eval("Student.Major.MName") %>
                     </td>
                     <td>
-                        <a class="selectStatus ">选择</a>
+                        <a class="selectStatus selected ">取消</a>
                     </td>
                 </tr>
                 </ItemTemplate>

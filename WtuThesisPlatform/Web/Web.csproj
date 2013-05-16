@@ -911,6 +911,7 @@
     <Content Include="TeacherUI\PublishNotice.aspx" />
     <Content Include="TeacherUI\SingleWork.aspx" />
     <Content Include="TeacherUI\TeacherApply.aspx" />
+    <Content Include="TeacherUI\TeacherCancelStu.aspx" />
     <Content Include="TeacherUI\TeacherInfo.aspx" />
     <Content Include="TeacherUI\TeacherModifyPwd.aspx" />
     <Content Include="TeacherUI\TeacherSelect.aspx" />
@@ -1239,6 +1240,13 @@
     </Compile>
     <Compile Include="TeacherUI\SingleWork.aspx.designer.cs">
       <DependentUpon>SingleWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherCancelStu.aspx.cs">
+      <DependentUpon>TeacherCancelStu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherUI\TeacherCancelStu.aspx.designer.cs">
+      <DependentUpon>TeacherCancelStu.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherUI\TeacherInfo.aspx.cs">
       <DependentUpon>TeacherInfo.aspx</DependentUpon>

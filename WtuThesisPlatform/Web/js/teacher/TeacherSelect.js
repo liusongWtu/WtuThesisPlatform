@@ -72,14 +72,21 @@ $(function () {
         if (!$(this).hasClass("selected")) {//如果还没有选择
             $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=select&tid=" + tid, success: function (data) {
                 if (data == "ok") {
-                    $(myThis).text("取消").addClass("selected");
+                    // $(myThis).text("选择").addClass("selected");
+                    $(myThis).parent().parent().remove();
                     $.omMessageTip.show({ content: '选择成功！', timeout: 1000, type: 'success' });
                 } else if (data == "ThesisFull") {
                     $.omMessageTip.show({ content: '该选题学生已满！', timeout: 1000, type: 'alert' });
                 } else if (data == "SelectFull") {
                     $.omMessageTip.show({ content: '您可选学生数已满！', timeout: 1000, type: 'alert' });
                 } else if (data == "StudentSelected") {
-                    $.omMessageTip.show({ content: '学生已选题成功！', timeout: 1000, type: 'alert' });
+                    $.omMessageBox.alert({
+                        title: '提示信息',
+                        content: '学生已选题成功,请选择其他学生！',
+                        onClose: function (value) {
+                        }
+                    });
+
                 }
                 else {
                     $.omMessageTip.show({ content: '选择失败！', timeout: 1000, type: 'error' });
@@ -91,7 +98,8 @@ $(function () {
         else {//取消选择
             $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=cancel&tid=" + tid, success: function (data) {
                 if (data == "ok") {
-                    $(myThis).text("选择").removeClass("selected");
+                    // $(myThis).text("选择").removeClass("selected");
+                    $(myThis).parent().parent().remove();
                     $.omMessageTip.show({ content: '退选成功！', timeout: 1000, type: 'success' });
                 }
                 else {

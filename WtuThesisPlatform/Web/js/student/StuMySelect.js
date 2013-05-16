@@ -14,7 +14,7 @@
             onClose: function (value) {
 
                 if (value) {
-                    $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": $myThis.parent().parent().attr("id"), "operate": "del" }, function (data) {
+                    $.post("../../ashx/student/SelectedManager.ashx", { "thesisId": $myThis.parent().parent().attr("id"), "operate": "del","srcPage":"mySelect" }, function (data) {
                         if (data == "ok") {
                             //删除成功
 
