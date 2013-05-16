@@ -92,6 +92,9 @@
     <Content Include="css\common_goodwork.css" />
     <Content Include="css\common_notice.css" />
     <Content Include="images\banner_bg.png" />
+    <Content Include="js\admin\ClassManager.js" />
+    <Content Include="js\admin\DepartmentManager.js" />
+    <Content Include="js\admin\MajorManager.js" />
     <Content Include="js\teacher\ApplyExcel.js" />
     <Content Include="images\msg_bg.png" />
     <Content Include="lib\NPOI.DDF.dll" />

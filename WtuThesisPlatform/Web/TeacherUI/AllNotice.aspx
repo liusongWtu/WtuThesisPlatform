@@ -3,8 +3,13 @@
     <link rel="Stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <div class="wrap">
-        <div class="notice">
+    <div class="select-list">
+        <div class="topic">
+            <dl>
+                <dt>
+                     全部公告
+                </dt>
+            </dl>
                 <table class="topic-list" cellspacing="0" cellpadding="0">
                     <tr class="list-header">
                         <td class="left tr30">

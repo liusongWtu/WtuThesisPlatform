@@ -71,7 +71,9 @@ $(function () {
     });
     //点击取消，返回到个人基本信息页面
     $("#psd-modify-no").click(function () {
-        self.location = "StuInfo.aspx";
+        oldPwd.val("");
+        newPwd.val("");
+        repeatPwd.val("");
         return false;
     })
 
@@ -79,7 +81,7 @@ $(function () {
     oldPwd.blur(function () {
         var type = $("#userType").val();
         var md5Pwd = $.md5(oldPwd.val()); //计算密码的md5值
-        if (oldPwd.val() != "") { 
+        if (oldPwd.val() != "") {
             $.post("../../ashx/common/checkPwd.ashx", { "type": type, "oldPwd": md5Pwd }, function (data) {
                 if (data == "ok") {
                     oldPwd.parent().next().text("");
@@ -88,6 +90,6 @@ $(function () {
                 }
             });
         }
-        
+
     });
 })

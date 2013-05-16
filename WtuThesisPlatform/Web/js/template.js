@@ -62,7 +62,8 @@ $(function () {
     //表格样式
     $(".topic-list tr:odd").css("background", "rgb(255,255,255)");
     $(".topic-list tr:even:not(.list-header)").css("background", "rgb(246,246,246)");
-
+    $(".detail").css("background", "Silver");
+    $(".detail td").css("background", "Silver");
 })
 //控制布局js
 $(function () {

@@ -4,12 +4,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/student/stu_page.css" />
     <link rel="stylesheet" type="text/css" href="../js/popup/jquery.confirm.css" />
-    <script type="text/javascript" src="../js/student/StuModifyPwd.js"></script>
+    <script type="text/javascript" src="../js/ModifyPwd.js"></script>
     <script src="../js/MD5.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
-        <div class="stu-modify_password">
+        <div class="modify_password">
             <dl>
                 <dt>
                     <h1>

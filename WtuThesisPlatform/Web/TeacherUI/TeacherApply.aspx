@@ -6,7 +6,7 @@
     <script type="text/javascript" src="../js/teacher/TeacherSelect.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-   <div class="wrap">
+   <div class="select-list">
     <div class="topic">
         <dl><dt>我的申请</dt></dl>
         <div class="content-center">

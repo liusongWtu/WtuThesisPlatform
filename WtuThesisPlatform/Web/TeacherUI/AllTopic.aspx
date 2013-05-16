@@ -5,7 +5,7 @@
     <script type="text/javascript" src="../js/teacher/AllTopic.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <div class="wrap">
+    <div class="select-list">
         <div class="content-top">
             <div class="search fl fillet">
                 <label class="ablt">
@@ -22,20 +22,20 @@
 							</dl>-->
             <table class="topic-list" cellspacing="0" cellpadding="0">
                 <tr class="list-header">
-                    <td class="td-wid0">
+                    <td class="td-wid0 left">
                         选题名称
                     </td>
-                    <td class="last td-wid1" style="width: 50%">
+                    <td style="width: 50%">
                         出题时间
                     </td>
-                    <td>
+                    <td class="last td-wid1">
                         审核结果
                     </td>
                 </tr>
                 <asp:Repeater ID="rptThesis" runat="server">
                 <ItemTemplate>
                     <tr class="list-content">
-                    <td class="bold">
+                    <td class="bold left">
                         <a><%#Eval("TName") %></a>
                     </td>
                     <td>
@@ -46,22 +46,22 @@
                     </td>
                 </tr>
                 <tr class="detail nohover hide">
-                    <td colspan="2" class="tr-wid fn-text-wrap">
+                    <td colspan="3" class="tr-wid fn-text-wrap">
                         <table>
                             <tr class="nohover">
-                                <td>开发平台
+                                <td>开发平台：
                                     <p id="developTool"><%#Eval("TPlatform") %></p>
                                 </td>
                             </tr>
                             <tr class="nohover">
-                                <td>题目简介
+                                <td>题目简介：
                                     <p id="topicIntro" class="fn-text-wrap">
                                         <%#Eval("TIntroduct") %>
                                     </p>
                                 </td>
                             </tr>
                             <tr class="nohover">
-                                <td>设计功能与实现目标
+                                <td>设计功能与实现目标：
                                     <p id="target" class="fn-text-wrap">
                                     <%#Eval("TRequire") %>    
                                     </p>
@@ -75,10 +75,10 @@
 
             </table>
         </div>
-       <div class="content-bottom">
+       <%--<div class="content-bottom">
             <div class="pagechange">
-                    <%--<div id="pageBar"><%=pageBar%></div>--%>
+                    <div id="pageBar"><%=pageBar%></div>
             </div>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>

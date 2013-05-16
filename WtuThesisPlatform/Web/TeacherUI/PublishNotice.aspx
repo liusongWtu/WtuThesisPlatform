@@ -37,7 +37,7 @@
                         <tr><td class="tab-name"><h2>公告内容：<asp:RequiredFieldValidator ID="rfvContent"
                                 runat="server" ErrorMessage="*" ControlToValidate="txtContent"></asp:RequiredFieldValidator></h2></td><td><textarea runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
                         <tr><td></td><td align="center">
-                            <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" onclick="btnSubmit_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" /></td></tr>
+                            <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" onclick="btnSubmit_Click" style="width: 40px;height: 20px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" style="width: 40px;height: 20px"  /></td></tr>
                      </table>
                  </div>
                  

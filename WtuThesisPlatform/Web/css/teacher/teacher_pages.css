@@ -133,7 +133,7 @@
 	background: #DCF3FB;
 }
 .topic-list tr.actived{
-	background: #F6FFF0;
+	color: Silver;
 }
 .topic-list a{
     padding: 3px;
