@@ -52,7 +52,7 @@ namespace Web.TeacherUI
                     NewNotice newNotice = new NewNotice();
                     newNotice.NoticeId = notice.NId;
                     newNotice.NUserId = currTeacher.TId;
-                    newNotice.NUserType = 2;
+                    newNotice.NUserType = 1;
                     newNoticeBll.Add(newNotice);
                 }
                 btnSubmit.Attributes.Add("isSaved","saved");

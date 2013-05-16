@@ -20,8 +20,9 @@ namespace Web.TeacherUI
             {
                 return;
             }
-            //IList<Notice> lstNotice = new NoticeBLL().GetList();
-
+            IList<Notice> lstNotice = new NoticeBLL().GetListByTId(currTeacher.TId);
+            rptNotice.DataSource = lstNotice;
+            rptNotice.DataBind();
         }
     }
 }
