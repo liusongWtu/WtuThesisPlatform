@@ -5,7 +5,18 @@
     <script type="text/javascript" src="../js/om/ui/om-calendar.js"></script>
     <script type="text/javascript">
         $(function () {
-            $("#deadLine").omCalendar();
+            $(".deadline").omCalendar();
+            if ($(".btnSubmit").attr("isSaved") == "saved") {
+                $.omMessageTip.show({ content: '保存成功！', timeout: 1000, type: 'success' });
+                $(".txtName").val("");
+                $(".txtContent").val("");
+            }
+            $(".cancel").click(function () {
+                $(".txtName").val("");
+                $(".txtUnits").val("");
+                $(".deadline").val("");
+                $(".txtContent").val("");
+            });
         })
     </script>
 </asp:Content>
@@ -17,11 +28,16 @@
                  <div class="line"></div>
                  <div class="noticeContent center">
                      <table class="notice-excel">
-                        <tr><td class="tab-name"><h2>公告名称：</h2></td><td><input type="text" /></td></tr>
-                        <tr><td class="tab-name"><h2>发布单位：</h2></td><td><input type="text" /></td></tr>
-                        <tr><td class="tab-name"><h2>截止日期：</h2></td><td><input id="deadLine" class="deadline" /></td></tr>
-                        <tr><td class="tab-name"><h2>公告内容：</h2></td><td><textarea></textarea></td></tr>
-                        <tr><td></td><td align="center"><button>提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>取消</button></td></tr>
+                        <tr><td class="tab-name"><h2>公告名称：</h2></td><td><input type="text" class="txtName" runat="server" id="txtName" /><asp:RequiredFieldValidator ID="rfvName"
+                                runat="server" ErrorMessage="*" ControlToValidate="txtName"></asp:RequiredFieldValidator></td></tr>
+                        <tr><td class="tab-name"><h2>发布单位：</h2></td><td><input type="text" runat="server" class="txtUnits" id="txtUnits" /><asp:RequiredFieldValidator ID="rfvUnits"
+                                runat="server" ErrorMessage="*" ControlToValidate="txtUnits"></asp:RequiredFieldValidator></td></tr>
+                        <tr><td class="tab-name"><h2>截止日期：</h2></td><td><input id="deadLine"  class="deadline"  runat="server"  /><asp:RequiredFieldValidator ID="rfvDeadTime"
+                                runat="server" ErrorMessage="*" ControlToValidate="deadLine"></asp:RequiredFieldValidator></td></tr>
+                        <tr><td class="tab-name"><h2>公告内容：<asp:RequiredFieldValidator ID="rfvContent"
+                                runat="server" ErrorMessage="*" ControlToValidate="txtContent"></asp:RequiredFieldValidator></h2></td><td><textarea runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
+                        <tr><td></td><td align="center">
+                            <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" onclick="btnSubmit_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" /></td></tr>
                      </table>
                  </div>
                  

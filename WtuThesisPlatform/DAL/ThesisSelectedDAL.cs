@@ -113,6 +113,8 @@ namespace WtuThesisPlatform.DAL
             }
             return list;
         }
+
+       
         #endregion
 
         #region GetListByProc

@@ -419,5 +419,17 @@ namespace WtuThesisPlatform.DAL
                     ";update Student set SFlag=0 where SId=" + thesisSelect.Student.SId;
             return DbHelperSQL.ExecuteSqlTran(sql);
         }
+
+        public IList<int> GetTeachStudent(int teacherId, string currYear)
+        {
+            IList<int> lstStudent = new List<int>();
+            string sql = "select distinct StudentId from View_TeacherTeach where TTeacherId=" + teacherId + " and TYear=" + currYear;
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            foreach (DataRow item in dt.Rows)
+            {
+                lstStudent.Add(Convert.ToInt32(item["StudentId"]));
+            }
+            return lstStudent;
+        }
     }
 }

@@ -907,7 +907,7 @@
     <Content Include="TeacherUI\ApplyExcel.aspx" />
     <Content Include="TeacherUI\applyExcel.htm" />
     <Content Include="TeacherUI\GoodWork.aspx" />
-    <Content Include="TeacherUI\Notice.aspx" />
+    <Content Include="TeacherUI\NoticeDetail.aspx" />
     <Content Include="TeacherUI\PublishNotice.aspx" />
     <Content Include="TeacherUI\SingleWork.aspx" />
     <Content Include="TeacherUI\TeacherApply.aspx" />
@@ -1219,12 +1219,12 @@
     <Compile Include="TeacherUI\GoodWork.aspx.designer.cs">
       <DependentUpon>GoodWork.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TeacherUI\Notice.aspx.cs">
-      <DependentUpon>Notice.aspx</DependentUpon>
+    <Compile Include="TeacherUI\NoticeDetail.aspx.cs">
+      <DependentUpon>NoticeDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TeacherUI\Notice.aspx.designer.cs">
-      <DependentUpon>Notice.aspx</DependentUpon>
+    <Compile Include="TeacherUI\NoticeDetail.aspx.designer.cs">
+      <DependentUpon>NoticeDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherUI\PublishNotice.aspx.cs">
       <DependentUpon>PublishNotice.aspx</DependentUpon>

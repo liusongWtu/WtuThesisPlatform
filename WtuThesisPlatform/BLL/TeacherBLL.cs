@@ -145,6 +145,11 @@ namespace WtuThesisPlatform.BLL
             return dal.DelStudent(thesisSelect);
         }
 
+        public IList<int> GetTeachStudent(int teacherId, string year)
+        {
+            return dal.GetTeachStudent(teacherId, year);
+        }
+
         public DataTable GetAll()
         {
             return dal.GetAll();            
