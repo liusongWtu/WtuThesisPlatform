@@ -10,7 +10,9 @@ var DepartmentId;
 var MajorId;
 var TTeachCourse;
 var TResearchFields;
+var topicList;
 $(function () {
+    topicList = $("#topicList");
     TNo = $(".TNo");
     TSex = $(".TSex");
     TName = $(".TName");
@@ -58,8 +60,6 @@ $(function () {
                             $.omMessageTip.show({ content: '添加失败！', timeout: 1000, type: 'error' });
                         }
                     }
-                    window.location.reload();
-
                 }
             },
             { text: "继续添加", click:
@@ -129,28 +129,45 @@ $(function () {
 
     //查看用户详情
     $(".checkDetail").click(function () {
-        $(".errorImg,.errorMsg").hide();
-        var teaId = $(this).parent().parent().attr("id");
-        $("#teaAddNew").omDialog({ title: "用户信息" });
-        $("#teaAddNew").omDialog({ buttons: {} });
-        $(".addTable input,.addTable textarea").attr("readonly", "readonly");
-        $("#teaAddNew").omDialog('open');
-        setInfo(teaId, "detail");
-        $("#teaAddNew").omDialog({ onClose: function () {
-            clear();
-            $(".errorImg,.errorMsg").hide();
-        }
-        });
+        bindCheckEvent(this);
     });
 
 
     //修改用户信息
     $(".modifyInfo").click(function () {
         //初始化
-        $(".errorImg,.errorMsg").hide();
-        var teaId = $(this).parent().parent().attr("id");
-        $("#teaAddNew").omDialog({ title: "修改信息" });
-        $("#teaAddNew").omDialog({ buttons: [
+        bindModifyEvent(this);
+    });
+
+    //重置密码
+    $(".resetPwd").click(function () {
+        bindResetEvent(this);
+    });
+
+    //删除用户信息
+    $(".deleteOne").click(function () {
+        bindDeleteEvent(this);
+    });
+});
+function bindCheckEvent(myThis) {
+    $(".errorImg,.errorMsg").hide();
+    var teaId = $(myThis).parent().parent().attr("id");
+    $("#teaAddNew").omDialog({ title: "用户信息" });
+    $("#teaAddNew").omDialog({ buttons: {} });
+    $(".addTable input,.addTable textarea").attr("readonly", "readonly");
+    $("#teaAddNew").omDialog('open');
+    setInfo(teaId, "detail");
+    $("#teaAddNew").omDialog({ onClose: function () {
+            clear();
+            $(".errorImg,.errorMsg").hide();
+        }
+    });
+}
+function bindModifyEvent(myThis) {
+    $(".errorImg,.errorMsg").hide();
+    var teaId = $(myThis).parent().parent().attr("id");
+    $("#teaAddNew").omDialog({ title: "修改信息" });
+    $("#teaAddNew").omDialog({ buttons: [
                 { text: "确定", click:
                     function () {
                         var error = $("span.errorImg:visible").length;
@@ -167,7 +184,6 @@ $(function () {
                                 $.omMessageTip.show({ content: '修改失败！', timeout: 1000, type: 'error' });
                             }
                         }
-                        window.location.reload();
                     }
                 },
 
@@ -177,66 +193,54 @@ $(function () {
                     }
                 }
             ]
-        });
-        $("#teaAddNew").omDialog('open');
-        setInfo(teaId, "modify");
-        $(".addTable input,.addTable textarea").removeAttr("readonly");
-        $("#teaAddNew").omDialog({ onClose: function () {
-            TNo.unbind("blur");
-            $(".errorImg,.errorMsg").hide();
-            clear();
-        }
-        });
     });
-
-    //重置密码
-    $(".resetPwd").click(function () {
-        var teaId = $(this).parent().parent().attr("id");
-        $.omMessageBox.confirm({
-            title: '密码重置？',
-            content: '确定要重置该用户密码？',
-            onClose: function (value) {
-                if (value) {
-                    $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "resetPwd", "tid": teaId }, function (data) {
-                        if (data == "ok") {
-                            $.omMessageTip.show({ content: '重置成功！', timeout: 1000, type: 'success' });
-                        } else {
-                            $.omMessageTip.show({ content: '重置失败！', timeout: 1000, type: 'error' });
-                        }
-                    });
-                }
-            }
-        });
+    $("#teaAddNew").omDialog('open');
+    setInfo(teaId, "modify");
+    $(".addTable input,.addTable textarea").removeAttr("readonly");
+    $("#teaAddNew").omDialog({ onClose: function () {
+        TNo.unbind("blur");
+        $(".errorImg,.errorMsg").hide();
+        clear();
+    }
     });
-
-    //删除用户信息
-    $(".deleteOne").click(function () {
-        var $myThis = $(this);
-        var teaId = $(this).parent().parent().attr("id");
-        $.omMessageBox.confirm({
-            title: '确认删除？',
-            content: '确定要删除该用户信息？',
-            onClose: function (value) {
-                if (value) {
-                    if (deleteCount(teaId)) {//删除信息成功
-                        $myThis.parent().parent().remove();
-                        $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
-                    }
-                    else {
-                        $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
-                    }
-                }
-            }
-        });
-    });
-});
-    
-function getInfo() {
-    var info = { 'TNo': TNo.val(), 'TSex': TSex.val(), 'TName': TName.val(), 'TPhone': TPhone.val(), 'TEmail': TEmail.val(), 'TQQ': TQQ.val(), 'TZhiCheng': TZhiCheng.val(), 'TTeachNum': TTeachNum.val(), 'DepartmentId': DepartmentId.val(), 'MajorId': MajorId.val(), 'TTeachCourse': TTeachCourse.val(), 'TResearchFields': TResearchFields.val() };
-    return info;
 }
-
-
+function bindDeleteEvent(myThis) {
+    var $myThis = $(myThis);
+    var teaId = $(myThis).parent().parent().attr("id");
+    $.omMessageBox.confirm({
+        title: '确认删除？',
+        content: '确定要删除该用户信息？',
+        onClose: function (value) {
+            if (value) {
+                if (deleteCount(teaId)) {//删除信息成功
+                    $myThis.parent().parent().remove();
+                    $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
+                }
+                else {
+                    $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
+                }
+            }
+        }
+    });
+}
+function bindResetEvent(myThis) {
+    var teaId = $(myThis).parent().parent().attr("id");
+    $.omMessageBox.confirm({
+        title: '密码重置？',
+        content: '确定要重置该用户密码？',
+        onClose: function (value) {
+            if (value) {
+                $.post("../../ashx/admin/TeacherManager.ashx", { "operate": "resetPwd", "tid": teaId }, function (data) {
+                    if (data == "ok") {
+                        $.omMessageTip.show({ content: '重置成功！', timeout: 1000, type: 'success' });
+                    } else {
+                        $.omMessageTip.show({ content: '重置失败！', timeout: 1000, type: 'error' });
+                    }
+                });
+            }
+        }
+    });
+}
 function setInfo(teaId, operate) {
     $.get("../../ashx/admin/TeacherManager.ashx", { "operate": "getAInfo", "teacherId": teaId }, function (data) {
         info = eval("(" + data + ")");
@@ -252,7 +256,9 @@ function setInfo(teaId, operate) {
         if (operate == "detail") {
             TSex.empty();
             TSex.append("<option selected='selected'>" + info.TSex + "</option>");
+            DepartmentId.empty();
             DepartmentId.append("<option selected='selected'>" + info.Department.DName + "</option>");
+            MajorId.empty();
             MajorId.append("<option selected='selected'>" + info.Major.MName + "</option>");
         } else if (operate == "modify") {
             TSex.empty();
@@ -262,10 +268,7 @@ function setInfo(teaId, operate) {
             DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
             loadMajor(MajorId, info.Department.DId);
             MajorId.val(info.Major.MId);
-
-            //验证
-            var oldInfo = getInfo();
-            
+            //验证 
             TNo.blur(function () {
                 var newNo = TNo.val();
                 if (info.TNo != newNo) {
@@ -291,6 +294,13 @@ function addNewCount() {//添加新用户
             var jsonArr = eval("(" + data + ")");
             if (jsonArr.result == "ok") {
                 result = true;
+                topicList.append("<tr class='list-content' id=" + jsonArr.id +
+                "><td><input type='checkbox' name='topiclist' /></td><td class='first'>" + TNo.val() +
+                "</td><td>" + TName.val() +
+                "</td><td>" + DepartmentId.find("option:selected").text() +
+                "</td><td>" + TPhone.val() +
+                "</td><td>" + TEmail.val() +
+                "</td><td><a href='#' class='checkDetail' onclick='bindCheckEvent(this)'>查看详情</a></td><td><a href='#' class='resetPwd' onclick='bindResetEvent(this)'>重置</a></td><td><a href='#' class='modifyInfo' onclick='bindModifyEvent(this)'>修改</a></td><td><a href='#' class='deleteOne' onclick='bindDeleteEvent(this)'>删除</a></td></tr>");
             } else {
                 result = false;
             }
@@ -324,6 +334,11 @@ function modifyCount(tid) {
         async: false,
         success: function (data) {
             if (data == "ok") {
+                $("#" + tid).children().eq(1).text(TNo.val());
+                $("#" + tid).children().eq(2).text(TName.val());
+                $("#" + tid).children().eq(3).text(DepartmentId.find("option:selected").text());
+                $("#" + tid).children().eq(4).text(TPhone.val());
+                $("#" + tid).children().eq(5).text(TEmail.val());
                 ope = true;
             } else {
                 ope = false;

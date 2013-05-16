@@ -4,7 +4,7 @@ var UPhone;
 var UEmail;
 var UQQ;
 var DepartmentId;
-
+var topicList;
 
 $(function () {
     UUserName = $(".UUserName");
@@ -12,6 +12,7 @@ $(function () {
     UPhone = $(".UPhone");
     UEmail = $(".UEmail");
     UQQ = $(".UQQ");
+    topicList = $("#topicList");
     //初始化弹出框
     $("#AdmAddNew").omDialog({
         autoOpen: false,
@@ -67,6 +68,7 @@ $(function () {
         $(".addTable input,.addTable textarea").removeAttr("readonly");
         $("#AdmAddNew").omDialog('open');
         //验证
+        UUserName.focus();
         UUserName.blur(function () {
             checkUserNameDB(UUserName.val());
         });
@@ -107,33 +109,88 @@ $(function () {
 
     //查看用户详情
     $(".checkDetail").click(function () {
-        var admId = $(this).parent().parent().attr("id");
-        $("#AdmAddNew").omDialog({ title: "用户信息" });
-        $("#AdmAddNew").omDialog({ buttons: {} });
-        $(".addTable input,.addTable textarea").attr("readonly", "readonly");
-        $("#AdmAddNew").omDialog('open');
-        $(".errorImg,.errorMsg").hide();
-        setInfo(admId, "detail");
-        $("#AdmAddNew").omDialog({ onClose: function () {
-            $(".errorImg,.errorMsg").hide();
-            UUserName.unbind("blur");
-            clear();
-        } 
-        });
+        bindCheckEvent(this);
     });
 
 
     //修改用户信息
     $(".modifyInfo").click(function () {
         //初始化
+        bindModifyEvent(this);
+    });
+
+
+    //重置密码
+    $(".resetPwd").click(function () {
+        bindResetEvent(this);
+    });
+
+    //删除用户信息
+    $(".deleteOne").click(function () {
+        bindDeleteEvent(this);
+    });
+
+});
+function bindCheckEvent(myThis) {
+    var admId = $(myThis).parent().parent().attr("id");
+    $("#AdmAddNew").omDialog({ title: "用户信息" });
+    $("#AdmAddNew").omDialog({ buttons: {} });
+    $(".addTable input,.addTable textarea").attr("readonly", "readonly");
+    $("#AdmAddNew").omDialog('open');
+    $(".errorImg,.errorMsg").hide();
+    setInfo(admId, "detail");
+    $("#AdmAddNew").omDialog({ onClose: function () {
         $(".errorImg,.errorMsg").hide();
-        var admId = $(this).parent().parent().attr("id");
-        $("#AdmAddNew").omDialog({ title: "修改信息" });
-        $("#AdmAddNew").omDialog({ buttons: [
+        UUserName.unbind("blur");
+        clear();
+    }
+    });
+}
+function bindResetEvent(myThis) {
+    var admId = $(myThis).parent().parent().attr("id");
+    $.omMessageBox.confirm({
+        title: '密码重置？',
+        content: '确定要重置该用户密码？',
+        onClose: function (value) {
+            if (value) {
+                $.post("../../ashx/admin/AdminManager.ashx", { "operate": "resetPwd", "aid": admId }, function (data) {
+                    if (data == "ok") {
+                        $.omMessageTip.show({ content: '重置成功！', timeout: 1000, type: 'success' });
+                    } else {
+                        $.omMessageTip.show({ content: '重置失败！', timeout: 1000, type: 'error' });
+                    }
+                });
+            }
+        }
+    });
+}
+function bindDeleteEvent(myThis) {
+    var $myThis = $(myThis);
+    var admId = $(myThis).parent().parent().attr("id");
+    $.omMessageBox.confirm({
+        title: '确认删除？',
+        content: '确定要删除该用户信息？',
+        onClose: function (value) {
+            if (value) {
+                if (deleteCount(admId)) {//删除信息成功
+                    $myThis.parent().parent().remove();
+                    $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
+                }
+                else {
+                    $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
+                }
+            }
+        }
+    });
+}
+function bindModifyEvent(myThis) {
+    $(".errorImg,.errorMsg").hide();
+    var admId = $(myThis).parent().parent().attr("id");
+    $("#AdmAddNew").omDialog({ title: "修改信息" });
+    $("#AdmAddNew").omDialog({ buttons: [
                 { text: "确定", click:
                     function () {
                         var error = $("span.errorImg:visible").length;
-                        //alert(error);
                         if (error != 0) {
                             return;
                         } else {
@@ -156,84 +213,26 @@ $(function () {
                     }
                 }
             ]
-            });
-        $(".addTable input,.addTable textarea").removeAttr("readonly");
-        $("#AdmAddNew").omDialog('open');
-        setInfo(admId, "modify");
-        Validata();
-        $("#AdmAddNew").omDialog({ onClose: function () {
-            $(".errorImg,.errorMsg").hide();
-            UUserName.unbind("blur");
-            clear();
-        }
-        });
     });
-
-
-    //重置密码
-    $(".resetPwd").click(function () {
-        var admId = $(this).parent().parent().attr("id");
-        $.omMessageBox.confirm({
-            title: '密码重置？',
-            content: '确定要重置该用户密码？',
-            onClose: function (value) {
-                if (value) {
-                    $.post("../../ashx/admin/AdminManager.ashx", { "operate": "resetPwd", "aid": admId }, function (data) {
-                        if (data == "ok") {
-                            $.omMessageTip.show({ content: '重置成功！', timeout: 1000, type: 'success' });
-                        } else {
-                            $.omMessageTip.show({ content: '重置失败！', timeout: 1000, type: 'error' });
-                        }
-                    });
-                }
-            }
-        });
+    $(".addTable input,.addTable textarea").removeAttr("readonly");
+    $("#AdmAddNew").omDialog('open');
+    setInfo(admId, "modify");
+    Validata();
+    $("#AdmAddNew").omDialog({ onClose: function () {
+        $(".errorImg,.errorMsg").hide();
+        UUserName.unbind("blur");
+        clear();
+    }
     });
-
-    //删除用户信息
-    $(".deleteOne").click(function () {
-        var $myThis = $(this);
-        var admId = $(this).parent().parent().attr("id");
-        $.omMessageBox.confirm({
-            title: '确认删除？',
-            content: '确定要删除该用户信息？',
-            onClose: function (value) {
-                if (value) {
-                    if (deleteCount(admId)) {//删除信息成功
-                        $myThis.parent().parent().remove();
-                        $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
-                    }
-                    else {
-                        $.omMessageTip.show({ content: '删除失败！', timeout: 1000, type: 'error' });
-                    }
-                }
-            }
-        });
-    });
-
-});
-
-//function getInfo() {
-    //var info = { 'UUserName': UUserName.val(), 'UName': UName.val(), 'UPhone': UPhone.val(), 'UEmail': UEmail.val(), 'UQQ': UQQ.val()};
-    //return info;
-//}
-
-
+}
 function setInfo(admId, operate) {
     $.ajax({ url: "../../ashx/admin/AdminManager.ashx", type: "get", data: "operate=getAInfo&adminId=" + admId, async: false, success: function (data) {
         info = eval("(" + data + ")");
-       // UUserName.focus();
         UUserName.val(info.UUserName);
-       // UName.focus();
         UName.val(info.UName);
-       // UPhone.focus();
         UPhone.val(info.UPhone);
-       // UEmail.focus();
         UEmail.val(info.UEmail);
-       // UQQ.focus();
         UQQ.val(info.UQQ);
-        //UUserName.focus();
-        console.log(info.UQQ);
         if (operate == "detail") {
             return;
         }
@@ -245,7 +244,7 @@ function setInfo(admId, operate) {
             }
 
         });
-        
+        Validata();
     }
     });
 }
@@ -262,7 +261,12 @@ function addNewCount() {//添加新用户
             if (jsonArr.result == "ok") {
                 result = true;
                 //页面添加相应变化
-
+                topicList.append("<tr class='list-content' id=" + jsonArr.id +
+                "><td><input type='checkbox' name='topiclist' /></td><td class='first'>" + UUserName.val() +
+                "</td><td>" + UName.val() +
+                "</td><td>" + UPhone.val() +
+                "</td><td>" + UEmail.val() +
+                "</td><td><a href='#' class='checkDetail' onclick='bindCheckEvent(this)'>查看详情</a></td><td><a href='#' class='resetPwd' onclick='bindResetEvent(this)'>重置</a></td><td><a href='#' class='modifyInfo' onclick='bindModifyEvent(this)'>修改</a></td><td><a href='#' class='deleteOne' onclick='bindDeleteEvent(this)'>删除</a></td></tr>");
             } else {
                 result = false;
             }
@@ -300,6 +304,10 @@ function modifyCount(aid) {
         async: false,
         success: function (data) {
             if (data == "ok") {
+                $("#" + aid).children().eq(1).text(UUserName.val());
+                $("#" + aid).children().eq(2).text(UName.val());
+                $("#" + aid).children().eq(3).text(UPhone.val());
+                $("#" + aid).children().eq(4).text(UEmail.val());
                 result = true;
             } else {
                 result = false;
