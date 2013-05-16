@@ -22,7 +22,7 @@ namespace Web.TeacherUI
             }
             string year = System.Configuration.ConfigurationManager.AppSettings["currentYear"];
             ThesisTitleBLL bll = new ThesisTitleBLL();
-            IList<ThesisTitle> lstThesisTitle = bll.GetAllListByTId(currTeacher.TId.ToString(),year,false);
+            IList<ThesisTitle> lstThesisTitle = bll.GetListByTId(currTeacher.TId.ToString(),year,false);
             rptThesis.DataSource = lstThesisTitle;
             rptThesis.DataBind();
         }

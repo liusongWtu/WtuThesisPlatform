@@ -27,11 +27,8 @@ namespace Web.TeacherUI
             }
             currTeacher = Session["currUser"] as Teacher;
             userType.Value = "2";
-            if (!IsPostBack)
-            {
-                currentNavNode.Value=Request["nodeId"];
-                NavigateHTML = CommonCode.CreateTree();
-            }
+            currentNavNode.Value = Request["nodeId"];
+            NavigateHTML = CommonCode.CreateTree();
         }
     }
 }

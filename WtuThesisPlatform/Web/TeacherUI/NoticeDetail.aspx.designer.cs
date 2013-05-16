@@ -10,6 +10,6 @@
 namespace Web.TeacherUI {
     
     
-    public partial class Notice {
+    public partial class NoticeDetail {
     }
 }

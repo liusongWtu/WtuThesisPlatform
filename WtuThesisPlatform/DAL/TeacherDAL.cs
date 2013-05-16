@@ -242,7 +242,7 @@ namespace WtuThesisPlatform.DAL
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
             }
-            model.CurrNum= DbHelperSQL.ExcuteScalar("select COUNT(*) from View_TeacherTeach where TTeacherId="+model.TId);
+            model.CurrNum= DbHelperSQL.ExcuteScalar("select COUNT(*) from View_TeacherTeach where TTeacherId="+model.TId+" and TPassed=1");
         }
         #endregion
 
@@ -389,11 +389,47 @@ namespace WtuThesisPlatform.DAL
         }
         #endregion
 
+        /// <summary>
+        /// 选择一个学生
+        /// </summary>
+        public int SelectStudent(ThesisSelected thesisSelect)
+        {
+            string sql = "update ThesisSelected set TPassed=1 where TId=" + thesisSelect.TId +
+                    ";update ThesisTitle set TAcceptNum=TAcceptNum+1 where TId= " + thesisSelect.ThesisTitle.TId +
+                    ";update Student set SFlag=1 where SId=" + thesisSelect.Student.SId;
+            return DbHelperSQL.ExecuteSqlTran(sql);
+        }
+
         public DataTable GetAll()
         {
             string sql = "select * from Teacher";
             DataTable dt = DbHelperSQL.GetTable(sql);
             return dt;
+        }
+
+        /// <summary>
+        /// 退选学生
+        /// </summary>
+        /// <param name="thesisSelect"></param>
+        /// <returns></returns>
+        public int DelStudent(ThesisSelected thesisSelect)
+        {
+            string sql = "update ThesisSelected set TPassed=0 where TId=" + thesisSelect.TId +
+                    ";update ThesisTitle set TAcceptNum=TAcceptNum-1 where TId= " + thesisSelect.ThesisTitle.TId +
+                    ";update Student set SFlag=0 where SId=" + thesisSelect.Student.SId;
+            return DbHelperSQL.ExecuteSqlTran(sql);
+        }
+
+        public IList<int> GetTeachStudent(int teacherId, string currYear)
+        {
+            IList<int> lstStudent = new List<int>();
+            string sql = "select distinct StudentId from View_TeacherTeach where TTeacherId=" + teacherId + " and TYear=" + currYear;
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            foreach (DataRow item in dt.Rows)
+            {
+                lstStudent.Add(Convert.ToInt32(item["StudentId"]));
+            }
+            return lstStudent;
         }
     }
 }

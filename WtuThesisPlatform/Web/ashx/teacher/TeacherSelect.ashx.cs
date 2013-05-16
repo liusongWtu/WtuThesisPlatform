@@ -39,28 +39,57 @@ namespace Web.ashx.teacher
         //退选
         private void DelStudent()
         {
-
+            string thesisSelectedId = context.Request["tid"];
+            ThesisSelected thesisSelected = new ThesisSelectedBLL().GetModel(Convert.ToInt32(thesisSelectedId));
+            TeacherBLL bll = new TeacherBLL();
+            if (bll.DelStudent(thesisSelected) > 0)
+            {
+                currTeacher.CurrNum -= 1;
+                context.Response.Write("ok");
+            }
+            else
+            {
+                context.Response.Write("failed");
+            }
         }
 
         //选择学生
         private void SelectStudent()
         {
+            //该教师所带学生数目是否达到限制人数
             if (currTeacher.TTeachNum <= currTeacher.CurrNum)
             {
                 context.Response.Write("SelectFull");
                 return;
             }
-            string thesisTitleId=context.Request["tid"];
-            string studentId=context.Request["sid"];
-            ThesisTitle thesisTitle = new ThesisTitleBLL().GetModel(Convert.ToInt32(thesisTitleId));
-            if (thesisTitle.TNumber <= thesisTitle.TAcceptNum)
+            string thesisSelectedId=context.Request["tid"];
+            ThesisSelected thesisSelected = new ThesisSelectedBLL().GetModel(Convert.ToInt32 (thesisSelectedId));
+
+            //该学生已选题成功
+            if (thesisSelected.Student.SFlag)
+            {
+                context.Response.Write("StudentSelected");
+                return;
+            }
+
+            //该选题已达最大限制人数
+            if (thesisSelected.ThesisTitle.TNumber <= thesisSelected.ThesisTitle.TAcceptNum)
             {
                 context.Response.Write("ThesisFull");
             }
             else
             {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("update ThesisSelected set TPassed=1 where TId="+thesisTitleId);
+                TeacherBLL bll=new TeacherBLL ();
+                if (bll.SelectStudent(thesisSelected) > 0)
+                {
+                    currTeacher.CurrNum += 1;
+                    context.Response.Write("ok");
+                }
+                else
+                {
+                    context.Response.Write("failed");
+                }
+
             }
         }
 

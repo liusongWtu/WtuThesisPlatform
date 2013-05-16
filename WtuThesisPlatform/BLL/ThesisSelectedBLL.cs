@@ -149,5 +149,7 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetList(" ThesisTitleId="+thesisTitleId);
         }
+
+       
     }
 }

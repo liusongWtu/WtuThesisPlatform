@@ -135,7 +135,7 @@ namespace WtuThesisPlatform.BLL
         /// </summary>
         public IList<ThesisTitle> GetListByTId(string teacherId)
         {
-            return dal.GetList("TTeacherId=" + teacherId + " and IsDel=0");
+            return dal.GetList("TTeacherId=" + teacherId + " and IsDel=0 order by TYear");
         }
 
         /// <summary>
@@ -143,9 +143,14 @@ namespace WtuThesisPlatform.BLL
         /// </summary>
         /// <param name="teacherId"></param>
         /// <returns></returns>
-        public IList<ThesisTitle> GetAllListByTId(string teacherId,string year,bool pass)
+        public IList<ThesisTitle> GetListByTId(string teacherId,string year,bool pass)
         {
             return dal.GetList("TTeacherId=" + teacherId+(year==""? "":" and TYear="+year)+" and TState"+(pass? "=1":"!=1"));
+        }
+
+        public IList<ThesisTitle> GetAllListByTid(string teacherId)
+        {
+            return dal.GetList("TTeacherId="+teacherId+" order by TYear desc,TState");
         }
         #endregion
 

@@ -11,6 +11,8 @@ $(function () {
     tTopicSummary: '',
     tReqire: '',
     }*/
+ 
+
     $(".tea-apply").click(function () {//申请选题
         var myThis = $(this);
         if (!$(this).hasClass("applyed")) {
@@ -60,13 +62,15 @@ $(function () {
             }
         });
 
-    });
+});
+
+//修改选择、取消显示（注:显示取消的要加"applyed"样式）
     $(".selectStatus").click(function () {//选择学生
         var tid = $(".sTittle").attr("id");
-        var sid = $(".sStuName").atte("id");
+        // var sid = $(".sStuName").atte("id");
         var myThis = $(this);
         if (!$(this).hasClass("selected")) {//如果还没有选择
-            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=select&tid=" + tid + "&sid=" + sid, success: function (data) {
+            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=select&tid=" + tid, success: function (data) {
                 if (data == "ok") {
                     $(myThis).text("取消").addClass("selected");
                     $.omMessageTip.show({ content: '选择成功！', timeout: 1000, type: 'success' });
@@ -74,6 +78,8 @@ $(function () {
                     $.omMessageTip.show({ content: '该选题学生已满！', timeout: 1000, type: 'alert' });
                 } else if (data == "SelectFull") {
                     $.omMessageTip.show({ content: '您可选学生数已满！', timeout: 1000, type: 'alert' });
+                } else if (data == "StudentSelected") {
+                    $.omMessageTip.show({ content: '学生已选题成功！', timeout: 1000, type: 'alert' });
                 }
                 else {
                     $.omMessageTip.show({ content: '选择失败！', timeout: 1000, type: 'error' });
@@ -83,7 +89,7 @@ $(function () {
             })
         }
         else {//取消选择
-            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=cancel&tid=" + tid + "&sid=" + sid, success: function (data) {
+            $.ajax({ type: "post", url: "../../ashx/teacher/TeacherSelect.ashx", data: "operate=cancel&tid=" + tid, success: function (data) {
                 if (data == "ok") {
                     $(myThis).text("选择").removeClass("selected");
                     $.omMessageTip.show({ content: '退选成功！', timeout: 1000, type: 'success' });
