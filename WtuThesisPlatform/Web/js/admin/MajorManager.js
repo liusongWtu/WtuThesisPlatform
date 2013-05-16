@@ -212,7 +212,7 @@ function addNewCount() {
                 topicList.append("<tr class='list-content' id=" + jsonArr.id +
                 "><td><input type='checkbox' name='topiclist' /></td><td class='first'>" + DId.find("option:selected").text() +
                 "</td><td>" + MName.val() +
-                "</td>+<td>" + jsonArr.Num + "</td><td><a href='#' class='modifyInfo' onclick='bindModifyEvent(this)'>修改</a></td><td><a href='#' class='deleteOne' onclick='bindDeleteEvent(this)'>删除</a></td></tr>");
+                "</td>+<td>0</td><td><a href='#' class='modifyInfo' onclick='bindModifyEvent(this)'>修改</a></td><td><a href='#' class='deleteOne' onclick='bindDeleteEvent(this)'>删除</a></td></tr>");
             } else {
                 result = false;
             }
@@ -248,7 +248,6 @@ function modifyCount(mid) {//修改用户
             if (data == "ok") {
                 $("#" + did).children().eq(1).text(MName.val());
                 $("#" + did).children().eq(2).text(DId.find("option:selected").text());
-                $("#" + did).children().eq(3).text(); //这里要从后台获取院系人数
                 result = true;
             } else {
                 result = false;
