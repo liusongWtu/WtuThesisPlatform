@@ -21,10 +21,12 @@ namespace WtuThesisPlatform.DAL
         /// </summary>
         public int UpdateDel(string ids, bool isDel)
         {
+            //删除班级学生
+            StudentDAL studentDal = new StudentDAL();
+            studentDal.UpdateDelByClassId(ids);
+            
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update ClassInfo set IsDel='" + isDel.ToString() + "' where CId in (" + ids + ")");
-            //SqlParameter parameter = new SqlParameter("@Ids", SqlDbType.VarChar, 100);
-            //parameter.Value = ids;
             return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
         }
         #endregion
@@ -303,6 +305,11 @@ namespace WtuThesisPlatform.DAL
             }
 
             return DbHelperSQL.ExcuteNonQuery("update ClassInfo set IsDel=1 where MajorId in ("+mids+")");
+        }
+
+        public object GetModelByName(string name)
+        {
+            return GetModel(" CName='"+name+"' and IsDel=0");
         }
     }
 }

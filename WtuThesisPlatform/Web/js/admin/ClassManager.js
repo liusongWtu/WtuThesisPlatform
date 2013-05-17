@@ -7,7 +7,7 @@ $(function () {
     topicList = $("#topicList");
     DepartmentId = $(".DepartmentId");
     MajorId = $(".MajorId");
-    CName = $(".MajorId");
+    CName = $(".CName");
 
     //初始化弹出框
     $("#AddNew").omDialog({
@@ -189,9 +189,9 @@ function setInfo(cId, operate) {
         CName.val(info.CName);
         if (operate == "modify") {
             loadDepartment(DepartmentId);
-            DepartmentId.val(info.Department.DId);
+            DepartmentId.val(info.Major.Department.DId);
             DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
-            loadMajor(MajorId, info.Department.DId);
+            loadMajor(MajorId, info.Major.Department.DId);
             MajorId.val(info.Major.MId);
             CName.blur(function () {
                 var newName = CName.val();

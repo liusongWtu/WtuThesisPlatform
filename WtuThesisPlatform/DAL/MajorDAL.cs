@@ -21,14 +21,20 @@ namespace WtuThesisPlatform.DAL
         /// </summary>
         public int UpdateDel(string ids, bool isDel)
         {
+            //删除学生
+            ClassInfoDAL classInfoDal = new ClassInfoDAL();
+            classInfoDal.UpdateDelByMajorId(ids);
+
+            //删除教师
+            TeacherDAL teacherDal = new TeacherDAL();
+            teacherDal.UpdateDelByMajorId(ids);
+
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Major set IsDel='" + isDel.ToString() + "' where MId in (" + ids + ")");
-            //SqlParameter parameter = new SqlParameter("@Ids", SqlDbType.VarChar, 100);
-            //parameter.Value = ids;
             return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
         }
         #endregion
-		
+
         #region DELETE PHYSICAL
         /// <summary>
         /// DELETE PHYSICAL
@@ -40,7 +46,7 @@ namespace WtuThesisPlatform.DAL
             return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
         }
         #endregion
-		
+
         #region GET A ENTITY
         /// <summary>
         /// GET A ENTITY GetAllKeysNameString
@@ -70,7 +76,7 @@ namespace WtuThesisPlatform.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select MId,DId,MName,Mnumber,IsDel from Major ");
-            strSql.Append(" where "+strWhere);
+            strSql.Append(" where " + strWhere);
             Major model = new Major();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
             if (dt.Rows.Count > 0)
@@ -82,9 +88,9 @@ namespace WtuThesisPlatform.DAL
             {
                 return null;
             }
-        } 		
+        }
         #endregion
-		
+
         #region GET DATA LIST bysqlwhere
         /// <summary>
         /// GET DATA LIST bysqlwhere
@@ -121,7 +127,7 @@ namespace WtuThesisPlatform.DAL
         /// </summary>
         /// <param name="procName">procName</param>
         /// <param name="paras">paras</param>
-        public IList<Major> GetListByProc(string procName,SqlParameter[] paras)
+        public IList<Major> GetListByProc(string procName, SqlParameter[] paras)
         {
             IList<Major> list = null;
             DataTable dt = DbHelperSQL.ExecProDataTable(procName, paras);
@@ -174,7 +180,7 @@ namespace WtuThesisPlatform.DAL
             }
         }
         #endregion
-		
+
         #region LoadEntityData
         /// <summary>
         /// LoadEntityData
@@ -183,28 +189,28 @@ namespace WtuThesisPlatform.DAL
         /// <param name="dr">DataRow</param>
         private void LoadEntityData(ref Major model, DataRow dr)
         {
-                        if (!dr.IsNull("MId")&&dr["MId"].ToString() != "")
+            if (!dr.IsNull("MId") && dr["MId"].ToString() != "")
             {
                 model.MId = int.Parse(dr["MId"].ToString());
             }
-            if (!dr.IsNull("DId")&&dr["DId"].ToString() != "")
+            if (!dr.IsNull("DId") && dr["DId"].ToString() != "")
             {
-                int departmentId=int.Parse(dr["DId"].ToString());
+                int departmentId = int.Parse(dr["DId"].ToString());
                 model.Department = new DepartmentDAL().GetModel(departmentId);
             }
             model.MName = dr["MName"].ToString();
-            if (!dr.IsNull("Mnumber")&&dr["Mnumber"].ToString() != "")
+            if (!dr.IsNull("Mnumber") && dr["Mnumber"].ToString() != "")
             {
                 model.Mnumber = int.Parse(dr["Mnumber"].ToString());
             }
-            if (!dr.IsNull("IsDel")&&dr["IsDel"].ToString() != "")
+            if (!dr.IsNull("IsDel") && dr["IsDel"].ToString() != "")
             {
                 model.IsDel = bool.Parse(dr["IsDel"].ToString());
             }
 
         }
         #endregion
-		
+
         #region Add a record
         /// <summary>
         /// Add a record
@@ -215,11 +221,11 @@ namespace WtuThesisPlatform.DAL
             try
             {
                 StringBuilder strSql = new StringBuilder();
-                 if (model.MId == 0)
+                if (model.MId == 0)
                 {
                     model.MId = DbHelperSQL.GetNextValidID("Major ", "MId");
                 }
-                
+
                 strSql.Append("insert into Major(");
                 strSql.Append("MId,DId,MName,Mnumber,IsDel)");
                 strSql.Append(" values (");
@@ -232,7 +238,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@Mnumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
-				parameters[0].Value = model.MId;
+                parameters[0].Value = model.MId;
                 parameters[1].Value = model.Department.DId;
                 parameters[2].Value = model.MName;
                 parameters[3].Value = model.Mnumber;
@@ -246,7 +252,7 @@ namespace WtuThesisPlatform.DAL
             return result;
         }
         #endregion
-		
+
         #region Update
         /// <summary>
         /// Update a data
@@ -256,7 +262,7 @@ namespace WtuThesisPlatform.DAL
             int res = -2;
             StringBuilder strSql = new StringBuilder();
             strSql.Append("update Major set ");
-                        strSql.Append("DId=@DId,");
+            strSql.Append("DId=@DId,");
             strSql.Append("MName=@MName,");
             strSql.Append("Mnumber=@Mnumber,");
             strSql.Append("IsDel=@IsDel");
@@ -267,11 +273,11 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@MName", SqlDbType.VarChar,50),
                     new SqlParameter("@Mnumber", SqlDbType.Int,4),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
-			                parameters[0].Value = model.MId;
-                parameters[1].Value = model.Department;
-                parameters[2].Value = model.MName;
-                parameters[3].Value = model.Mnumber;
-                parameters[4].Value = model.IsDel;
+            parameters[0].Value = model.MId;
+            parameters[1].Value = model.Department.DId;
+            parameters[2].Value = model.MName;
+            parameters[3].Value = model.Mnumber;
+            parameters[4].Value = model.IsDel;
 
             try
             {
@@ -288,13 +294,13 @@ namespace WtuThesisPlatform.DAL
 
         public int UpdateDelByDepartmentId(string ids)
         {
-            DataTable dt = DbHelperSQL.GetTable("select MId from Major where DId in ("+ids+")");
+            DataTable dt = DbHelperSQL.GetTable("select MId from Major where DId in (" + ids + ")");
             StringBuilder sbMids = new StringBuilder();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                sbMids.Append(dt.Rows[i][0]+",");
+                sbMids.Append(dt.Rows[i][0] + ",");
             }
-            if (sbMids.Length >0)
+            if (sbMids.Length > 0)
             {
                 sbMids.Remove(sbMids.Length - 1, 1);
                 //删除学生
@@ -314,7 +320,7 @@ namespace WtuThesisPlatform.DAL
 
         public object GetModelByMName(string name)
         {
-            return GetModel(" MName='"+name+"'");
+            return GetModel(" MName='" + name + "' and IsDel=0");
         }
     }
 }

@@ -137,5 +137,10 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList("MajorId=" + majorId + " and IsDel=0");
         }
         #endregion
+
+        public object GetModel(string name)
+        {
+            return dal.GetModelByName(name);
+        }
     }
 }
