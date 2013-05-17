@@ -2,7 +2,7 @@
     AutoEventWireup="true" CodeBehind="NoticeManager.aspx.cs" Inherits="Web.AdminUI.NoticeManager" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="../js/student/StuSelect.js"></script>
+    <script type="text/javascript" src="../js/admin/Notice.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">
@@ -35,7 +35,7 @@
                         发布日期
                     </td>
                     <td>
-                        修改
+                        过期时间
                     </td>
                     <td class="last">
                         删除
@@ -61,10 +61,10 @@
                                 <%#string.Format ("{0:yyyy/MM/dd}",Eval("NPublishTime")) %>
                             </td>
                             <td>
-                                <a href="#">修改</a>
+                                <%#string.Format("{0:yyyy/MM/dd}", Eval("NDeadTime"))%>
                             </td>
                             <td>
-                                <a href="#">删除</a>
+                                <a href="#" class="deleteOne">删除</a>
                             </td>
                         </tr>
                     </ItemTemplate>
