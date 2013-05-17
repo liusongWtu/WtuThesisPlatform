@@ -9,7 +9,7 @@
                 <dt>毕业作品</dt>
             </dl>
             <div class="content-center">
-                    <table cellspacing="0" cellpadding="0">
+                    <table cellspacing="0" cellpadding="0" style="width: 890px;">
                          <asp:Repeater ID="rptGoodWork" runat="server">
                         <ItemTemplate>
                             <tr>
@@ -18,7 +18,7 @@
                             <td class="title"><a href="/StudentUI/SingleWork.aspx?gid=<%#Eval("GId") %>&nodeId=2001"><%#Eval("GTitle") %></a></td>
                         </tr>
                         <tr>
-                            <td class="work-summary fn-ellipsis fn-text-wrap" colspan="2"><%# Eval("GContent").ToString().Substring(0,100) %>
+                            <td class="work-summary fn-ellipsis fn-text-wrap" colspan="2"><%# Eval("GContent").ToString().Substring(0,150) %>
                                 <a href="/StudentUI/SingleWork.aspx?gid=<%#Eval("GId") %>&nodeId=2001">【查看全文】</a>
                             </td>
                         </tr> 

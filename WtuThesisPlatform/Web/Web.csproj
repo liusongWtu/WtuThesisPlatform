@@ -84,6 +84,7 @@
     <Content Include="AdminUI\DictionaryManager.aspx" />
     <Content Include="AdminUI\MajorManager.aspx" />
     <Content Include="AdminUI\NoticeManager.aspx" />
+    <Content Include="AdminUI\PublishNotice.aspx" />
     <Content Include="AdminUI\StudentManager.aspx" />
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
@@ -97,6 +98,7 @@
     <Content Include="js\admin\ClassManager.js" />
     <Content Include="js\admin\DepartmentManager.js" />
     <Content Include="js\admin\MajorManager.js" />
+    <Content Include="js\admin\Notice.js" />
     <Content Include="js\student\PublishWork.js" />
     <Content Include="js\teacher\ApplyExcel.js" />
     <Content Include="images\msg_bg.png" />
@@ -1007,6 +1009,13 @@
     </Compile>
     <Compile Include="AdminUI\NoticeManager.aspx.designer.cs">
       <DependentUpon>NoticeManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\PublishNotice.aspx.cs">
+      <DependentUpon>PublishNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\PublishNotice.aspx.designer.cs">
+      <DependentUpon>PublishNotice.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminUI\StudentManager.aspx.cs">
       <DependentUpon>StudentManager.aspx</DependentUpon>

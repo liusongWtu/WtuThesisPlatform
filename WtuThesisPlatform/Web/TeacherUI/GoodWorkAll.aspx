@@ -9,7 +9,7 @@
                 <dt>毕业作品</dt>
             </dl>
             <div class="content-center">
-                <table cellspacing="0" cellpadding="0">
+                <table cellspacing="0" cellpadding="0" style="width: 890px;">
                     <asp:Repeater ID="rptGoodWork" runat="server">
                     <ItemTemplate>
                         <tr>
