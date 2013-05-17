@@ -267,6 +267,7 @@ body{
 .list-header{
 	font-size: 12px;
 	height: 22px;
+	font-weight: bold;
 	background: url(../../images/student/stu_select/stu_select_table_bg.gif) 0 0 repeat-x;
 }
 .list-header td{	
@@ -323,14 +324,26 @@ body{
 /*表格表头样式*/
 /*搜索框*/
 .select-list{
-	width: 96%;
+	width: 90%;
 	margin: 0 auto;
 	padding-bottom: 60px;
 	position: relative;
 	font-size: 13px;
 	font-family: "新宋体";
 }
-
+.select-list dt
+{
+    margin-bottom: 20px;
+}
+.topic dt{
+	border-bottom: 3px solid #2888a8;
+	font-size: 20px;
+    font-weight: bold;
+	height: 42px;
+	line-height: 55px;
+	padding: 20px 0 0 0 ;
+	margin-bottom: 20px
+}
 .select-list a:hover{
 	text-decoration: underline;
 }

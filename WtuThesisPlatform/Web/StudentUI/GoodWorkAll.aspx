@@ -3,11 +3,12 @@
     <link rel="stylesheet" type="text/css" href="../css/common_goodwork.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <div class="wrap">
-        <div class="good-work">
+    <div class="select-list">
+        <div class="topic">
             <dl>
                 <dt>毕业作品</dt>
-                <dd>
+            </dl>
+            <div class="content-center">
                     <table cellspacing="0" cellpadding="0">
                          <asp:Repeater ID="rptGoodWork" runat="server">
                         <ItemTemplate>
@@ -25,8 +26,12 @@
                         </asp:Repeater>
                            
                     </table>
-                </dd>
-            </dl>
+                </div>
+            <div class="content-bottom">
+            <div class="pagechange">
+                    <div id="pageBar"><%=pageBar%></div>
+             </div>
+        </div>
         </div>
     </div>
 </asp:Content>

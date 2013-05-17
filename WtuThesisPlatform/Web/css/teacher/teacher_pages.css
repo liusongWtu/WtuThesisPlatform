@@ -2,15 +2,7 @@
 .wrap a:hover{
 	text-decoration: underline;
 }
-.topic dt{
-	border-bottom: 3px solid #2888a8;
-	font-size: 20px;
-    font-weight: bold;
-	height: 42px;
-	line-height: 55px;
-	padding: 20px 0 0 0 ;
-	margin-bottom: 20px
-}
+
 
 .list-content a{
     cursor: pointer;
@@ -169,10 +161,6 @@
 }
 .topic .topic-list tr.show{
 	display: table-row;
-}
-.select-list dt
-{
-    margin-bottom: 20px;
 }
 
 
