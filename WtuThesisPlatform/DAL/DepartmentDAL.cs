@@ -284,7 +284,7 @@ namespace WtuThesisPlatform.DAL
 
         public object GetModelByDName(string name)
         {
-            return GetModel(" DName='"+name+"'");
+            return GetModel(" DName='"+name+"' and IsDel=0");
         }
     }
 }
