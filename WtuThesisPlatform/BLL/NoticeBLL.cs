@@ -112,13 +112,22 @@ namespace WtuThesisPlatform.BLL
                 sql = " StudentId="+student.SId;
             }
             IList<ThesisSelected> lstThesisSelected = new ThesisSelectedBLL().GetList(sql);
-            StringBuilder sbFilter = new StringBuilder();
-            sbFilter.Append(" (");
+            List<int> lstTid = new List<int>();
             foreach (ThesisSelected item in lstThesisSelected)
             {
-                sbFilter.Append(item.ThesisTitle.Teacher.TId+",");
+                if (!lstTid.Contains(item.ThesisTitle.Teacher.TId))
+                {
+                    lstTid.Add(item.ThesisTitle.Teacher.TId);
+                }
             }
-            sbFilter.Remove(sbFilter.Length -2,1);
+
+            StringBuilder sbFilter = new StringBuilder();
+            sbFilter.Append(" (");
+            foreach (int item in lstTid)
+            {
+                sbFilter.Append(item.ToString ()+",");
+            }
+            sbFilter.Remove(sbFilter.Length -1,1);
             sbFilter.Append(")");
             IList<Notice> lstNotice = dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId in " + sbFilter.ToString () + " )");
             IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=1 and NUserId=" + student.SId);

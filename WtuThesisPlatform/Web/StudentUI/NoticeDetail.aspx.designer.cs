@@ -10,6 +10,6 @@
 namespace Web.StudentUI {
     
     
-    public partial class GoodWork {
+    public partial class NoticeDetail {
     }
 }

@@ -30,7 +30,7 @@ namespace Web.ashx
             isRemember = context.Request["isremember"].Trim();
 
             //todo:取消下面注释即可添加验证功能
-            ////验证码为空
+            //验证码为空
             //if (string.IsNullOrWhiteSpace(code))
             //{
             //    context.Response.Write("codeEmpty");

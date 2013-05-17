@@ -133,5 +133,10 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetNewNumByTid(teacherId);
         }
+
+        public int GetNewNumBySId(int studentId)
+        {
+            return dal.GetNewNumBySId(studentId);
+        }
     }
 }

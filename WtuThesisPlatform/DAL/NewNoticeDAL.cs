@@ -290,5 +290,11 @@ namespace WtuThesisPlatform.DAL
             string sql = "select count(*) from NewNotice where NUserType=2 and NUserId="+teacherId;
             return DbHelperSQL.ExcuteScalar(sql);
         }
+
+        public int GetNewNumBySId(int studentId)
+        {
+            string sql = "select count(*) from NewNotice where NUserType=1 and NUserId="+studentId;
+            return DbHelperSQL.ExcuteScalar(sql);
+        }
     }
 }

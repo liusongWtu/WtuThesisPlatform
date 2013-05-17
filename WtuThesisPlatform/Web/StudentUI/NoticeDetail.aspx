@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentUI/StudentMasterPage.Master" AutoEventWireup="true" CodeBehind="Notice.aspx.cs" Inherits="Web.StudentUI.Notice" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentUI/StudentMasterPage.Master" AutoEventWireup="true" CodeBehind="NoticeDetail.aspx.cs" Inherits="Web.StudentUI.NoticeDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
 </asp:Content>

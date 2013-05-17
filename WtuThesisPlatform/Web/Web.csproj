@@ -885,9 +885,9 @@
     <Content Include="Login.aspx" />
     <Content Include="StudentUI\AllNotice.aspx" />
     <Content Include="StudentUI\forgetPsd.html" />
-    <Content Include="StudentUI\GoodWork.aspx" />
+    <Content Include="StudentUI\GoodWorkAll.aspx" />
     <Content Include="StudentUI\index.html" />
-    <Content Include="StudentUI\Notice.aspx" />
+    <Content Include="StudentUI\NoticeDetail.aspx" />
     <Content Include="StudentUI\SingleWork.aspx" />
     <Content Include="StudentUI\StuIndex.aspx" />
     <Content Include="Global.asax" />
@@ -1113,19 +1113,19 @@
     <Compile Include="StudentUI\AllNotice.aspx.designer.cs">
       <DependentUpon>AllNotice.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StudentUI\GoodWork.aspx.cs">
-      <DependentUpon>GoodWork.aspx</DependentUpon>
+    <Compile Include="StudentUI\GoodWorkAll.aspx.cs">
+      <DependentUpon>GoodWorkAll.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StudentUI\GoodWork.aspx.designer.cs">
-      <DependentUpon>GoodWork.aspx</DependentUpon>
+    <Compile Include="StudentUI\GoodWorkAll.aspx.designer.cs">
+      <DependentUpon>GoodWorkAll.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StudentUI\Notice.aspx.cs">
-      <DependentUpon>Notice.aspx</DependentUpon>
+    <Compile Include="StudentUI\NoticeDetail.aspx.cs">
+      <DependentUpon>NoticeDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StudentUI\Notice.aspx.designer.cs">
-      <DependentUpon>Notice.aspx</DependentUpon>
+    <Compile Include="StudentUI\NoticeDetail.aspx.designer.cs">
+      <DependentUpon>NoticeDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentUI\SingleWork.aspx.cs">
       <DependentUpon>SingleWork.aspx</DependentUpon>

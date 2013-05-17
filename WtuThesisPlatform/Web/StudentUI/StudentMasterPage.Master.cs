@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Text;
 using Web.Common;
 using WtuThesisPlatform.MODEL;
+using WtuThesisPlatform.BLL;
 
 namespace Web.StudentUI
 {
@@ -15,7 +16,7 @@ namespace Web.StudentUI
         protected Student currStudent = null;
         protected string NavigateHTML = string.Empty;//左边导航树代码
         //todo:补充页面信息 eg:noticeNum="(4)";并且切换图片显示
-        protected string noticeNum = "( 4 )";//公告信息
+        protected string noticeNum = string.Empty;//公告信息
         protected string msgNum = "(2)";//消息信息
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,18 +30,16 @@ namespace Web.StudentUI
             currStudent= Session["currUser"] as Student;
             userType.Value = "1";
 
-            if (!IsPostBack)
-            {
-                currentNavNode.Value = Request["nodeId"];
-                //todo:优化导航树
-                //设置导航代码
-                //if (Session["naviget"] == null)
-                //{
-                //    Session["naviget"]=CommonCode.CreateTree();
-                //}
-                NavigateHTML = CommonCode.CreateTree();
-
-            }
+            currentNavNode.Value = Request["nodeId"];
+            //todo:优化导航树
+            //设置导航代码
+            //if (Session["naviget"] == null)
+            //{
+            //    Session["naviget"]=CommonCode.CreateTree();
+            //}
+            NavigateHTML = CommonCode.CreateTree();
+            int newNum = new NewNoticeBLL().GetNewNumBySId(currStudent.SId);
+            noticeNum = newNum.ToString();
 
 
         }

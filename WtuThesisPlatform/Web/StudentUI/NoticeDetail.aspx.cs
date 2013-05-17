@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Web.StudentUI
 {
-    public partial class GoodWork : System.Web.UI.Page
+    public partial class NoticeDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -150,6 +150,5 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(" ThesisTitleId="+thesisTitleId+" and TPassed="+(passed? "1":"0"));
         }
 
-       
     }
 }
