@@ -431,5 +431,10 @@ namespace WtuThesisPlatform.DAL
             }
             return lstStudent;
         }
+
+        public int UpdateDelByMajorId(string mids)
+        {
+            return DbHelperSQL.ExcuteNonQuery("update Teacher set IsDel=1 where MajorId in (" + mids + ")");
+        }
     }
 }

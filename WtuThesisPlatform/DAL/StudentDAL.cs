@@ -387,5 +387,10 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+        public int UpdateDelByClassId(string cids)
+        {
+            return DbHelperSQL.ExcuteNonQuery("update Student set IsDel=1 where CId in (" + cids + ")");
+        }
     }
 }

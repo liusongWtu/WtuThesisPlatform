@@ -179,7 +179,7 @@ function bindDeleteEvent(myThis) {
 
 
 function setInfo(stuId, operate) {
-    $.get("../../ashx/admin/DepartmentManager.ashx", { "operate": "getAInfo", "studentId": stuId }, function (data) {
+    $.get("../../ashx/admin/DepartmentManager.ashx", { "operate": "getAInfo", "did": stuId }, function (data) {
         //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
         DName.val(info.DName);

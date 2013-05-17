@@ -285,5 +285,24 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+        public int UpdateDelByMajorId(string mids)
+        {
+            DataTable dt = DbHelperSQL.GetTable("select CId from ClassInfo where MajorId in (" + mids + ")");
+            StringBuilder sbCids = new StringBuilder();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                sbCids.Append(dt.Rows[i][0] + ",");
+            }
+            if (sbCids.Length>0)
+            {
+                sbCids.Remove(sbCids.Length - 1, 1);
+                //修改学生
+                StudentDAL studentDAL = new StudentDAL();
+                studentDAL.UpdateDelByClassId(sbCids.ToString()); 
+            }
+
+            return DbHelperSQL.ExcuteNonQuery("update ClassInfo set IsDel=1 where MajorId in ("+mids+")");
+        }
     }
 }
