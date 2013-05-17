@@ -34,7 +34,7 @@ namespace Web.TeacherUI
 
         private void LoadPageData(int intPageIndex)
         {
-            int pageSize = 6;
+            int pageSize = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["pageSize"]);
             int rowCount = 0;
             int pageCount = 0;
             //根据页码 获得当前页数据

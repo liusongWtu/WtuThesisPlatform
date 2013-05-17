@@ -9,14 +9,14 @@
             <div class="single">
                   <dl>
                     <dt class="top">
-                        <h1 class="workTitle">毕业设计----在线相册系统</h1>
-                        <h3><span class="publishTime">发表时间：<span id="publishTime">2013-05-12</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class="publishUnits">作者：<span id="publisher">啊啊啊啊</span></span></h3>
+                        <h1 class="workTitle"><%=currGoodWork.GTitle %></h1>
+                        <h3><span class="publishTime">发表时间：<span id="publishTime"><%=string.Format("{0:yyyy/MM/dd}",currGoodWork.GTime) %></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class="publishUnits">作者：<span id="publisher">啊啊啊啊</span></span></h3>
                     </dt>
                     <div class="line"></div>
-                    <dd><p class="workContent">这是一款优秀豪华的在线相册系统，满足了所有人对电子相册的需求这是一款优秀豪华的在线相册系统，满足了所有人对电子相册的需求这是一款优秀豪华的在线相册系统，满足了所有人对电子相册的需求</p></dd>
+                    <dd><p class="workContent"><%=currGoodWork.GContent %></p></dd>
                   </dl>
                  <div class="bottom">
-                    <div class="backLink"><a href="AllNotice.aspx">返回全部作品</a></div>
+                    <div class="backLink"><a href="/TeacherUI/GoodWorkAll.aspx?nodeId=2001">返回全部作品</a></div>
                  </div>
                  
             </div>

@@ -8,20 +8,20 @@ using WtuThesisPlatform.MODEL;
 using WtuThesisPlatform.BLL;
 using Web.Common;
 
-namespace Web.AdminUI
+namespace Web.TeacherUI
 {
-    public partial class ClassManager : System.Web.UI.Page
+    public partial class GoodWorkAll : System.Web.UI.Page
     {
-        Admin currAdmin = null;
+        Teacher currTeacher = null;
         protected string pageBar = string.Empty;
-        string nodeId = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            nodeId = Request["nodeId"];
-            currAdmin = Session["currUser"] as Admin;
-            if (currAdmin == null)
+            currTeacher = Session["currUser"] as Teacher;
+            if (currTeacher == null)
+            {
                 return;
+            }
             string strPageIndex = Request.QueryString["i"];
             int intPageIndex = 0;
             if (!int.TryParse(strPageIndex, out intPageIndex) && intPageIndex <= 0)
@@ -37,12 +37,13 @@ namespace Web.AdminUI
             int rowCount = 0;
             int pageCount = 0;
             //根据页码 获得当前页数据
-            ClassInfoBLL bll = new ClassInfoBLL();
-            IList<ClassInfo> lstClassInfo = bll.GetList(intPageIndex, pageSize, "IsDel=0", "MajorId", out rowCount, out pageCount);
-            rptAdmin.DataSource = lstClassInfo;
-            rptAdmin.DataBind();
-            pageBar = CommonCode.GetPageTxt("ClassManager.aspx?nodeId="+nodeId+"&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
+            GoodWorkBLL bll = new GoodWorkBLL();
+            IList<GoodWork> lstGoodWork = bll.GetList(intPageIndex, pageSize, "", " GTime desc", out rowCount, out pageCount);
+            rptGoodWork.DataSource = lstGoodWork;
+            rptGoodWork.DataBind();
+            pageBar = CommonCode.GetPageTxt("GoodWorkAll.aspx?i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
 
         }
+
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="ClassInfoDAL.cs" />
     <Compile Include="DbHelperSQL.cs" />
     <Compile Include="DepartmentDAL.cs" />
+    <Compile Include="GoodWorkDAL.cs" />
     <Compile Include="MajorDAL.cs" />
     <Compile Include="MessageDAL.cs" />
     <Compile Include="NewNoticeDAL.cs" />

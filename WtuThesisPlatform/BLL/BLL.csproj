@@ -43,6 +43,7 @@
     <Compile Include="AdminBLL.cs" />
     <Compile Include="ClassInfoBLL.cs" />
     <Compile Include="DepartmentBLL.cs" />
+    <Compile Include="GoodWorkBLL.cs" />
     <Compile Include="MajorBLL.cs" />
     <Compile Include="MessageBLL.cs" />
     <Compile Include="NewNoticeBLL.cs" />
