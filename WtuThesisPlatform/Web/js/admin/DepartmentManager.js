@@ -188,7 +188,7 @@ function setInfo(stuId, operate) {
             DName.blur(function () {
                 var newName = DName.val();
                 if (info.DName != newName) {
-                    checkDNameDB(newName.val());
+                    checkDNameDB(newName);
                 }
             });
             Validata();

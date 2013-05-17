@@ -196,7 +196,7 @@ function setInfo(cId, operate) {
             CName.blur(function () {
                 var newName = CName.val();
                 if (info.CName != newName) {
-                    checkCNameDB(newName.val());
+                    checkCNameDB(newName);
                 }
             });
             Validata();
