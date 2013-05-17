@@ -190,7 +190,7 @@ function setInfo(mId, operate) {
             MName.blur(function () {
                 var newName = MName.val();
                 if (info.MName != newName) {
-                    checkMNameDB(newName.val());
+                    checkMNameDB(newName);
                 }
             });
             Validata();
