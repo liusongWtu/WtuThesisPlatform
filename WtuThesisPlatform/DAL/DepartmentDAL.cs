@@ -281,5 +281,10 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+        public object GetModelByDName(string name)
+        {
+            return GetModel(" DName='"+name+"'");
+        }
     }
 }

@@ -180,7 +180,7 @@ function bindDeleteEvent(myThis) {
 
 
 function setInfo(mId, operate) {
-    $.get("../../ashx/admin/DepartmentManager.ashx", { "operate": "getAInfo", "majorId": mId }, function (data) {
+    $.get("../../ashx/admin/MajorManager.ashx", { "operate": "getAInfo", "majorId": mId }, function (data) {
         //将返回的json数组字符串，转成 javascript的 数组对象
         info = eval("(" + data + ")");
         MName.val(info.MName);
@@ -202,7 +202,7 @@ function setInfo(mId, operate) {
 function addNewCount() {
     var result = false;
     $.ajax({ data: "post",
-        url: "../../ashx/admin/DepartmentManager.ashx",
+        url: "../../ashx/admin/MajorManager.ashx",
         data: "operate=addNew&MName=" + MName.val() + "&DId=" + DId.val(),
         async: false,
         success: function (data) {
@@ -210,8 +210,8 @@ function addNewCount() {
             if (jsonArr.result == "ok") {
                 result = true;
                 topicList.append("<tr class='list-content' id=" + jsonArr.id +
-                "><td><input type='checkbox' name='topiclist' /></td><td class='first'>" + DId.find("option:selected").text() +
-                "</td><td>" + MName.val() +
+                "><td><input type='checkbox' name='topiclist' /></td><td class='first'>" + MName.val() +
+                "</td><td>" +  DId.find("option:selected").text() +
                 "</td>+<td>0</td><td><a href='#' class='modifyInfo' onclick='bindModifyEvent(this)'>修改</a></td><td><a href='#' class='deleteOne' onclick='bindDeleteEvent(this)'>删除</a></td></tr>");
             } else {
                 result = false;
@@ -225,7 +225,7 @@ function addNewCount() {
 function deleteCount(mid) {
     var result = false;
     $.ajax({ data: "post",
-        url: "../../ashx/admin/DepartmentManager.ashx",
+        url: "../../ashx/admin/MajorManager.ashx",
         data: "operate=del&mid=" + mid,
         async: false,
         success: function (data) {
@@ -241,7 +241,7 @@ function deleteCount(mid) {
 function modifyCount(mid) {//修改用户
     var result = false;
     $.ajax({ data: "get",
-        url: "../../ashx/admin/DepartmentManager.ashx",
+        url: "../../ashx/admin/MajorManager.ashx",
         data: "operate=modify&mid=" + mid + "&MName=" + MName.val() + "&DId=" + DId.val(),
         async: false,
         success: function (data) {
@@ -259,7 +259,7 @@ function modifyCount(mid) {//修改用户
 
 //验证学号是否存在
 function checkMNameDB(mname) {
-    $.get("../../ashx/admin/DepartmentManager.ashx", { "operate": "checkName", "MName": mname }, function (data) {
+    $.get("../../ashx/admin/MajorManager.ashx", { "operate": "checkName", "MName": mname }, function (data) {
         if (data == "ok") {
 
         } else {

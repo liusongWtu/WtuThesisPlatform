@@ -82,6 +82,11 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.UpdateDel(ids, true);
         }
+
+        public int UpdateDelByDepartmentId(string ids)
+        {
+            return dal.UpdateDelByDepartmentId(ids);
+        }
         #endregion
 		
         #region DELETE SOFTLY
@@ -137,5 +142,10 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList("IsDel =0");
         }
         #endregion
+
+        public object GetModel(string name)
+        {
+            return dal.GetModelByMName(name);
+        }
     }
 }

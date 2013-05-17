@@ -1081,6 +1081,12 @@
     <Compile Include="ashx\admin\AdminManager.ashx.cs">
       <DependentUpon>AdminManager.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\admin\DepartmentManager.ashx.cs">
+      <DependentUpon>DepartmentManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\MajorManager.ashx.cs">
+      <DependentUpon>MajorManager.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
     </Compile>
@@ -1400,6 +1406,8 @@
     <Content Include="ashx\teacher\TeacherSelect.ashx" />
     <Content Include="ashx\teacher\TeacherApply.ashx" />
     <Content Include="ashx\teacher\ApplyExcel.ashx" />
+    <Content Include="ashx\admin\DepartmentManager.ashx" />
+    <Content Include="ashx\admin\MajorManager.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

@@ -233,7 +233,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};
 
 				parameters[0].Value = model.MId;
-                parameters[1].Value = model.Department;
+                parameters[1].Value = model.Department.DId;
                 parameters[2].Value = model.MName;
                 parameters[3].Value = model.Mnumber;
                 parameters[4].Value = model.IsDel;
@@ -285,5 +285,36 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+        public int UpdateDelByDepartmentId(string ids)
+        {
+            DataTable dt = DbHelperSQL.GetTable("select MId from Major where DId in ("+ids+")");
+            StringBuilder sbMids = new StringBuilder();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                sbMids.Append(dt.Rows[i][0]+",");
+            }
+            if (sbMids.Length >0)
+            {
+                sbMids.Remove(sbMids.Length - 1, 1);
+                //删除学生
+                ClassInfoDAL classInfoDal = new ClassInfoDAL();
+                classInfoDal.UpdateDelByMajorId(sbMids.ToString());
+
+                //删除教师
+                TeacherDAL teacherDal = new TeacherDAL();
+                teacherDal.UpdateDelByMajorId(sbMids.ToString());
+            }
+
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("update Major set IsDel=1 where DId in (" + ids + ")");
+            return DbHelperSQL.ExcuteNonQuery(strSql.ToString());
+
+        }
+
+        public object GetModelByMName(string name)
+        {
+            return GetModel(" MName='"+name+"'");
+        }
     }
 }
