@@ -108,3 +108,37 @@
 {
     text-decoration: underline;
 }
+/*发布公告*/
+.notice-excel
+{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.notice-excel td
+{
+    line-height: 40px;
+    text-align: left;
+}
+.notice-excel h2
+{
+    font-size: 14px;
+    font-weight: bold;
+}
+.tab-name
+{
+    width: 110px;
+}
+.notice-excel input
+{
+    width: 250px;
+}
+.notice-excel input.deadline
+{
+    width: 231px;
+}
+.notice-excel textarea
+{
+    width: 100%;
+    height: 200px;
+}

@@ -1,6 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherUI/TeacherMasterPage.Master" AutoEventWireup="true" CodeBehind="AllNotice.aspx.cs" Inherits="Web.TeacherUI.AllNotice" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="Stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
+    <script  type="text/javascript">
+        $(function () {
+            var allName = $(".NTitle");
+            allName.each(function () {
+                if ($(this).hasClass("True")) {
+                    $(this).addClass("bold");
+                }
+                else { 
+                    $(this).removeClass("bold");
+                }
+            })
+            
+        })
+    
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">
@@ -28,7 +43,7 @@
                    <asp:Repeater ID="rptNotice" runat="server">
                    <ItemTemplate>
                     <tr class="list-content">
-                        <td class="left bold tr30">
+                        <td class="left tr30">
                             <a class="NTitle <%#Eval("IsNew") %>" href="/TeacherUI/NoticeDetail.aspx?nid=<%#Eval("NId") %>&nodeId=2021"><%#Eval("NTitle") %>></a>
                         </td>
                         <td  class="tr10">

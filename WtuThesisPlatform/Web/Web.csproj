@@ -97,6 +97,7 @@
     <Content Include="js\admin\ClassManager.js" />
     <Content Include="js\admin\DepartmentManager.js" />
     <Content Include="js\admin\MajorManager.js" />
+    <Content Include="js\student\PublishWork.js" />
     <Content Include="js\teacher\ApplyExcel.js" />
     <Content Include="images\msg_bg.png" />
     <Content Include="lib\NPOI.DDF.dll" />
@@ -888,6 +889,7 @@
     <Content Include="StudentUI\GoodWorkAll.aspx" />
     <Content Include="StudentUI\index.html" />
     <Content Include="StudentUI\NoticeDetail.aspx" />
+    <Content Include="StudentUI\PublishGoodWork.aspx" />
     <Content Include="StudentUI\SingleWork.aspx" />
     <Content Include="StudentUI\StuIndex.aspx" />
     <Content Include="Global.asax" />
@@ -1126,6 +1128,13 @@
     </Compile>
     <Compile Include="StudentUI\NoticeDetail.aspx.designer.cs">
       <DependentUpon>NoticeDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentUI\PublishGoodWork.aspx.cs">
+      <DependentUpon>PublishGoodWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentUI\PublishGoodWork.aspx.designer.cs">
+      <DependentUpon>PublishGoodWork.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentUI\SingleWork.aspx.cs">
       <DependentUpon>SingleWork.aspx</DependentUpon>
