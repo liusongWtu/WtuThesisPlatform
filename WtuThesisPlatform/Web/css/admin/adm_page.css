@@ -21,6 +21,11 @@
     text-indent: 18px;
     background: url(../../images/admin/add.png) 0 0 no-repeat;
 }
+.opeDelete
+{
+    text-indent: 18px;
+    background: url(../../images/admin/18277.gif) 0 0 no-repeat;
+}
 .opeImport
 {
     text-indent: 18px;

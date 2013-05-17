@@ -569,7 +569,39 @@ body{
 {
     font-weight: bold;
 }
-
+/*选题详细信息*/
+.topic-single{
+	margin: 20px 0 20px 40px;
+    border-top: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+}
+.colname{
+	line-height: 25px;
+	font-size: 14px;
+	font-weight: bold;
+    background: #F1F1F1;
+}
+.ope{
+    margin: 15px 0 0px 20px;
+}
+.topic-single td{
+    line-height: 30px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+}
+.topic-single p{
+    margin: 10px 5px;
+}
+.check
+{
+    font-size: 12px;
+    font-weight: normal;
+}
+.check-wrap
+{
+    float: right;
+}
 /*错误信息样式*/
 /*label.error{
     background: #fff6bf url(images/alert.png) center no-repeat;

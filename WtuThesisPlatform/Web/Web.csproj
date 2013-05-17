@@ -82,16 +82,21 @@
     <Content Include="AdminUI\ClassManager.aspx" />
     <Content Include="AdminUI\DepartmentManager.aspx" />
     <Content Include="AdminUI\DictionaryManager.aspx" />
+    <Content Include="AdminUI\GoodWorkDetail.aspx" />
+    <Content Include="AdminUI\GoodWorkManager.aspx" />
     <Content Include="AdminUI\MajorManager.aspx" />
     <Content Include="AdminUI\NoticeManager.aspx" />
     <Content Include="AdminUI\PublishNotice.aspx" />
     <Content Include="AdminUI\StudentManager.aspx" />
+    <Content Include="AdminUI\TeacherApply.aspx" />
+    <Content Include="AdminUI\TeacherApplyDetail.aspx" />
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
     <Content Include="AdminUI\ZhiChengManager.aspx" />
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
     <Content Include="css\common_notice.css" />
+    <Content Include="images\admin\18277.gif" />
     <Content Include="images\banner_bg.png" />
     <Content Include="images\goodwork\1.gif" />
     <Content Include="images\goodwork\2.gif" />
@@ -996,6 +1001,20 @@
     <Compile Include="AdminUI\DictionaryManager.aspx.designer.cs">
       <DependentUpon>DictionaryManager.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminUI\GoodWorkDetail.aspx.cs">
+      <DependentUpon>GoodWorkDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\GoodWorkDetail.aspx.designer.cs">
+      <DependentUpon>GoodWorkDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\GoodWorkManager.aspx.cs">
+      <DependentUpon>GoodWorkManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\GoodWorkManager.aspx.designer.cs">
+      <DependentUpon>GoodWorkManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminUI\MajorManager.aspx.cs">
       <DependentUpon>MajorManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1023,6 +1042,20 @@
     </Compile>
     <Compile Include="AdminUI\StudentManager.aspx.designer.cs">
       <DependentUpon>StudentManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\TeacherApply.aspx.cs">
+      <DependentUpon>TeacherApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\TeacherApply.aspx.designer.cs">
+      <DependentUpon>TeacherApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\TeacherApplyDetail.aspx.cs">
+      <DependentUpon>TeacherApplyDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\TeacherApplyDetail.aspx.designer.cs">
+      <DependentUpon>TeacherApplyDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminUI\TeacherManager.aspx.cs">
       <DependentUpon>TeacherManager.aspx</DependentUpon>
