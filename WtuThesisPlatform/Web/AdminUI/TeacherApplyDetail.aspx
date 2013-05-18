@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="TeacherApplyDetail.aspx.cs" Inherits="Web.AdminUI.TeacherApplyDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="../js/admin/TeacherApply.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
         <div class="topic-info">
             <dl>
-                <dt>
+                <dt class="checkId" id="<%#Eval("TId") %>">
                     教师选题详细信息
-                    <span class="check-wrap"><a href="#" class="check">通过</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="check">不通过</a></span>
+                    <span class="check-wrap"><a href="#" class="check checkYes">通过</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="check checkNo">不通过</a></span>
                 </dt>
                 
             </dl>

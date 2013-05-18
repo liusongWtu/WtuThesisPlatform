@@ -2,13 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/common_goodwork.css" />
     <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
+    <script type="text/javascript" src="../js/admin/StudentApply.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap-teavher">      
         <div class="singleBg">
             <div class="single">
                   <dl>
-                    <dt class="top">
+                    <dt class="top checkId" id="<%#Eval("GId") %>">
                         <h1 class="workTitle"><%=currGoodWork.GTitle %></h1>
                         <h3><span class="publishTime">发表时间：<span id="publishTime"><%=string.Format("{0:yyyy/MM/dd}",currGoodWork.GTime) %></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class="publishUnits">作者：<span id="publisher"><%=currGoodWork.Student.SName %></span></span></h3>
                     </dt>

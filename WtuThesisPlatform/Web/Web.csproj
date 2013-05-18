@@ -104,6 +104,8 @@
     <Content Include="images\banner_bg.png" />
     <Content Include="images\goodwork\1.gif" />
     <Content Include="images\goodwork\2.gif" />
+    <Content Include="js\admin\StudentApply.js" />
+    <Content Include="js\admin\TeacherApply.js" />
     <Content Include="js\admin\ClassManager.js" />
     <Content Include="js\admin\DepartmentManager.js" />
     <Content Include="js\admin\MajorManager.js" />

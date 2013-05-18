@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="GoodWorkManager.aspx.cs" Inherits="Web.AdminUI.GoodWorkManager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="../js/admin/StudentApply.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">
@@ -17,7 +18,7 @@
                 
                 <asp:Repeater ID="rptGoodWork" runat="server">
                 <ItemTemplate>
-                    <tr class="list-content nohover">
+                    <tr class="list-content nohover checkId" id="<%#Eval("GId") %>">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
                         <a href="/AdminUI/GoodWorkDetail.aspx?nodeId=3052&gid=<%#Eval("GId") %>"><%#Eval("GTitle") %></a>
@@ -29,7 +30,7 @@
                         <span class="tea-status"><%#Eval("StateString") %></span>
                     </td>
                     <td>
-                        <span class="ope"><a href="#">通过</a>/<a href="#">不通过</a></span>
+                        <span class="ope"><a href="#" class="checkYes">通过</a>/<a href="#" class="checkNo">不通过</a></span>
                     </td>
                 </tr>
                 </ItemTemplate>
