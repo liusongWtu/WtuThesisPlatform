@@ -18,7 +18,7 @@
                 
                 <asp:Repeater ID="rptThesis" runat="server">
                 <ItemTemplate>
-                <tr class="list-content nohover checkId" id="<%#Eval("TId") %>">
+                <tr class="list-content nohover checkId <%#Eval("TState") %>" id="<%#Eval("TId") %>">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
                         <a href="/AdminUI/TeacherApplyDetail.aspx?nodeId=3051&tid=<%#Eval("TId") %>"><%#Eval("TName") %></a>

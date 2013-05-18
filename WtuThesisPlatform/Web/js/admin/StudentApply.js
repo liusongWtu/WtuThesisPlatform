@@ -7,7 +7,7 @@
             content: '您确定通过审核？',
             onClose: function (value) {
                 if (value) {
-                    $.post("", { "operate": "pass", "tid": tid }, function (data) {
+                    $.post("../../ashx/admin/CheckGoodWork.ashx", { "operate": "pass", "tid": tid }, function (data) {
                         if (data == "ok") {
                             myThis.text("取消");
                             if ($(".tea-status")) {
@@ -37,7 +37,7 @@
             content: '您确定不通过审核？',
             onClose: function (value) {
                 if (value) {
-                    $.post("", { "operate": "nopass", "tid": tid }, function (data) {
+                    $.post("../../ashx/admin/CheckGoodWork.ashx", { "operate": "nopass", "tid": tid }, function (data) {
                         if (data == "ok") {
                             myThis.text("取消");
                             if ($(".tea-status")) {

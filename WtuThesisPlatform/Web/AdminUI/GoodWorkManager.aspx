@@ -18,7 +18,7 @@
                 
                 <asp:Repeater ID="rptGoodWork" runat="server">
                 <ItemTemplate>
-                    <tr class="list-content nohover checkId" id="<%#Eval("GId") %>">
+                    <tr class="list-content nohover checkId <%#Eval("GPassed") %>" id="<%#Eval("GId") %>">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
                         <a href="/AdminUI/GoodWorkDetail.aspx?nodeId=3052&gid=<%#Eval("GId") %>"><%#Eval("GTitle") %></a>
