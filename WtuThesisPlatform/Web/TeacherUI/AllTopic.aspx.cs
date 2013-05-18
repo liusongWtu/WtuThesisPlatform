@@ -14,9 +14,11 @@ namespace Web.TeacherUI
     {
         Teacher currTeacher = null;
         protected string pageBar = string.Empty;
+        string nodeId = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            nodeId=Request["nodeId"];
             currTeacher=Session["currUser"] as Teacher;
             if (currTeacher == null)
             {
@@ -42,7 +44,7 @@ namespace Web.TeacherUI
             IList<ThesisTitle> lstThesisTitle = bll.GetList(intPageIndex, pageSize, "TTeacherId=" + currTeacher.TId, " TYear desc,TState", out rowCount, out pageCount);
             rptThesis.DataSource = lstThesisTitle;
             rptThesis.DataBind();
-            pageBar = CommonCode.GetPageTxt("AllTopic.aspx?i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
+            pageBar = CommonCode.GetPageTxt("AllTopic.aspx?nodeId=" + nodeId + "&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
 
         }
     }

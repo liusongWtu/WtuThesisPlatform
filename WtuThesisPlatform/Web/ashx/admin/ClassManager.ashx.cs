@@ -9,12 +9,12 @@ using System.Web.Script.Serialization;
 namespace Web.ashx.admin
 {
     /// <summary>
-    /// MajorManager 的摘要说明
+    /// ClassManager 的摘要说明
     /// </summary>
-    public class MajorManager : IHttpHandler
+    public class ClassManager : IHttpHandler
     {
         HttpContext context = null;
-        MajorBLL bll = new MajorBLL();
+        ClassInfoBLL bll = new ClassInfoBLL();
 
         public void ProcessRequest(HttpContext context)
         {
@@ -27,46 +27,47 @@ namespace Web.ashx.admin
                     CheckName();
                     break;
                 case "getAInfo":
-                    GetModelByMId();
+                    GetModelByCId();
                     break;
                 case "addNew":
-                    AddMajor();
+                    AddClassInfo();
                     break;
                 case "modify":
-                    ModifyMajor();
+                    ModifyClassInfo();
                     break;
                 case "del":
-                    DelMajor();
+                    DelClassInfo();
                     break;
                 default:
                     break;
             }
+
         }
 
         /// <summary>
-        /// 根据专业id获取院系信息
+        /// 根据班级id获取班级信息
         /// </summary>
-        private void GetModelByMId()
+        private void GetModelByCId()
         {
-            string mid = context.Request["majorId"];
+            string cid = context.Request["classId"];
             int iDid = 0;
-            if (!int.TryParse(mid, out iDid) || iDid <= 0)
+            if (!int.TryParse(cid, out iDid) || iDid <= 0)
             {
                 return;
             }
-            Major major = bll.GetModel(iDid);
+            ClassInfo classInfo = bll.GetModel(iDid);
             JavaScriptSerializer jss = new JavaScriptSerializer();
-            string jsonMajor = jss.Serialize(major);
-            context.Response.Write(jsonMajor);
+            string jsonClassInfo = jss.Serialize(classInfo);
+            context.Response.Write(jsonClassInfo);
         }
 
         /// <summary>
-        /// 删除专业
+        /// 删除班级
         /// </summary>
-        private void DelMajor()
+        private void DelClassInfo()
         {
-            string mid = context.Request["mid"];
-            if (bll.UpdateDel(mid) > 0)
+            string cid = context.Request["cid"];
+            if (bll.UpdateDel(cid) > 0)
             {
                 context.Response.Write("ok");
             }
@@ -79,13 +80,13 @@ namespace Web.ashx.admin
         /// <summary>
         /// 修改
         /// </summary>
-        private void ModifyMajor()
+        private void ModifyClassInfo()
         {
-            int mid = Convert.ToInt32(context.Request["mid"]);
-            Major major = InitMajor();
-            major.MId = mid;
+            int cid = Convert.ToInt32(context.Request["cid"]);
+            ClassInfo classInfo = InitClassInfo();
+            classInfo.CId = cid;
 
-            if (bll.Update(major) > 0)
+            if (bll.Update(classInfo) > 0)
             {
                 context.Response.Write("ok");
             }
@@ -96,14 +97,15 @@ namespace Web.ashx.admin
         }
 
         /// <summary>
-        /// 添加专业
+        /// 添加班级
         /// </summary>
-        private void AddMajor()
+        private void AddClassInfo()
         {
-            Major major = InitMajor();
-            if (bll.Add(major) > 0)
+            ClassInfo classInfo = InitClassInfo();
+
+            if (bll.Add(classInfo) > 0)
             {
-                context.Response.Write("{result:'ok',id:" + major.MId + "}");
+                context.Response.Write("{result:'ok',id:" + classInfo.CId + "}");
             }
             else
             {
@@ -112,20 +114,20 @@ namespace Web.ashx.admin
         }
 
         /// <summary>
-        /// 构造一个专业对象
+        /// 构造一个班级对象
         /// </summary>
         /// <returns></returns>
-        private Major InitMajor()
+        private ClassInfo InitClassInfo()
         {
-            Major major = new Major();
-            major.MName = context.Request["MName"];
-            major.Department=new Department ();
-            major.Department.DId = Convert.ToInt32(context.Request["DId"]);
-            return major;
+            ClassInfo classInfo = new ClassInfo();
+            classInfo.CName = context.Request["CName"];
+            classInfo.Major = new Major();
+            classInfo.Major.MId = Convert.ToInt32(context.Request["MajorId"]);
+            return classInfo;
         }
 
         /// <summary>
-        /// 检查专业是否已存在
+        /// 检查班级是否已存在
         /// </summary>
         private void CheckName()
         {

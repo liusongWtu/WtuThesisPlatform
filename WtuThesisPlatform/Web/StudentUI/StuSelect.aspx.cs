@@ -14,9 +14,11 @@ namespace Web.StudentUI
     {
         Student currStudent = null;
         protected string pageBar = string.Empty;
+        string nodeId = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            nodeId=Request["nodeId"];
             currStudent = Session["currUser"] as Student;
             if (currStudent == null)
             {
@@ -28,9 +30,7 @@ namespace Web.StudentUI
             {
                 intPageIndex = 1;
             }
-            LoadPageData(intPageIndex);
-
-            
+            LoadPageData(intPageIndex);          
             
         }
 
@@ -44,7 +44,7 @@ namespace Web.StudentUI
             IList<ThesisTitle> lstThesisTitle = bll.GetList(intPageIndex, pageSize, "IsDel=0", "", out rowCount, out pageCount);
             rptThesises.DataSource = lstThesisTitle;
             rptThesises.DataBind();
-            pageBar = CommonCode.GetPageTxt("StuSelect.aspx?i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
+            pageBar = CommonCode.GetPageTxt("StuSelect.aspx?nodeId=" + nodeId + "&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
         }
     }
 }

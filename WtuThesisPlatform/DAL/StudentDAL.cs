@@ -392,5 +392,17 @@ namespace WtuThesisPlatform.DAL
         {
             return DbHelperSQL.ExcuteNonQuery("update Student set IsDel=1 where CId in (" + cids + ")");
         }
+
+        public IList<int> GetAllSId()
+        {
+            string sql = "select SId from Student where IsDel=0";
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            List<int> lstSid = new List<int>();
+            foreach (DataRow row in dt.Rows)
+            {
+                lstSid.Add(Convert.ToInt32 (row[0]));
+            }
+            return lstSid;
+        }
     }
 }

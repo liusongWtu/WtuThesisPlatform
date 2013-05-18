@@ -9,7 +9,7 @@ namespace WtuThesisPlatform.BLL
     /// <summary>
     /// Author: LiuSong
     /// Description: BLLTier -- the BLL class of GoodWork.
-    /// Datetime:2013/5/16 23:53:43
+    /// Datetime:2013/5/18 13:13:41
     /// </summary>
     public class GoodWorkBLL
     {

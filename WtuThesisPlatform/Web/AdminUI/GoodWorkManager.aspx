@@ -15,21 +15,25 @@
                     <td class="last">操作</td>
                 </tr>
                 
-                <tr class="list-content nohover">
+                <asp:Repeater ID="rptGoodWork" runat="server">
+                <ItemTemplate>
+                    <tr class="list-content nohover">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
-                        <a href="#">毕业设计选题系统</a>
+                        <a href="#"><%#Eval("GTitle") %></a>
                     </td>
                     <td>
-                        <span class="tea-name">刘松</span>
+                        <span class="tea-name"><%#Eval("Student.SName") %></span>
                     </td>
                     <td>
-                        <span class="tea-status">待审核</span>
+                        <span class="tea-status"><%#Eval("StateString") %></span>
                     </td>
                     <td>
                         <span class="ope"><a href="#">通过</a>/<a href="#">不通过</a></span>
                     </td>
                 </tr>
+                </ItemTemplate>
+                </asp:Repeater>
                     
             </table>
         </div>

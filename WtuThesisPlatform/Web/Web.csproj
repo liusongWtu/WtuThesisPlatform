@@ -92,7 +92,8 @@
     <Content Include="AdminUI\TeacherApplyDetail.aspx" />
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
-    <Content Include="AdminUI\ZhiChengManager.aspx" />
+    <Content Include="AdminUI\RoleManager.aspx" />
+    <Content Include="AdminUI\ThesisAnalysis.aspx" />
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
     <Content Include="css\common_notice.css" />
@@ -1071,15 +1072,25 @@
     <Compile Include="AdminUI\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminUI\ZhiChengManager.aspx.cs">
-      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+    <Compile Include="AdminUI\RoleManager.aspx.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
-      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+    <Compile Include="AdminUI\RoleManager.aspx.designer.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\ThesisAnalysis.aspx.cs">
+      <DependentUpon>ThesisAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ThesisAnalysis.aspx.designer.cs">
+      <DependentUpon>ThesisAnalysis.aspx</DependentUpon>
     </Compile>
     <Compile Include="ashx\admin\AdminManager.ashx.cs">
       <DependentUpon>AdminManager.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\ClassManager.ashx.cs">
+      <DependentUpon>ClassManager.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\admin\DepartmentManager.ashx.cs">
       <DependentUpon>DepartmentManager.ashx</DependentUpon>
@@ -1089,6 +1100,9 @@
     </Compile>
     <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\admin\NoticeManager.ashx.cs">
+      <DependentUpon>NoticeManager.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\admin\StudentManager.ashx.cs">
       <DependentUpon>StudentManager.ashx</DependentUpon>
@@ -1408,6 +1422,8 @@
     <Content Include="ashx\teacher\ApplyExcel.ashx" />
     <Content Include="ashx\admin\DepartmentManager.ashx" />
     <Content Include="ashx\admin\MajorManager.ashx" />
+    <Content Include="ashx\admin\ClassManager.ashx" />
+    <Content Include="ashx\admin\NoticeManager.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>
