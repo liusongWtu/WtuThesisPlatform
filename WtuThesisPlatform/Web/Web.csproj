@@ -96,7 +96,10 @@
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
     <Content Include="css\common_notice.css" />
-    <Content Include="images\admin\18277.gif" />
+    <Content Include="images\admin\ope_add.jpg" />
+    <Content Include="images\admin\ope_delete.jpg" />
+    <Content Include="images\admin\ope_export.jpg" />
+    <Content Include="images\admin\ope_import.jpg" />
     <Content Include="images\banner_bg.png" />
     <Content Include="images\goodwork\1.gif" />
     <Content Include="images\goodwork\2.gif" />
@@ -118,9 +121,6 @@
     <Content Include="css\common.css" />
     <Content Include="css\index.css" />
     <Content Include="css\teacher\teacher_pages.css" />
-    <Content Include="images\admin\add.png" />
-    <Content Include="images\admin\blue-document-export.png" />
-    <Content Include="images\admin\blue-document-import.png" />
     <Content Include="images\notice_bg.gif" />
     <Content Include="images\notice_bot.gif" />
     <Content Include="images\notice_leftborder.gif" />
