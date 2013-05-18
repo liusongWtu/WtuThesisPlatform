@@ -14,9 +14,11 @@ namespace Web.StudentUI
     {
         Student currStudent = null;
         protected string pageBar = string.Empty;
+        string nodeId = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            nodeId=Request["nodeId"];
             currStudent = Session["currUser"] as Student;
             if (currStudent == null)
             {
@@ -41,7 +43,7 @@ namespace Web.StudentUI
             IList<GoodWork> lstGoodWork = bll.GetList(intPageIndex, pageSize, "", " GTime desc", out rowCount, out pageCount);
             rptGoodWork.DataSource = lstGoodWork;
             rptGoodWork.DataBind();
-            pageBar = CommonCode.GetPageTxt("GoodWorkAll.aspx?i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
+            pageBar = CommonCode.GetPageTxt("GoodWorkAll.aspx?nodeId="+nodeId+"&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
 
         }
     }

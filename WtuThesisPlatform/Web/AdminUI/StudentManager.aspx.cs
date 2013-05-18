@@ -14,9 +14,11 @@ namespace Web.AdminUI
     {
         Admin currAdmin = null;
         protected string pageBar = string.Empty;
+        string nodeId = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            nodeId=Request["nodeId"];
             currAdmin = Session["currUser"] as Admin;
             if (currAdmin == null)
                 return;
@@ -39,7 +41,7 @@ namespace Web.AdminUI
             IList<Student> lstStudent = bll.GetList(intPageIndex, pageSize, "IsDel=0", "", out rowCount, out pageCount);
             rptStudent.DataSource = lstStudent;
             rptStudent.DataBind();
-            pageBar = CommonCode.GetPageTxt("StudentManager.aspx?i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
+            pageBar = CommonCode.GetPageTxt("StudentManager.aspx?nodeId=" + nodeId + "&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
 
         }
     }

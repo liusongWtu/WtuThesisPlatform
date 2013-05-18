@@ -70,8 +70,39 @@ namespace WtuThesisPlatform.BLL
         /// <returns></returns>
         public IList<Notice> GetListByTId(int teacherId)
         {
-            IList<Notice> lstNotice= dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId="+teacherId+" )");
+            IList<Notice> lstNotice= dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId="+teacherId+" ) order by NPublishTime desc");
             IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=2 and NUserId="+teacherId);
+            if (lstNotice == null)
+            {
+                return null;
+            }
+            if (lstNewNotice == null)
+            {
+                lstNewNotice = new List<NewNotice>();
+            }
+            foreach (Notice noctice in lstNotice)
+            {
+                foreach (NewNotice item in lstNewNotice)
+                {
+                    if (item.NoticeId == noctice.NId)
+                    {
+                        noctice.IsNew = true;
+                        break;
+                    }
+                }
+            }
+
+            return lstNotice;
+        }
+
+        /// <summary>
+        /// 设置公告是否为未读属性
+        /// </summary>
+        /// <param name="lstNotice"></param>
+        /// <returns></returns>
+        public IList<Notice> SetIsNew(IList<Notice> lstNotice,int teacherId)
+        {
+            IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=2 and NUserId=" + teacherId);
             if (lstNotice == null)
             {
                 return null;

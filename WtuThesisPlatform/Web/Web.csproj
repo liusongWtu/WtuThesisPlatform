@@ -1093,6 +1093,9 @@
     <Compile Include="ashx\admin\ModifyInfo.ashx.cs">
       <DependentUpon>ModifyInfo.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\admin\NoticeManager.ashx.cs">
+      <DependentUpon>NoticeManager.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\admin\StudentManager.ashx.cs">
       <DependentUpon>StudentManager.ashx</DependentUpon>
       <SubType>Code</SubType>
@@ -1412,6 +1415,7 @@
     <Content Include="ashx\admin\DepartmentManager.ashx" />
     <Content Include="ashx\admin\MajorManager.ashx" />
     <Content Include="ashx\admin\ClassManager.ashx" />
+    <Content Include="ashx\admin\NoticeManager.ashx" />
     <None Include="js\om\ui\editor\omeditor.pack" />
     <Content Include="TeacherUI\TeacherMasterPage.Master" />
   </ItemGroup>

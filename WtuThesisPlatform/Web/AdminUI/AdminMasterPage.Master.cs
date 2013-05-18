@@ -27,17 +27,14 @@ namespace Web.AdminUI
             }
             currAdmin = Session["currUser"] as Admin;
             userType.Value = "3";
-            if (!IsPostBack)
-            {
-                currentNavNode.Value = Request["nodeId"];
-                //todo:优化导航树
-                //设置导航代码
-                //if (Session["naviget"] == null)
-                //{
-                //    Session["naviget"]=CommonCode.CreateTree();
-                //}
-                NavigateHTML = CommonCode.CreateTree();
-            }
+            currentNavNode.Value = Request["nodeId"];
+            //todo:优化导航树
+            //设置导航代码
+            //if (Session["naviget"] == null)
+            //{
+            //    Session["naviget"]=CommonCode.CreateTree();
+            //}
+            NavigateHTML = CommonCode.CreateTree();
         }
     }
 }

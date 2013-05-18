@@ -154,5 +154,10 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetAll();            
         }
+
+        public IList<int> GetAllTId()
+        {
+            return dal.GetAllTId();
+        }
     }
 }

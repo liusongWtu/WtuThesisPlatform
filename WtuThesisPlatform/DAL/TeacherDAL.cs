@@ -402,7 +402,7 @@ namespace WtuThesisPlatform.DAL
 
         public DataTable GetAll()
         {
-            string sql = "select * from Teacher";
+            string sql = "select * from Teacher where IsDel=0";
             DataTable dt = DbHelperSQL.GetTable(sql);
             return dt;
         }
@@ -435,6 +435,18 @@ namespace WtuThesisPlatform.DAL
         public int UpdateDelByMajorId(string mids)
         {
             return DbHelperSQL.ExcuteNonQuery("update Teacher set IsDel=1 where MajorId in (" + mids + ")");
+        }
+
+        public IList<int> GetAllTId()
+        {
+            string sql = "select TId from Teacher where IsDel=0";
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            List<int> lstTid = new List<int>();
+            foreach (DataRow row in dt.Rows)
+            {
+                lstTid.Add(Convert.ToInt32(row[0]));
+            }
+            return lstTid;
         }
     }
 }

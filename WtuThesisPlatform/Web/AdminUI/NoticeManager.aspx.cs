@@ -14,9 +14,11 @@ namespace Web.AdminUI
     {
         Admin currAdmin = null;
         protected string pageBar = string.Empty;
+        string nodeId = string.Empty;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            nodeId=Request["nodeId"];
             currAdmin = Session["currUser"] as Admin;
             if (currAdmin == null)
                 return;
@@ -36,10 +38,10 @@ namespace Web.AdminUI
             int pageCount = 0;
             //根据页码 获得当前页数据
             NoticeBLL bll = new NoticeBLL();
-            IList<Notice> lstNotice = bll.GetList(intPageIndex, pageSize, "IsDel=0", "NPublishTime", out rowCount, out pageCount);
+            IList<Notice> lstNotice = bll.GetList(intPageIndex, pageSize, "IsDel=0", "NPublishTime desc", out rowCount, out pageCount);
             rptAdmin.DataSource = lstNotice;
             rptAdmin.DataBind();
-            pageBar = CommonCode.GetPageTxt("NoticeManager.aspx?i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
+            pageBar = CommonCode.GetPageTxt("NoticeManager.aspx?nodeId=" + nodeId + "&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
 
         }
     }

@@ -134,5 +134,10 @@ namespace WtuThesisPlatform.BLL
             return dal.Update(model);
 		}
         #endregion
+
+        public IList<int> GetAllSId()
+        {
+            return dal.GetAllSId();
+        }
     }
 }

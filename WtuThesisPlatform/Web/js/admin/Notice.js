@@ -7,7 +7,7 @@
             content: '确定要删除该用户信息？',
             onClose: function (value) {
                 if (value) {
-                    $.post("", { "operate": "del", "nid": noticeId }, function (data) {
+                    $.post("../../ashx/admin/NoticeManager.ashx", { "operate": "del", "nid": noticeId }, function (data) {
                         if (data == "ok") {
                             $myThis.parent().parent().remove();
                             $.omMessageTip.show({ content: '删除成功！', timeout: 1000, type: 'success' });
