@@ -26,16 +26,16 @@ namespace Web.ashx.student
                 context.Response.Write("error");
             }
             ThesisSelected thesisSelected = new ThesisSelected();
-            if (srcPage == "myStore")
+            if (srcPage == "myStore")//收藏页面
             {
                 ThesisCollect thesisCollect = new ThesisCollectBLL().GetModel(Convert.ToInt32(thesisId));
                 thesisSelected.ThesisTitle = thesisCollect.ThesisTitle;
             }
-            else if (srcPage == "mySelect")
+            else if (srcPage == "mySelect")//选题页面
             {
                 thesisSelected = new ThesisSelectedBLL().GetModel(Convert.ToInt32(thesisId));
             }
-            else if (srcPage == "stuSelect")
+            else if (srcPage == "stuSelect")//所有选题页面
             {
                 thesisSelected.ThesisTitle = new ThesisTitleBLL().GetModel(Convert.ToInt32(thesisId));
             }
@@ -44,8 +44,17 @@ namespace Web.ashx.student
             ThesisCollectBLL tcBll = new ThesisCollectBLL();
             ThesisTitleBLL thesisTitleBll = new ThesisTitleBLL();
 
-            if (operate == "add")
+            if (operate == "add")//选题
             {
+                int currentSelectNum = tsBll.GetSelectNum(currStudent.SId);
+                string maxSelect=System.Configuration.ConfigurationManager.AppSettings["MaxSelect"];
+                int iMax = Convert.ToInt32(maxSelect);
+                if (currentSelectNum >= iMax)
+                {
+                    context.Response.Write("full");
+                    return;
+                }
+
                 tcBll.Del(thesisId);
                 if (tsBll.Contains(thesisSelected))
                 {
@@ -59,7 +68,7 @@ namespace Web.ashx.student
                     return;
                 }
             }
-            else if (operate == "del")
+            else if (operate == "del")//取消选题
             {
                 thesisSelected.ThesisTitle.TSelectedNum -= 1;
                 if (thesisSelected.TPassed)

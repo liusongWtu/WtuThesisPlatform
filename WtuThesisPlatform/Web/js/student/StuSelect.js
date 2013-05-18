@@ -33,11 +33,35 @@
             }
         }
         else {//还没选题，点击选题
-            if (selectTopic($(this).parent().attr("id"))) {//如果选题选择成功
-                $(this).addClass("select-icon-actived");
-                e.stopPropagation();
-                $.omMessageTip.show({ content: '已选择该选题！', timeout: 1000, type: 'success' });
+            $.ajax({ data: "post", url: "../../ashx/student/SelectedManager.ashx", data: "thesisId=" + $(this).parent().attr("id") + "&operate=add&srcPage=stuSelect", async: false, success: function (data) {
+                if (data == "ok") {
+                    $(this).addClass("select-icon-actived");
+                    e.stopPropagation();
+                    $.omMessageTip.show({ content: '已选择该选题！', timeout: 1000, type: 'success' });
+
+                } else if (data == "full") {
+                    $.omMessageBox.alert({
+                        title: '提示信息',
+                        content: '您最多可以选择3个志愿！',
+                        onClose: function (value) {
+                        }
+                    });
+                } else {
+                    $.omMessageBox.alert({
+                        title: '提示信息',
+                        content: '网络繁忙请稍后操作！',
+                        onClose: function (value) {
+                        }
+                    });
+                }
             }
+            });
+
+            //            if (selectTopic($(this).parent().attr("id"))) {//如果选题选择成功
+            //                $(this).addClass("select-icon-actived");
+            //                e.stopPropagation();
+            //                $.omMessageTip.show({ content: '已选择该选题！', timeout: 1000, type: 'success' });
+            //            }
         }
 
 
@@ -104,18 +128,7 @@ function deldetStore(thesisId) {//取消收藏
     });
     return result;
 }
-function selectTopic(id) {//选择选题
-    var result = false;
-    $.ajax({ data: "post", url: "../../ashx/student/SelectedManager.ashx", data: "thesisId=" + id + "&operate=add&srcPage=stuSelect", async: false, success: function (data) {
-        if (data == "ok") {
-            result = true;
-        } else {
-            result = false;
-        }
-    }
-    });
-    return result;
-}
+
 function deleteSelect(id) {//取消选题
     var result = false;
     $.post({ data: "post", url: "../../ashx/student/SelectedManager.ashx", data: "thesisId=" + id + "&operate=del&srcPage=mySelect", async: false, success: function (data) {

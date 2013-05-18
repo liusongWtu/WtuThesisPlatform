@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="GoodWorkManager.aspx.cs" Inherits="Web.AdminUI.GoodWorkManager" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="TeacherApply.aspx.cs" Inherits="Web.AdminUI.TeacherApply" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
@@ -15,21 +15,25 @@
                     <td class="last">操作</td>
                 </tr>
                 
+                <asp:Repeater ID="rptThesis" runat="server">
+                <ItemTemplate>
                 <tr class="list-content nohover" id="">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
-                        <a href="#">毕业设计选题系统</a>
+                        <a href="/AdminUI/TeacherApplyDetail.aspx?nodeId=3051&tid=<%#Eval("TId") %>"><%#Eval("TName") %></a>
                     </td>
                     <td>
-                        <span class="tea-name">何儒汉</span>
+                        <span class="tea-name"><%#Eval("Teacher.TName") %></span>
                     </td>
                     <td>
-                        <span class="tea-status">待审核</span>
+                        <span class="tea-status"><%#Eval("StateString")%></span>
                     </td>
                     <td>
                         <span class="ope-state"><a href="#">通过</a>/<a href="#">不通过</a></span>
                     </td>
                 </tr>
+                </ItemTemplate>
+                </asp:Repeater>
                     
             </table>
         </div>

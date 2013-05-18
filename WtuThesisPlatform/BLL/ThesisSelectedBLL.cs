@@ -150,5 +150,10 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(" ThesisTitleId="+thesisTitleId+" and TPassed="+(passed? "1":"0"));
         }
 
+
+        public int GetSelectNum(int studentId)
+        {
+            return dal.GetSelectNum(studentId);
+        }
     }
 }

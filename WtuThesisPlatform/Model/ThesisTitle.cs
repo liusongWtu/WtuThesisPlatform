@@ -142,6 +142,10 @@ namespace WtuThesisPlatform.MODEL
             get { return _tState; }
         }
 
+
+        /// <summary>
+        /// 选题状态描述
+        /// </summary>
         public string StateString
         {
             get
