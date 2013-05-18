@@ -123,5 +123,10 @@ namespace WtuThesisPlatform.BLL
             return dal.Update(model);
 		}
         #endregion
+
+        public IList<GoodWork> GetTop(int num)
+        {
+            return dal.GetTop(num);
+        }
     }
 }

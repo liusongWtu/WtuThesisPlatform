@@ -17,7 +17,7 @@
                     <dd><p class="workContent"><%=currGoodWork.GContent %></p></dd>
                   </dl>
                  <div class="bottom">
-                    <div class="backLink"><a href="/StudentUI/GoodWorkAll.aspx?nodeId=1002">返回全部作品</a></div>
+                    <div class="backLink"><a href="/StudentUI/GoodWorkAll.aspx?nodeId=1001">返回全部作品</a></div>
                  </div>
                  
             </div>

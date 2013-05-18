@@ -40,7 +40,7 @@ namespace Web.StudentUI
             int pageCount = 0;
             //根据页码 获得当前页数据
             GoodWorkBLL bll = new GoodWorkBLL();
-            IList<GoodWork> lstGoodWork = bll.GetList(intPageIndex, pageSize, "", " GTime desc", out rowCount, out pageCount);
+            IList<GoodWork> lstGoodWork = bll.GetList(intPageIndex, pageSize, " GPassed=1", " GTime desc", out rowCount, out pageCount);
             rptGoodWork.DataSource = lstGoodWork;
             rptGoodWork.DataBind();
             pageBar = CommonCode.GetPageTxt("GoodWorkAll.aspx?nodeId="+nodeId+"&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);

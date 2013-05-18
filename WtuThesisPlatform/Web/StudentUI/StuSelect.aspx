@@ -64,7 +64,7 @@
                                 <input type="checkbox" name="topiclist" id="<%#Eval("TId") %>" />
                             </td>
                             <td class="td1">
-                                <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("TId") %>">
+                                <a href="/StudentUI/StuTopicDetail.aspx?nodeId=1011&thesisId=<%#Eval("TId") %>">
                                     <%#Eval("TName") %></a>
                             </td>
                             <td class="td2">
@@ -77,7 +77,7 @@
                                 <%#Eval("TAcceptNum") %>
                             </td>
                             <td class="td5 teacher">
-                                <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("Teacher.TId") %>">
+                                <a href="/StudentUI/StuTopicInfo.aspx?nodeId=1011&teacherId=<%#Eval("Teacher.TId") %>">
                                     <%#Eval("Teacher.TName") %></a>
                             </td>
                             <td class="td6" id="<%#Eval("TId") %>">

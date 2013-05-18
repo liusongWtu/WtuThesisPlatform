@@ -19,10 +19,10 @@
                             <ItemTemplate>
                                 <tr id="<%#Eval("CId") %>">
                                     <td class="topicName">
-                                        <a href="/StudentUI/StuTopicDetail.aspx?thesisId=<%#Eval("ThesisTitle.TId") %>"><%#Eval("ThesisTitle.TName")%></a>
+                                        <a href="/StudentUI/StuTopicDetail.aspx?nodeId=1012&thesisId=<%#Eval("ThesisTitle.TId") %>"><%#Eval("ThesisTitle.TName")%></a>
                                     </td>
                                     <td class="teacher">
-                                        <a href="/StudentUI/StuTopicInfo.aspx?teacherId=<%#Eval("ThesisTitle.Teacher.TId") %>"><%#Eval("ThesisTitle.Teacher.TName")%></a>
+                                        <a href="/StudentUI/StuTopicInfo.aspx?nodeId=1012&teacherId=<%#Eval("ThesisTitle.Teacher.TId") %>"><%#Eval("ThesisTitle.Teacher.TName")%></a>
                                     </td>
                                     <td class="vanancy">
                                         剩余<span id="vanaNum">&nbsp;<%#Eval("LeftNum")%>&nbsp;</span>人

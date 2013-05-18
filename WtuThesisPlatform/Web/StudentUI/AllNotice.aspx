@@ -42,7 +42,7 @@
                    <ItemTemplate>
                     <tr class="list-content">
                         <td class="left tr30">
-                            <a class="NTitle <%#Eval("IsNew") %>" href="/StudentUI/NoticeDetail.aspx?nid=<%#Eval("NId") %>&nodeId=2021"><%#Eval("NTitle") %>></a>
+                            <a class="NTitle <%#Eval("IsNew") %>" href="/StudentUI/NoticeDetail.aspx?nid=<%#Eval("NId") %>&nodeId=1021"><%#Eval("NTitle") %></a>
                         </td>
                         <td  class="tr10">
                             <span class="NPublishTime"><%#string.Format ("{0:yyyy/MM/dd}",Eval("NPublishTime")) %></span>
@@ -57,6 +57,11 @@
                    </ItemTemplate>
                    </asp:Repeater>
                 </table>
+            </div>
+             <div class="pagechange">
+                
+                    <div id="pageBar"><%=pageBar%></div>
+                
             </div>
         </div>
 </asp:Content>
