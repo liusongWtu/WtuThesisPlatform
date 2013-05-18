@@ -6,9 +6,9 @@
     <div class="wrap">
         <div class="topic-info">
             <dl>
-                <dt class="checkId" id="<%#Eval("TId") %>">
+                <dt>
                     教师选题详细信息
-                    <span class="check-wrap"><a href="#" class="check checkYes">通过</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="check checkNo">不通过</a></span>
+                    <span class="check-wrap" id="<%#Eval("TId") %>"><a href="#" class="check checkYes">通过</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="check checkNo">不通过</a></span>
                 </dt>
                 
             </dl>

@@ -1,7 +1,7 @@
 ﻿$(function () {
     $(".checkYes").click(function () {
         var myThis = $(this);
-        var tid = $(".checkId").attr("id");
+        var tid = myThis.parent().attr("id");
         $.omMessageBox.confirm({
             title: '确认审核？',
             content: '您确定通过审核？',
@@ -9,9 +9,8 @@
                 if (value) {
                     $.post("../../ashx/admin/CheckThesisTitle.ashx", { "operate": "pass", "tid": tid }, function (data) {
                         if (data == "ok") {
-                            myThis.text("取消");
-                            if ($(".tea-status")) {
-                                $(".tea-status").text("审核不通过");
+                            if (myThis.parent().parent().prev().children("span").hasClass("tea-status")) {
+                                myThis.parent().parent().prev().children("span").text("审核通过");
                             }
                             $.omMessageTip.show({ content: '操作成功！', timeout: 1000, type: 'success' });
                         }
@@ -27,7 +26,7 @@
 
     $(".checkNo").click(function () {
         var myThis = $(this);
-        var tid = $(".checkId").attr("id");
+        var tid = myThis.parent().attr("id");
         $.omMessageBox.confirm({
             title: '确认审核？',
             content: '您确定不通过审核？',
@@ -35,9 +34,8 @@
                 if (value) {
                     $.post("../../ashx/admin/CheckThesisTitle.ashx", { "operate": "nopass", "tid": tid }, function (data) {
                         if (data == "ok") {
-                            myThis.text("取消");
-                            if ($(".tea-status")) {
-                                $(".tea-status").text("审核不通过");
+                            if (myThis.parent().parent().prev().children("span").hasClass("tea-status")) {
+                                myThis.parent().parent().prev().children("span").text("审核不通过");
                             }
                             $.omMessageTip.show({ content: '操作成功！', timeout: 1000, type: 'success' });
                         }

@@ -9,7 +9,7 @@
         <div class="singleBg">
             <div class="single">
                   <dl>
-                    <dt class="top checkId" id="<%#Eval("GId") %>">
+                    <dt class="top checkId"">
                         <h1 class="workTitle"><%=currGoodWork.GTitle %></h1>
                         <h3><span class="publishTime">发表时间：<span id="publishTime"><%=string.Format("{0:yyyy/MM/dd}",currGoodWork.GTime) %></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class="publishUnits">作者：<span id="publisher"><%=currGoodWork.Student.SName %></span></span></h3>
                     </dt>
@@ -17,7 +17,7 @@
                     <dd><p class="workContent"><%=currGoodWork.GContent %></p></dd>
                   </dl>
                  <div class="bottom">
-                    <div class="backLink"><a href="#" class="check">通过</a><a href="#" class="check">不通过</a></div>
+                    <div class="backLink" id="<%#Eval("GId") %>"><a href="#" class="check checkYes">通过</a><a href="#" class="check checkNo">不通过</a></div>
                  </div>
                  
             </div>

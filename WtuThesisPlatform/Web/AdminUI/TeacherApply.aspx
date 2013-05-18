@@ -18,7 +18,7 @@
                 
                 <asp:Repeater ID="rptThesis" runat="server">
                 <ItemTemplate>
-                <tr class="list-content nohover checkId <%#Eval("TState") %>" id="<%#Eval("TId") %>">
+                <tr class="list-content nohover <%#Eval("TState") %>">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
                         <a href="/AdminUI/TeacherApplyDetail.aspx?nodeId=3051&tid=<%#Eval("TId") %>"><%#Eval("TName") %></a>
@@ -30,7 +30,7 @@
                         <span class="tea-status"><%#Eval("StateString")%></span>
                     </td>
                     <td>
-                        <span class="ope-state"><a href="#" class="checkYes">通过</a>/<a href="#" class="checkNo">不通过</a></span>
+                        <span class="ope-state" id="<%#Eval("TId") %>"><a href="#" class="checkYes">通过</a>/<a href="#" class="checkNo">不通过</a></span>
                     </td>
                 </tr>
                 </ItemTemplate>
