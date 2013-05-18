@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WtuThesisPlatform.MODEL;
 using WtuThesisPlatform.BLL;
+using WtuThesisPlatform.MODEL;
 
 namespace Web.ashx.admin
 {
@@ -16,10 +16,10 @@ namespace Web.ashx.admin
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            string operate=context.Request["operate"];
-            string tid=context.Request["tid"];
+            string operate = context.Request["operate"];
+            string tid = context.Request["tid"];
             ThesisTitleBLL bll = new ThesisTitleBLL();
-            ThesisTitle thesisTitle = bll.GetModel(Convert.ToInt32 (tid));
+            ThesisTitle thesisTitle = bll.GetModel(Convert.ToInt32(tid));
 
             if (operate == "pass")//通过
             {

@@ -306,6 +306,15 @@ namespace WtuThesisPlatform.DAL
                 parameters[14].Value = model.SCheckCode;
                 parameters[15].Value = model.IsDel;
                 result = DbHelperSQL.ExcuteNonQuery(strSql.ToString(), parameters);
+
+                //班级，专业，院系人数加1
+                string addSql = "update ClassInfo set CNumber=CNumber+1 where CId="+model.ClassInfo.CId+
+                    ";update Major set MNumber=MNumber+1 where MId="+model.Major.MId+
+                    ";update Department set DNumber=DNumber+1 where DId="+model.Department.DId;
+                if (DbHelperSQL.ExecuteSqlTran(addSql) <= 0)
+                {
+                    throw new Exception("班级或专业或院系人数更新失败");
+                }
             }
             catch (Exception ex)
             {
