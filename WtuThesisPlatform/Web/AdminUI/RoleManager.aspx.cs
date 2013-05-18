@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Web.AdminUI
 {
-    public partial class ZhiChengManager : System.Web.UI.Page
+    public partial class RoleManager : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

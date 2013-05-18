@@ -11,7 +11,7 @@ namespace WtuThesisPlatform.DAL
     /// <summary>
     /// Author: LiuSong
     /// Description: DALTier -- the DAL class of GoodWork.
-    /// Datetime:2013/5/16 23:53:43
+    /// Datetime:2013/5/18 13:13:41
     /// </summary>
     public class GoodWorkDAL
     {
@@ -48,7 +48,7 @@ namespace WtuThesisPlatform.DAL
         public GoodWork GetModel(int intId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select GId,GTitle,GStudentId,GTime,GContent,GCoverPic from GoodWork ");
+            strSql.Append("select GId,GTitle,GStudentId,GTime,GContent,GCoverPic,GPassed from GoodWork ");
             strSql.Append(" where GId=@intId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@intId", SqlDbType.Int,4)};
@@ -69,7 +69,7 @@ namespace WtuThesisPlatform.DAL
         public GoodWork GetModel(String strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select GId,GTitle,GStudentId,GTime,GContent,GCoverPic from GoodWork ");
+            strSql.Append("select GId,GTitle,GStudentId,GTime,GContent,GCoverPic,GPassed from GoodWork ");
             strSql.Append(" where "+strWhere);
             GoodWork model = new GoodWork();
             DataTable dt = DbHelperSQL.GetTable(strSql.ToString());
@@ -92,7 +92,7 @@ namespace WtuThesisPlatform.DAL
         public IList<GoodWork> GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select GId,GTitle,GStudentId,GTime,GContent,GCoverPic ");
+            strSql.Append("select GId,GTitle,GStudentId,GTime,GContent,GCoverPic,GPassed ");
             strSql.Append(" FROM GoodWork ");
             if (strWhere.Trim() != "")
             {
@@ -190,7 +190,8 @@ namespace WtuThesisPlatform.DAL
             model.GTitle = dr["GTitle"].ToString();
             if (!dr.IsNull("GStudentId")&&dr["GStudentId"].ToString() != "")
             {
-                model.GStudentId = int.Parse(dr["GStudentId"].ToString());
+                int studentId=int.Parse(dr["GStudentId"].ToString());
+                model.Student = new StudentDAL().GetModel(studentId);
             }
             if (!dr.IsNull("GTime")&&dr["GTime"].ToString() != "")
             {
@@ -198,6 +199,10 @@ namespace WtuThesisPlatform.DAL
             }
             model.GContent = dr["GContent"].ToString();
             model.GCoverPic = dr["GCoverPic"].ToString();
+            if (!dr.IsNull("GPassed")&&dr["GPassed"].ToString() != "")
+            {
+                model.GPassed = int.Parse(dr["GPassed"].ToString());
+            }
 
         }
         #endregion
@@ -218,24 +223,26 @@ namespace WtuThesisPlatform.DAL
                 }
                 
                 strSql.Append("insert into GoodWork(");
-                strSql.Append("GId,GTitle,GStudentId,GTime,GContent,GCoverPic)");
+                strSql.Append("GId,GTitle,GStudentId,GTime,GContent,GCoverPic,GPassed)");
                 strSql.Append(" values (");
-                strSql.Append(" @GId,@GTitle,@GStudentId,@GTime,@GContent,@GCoverPic)");
+                strSql.Append(" @GId,@GTitle,@GStudentId,@GTime,@GContent,@GCoverPic,@GPassed)");
                 strSql.Append(";select @@IDENTITY");
                 SqlParameter[] parameters = {
                     new SqlParameter("@GId", SqlDbType.Int,4),
                     new SqlParameter("@GTitle", SqlDbType.VarChar,200),
                     new SqlParameter("@GStudentId", SqlDbType.Int,4),
                     new SqlParameter("@GTime", SqlDbType.DateTime,3),
-                    new SqlParameter("@GContent", SqlDbType.Text),
-                    new SqlParameter("@GCoverPic", SqlDbType.VarChar,200)};
+                    new SqlParameter("@GContent", SqlDbType.VarChar,16),
+                    new SqlParameter("@GCoverPic", SqlDbType.VarChar,200),
+                    new SqlParameter("@GPassed", SqlDbType.Int,2)};
 
 				parameters[0].Value = model.GId;
                 parameters[1].Value = model.GTitle;
-                parameters[2].Value = model.GStudentId;
+                parameters[2].Value = model.Student.SId;
                 parameters[3].Value = model.GTime;
                 parameters[4].Value = model.GContent;
                 parameters[5].Value = model.GCoverPic;
+                parameters[6].Value = model.GPassed;
                 result = DbHelperSQL.ExcuteScalar(strSql.ToString(), parameters);
             }
             catch (Exception ex)
@@ -259,7 +266,8 @@ namespace WtuThesisPlatform.DAL
             strSql.Append("GStudentId=@GStudentId,");
             strSql.Append("GTime=@GTime,");
             strSql.Append("GContent=@GContent,");
-            strSql.Append("GCoverPic=@GCoverPic");
+            strSql.Append("GCoverPic=@GCoverPic,");
+            strSql.Append("GPassed=@GPassed");
             strSql.Append(" where GId=@GId ");
             SqlParameter[] parameters = {
                     new SqlParameter("@GId", SqlDbType.Int,4),
@@ -267,13 +275,15 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@GStudentId", SqlDbType.Int,4),
                     new SqlParameter("@GTime", SqlDbType.DateTime,3),
                     new SqlParameter("@GContent", SqlDbType.VarChar,16),
-                    new SqlParameter("@GCoverPic", SqlDbType.VarChar,200)};
+                    new SqlParameter("@GCoverPic", SqlDbType.VarChar,200),
+                    new SqlParameter("@GPassed", SqlDbType.Int,2)};
 			                parameters[0].Value = model.GId;
                 parameters[1].Value = model.GTitle;
-                parameters[2].Value = model.GStudentId;
+                parameters[2].Value = model.Student.SId;
                 parameters[3].Value = model.GTime;
                 parameters[4].Value = model.GContent;
                 parameters[5].Value = model.GCoverPic;
+                parameters[6].Value = model.GPassed;
 
             try
             {

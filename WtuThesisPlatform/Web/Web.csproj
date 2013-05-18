@@ -92,7 +92,8 @@
     <Content Include="AdminUI\TeacherApplyDetail.aspx" />
     <Content Include="AdminUI\TeacherManager.aspx" />
     <Content Include="AdminUI\test.aspx" />
-    <Content Include="AdminUI\ZhiChengManager.aspx" />
+    <Content Include="AdminUI\RoleManager.aspx" />
+    <Content Include="AdminUI\ThesisAnalysis.aspx" />
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
     <Content Include="css\common_notice.css" />
@@ -1071,12 +1072,19 @@
     <Compile Include="AdminUI\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminUI\ZhiChengManager.aspx.cs">
-      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+    <Compile Include="AdminUI\RoleManager.aspx.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminUI\ZhiChengManager.aspx.designer.cs">
-      <DependentUpon>ZhiChengManager.aspx</DependentUpon>
+    <Compile Include="AdminUI\RoleManager.aspx.designer.cs">
+      <DependentUpon>RoleManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\ThesisAnalysis.aspx.cs">
+      <DependentUpon>ThesisAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\ThesisAnalysis.aspx.designer.cs">
+      <DependentUpon>ThesisAnalysis.aspx</DependentUpon>
     </Compile>
     <Compile Include="ashx\admin\AdminManager.ashx.cs">
       <DependentUpon>AdminManager.ashx</DependentUpon>

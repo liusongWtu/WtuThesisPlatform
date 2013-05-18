@@ -238,7 +238,7 @@ namespace Web.Common
             foreach (SysFun rootFun in rootFuns)
             {
                 //取得该节点所有子节点
-                IList<SysFun> children = sysfunBll.GetList("ParentNodeId="+rootFun.NodeId);
+                IList<SysFun> children = sysfunBll.GetList("ParentNodeId="+rootFun.NodeId+" order by DisplayOrder");
                 if (children != null)
                 {
                     children.Insert(0, rootFun);//把父节点加到所有子节点的前面
