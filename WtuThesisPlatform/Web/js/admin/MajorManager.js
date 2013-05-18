@@ -246,8 +246,8 @@ function modifyCount(mid) {//修改用户
         async: false,
         success: function (data) {
             if (data == "ok") {
-                $("#" + did).children().eq(1).text(MName.val());
-                $("#" + did).children().eq(2).text(DId.find("option:selected").text());
+                $("#" + mid).children().eq(1).text(MName.val());
+                $("#" + mid).children().eq(2).text(DId.find("option:selected").text());
                 result = true;
             } else {
                 result = false;
