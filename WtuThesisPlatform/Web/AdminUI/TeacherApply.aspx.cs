@@ -41,7 +41,7 @@ namespace Web.AdminUI
             string currYear = System.Configuration.ConfigurationManager.AppSettings["currentYear"];
             //根据页码 获得当前页数据
             ThesisTitleBLL bll = new ThesisTitleBLL();
-            IList<ThesisTitle> lstThesisTile = bll.GetList(intPageIndex, pageSize, " TYear='"+currYear+"' and IsDel=0", " TState", out rowCount, out pageCount);
+            IList<ThesisTitle> lstThesisTile = bll.GetList(intPageIndex, pageSize, " TYear='"+currYear+"' and IsDel=1", " TState", out rowCount, out pageCount);
             rptThesis.DataSource = lstThesisTile;
             rptThesis.DataBind();
             pageBar = CommonCode.GetPageTxt("TeacherApply.aspx?nodeId=" + nodeId + "&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
