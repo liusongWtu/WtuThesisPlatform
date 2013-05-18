@@ -82,6 +82,7 @@
     <Content Include="AdminUI\ClassManager.aspx" />
     <Content Include="AdminUI\DepartmentManager.aspx" />
     <Content Include="AdminUI\DictionaryManager.aspx" />
+    <Content Include="AdminUI\editorTest.aspx" />
     <Content Include="AdminUI\GoodWorkDetail.aspx" />
     <Content Include="AdminUI\GoodWorkManager.aspx" />
     <Content Include="AdminUI\MajorManager.aspx" />
@@ -1003,6 +1004,13 @@
     </Compile>
     <Compile Include="AdminUI\DictionaryManager.aspx.designer.cs">
       <DependentUpon>DictionaryManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUI\editorTest.aspx.cs">
+      <DependentUpon>editorTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminUI\editorTest.aspx.designer.cs">
+      <DependentUpon>editorTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminUI\GoodWorkDetail.aspx.cs">
       <DependentUpon>GoodWorkDetail.aspx</DependentUpon>

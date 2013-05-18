@@ -18,7 +18,7 @@
                 
                 <asp:Repeater ID="rptGoodWork" runat="server">
                 <ItemTemplate>
-                    <tr class="list-content nohover checkId <%#Eval("GPassed") %>" id="<%#Eval("GId") %>">
+                    <tr class="list-content nohover checkId <%#Eval("GPassed") %>">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
                         <a href="/AdminUI/GoodWorkDetail.aspx?nodeId=3052&gid=<%#Eval("GId") %>"><%#Eval("GTitle") %></a>
@@ -30,7 +30,7 @@
                         <span class="tea-status"><%#Eval("StateString") %></span>
                     </td>
                     <td>
-                        <span class="ope"><a href="#" class="checkYes">通过</a>/<a href="#" class="checkNo">不通过</a></span>
+                        <span class="ope" id="<%#Eval("GId") %>"><a href="#" class="checkYes">通过</a>/<a href="#" class="checkNo">不通过</a></span>
                     </td>
                 </tr>
                 </ItemTemplate>
