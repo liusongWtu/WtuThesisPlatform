@@ -39,9 +39,10 @@ namespace Web.StudentUI
             int pageSize = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["pageSize"]);
             int rowCount=0;
             int pageCount=0;
+            string currYear = System.Configuration.ConfigurationManager.AppSettings["currentYear"];
             //根据页码 获得当前页数据
             ThesisTitleBLL bll = new ThesisTitleBLL();
-            IList<ThesisTitle> lstThesisTitle = bll.GetList(intPageIndex, pageSize, "IsDel=0", "", out rowCount, out pageCount);
+            IList<ThesisTitle> lstThesisTitle = bll.GetList(intPageIndex, pageSize, "IsDel=0 and TYear='"+currYear+"'", "", out rowCount, out pageCount);
             rptThesises.DataSource = lstThesisTitle;
             rptThesises.DataBind();
             pageBar = CommonCode.GetPageTxt("StuSelect.aspx?nodeId=" + nodeId + "&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);

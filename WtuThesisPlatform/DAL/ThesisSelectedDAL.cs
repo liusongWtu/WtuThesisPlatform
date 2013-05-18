@@ -307,5 +307,16 @@ namespace WtuThesisPlatform.DAL
         }
         #endregion
 
+
+        /// <summary>
+        /// 获取学生已选题个数
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <returns></returns>
+        public int GetSelectNum(int studentId)
+        {
+            string sql = "select count(*) from ThesisSelected where StudentId="+studentId;
+            return DbHelperSQL.ExcuteScalar(sql);
+        }
     }
 }

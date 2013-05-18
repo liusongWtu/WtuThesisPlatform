@@ -31,8 +31,20 @@
                         if (data == "ok") {
                             $myThis.parent().parent().remove(); //移除节点
                             $.omMessageTip.show({ content: '已选择该题！', timeout: 1000, type: 'alert' });
+                        } else if (data == "full") {
+                            $.omMessageBox.alert({
+                                title: '提示信息',
+                                content: '您最多可以选择3个志愿！',
+                                onClose: function (value) {
+                                }
+                            });
                         } else {
-                            return false;
+                            $.omMessageBox.alert({
+                                title: '提示信息',
+                                content: '网络繁忙请稍后操作！',
+                                onClose: function (value) {
+                                }
+                            });
                         }
                     });
                 }
