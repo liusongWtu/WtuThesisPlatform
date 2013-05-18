@@ -20,7 +20,7 @@
                     <tr class="list-content nohover">
                     <td><input type="checkbox" name="topiclist" /></td>
                     <td class="bold left">
-                        <a href="#"><%#Eval("GTitle") %></a>
+                        <a href="/AdminUI/GoodWorkDetail.aspx?nodeId=3052&gid=<%#Eval("GId") %>"><%#Eval("GTitle") %></a>
                     </td>
                     <td>
                         <span class="tea-name"><%#Eval("Student.SName") %></span>
