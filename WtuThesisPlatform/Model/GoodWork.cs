@@ -100,11 +100,11 @@ namespace WtuThesisPlatform.MODEL
                 }
                 else if (_gPassed == 1)
                 {
-                    return "通过";
+                    return "审核通过";
                 }
                 else
                 {
-                    return "未通过";
+                    return "审核不通过";
                 }
             }
         }

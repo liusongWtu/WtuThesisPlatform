@@ -156,11 +156,11 @@ namespace WtuThesisPlatform.MODEL
                 }
                 else if (_tState == 1)
                 {
-                    return "通过";
+                    return "审核通过";
                 }
                 else if (_tState == 2)
                 {
-                    return "未通过";
+                    return "审核不通过";
                 }
                 return "";
             }
