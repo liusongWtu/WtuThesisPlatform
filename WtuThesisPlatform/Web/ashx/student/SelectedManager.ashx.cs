@@ -46,6 +46,12 @@ namespace Web.ashx.student
 
             if (operate == "add")//选题
             {
+                if (tsBll.GetModel(thesisId) != null)
+                {
+                    context.Response.Write("ok");
+                    return;
+                }
+
                 int currentSelectNum = tsBll.GetSelectNum(currStudent.SId);
                 string maxSelect=System.Configuration.ConfigurationManager.AppSettings["MaxSelect"];
                 int iMax = Convert.ToInt32(maxSelect);

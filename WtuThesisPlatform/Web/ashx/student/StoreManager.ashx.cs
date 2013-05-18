@@ -33,6 +33,7 @@ namespace Web.ashx.student
             {
                 if (bll.Contians(thesisCollect))
                 {
+                    context.Response.Write("ok");
                     return;
                 }
                 if (bll.Add(thesisCollect)>0)

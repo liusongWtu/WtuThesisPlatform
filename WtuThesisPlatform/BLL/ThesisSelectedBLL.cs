@@ -52,6 +52,11 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetModel(intId);
         }
+
+        public object GetModel(string thesisId)
+        {
+            return dal.GetModel(" ThesisTitleId="+thesisId);
+        }
         #endregion
 
         #region GET DATA LIST
@@ -155,5 +160,7 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetSelectNum(studentId);
         }
+
+      
     }
 }
