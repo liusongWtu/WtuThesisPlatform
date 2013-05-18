@@ -286,5 +286,17 @@ namespace WtuThesisPlatform.DAL
         {
             return GetModel(" DName='"+name+"' and IsDel=0");
         }
+
+        public IList<int> GetDidsByName(string filter)
+        {
+            string sql = "select DID from Department where IsDel=0 and DName like '%"+filter+"%'";
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            IList<int> dids = new List<int>();
+            foreach (DataRow row in dt.Rows)
+            {
+                dids.Add(Convert.ToInt32 (row[0]));
+            }
+            return dids;
+        }
     }
 }
