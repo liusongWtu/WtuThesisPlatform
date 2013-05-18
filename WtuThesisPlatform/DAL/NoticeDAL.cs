@@ -320,5 +320,29 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+
+        /// <summary>
+        /// 根据sql获取公告
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public IList<Notice> GetTop(string sql)
+        {
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            List<Notice> list = null;
+            if (dt.Rows.Count > 0)
+            {
+                list = new List<Notice>();
+                Notice model = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    model = new Notice();
+                    LoadEntityData(ref model, dr);
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
     }
 }

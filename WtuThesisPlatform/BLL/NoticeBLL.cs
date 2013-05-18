@@ -127,27 +127,27 @@ namespace WtuThesisPlatform.BLL
         }
 
         /// <summary>
-        /// 根据学生id获取学生对应的公告
+        /// 根据学生对象拼接学生选题教师id串，供查询用
         /// </summary>
         /// <param name="student"></param>
         /// <returns></returns>
-        public IList<Notice> GetListBySId(Student student)
+        public string GetSelectedTids(Student student)
         {
-            string sql = string.Empty ;
+            string sql = string.Empty;
             if (student.SFlag)//若学生已通过选题，则只能看到自己导师的公告及学校公告
             {
-                sql = " StudentId="+student.SId+" and TPassed=1";
+                sql = " StudentId=" + student.SId + " and TPassed=1";
             }
             else//否则查看志愿中所有导师公告及学校公告
             {
-                sql = " StudentId="+student.SId;
+                sql = " StudentId=" + student.SId;
             }
             IList<ThesisSelected> lstThesisSelected = new ThesisSelectedBLL().GetList(sql);
             if (lstThesisSelected == null)
             {
                 return null;
             }
-            
+
             List<int> lstTid = new List<int>();
             foreach (ThesisSelected item in lstThesisSelected)
             {
@@ -160,10 +160,22 @@ namespace WtuThesisPlatform.BLL
             StringBuilder sbFilter = new StringBuilder();
             foreach (int item in lstTid)
             {
-                sbFilter.Append(item.ToString ()+",");
+                sbFilter.Append(item.ToString() + ",");
             }
-            sbFilter.Remove(sbFilter.Length -1,1);
-            IList<Notice> lstNotice = dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId in (" + sbFilter.ToString () + ") )");
+            sbFilter.Remove(sbFilter.Length - 1, 1);
+            return sbFilter.ToString();
+        }
+
+        /// <summary>
+        /// 根据学生id获取学生对应的公告
+        /// </summary>
+        /// <param name="student"></param>
+        /// <returns></returns>
+        public IList<Notice> GetList(Student student, int pageIndex, int pageSize, out int rowCount, out int pageCount)
+        {
+            string tids = GetSelectedTids(student);
+            IList<Notice> lstNotice= GetList(pageIndex, pageSize, "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0",
+                " NPublishTime desc", out rowCount, out pageCount);
             IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=1 and NUserId=" + student.SId);
 
             if (lstNotice == null)
@@ -248,5 +260,36 @@ namespace WtuThesisPlatform.BLL
             return dal.Update(model);
 		}
         #endregion
+
+        public IList<Notice> GetTop(Student student, int num)
+        {
+            string tids= GetSelectedTids(student);
+            string sql = "select top "+num+" NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel from Notice where "+
+                "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0 order by NPublishTime desc";
+            IList<Notice> lstNotice= dal.GetTop(sql);
+
+            IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=1 and NUserId=" + student.SId);
+
+            if (lstNotice == null)
+            {
+                return null;
+            }
+            if (lstNewNotice == null)
+            {
+                lstNewNotice = new List<NewNotice>();
+            }
+            foreach (Notice noctice in lstNotice)
+            {
+                foreach (NewNotice item in lstNewNotice)
+                {
+                    if (item.NoticeId == noctice.NId)
+                    {
+                        noctice.IsNew = true;
+                        break;
+                    }
+                }
+            }
+            return lstNotice;
+        }
     }
 }

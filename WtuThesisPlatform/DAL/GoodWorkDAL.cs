@@ -297,5 +297,24 @@ namespace WtuThesisPlatform.DAL
             return res;
         }
         #endregion
+
+        public IList<GoodWork> GetTop(int num)
+        {
+            string sql = "select top "+num+" * from GoodWork where GPassed=1 order by GTime";
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            List<GoodWork> list = null;
+            if (dt.Rows.Count > 0)
+            {
+                list = new List<GoodWork>();
+                GoodWork model = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    model = new GoodWork();
+                    LoadEntityData(ref model, dr);
+                    list.Add(model);
+                }
+            }
+            return list;
+        }
     }
 }

@@ -19,7 +19,7 @@
                         <tr><td>相关下载：</td></tr>
                         <tr class="download-list"><td><a>文档文档文档</a></td></tr>
                     </table>--%>
-                    <div class="backLink"><a href="AllNotice.aspx">返回全部公告</a></div>
+                    <div class="backLink"><a href="AllNotice.aspx?nodeId=1021">返回全部公告</a></div>
                  </div>
                  
             </div>

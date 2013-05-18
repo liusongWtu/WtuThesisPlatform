@@ -17,7 +17,7 @@
         <div class="person-info">
             <dl>
                 <dt>个人基本信息
-                    <span class="modify"><a href="StuModifyPwd.aspx" id="mPassword" class="dis-inline-block">
+                    <span class="modify"><a href="StuModifyPwd.aspx?nodeId=1032" id="mPassword" class="dis-inline-block">
                         修改密码</a><a   href="#" id="mInfo" class="dis-inline-block">修改个人信息</a></span></dt>
              </dl>
              <table>
