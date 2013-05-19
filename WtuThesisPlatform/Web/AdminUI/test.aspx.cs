@@ -11,6 +11,8 @@ using System.Collections;
 using System.Data;
 using System.Text;
 using System.Configuration;
+using System.IO;
+using NPOI.HSSF.UserModel;
 
 
 namespace Web.AdminUI
@@ -23,7 +25,7 @@ namespace Web.AdminUI
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            nodeId=Request["nodeId"];
+            nodeId = Request["nodeId"];
             Label1.Text = ConfigurationManager.AppSettings["open"];
             currAdmin = Session["currUser"] as Admin;
             if (currAdmin == null)
@@ -85,6 +87,87 @@ namespace Web.AdminUI
         {
             ConfigurationManager.AppSettings["open"] = "false";
             Label1.Text = ConfigurationManager.AppSettings["open"];
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            if (!fileUpExcel.HasFile)
+            {
+                return;
+            }
+            string strPath = fileUpExcel.FileName;//获得 要读取 的 excel文件 路径
+            using (Stream file = new MemoryStream(fileUpExcel.FileBytes))//将 指定 的 文件 以流的方式读取到 file对象中
+            {
+                //将 文件流 对象 传入 workbook，此时，workbook 就相当于一个 Excel文件操作对象了
+                HSSFWorkbook workbook = new HSSFWorkbook(file);
+                //获得 Excel中 第一个工作表的 名字
+                //MessageBox.Show(workbook.GetSheetName(0));
+                //获得 Excel 中 第一个 表
+                HSSFSheet sheet = workbook.GetSheetAt(0);
+                //获得最后一行的下标
+                int rowNum = sheet.LastRowNum;
+                for (int j = 0; j <= rowNum; j++)//循环所有行
+                {
+                    try
+                    {
+                        //获得 当前循环的 行
+                        HSSFRow dr = sheet.GetRow(j);
+                        AddStudent(dr);
+                    }
+                    catch { }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 添加学生信息
+        /// </summary>
+        /// <param name="dr"></param>
+        private static void AddStudent(HSSFRow dr)
+        {
+            Student student = new Student();
+            if (dr.GetCell(0) == null && !string.IsNullOrEmpty(dr.GetCell(0).ToString().Trim()))//学号不存在则放弃该条记录
+            {
+                return;
+            }
+            student.SNo = dr.GetCell(0).ToString();
+            if (dr.GetCell(1) != null && !string.IsNullOrEmpty(dr.GetCell(1).ToString().Trim()))//姓名
+            {
+                student.SName = dr.GetCell(1).ToString();
+            }
+            if (dr.GetCell(2) != null && !string.IsNullOrEmpty(dr.GetCell(2).ToString().Trim()))//性别
+            {
+                student.SSex = dr.GetCell(2).ToString();
+            }
+            if (dr.GetCell(3) != null && !string.IsNullOrEmpty(dr.GetCell(3).ToString().Trim()))//院系
+            {
+                string deparmentName = dr.GetCell(3).ToString();
+                student.Department.DId = new DepartmentBLL().GetInsertDId(deparmentName);
+            }
+            if (dr.GetCell(4) != null && !string.IsNullOrEmpty(dr.GetCell(4).ToString().Trim()))//专业
+            {
+                string majorName = dr.GetCell(4).ToString();
+                student.Major.MId = new MajorBLL().GetInsertMId(majorName,student.Department.DId);
+            }
+            if (dr.GetCell(5) != null && !string.IsNullOrEmpty(dr.GetCell(5).ToString().Trim()))//班级
+            {
+                string className = dr.GetCell(5).ToString();
+                student.ClassInfo.CId = new ClassInfoBLL().GetInsertCId(className, student.Major.MId);
+            }
+            if (dr.GetCell(6) != null && !string.IsNullOrEmpty(dr.GetCell(6).ToString().Trim()))//电话
+            {
+                student.SPhone = dr.GetCell(6).ToString();
+            }
+            if (dr.GetCell(7) != null && !string.IsNullOrEmpty(dr.GetCell(7).ToString().Trim()))//QQ
+            {
+                student.SQQ = dr.GetCell(7).ToString();
+            }
+            if (dr.GetCell(8) != null && !string.IsNullOrEmpty(dr.GetCell(8).ToString().Trim()))//Email
+            {
+                student.SEmail = dr.GetCell(8).ToString();
+            }
+            StudentBLL bll = new StudentBLL();
+            bll.Add(student);
         }
     }
 }

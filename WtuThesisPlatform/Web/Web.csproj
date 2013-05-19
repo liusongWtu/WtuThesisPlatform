@@ -1658,6 +1658,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="js\kindeditor\attached\" />
+    <Folder Include="upload\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

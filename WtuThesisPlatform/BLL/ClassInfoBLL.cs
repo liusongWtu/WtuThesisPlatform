@@ -160,5 +160,28 @@ namespace WtuThesisPlatform.BLL
             }
             return sbCids.ToString();
         }
+
+        public int GetCIdByName(string className)
+        {
+            return dal.GetCIdByName(className);
+        }
+
+        public int GetInsertCId(string className, int mid)
+        {
+            int cid = GetCIdByName(className);
+            if (cid <= 0)
+            {
+                ClassInfo classInfo = new ClassInfo();
+                classInfo.CName = className;
+                classInfo.Major = new Major();
+                classInfo.Major.MId = mid;
+                Add(classInfo);
+                return classInfo.CId;
+            }
+            else
+            {
+                return cid;
+            }
+        }
     }
 }

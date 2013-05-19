@@ -334,5 +334,11 @@ namespace WtuThesisPlatform.DAL
             }
             return mids;
         }
+
+        public int GetDIdByName(string majorName)
+        {
+            string sql = "select MId from Major where IsDel=0 and MName='"+majorName+"'";
+            return DbHelperSQL.ExcuteScalar(sql);
+        }
     }
 }

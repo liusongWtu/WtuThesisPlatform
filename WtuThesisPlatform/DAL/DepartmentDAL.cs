@@ -298,5 +298,11 @@ namespace WtuThesisPlatform.DAL
             }
             return dids;
         }
+
+        public int GetDidByName(string deparmentName)
+        {
+            string sql = "select DId from Department where IsDel=0 and DName ='"+deparmentName+"'";
+            return DbHelperSQL.ExcuteScalar(sql);
+        }
     }
 }

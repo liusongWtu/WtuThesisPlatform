@@ -323,5 +323,11 @@ namespace WtuThesisPlatform.DAL
             }
             return cids;
         }
+
+        public int GetCIdByName(string className)
+        {
+            string sql = "select CId from ClassInfo where IsDel=0 and CName='"+className+"'";
+            return DbHelperSQL.ExcuteScalar(sql);
+        }
     }
 }
