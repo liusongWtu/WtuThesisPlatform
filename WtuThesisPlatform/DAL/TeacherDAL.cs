@@ -401,7 +401,7 @@ namespace WtuThesisPlatform.DAL
 
         public DataTable GetAll()
         {
-            string sql = "select * from Teacher where IsDel=0";
+            string sql = "select * from View_TeacherExcel ";
             DataTable dt = DbHelperSQL.GetTable(sql);
             return dt;
         }

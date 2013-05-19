@@ -57,7 +57,7 @@ namespace Web.AdminUI
             //根据页码 获得当前页数据
             StudentBLL bll = new StudentBLL();
             string where = GetWhere(filter);
-            IList<Student> lstStudent = bll.GetList(intPageIndex, pageSize, where, "DId", out rowCount, out pageCount);
+            IList<Student> lstStudent = bll.GetList(intPageIndex, pageSize, where, "DId desc", out rowCount, out pageCount);
             rptStudent.DataSource = lstStudent;
             rptStudent.DataBind();
             pageBar = CommonCode.GetPageTxt("StudentManager.aspx?nodeId=" + nodeId + "&i=", "&searchWord=" + filter, rowCount, pageCount, intPageIndex, 3, pageSize);
@@ -131,6 +131,7 @@ namespace Web.AdminUI
                     catch { }
                 }
             }
+            LoadPageData(1);
         }
 
         /// <summary>
@@ -155,16 +156,19 @@ namespace Web.AdminUI
             if (dr.GetCell(3) != null && !string.IsNullOrEmpty(dr.GetCell(3).ToString().Trim()))//院系
             {
                 string deparmentName = dr.GetCell(3).ToString();
+                student.Department = new Department();
                 student.Department.DId = new DepartmentBLL().GetInsertDId(deparmentName);
             }
             if (dr.GetCell(4) != null && !string.IsNullOrEmpty(dr.GetCell(4).ToString().Trim()))//专业
             {
                 string majorName = dr.GetCell(4).ToString();
+                student.Major = new Major();
                 student.Major.MId = new MajorBLL().GetInsertMId(majorName, student.Department.DId);
             }
             if (dr.GetCell(5) != null && !string.IsNullOrEmpty(dr.GetCell(5).ToString().Trim()))//班级
             {
                 string className = dr.GetCell(5).ToString();
+                student.ClassInfo = new ClassInfo();
                 student.ClassInfo.CId = new ClassInfoBLL().GetInsertCId(className, student.Major.MId);
             }
             if (dr.GetCell(6) != null && !string.IsNullOrEmpty(dr.GetCell(6).ToString().Trim()))//电话
@@ -181,6 +185,8 @@ namespace Web.AdminUI
             }
             student.SYear = year;
             student.SPassword = CommonCode.Md5Compute(student.SNo);
+            student.RoleInfo = new RoleInfo();
+            student.RoleInfo.RoleId = 1;
             StudentBLL bll = new StudentBLL();
             bll.Add(student);
         }
