@@ -9,6 +9,7 @@
     <script type="text/javascript" src="../js/om/ui/om-validate.js"></script>
     <script type="text/javascript" src="../js/Validata.js"></script>
     <script type="text/javascript" src="../js/admin/AdminManager.js"></script>
+    <script type="text/javascript" src="../js/admin/Import.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">
@@ -25,10 +26,10 @@
             <!-- <table id="grid"></table>-->
             <ul class="toolBar">
                 <li id="add" class="opeAdd">添加</li>
-                <li id="delete" class="opeDelete">批量删除</li>
-                <li id="import" class="opeImport">导入</li>
-                <li id="export" class="opeExport">导出</li>
+                <li id="delete" class="opeDelete">批量删除</li>                
             </ul>
+            <div class="importDiv" style="display: none"> <asp:FileUpload ID="fielUpExcel" CssClass="fielUpExcel"   runat="server" />
+            <asp:Button ID="btnUpload" runat="server" Text="上传" OnClientClick="return clientClick()" onclick="btnUpload_Click" /></div>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
                 <!--<tr>
                     <td><a href="#">添加</a></td>

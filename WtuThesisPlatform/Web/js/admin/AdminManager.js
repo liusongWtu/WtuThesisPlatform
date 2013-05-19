@@ -129,6 +129,8 @@ $(function () {
     $(".deleteOne").click(function () {
         bindDeleteEvent(this);
     });
+   
+
 
 });
 function bindCheckEvent(myThis) {

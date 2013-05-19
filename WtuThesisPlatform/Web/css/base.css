@@ -29,6 +29,7 @@ input,select,textarea{
 	font-size:100%;
 	line-height: normal;
 	border: 1px solid #7E9DB9;
+    height: 19px;
 }
 /*去掉ie下checkbox radio的边框*/
 input[type="checkbox"], input[type="radio"]{

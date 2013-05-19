@@ -1,12 +1,5 @@
 ﻿$(function () {
-    /**********输入框效果**********/
-    $(".search-input").click(function () {
-        $(this).parent().children("label").hide();
-    }).blur(function () {
-        if ($(this).val() == "") {
-            $(this).parent().children("label").show();
-        }
-    });
+   
 
     /**********收藏以及选题效果**********/
     $(".store-icon").click(function (e) {
