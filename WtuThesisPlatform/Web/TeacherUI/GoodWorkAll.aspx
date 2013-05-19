@@ -3,6 +3,8 @@
     <link rel="stylesheet" type="text/css" href="../css/common_goodwork.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="TeacherIndex.aspx">首页</a></div>
+    
     <div class="select-list">
         <div class="topic">
             <dl>

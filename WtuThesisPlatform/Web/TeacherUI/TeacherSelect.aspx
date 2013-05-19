@@ -5,6 +5,8 @@
     <link rel="Stylesheet" type="text/css" href="../css/teacher/teacher_pages.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="TeacherIndex.aspx">首页</a></div>
+   
     <div class="select-list">
         <div class="topic">
             <dl>

@@ -5,6 +5,8 @@
     <script type="text/javascript" src="../js/teacher/AllTopic.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="TeacherIndex.aspx">首页</a></div>
+    
     <div class="select-list">
         <div class="content-top">
             <div class="search fl fillet">

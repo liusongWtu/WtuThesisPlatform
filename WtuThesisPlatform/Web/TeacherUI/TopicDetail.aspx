@@ -4,6 +4,8 @@
     <script type="text/javascript" src="../js/student/StuSelect.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="TeacherIndex.aspx">首页</a>>><a href="TeacherSelect.aspx">所有选题</a></div>
+
 <div class="wrap">
         <div class="topic-info">
             <dl>

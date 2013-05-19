@@ -4,7 +4,9 @@
     <script src="../js/MD5.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
- <div class="wrap">
+    <div class="links"><a href="TeacherIndex.aspx">首页</a></div>
+    
+    <div class="wrap">
         <div class="modify_password">
             <dl>
                 <dt>

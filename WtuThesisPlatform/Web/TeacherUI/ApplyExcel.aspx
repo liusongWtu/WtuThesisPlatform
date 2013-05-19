@@ -5,6 +5,8 @@
     <script src="../js/teacher/ApplyExcel.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="TeacherIndex.aspx">首页</a><a href="TeacherApply.aspx">选题申请管理</a></div>
+    
     <div class="wrap-teacher">
         <div class="singleBg">
             <div class="single">
