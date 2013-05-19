@@ -28,6 +28,7 @@
                 <asp:Button ID="Button3" runat="server" Text="导入"  onclick="Button3_Click" />
                 <asp:Button ID="Button1" runat="server" Text="导出.." onclick="Button1_Click" />
                 <asp:Button ID="Button2" runat="server" Text="下载.." onclick="Button2_Click"  />
+                <asp:Button ID="Button4" runat="server" Text="导出学生" onclick="Button4_Click" />
                 <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </ul>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">

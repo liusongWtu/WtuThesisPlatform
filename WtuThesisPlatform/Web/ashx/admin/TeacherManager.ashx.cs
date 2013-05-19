@@ -86,7 +86,7 @@ namespace Web.ashx.admin
         private void DelATeacher()
         {
             string tid=context.Request["tid"];
-            if (bll.Del(tid)>0)
+            if (bll.UpdateDel(tid)>0)
             {
                 context.Response.Write("ok");
             }
@@ -119,7 +119,7 @@ namespace Web.ashx.admin
         {
             Teacher teacher = InitTeacher();
             int tid = 0;
-            if (bll.Add(teacher,out tid) > 0)
+            if (bll.Add(teacher) > 0)
             {
                 context.Response.Write("{result:'ok',id:" + tid + "}");
             }

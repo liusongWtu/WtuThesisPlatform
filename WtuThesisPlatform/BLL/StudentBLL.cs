@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WtuThesisPlatform.MODEL;
 using WtuThesisPlatform.DAL;
+using System.Data;
 
 namespace WtuThesisPlatform.BLL
 {
@@ -139,6 +140,11 @@ namespace WtuThesisPlatform.BLL
         public IList<int> GetAllSId()
         {
             return dal.GetAllSId();
+        }
+
+        public DataTable GetAll(string currYear)
+        {
+            return dal.GetAll(currYear);
         }
     }
 }

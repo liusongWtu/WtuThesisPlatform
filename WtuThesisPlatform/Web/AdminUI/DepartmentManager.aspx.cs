@@ -54,7 +54,7 @@ namespace Web.AdminUI
             IList<Department> lstDepartment = bll.GetList(intPageIndex, pageSize, "IsDel=0 and DName like '%"+filter+"%'", "", out rowCount, out pageCount);
             rptAdmin.DataSource = lstDepartment;
             rptAdmin.DataBind();
-            pageBar = CommonCode.GetPageTxt("TeacherManager.aspx?nodeId=" + nodeId + "&i=", "&searchWord=" + filter, rowCount, pageCount, intPageIndex, 3, pageSize);
+            pageBar = CommonCode.GetPageTxt("DepartmentManager.aspx?nodeId=" + nodeId + "&i=", "&searchWord=" + filter, rowCount, pageCount, intPageIndex, 3, pageSize);
 
         }
     }
