@@ -1,5 +1,14 @@
 // JavaScript Document
 $(function () {
+    if ($(".search-input")) {
+        if ($(".search-input").val() == "") {
+            $(".search-input").parent().children("label").show();
+        }
+        else {
+            $(".search-input").parent().children("label").hide();
+        }
+    }
+
     /*********左侧折叠菜单*********/
     var $menudts = $("#subNav dl dt");
     var $menudds = $("#subNav dl dd");
@@ -59,6 +68,15 @@ $(function () {
         });
         return false;
     })
+    /**********输入框效果**********/
+    $(".search-input").click(function () {
+        $(this).parent().children("label").hide();
+    }).blur(function () {
+        if ($(this).val() == "") {
+            $(this).parent().children("label").show();
+        }
+    });
+
     //表格样式
     $(".topic-list tr:odd").css("background", "rgb(255,255,255)");
     $(".topic-list tr:even:not(.list-header)").css("background", "rgb(246,246,246)");

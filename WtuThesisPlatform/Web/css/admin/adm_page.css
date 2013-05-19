@@ -74,3 +74,15 @@
     margin-left: 18px;
     line-height: 20px;
 }
+.importDiv
+{
+    width: 95%;
+    margin: 0 auto;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+}
+.fielUpExcel
+{
+    height: 25px;
+    border: none;
+}

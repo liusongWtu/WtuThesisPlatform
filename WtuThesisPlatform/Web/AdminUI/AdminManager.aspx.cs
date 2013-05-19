@@ -59,5 +59,10 @@ namespace Web.AdminUI
             pageBar = CommonCode.GetPageTxt("AdminManager.aspx?nodeId=" + nodeId + "&i=", "&searchWord=" + filter, rowCount, pageCount, intPageIndex, 3, pageSize);
 
         }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

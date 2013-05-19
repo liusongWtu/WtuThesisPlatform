@@ -8,6 +8,7 @@
     <script type="text/javascript" src="../js/Validata.js"></script>
     <script type="text/javascript" src="../js/student/StuSelect.js"></script>
     <script src="../js/DataHelper.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/admin/Import.js"></script>
     
     <script type="text/javascript" src="../js/admin/StudentManager.js"></script>
 </asp:Content>
@@ -30,6 +31,8 @@
                 <li id="import" class="opeImport">导入</li>
                 <li id="export" class="opeExport">导出</li>
             </ul>
+            <div class="importDiv" style="display: none"> <asp:FileUpload ID="fielUpExcel" CssClass="fielUpExcel"   runat="server" />
+            <asp:Button ID="btnUpload" runat="server" Text="上传" OnClientClick="return clientClick()"  /></div>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
                 <tr class="list-header">
                     <td class="tr3">

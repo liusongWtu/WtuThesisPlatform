@@ -6,6 +6,7 @@
     <script type="text/javascript" src="../js/Validata.js"></script>
     <script src="../js/DataHelper.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/admin/ClassManager.js"></script>
+    <script type="text/javascript" src="../js/admin/Import.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 <div class="select-list">
@@ -22,8 +23,6 @@
             <ul class="toolBar">
                 <li id="add" class="opeAdd">添加</li>
                 <li id="delete" class="opeDelete">批量删除</li>
-                <li id="import" class="opeImport">导入</li>
-                <li id="export" class="opeExport">导出</li>
             </ul>
             <!-- <table id="grid"></table>-->
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">

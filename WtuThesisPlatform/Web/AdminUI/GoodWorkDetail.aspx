@@ -17,7 +17,7 @@
                     <dd><p class="workContent"><%=currGoodWork.GContent %></p></dd>
                   </dl>
                  <div class="bottom">
-                    <div class="backLink" id="<%#Eval("GId") %>"><a href="#" class="check checkYes">通过</a><a href="#" class="check checkNo">不通过</a></div>
+                    <div class="backLink" id="<%=Eval("GId") %>"><a href="#" class="check checkYes">通过</a><a href="#" class="check checkNo">不通过</a></div>
                  </div>
                  
             </div>

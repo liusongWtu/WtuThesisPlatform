@@ -23,8 +23,6 @@
             <ul class="toolBar">
                 <li id="add" class="opeAdd">添加</li>
                 <li id="delete" class="opeDelete">批量删除</li>
-                <li id="import" class="opeImport">导入</li>
-                <li id="export" class="opeExport">导出</li>
             </ul>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
                 <tr class="list-header">
