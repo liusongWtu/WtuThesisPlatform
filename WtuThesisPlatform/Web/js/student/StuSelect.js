@@ -26,16 +26,17 @@
 
     })
     $(".select-icon").click(function (e) {
-        if ($(this).hasClass("select-icon-actived")) {//已经选择了该题，此时再点击表示取消选题
-            if (deleteSelect($(this).parent().attr("id"))) {//取消选题成功
-                $(this).removeClass("select-icon-actived");
+        var myThis = $(this);
+        if (myThis.hasClass("select-icon-actived")) {//已经选择了该题，此时再点击表示取消选题
+            if (deleteSelect(myThis.parent().attr("id"))) {//取消选题成功
+                myThis.removeClass("select-icon-actived");
                 $.omMessageTip.show({ content: '已取消选题！', timeout: 1000, type: 'success' });
             }
         }
         else {//还没选题，点击选题
-            $.ajax({ data: "post", url: "../../ashx/student/SelectedManager.ashx", data: "thesisId=" + $(this).parent().attr("id") + "&operate=add&srcPage=stuSelect", async: false, success: function (data) {
+            $.ajax({ data: "post", url: "../../ashx/student/SelectedManager.ashx", data: "thesisId=" + myThis.parent().attr("id") + "&operate=add&srcPage=stuSelect", async: false, success: function (data) {
                 if (data == "ok") {
-                    $(this).addClass("select-icon-actived");
+                    myThis.addClass("select-icon-actived");
                     e.stopPropagation();
                     $.omMessageTip.show({ content: '已选择该选题！', timeout: 1000, type: 'success' });
 
