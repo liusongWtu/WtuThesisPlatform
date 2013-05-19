@@ -18,6 +18,15 @@
             });
         })
     </script>
+    <script type="text/javascript" src="../js/kindeditor/kindeditor-min.js"></script>
+    <script type="text/javascript">
+        var editor;
+        KindEditor.ready(function (K) {
+            editor = K.create('textarea[name="ctl00$ContentPlaceHolde"]', {
+                allowFileManager: true
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap-teacher">
@@ -34,7 +43,7 @@
                         <tr><td class="tab-name"><h2>截止日期：</h2></td><td><input id="deadLine"  class="deadline"  runat="server"  /><asp:RequiredFieldValidator ID="rfvDeadTime"
                                 runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="deadLine"></asp:RequiredFieldValidator></td></tr>
                         <tr><td class="tab-name"><h2>公告内容：<asp:RequiredFieldValidator ID="rfvContent"
-                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtContent"></asp:RequiredFieldValidator></h2></td><td><textarea runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
+                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtContent"></asp:RequiredFieldValidator></h2></td><td><textarea style="width:604px;height:200px;visibility:hidden;" name="content" runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
                         <tr><td></td><td align="center">
                             <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" style="width: 40px;height: 20px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" style="width: 40px;height: 20px"  /></td></tr>
                      </table>
