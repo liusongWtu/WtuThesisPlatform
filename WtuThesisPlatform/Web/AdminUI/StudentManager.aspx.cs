@@ -8,6 +8,10 @@ using WtuThesisPlatform.MODEL;
 using WtuThesisPlatform.BLL;
 using Web.Common;
 using System.Text;
+using System.IO;
+using NPOI.HSSF.UserModel;
+using System.Data;
+using System.Collections;
 
 namespace Web.AdminUI
 {
@@ -95,6 +99,116 @@ namespace Web.AdminUI
 
             sb.Append(")");
             return sb.ToString();
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            //导入学生信息
+            if (!fileUpExcel.HasFile || fileUpExcel.FileName.ToLower().IndexOf(".xls") <= 0)
+            {
+                return;
+            }
+            string strPath = fileUpExcel.FileName;//获得 要读取 的 excel文件 路径
+            string year = strPath.Substring(0, 4);
+            using (Stream file = new MemoryStream(fileUpExcel.FileBytes))//将 指定 的 文件 以流的方式读取到 file对象中
+            {
+                //将 文件流 对象 传入 workbook，此时，workbook 就相当于一个 Excel文件操作对象了
+                HSSFWorkbook workbook = new HSSFWorkbook(file);
+                //获得 Excel中 第一个工作表的 名字
+                //MessageBox.Show(workbook.GetSheetName(0));
+                //获得 Excel 中 第一个 表
+                HSSFSheet sheet = workbook.GetSheetAt(0);
+                //获得最后一行的下标
+                int rowNum = sheet.LastRowNum;
+                for (int j = 1; j <= rowNum; j++)//循环所有行
+                {
+                    try
+                    {
+                        //获得 当前循环的 行
+                        HSSFRow dr = sheet.GetRow(j);
+                        AddStudent(dr, year);
+                    }
+                    catch { }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 添加学生信息
+        /// </summary>
+        private static void AddStudent(HSSFRow dr, string year)
+        {
+            Student student = new Student();
+            if (dr.GetCell(0) == null && !string.IsNullOrEmpty(dr.GetCell(0).ToString().Trim()))//学号不存在则放弃该条记录
+            {
+                return;
+            }
+            student.SNo = dr.GetCell(0).ToString();
+            if (dr.GetCell(1) != null && !string.IsNullOrEmpty(dr.GetCell(1).ToString().Trim()))//姓名
+            {
+                student.SName = dr.GetCell(1).ToString();
+            }
+            if (dr.GetCell(2) != null && !string.IsNullOrEmpty(dr.GetCell(2).ToString().Trim()))//性别
+            {
+                student.SSex = dr.GetCell(2).ToString();
+            }
+            if (dr.GetCell(3) != null && !string.IsNullOrEmpty(dr.GetCell(3).ToString().Trim()))//院系
+            {
+                string deparmentName = dr.GetCell(3).ToString();
+                student.Department.DId = new DepartmentBLL().GetInsertDId(deparmentName);
+            }
+            if (dr.GetCell(4) != null && !string.IsNullOrEmpty(dr.GetCell(4).ToString().Trim()))//专业
+            {
+                string majorName = dr.GetCell(4).ToString();
+                student.Major.MId = new MajorBLL().GetInsertMId(majorName, student.Department.DId);
+            }
+            if (dr.GetCell(5) != null && !string.IsNullOrEmpty(dr.GetCell(5).ToString().Trim()))//班级
+            {
+                string className = dr.GetCell(5).ToString();
+                student.ClassInfo.CId = new ClassInfoBLL().GetInsertCId(className, student.Major.MId);
+            }
+            if (dr.GetCell(6) != null && !string.IsNullOrEmpty(dr.GetCell(6).ToString().Trim()))//电话
+            {
+                student.SPhone = dr.GetCell(6).ToString();
+            }
+            if (dr.GetCell(7) != null && !string.IsNullOrEmpty(dr.GetCell(7).ToString().Trim()))//QQ
+            {
+                student.SQQ = dr.GetCell(7).ToString();
+            }
+            if (dr.GetCell(8) != null && !string.IsNullOrEmpty(dr.GetCell(8).ToString().Trim()))//Email
+            {
+                student.SEmail = dr.GetCell(8).ToString();
+            }
+            student.SYear = year;
+            student.SPassword = CommonCode.Md5Compute(student.SNo);
+            StudentBLL bll = new StudentBLL();
+            bll.Add(student);
+        }
+
+        //导出excel表
+        protected void btnExport_Click(object sender, EventArgs e)
+        {
+            string year = System.Configuration.ConfigurationManager.AppSettings["currentYear"];
+            //导出学生信息
+            DataTable dtSource = new StudentBLL().GetAll(year);
+            StarTech.NPOI.NPOIHelper.ListColumnsName = new SortedList(new StarTech.NPOI.NoSort());
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("SNo", "学号");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("SName", "姓名");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("SSex", "性别");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("DName", "学院");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("MName", "专业");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("CName", "班级");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("SPhone", "电话");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("SQQ", "QQ");
+            StarTech.NPOI.NPOIHelper.ListColumnsName.Add("SEmail", "Email");
+            Response.Clear();
+            Response.BufferOutput = false;
+            Response.ContentEncoding = System.Text.Encoding.UTF8;
+            string filename = HttpUtility.UrlEncode(DateTime.Now.ToString(year));
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + filename + "届学生信息.xls");
+            Response.ContentType = "application/ms-excel";
+            StarTech.NPOI.NPOIHelper.ExportExcel(dtSource, Response.OutputStream);
+            Response.Close();
         }
     }
 }
