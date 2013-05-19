@@ -67,8 +67,9 @@ namespace Web.AdminUI
         /// <returns></returns>
         private string GetWhere(string filter)
         {
+            string year=System.Configuration.ConfigurationManager.AppSettings["currentYear"];
             StringBuilder sb = new StringBuilder();
-            sb.Append("IsDel=0");
+            sb.Append("IsDel=0 and SYear='"+year+"'");
             if (string.IsNullOrEmpty(filter))
             {
                 return sb.ToString();

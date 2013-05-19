@@ -282,7 +282,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@SPhone", SqlDbType.VarChar,15),
                     new SqlParameter("@SQQ", SqlDbType.VarChar,20),
                     new SqlParameter("@SEmail", SqlDbType.VarChar,30),
-                    new SqlParameter("@SPassword", SqlDbType.VarChar,20),
+                    new SqlParameter("@SPassword", SqlDbType.VarChar,32),
                     new SqlParameter("@SFlag", SqlDbType.Bit,1),
                     new SqlParameter("@SYear", SqlDbType.VarChar,4),
                     new SqlParameter("@RoleId", SqlDbType.Int,4),
@@ -413,6 +413,12 @@ namespace WtuThesisPlatform.DAL
             return lstSid;
         }
 
-       
+
+
+        public DataTable GetAll(string currYear)
+        {
+            string sql = "select * from View_StudentExcel  where SYear='" + currYear + "'";
+            return DbHelperSQL.GetTable(sql);
+        }
     }
 }

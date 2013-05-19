@@ -71,7 +71,7 @@ namespace Web.ashx.admin
         private void DelAStudent()
         {
             string sid=context.Request["sid"];
-            if (bll.Del(sid) > 0)
+            if (bll.UpdateDel(sid) > 0)
             {
                 context.Response.Write("ok");
             }
