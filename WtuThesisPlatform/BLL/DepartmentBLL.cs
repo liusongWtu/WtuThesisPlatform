@@ -142,5 +142,23 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetModelByDName(name);
         }
+
+        public string GetDidsByName(string filter)
+        {
+            StringBuilder sbDids = new StringBuilder ();
+            IList<int> lstDids = dal.GetDidsByName(filter);
+            if (lstDids != null)
+            {
+                foreach (int item in lstDids)
+                {
+                    sbDids.Append(item.ToString ()+",");
+                }
+                if (sbDids.Length > 1)
+                {
+                    sbDids.Remove(sbDids.Length - 1, 1);
+                }
+            }
+            return sbDids.ToString();
+        }
     }
 }

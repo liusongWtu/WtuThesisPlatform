@@ -13,8 +13,8 @@
             <div class="search fl fillet">
                 <label class="ablt">
                     关键字...</label>
-                <input type="text" class="search-input" />
-                <button id="searchButton" class="search-button abrt">
+                <input type="text" class="search-input" id="txtSearch" runat="server"/>
+                <button id="searchButton" class="search-button abrt" runat="server">
                     <span>搜索</span></button>
             </div>
         </div>

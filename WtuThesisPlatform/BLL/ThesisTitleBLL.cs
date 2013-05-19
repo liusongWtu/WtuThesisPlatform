@@ -138,6 +138,10 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList("TTeacherId=" + teacherId + " and IsDel=0 order by TYear");
         }
 
+        public IList<ThesisTitle> GetListByTId(string teacherId,string year)
+        {
+            return dal.GetList("TTeacherId=" + teacherId + " and IsDel=1 and TState=1 and TYear='"+year+"'");
+        }
         /// <summary>
         /// 获取所有教师选题
         /// </summary>

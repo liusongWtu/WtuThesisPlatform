@@ -311,5 +311,17 @@ namespace WtuThesisPlatform.DAL
         {
             return GetModel(" CName='"+name+"' and IsDel=0");
         }
+
+        public IList<int> GetCidsByName(string filter)
+        {
+            string sql = "select CId from ClassInfo where IsDel=0 and CName like '%" + filter + "%'";
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            IList<int> cids = new List<int>();
+            foreach (DataRow row in dt.Rows)
+            {
+                cids.Add(Convert.ToInt32(row[0]));
+            }
+            return cids;
+        }
     }
 }

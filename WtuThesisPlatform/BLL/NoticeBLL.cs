@@ -14,8 +14,8 @@ namespace WtuThesisPlatform.BLL
     public class NoticeBLL
     {
         private readonly NoticeDAL dal = new NoticeDAL();
-        
-		#region GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
+
+        #region GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
         /// <summary>
         /// GET PAGED DATA LIST,TOTAL ROWS,TOTAL PAGES
         /// </summary>
@@ -31,19 +31,19 @@ namespace WtuThesisPlatform.BLL
             return dal.GetList(pageIndex, pageSize, where, orderby, out rowCount, out pageCount);
         }
         #endregion
-        
+
         #region GetListByProc
         /// <summary>
         /// GetListByProc
         /// </summary>
         /// <param name="procName">procName</param>
         /// <param name="paras">paras</param>
-        public IList<Notice> GetListByProc(string procName,System.Data.SqlClient.SqlParameter[] paras)
+        public IList<Notice> GetListByProc(string procName, System.Data.SqlClient.SqlParameter[] paras)
         {
-            return dal.GetListByProc(procName,paras);
+            return dal.GetListByProc(procName, paras);
         }
         #endregion
-        
+
         #region GET A Model byId
         /// <summary>
         /// GET A Model byId
@@ -52,8 +52,8 @@ namespace WtuThesisPlatform.BLL
         {
             return dal.GetModel(intId);
         }
-		#endregion
-        
+        #endregion
+
         #region GET DATA LIST
         /// <summary>
         /// GET DATA LIST
@@ -70,8 +70,8 @@ namespace WtuThesisPlatform.BLL
         /// <returns></returns>
         public IList<Notice> GetListByTId(int teacherId)
         {
-            IList<Notice> lstNotice= dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId="+teacherId+" ) order by NPublishTime desc");
-            IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=2 and NUserId="+teacherId);
+            IList<Notice> lstNotice = dal.GetList(" NLevel=1 or (NLevel=2 and NPublisherId=" + teacherId + " ) order by NPublishTime desc");
+            IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=2 and NUserId=" + teacherId);
             if (lstNotice == null)
             {
                 return null;
@@ -100,7 +100,7 @@ namespace WtuThesisPlatform.BLL
         /// </summary>
         /// <param name="lstNotice"></param>
         /// <returns></returns>
-        public IList<Notice> SetIsNew(IList<Notice> lstNotice,int teacherId)
+        public IList<Notice> SetIsNew(IList<Notice> lstNotice, int teacherId)
         {
             IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=2 and NUserId=" + teacherId);
             if (lstNotice == null)
@@ -174,7 +174,7 @@ namespace WtuThesisPlatform.BLL
         public IList<Notice> GetList(Student student, int pageIndex, int pageSize, out int rowCount, out int pageCount)
         {
             string tids = GetSelectedTids(student);
-            IList<Notice> lstNotice= GetList(pageIndex, pageSize, "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0",
+            IList<Notice> lstNotice = GetList(pageIndex, pageSize, "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0",
                 " NPublishTime desc", out rowCount, out pageCount);
             IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=1 and NUserId=" + student.SId);
 
@@ -200,7 +200,7 @@ namespace WtuThesisPlatform.BLL
             return lstNotice;
         }
         #endregion
-		
+
         #region RESTORE
         /// <summary>
         /// RESTORE
@@ -210,7 +210,7 @@ namespace WtuThesisPlatform.BLL
             return dal.UpdateDel(ids, false);
         }
         #endregion
-		
+
         #region DELETE SOFTLY
         /// <summary>
         /// DELETE SOFTLY
@@ -220,7 +220,7 @@ namespace WtuThesisPlatform.BLL
             return dal.UpdateDel(ids, true);
         }
         #endregion
-		
+
         #region DELETE SOFTLY
         /// <summary>
         /// DELETE SOFTLY
@@ -230,7 +230,7 @@ namespace WtuThesisPlatform.BLL
             return dal.UpdateDel(ids, isDel);
         }
         #endregion
-		
+
         #region DELETE PHYSICAL
         /// <summary>
         /// DELETE PHYSICAL
@@ -240,7 +240,7 @@ namespace WtuThesisPlatform.BLL
             return dal.Del(ids);
         }
         #endregion
-		
+
         #region ADD A RECORD
         /// <summary>
         /// ADD A RECORD
@@ -250,23 +250,31 @@ namespace WtuThesisPlatform.BLL
             return dal.Add(model);
         }
         #endregion
-		
-		#region Update
+
+        #region Update
         /// <summary>
         /// Update a data
         /// </summary>
         public int Update(Notice model)
         {
             return dal.Update(model);
-		}
+        }
         #endregion
 
         public IList<Notice> GetTop(Student student, int num)
         {
-            string tids= GetSelectedTids(student);
-            string sql = "select top "+num+" NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel from Notice where "+
-                "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0 order by NPublishTime desc";
-            IList<Notice> lstNotice= dal.GetTop(sql);
+            string tids = GetSelectedTids(student);
+            string sql;
+            if (!string.IsNullOrEmpty(tids))
+            {
+                sql = "select top " + num + " NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel from Notice where " +
+                    "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0 order by NPublishTime desc";
+            }
+            else
+            {
+                sql = "select top " + num + " NId,NLevel,NName,NPublisherId,NPublishUnits,NTitle,NContent,NPublishTime,NDeadTime,IsDel from Notice where NLevel=1 and IsDel=0 order by NPublishTime desc";
+            }
+            IList<Notice> lstNotice = dal.GetTop(sql);
 
             IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=1 and NUserId=" + student.SId);
 

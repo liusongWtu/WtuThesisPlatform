@@ -19,7 +19,8 @@ namespace Web.TeacherUI
             if (currTeacher != null)
             {
                 ThesisTitleBLL bll = new ThesisTitleBLL();
-                IList<ThesisTitle> lstThesisTitle = bll.GetListByTId(currTeacher.TId.ToString());
+                string currYear = System.Configuration.ConfigurationManager.AppSettings["currentYear"];
+                IList<ThesisTitle> lstThesisTitle = bll.GetListByTId(currTeacher.TId.ToString(),currYear);
                 rptThesis.DataSource = lstThesisTitle;
                 rptThesis.DataBind();
             }

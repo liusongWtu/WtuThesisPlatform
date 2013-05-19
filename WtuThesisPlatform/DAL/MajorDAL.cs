@@ -322,5 +322,17 @@ namespace WtuThesisPlatform.DAL
         {
             return GetModel(" MName='" + name + "' and IsDel=0");
         }
+
+        public IList<int> GetMidsByName(string filter)
+        {
+            string sql = "select MId from Major where IsDel=0 and MName like '%" + filter + "%'";
+            DataTable dt = DbHelperSQL.GetTable(sql);
+            IList<int> mids = new List<int>();
+            foreach (DataRow row in dt.Rows)
+            {
+                mids.Add(Convert.ToInt32(row[0]));
+            }
+            return mids;
+        }
     }
 }
