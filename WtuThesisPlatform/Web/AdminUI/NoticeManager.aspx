@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">
-        <div class="content-top">
+        <%--<div class="content-top">
             <div class="search fl fillet">
                 <label class="ablt">
                     关键字...</label>
@@ -14,7 +14,14 @@
                 <button id="searchButton" class="search-button abrt">
                     <span>搜索</span></button>
             </div>
-        </div>
+        </div>--%>
+        <dl>
+                <dt>
+                    <h1>
+                        公告管理</h1>
+                </dt>
+                <br />
+            </dl>
         <div class="content-center">
             <!-- <table id="grid"></table>-->
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">

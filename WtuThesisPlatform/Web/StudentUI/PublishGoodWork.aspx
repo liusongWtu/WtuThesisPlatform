@@ -27,6 +27,8 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="StuIndex.aspx">首页</a>>><a href="GoodWorkAll.aspx">全部作品</a></div>
+    
     <div class="wrap-teacher">
         <div class="singleBg">
             <div class="single">

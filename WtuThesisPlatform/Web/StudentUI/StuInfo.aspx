@@ -13,6 +13,8 @@
     <script type="text/javascript" src="../js/Validata.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    
+    <div class="links"><a href="StuIndex.aspx">首页</a></div>
     <div class="wrap">
         <div class="person-info">
             <dl>
@@ -21,34 +23,34 @@
                         修改密码</a><a   href="#" id="mInfo" class="dis-inline-block">修改个人信息</a></span></dt>
              </dl>
              <table>
-                <tr><td>学号：</td>
+                <tr><td class="col-name">学号：</td>
                     <td><input type="text" name="isNumber" id="sNo" class="sNo"  value="<%=currStudent.SNo %>" readonly="readonly" /></td>
                 </tr>
-                <tr><td>姓名：</td>
+                <tr><td class="col-name">姓名：</td>
                     <td><input type="text" id="sName" class="sName"  value="<%=currStudent.SName %>" readonly="readonly" /></td>
                 </tr>
-                <tr><td>性别：</td>
+                <tr><td class="col-name">性别：</td>
                     <td><input type="text" id="sSex" class="sSex"  value="<%=currStudent.SSex %>" readonly="readonly" /></td>
                 </tr>
-                <tr><td>届数：</td>
+                <tr><td class="col-name">届数：</td>
                     <td><input type="text" id="sYear" class="sYear"  value="<%=currStudent.SYear %>" readonly="readonly" /></td>
                 </tr>
-                <tr><td>电话：</td>
+                <tr><td class="col-name">电话：</td>
                     <td><input type="text" name="isMobilePhone"  id="sPhone" class="sPhone"  value="<%=currStudent.SPhone %>" readonly="readonly" /></td>
                 </tr>
-                <tr><td>邮箱：</td>
+                <tr><td class="col-name">邮箱：</td>
                     <td><input type="text" name ="isEmail" id="sEmail" class="sEmail"  value="<%=currStudent.SEmail %>" readonly="readonly" /></td>
                 </tr>
-                <tr><td>QQ：</td>
+                <tr><td class="col-name">QQ：</td>
                     <td><input type="text" name="isQQ" id="sQQ" class="sQQ"  value="<%=currStudent.SQQ %>" readonly="readonly" /></td>
                 </tr>
-                <tr><td>院系：</td>
+                <tr><td class="col-name">院系：</td>
                     <td><select id="sFaculty" class="sFaculty" runat="server" disabled="disabled"></select></td>
                 </tr>                                                                            
-                <tr><td>专业：</td>
+                <tr><td class="col-name">专业：</td>
                     <td><select id="sProfession" class="sProfession" runat="server" disabled="disabled"></select></td>
                 </tr>
-                <tr><td>班级：</td>
+                <tr><td class="col-name">班级：</td>
                     <td><select id="sClass" class="sClass" runat="server" disabled="disabled"></select></td>
                 </tr>
              </table>

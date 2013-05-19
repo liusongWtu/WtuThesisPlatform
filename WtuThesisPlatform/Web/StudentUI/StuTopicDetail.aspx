@@ -7,6 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="wrap">
+       
         <div class="topic-info">
             <dl>
                 <dt id="<%=currThesisTitle.TId %>">
@@ -48,7 +49,7 @@
                 </tr>
             </table>
         </div>
-        <div class="message-board">
+        <%--<div class="message-board">
             <dl>
                 <dt>
                     <h1>
@@ -93,6 +94,6 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>

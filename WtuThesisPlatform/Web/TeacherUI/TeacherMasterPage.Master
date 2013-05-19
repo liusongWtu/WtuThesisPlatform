@@ -27,21 +27,21 @@
             <div id="header" class="header">
                 <h1 id="logo" class="logoCl">
                 </h1>
-                <div id="nav" class="abright">
+                <%--<div id="nav" class="abright">
                     <ul class="nav-ul">
                         <li class="cursor ml10">首页</li>
                         <li class="cursor ml10">选题</li>
                         <li class="cursor ml10">信息维护</li>
                     </ul>
-                </div>
+                </div>--%>
             </div>
             <div id="info" class="info">
                 <ul class="info_ul">
                     <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currTeacher.TName %></a></span></li>
                     <li class="infoItem"><a href="/TeacherUI/AllNotice.aspx?nodeId=2021" id="megNum"><span class="megIcon fontSty cursor">
                         <%= noticeNum %></span></a></li>
-                    <li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">
-                        <%= msgNum %></span></a></li>
+                    <%--<li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">
+                        <%= msgNum %></span></a></li>--%>
                     <li id="logout" class="loginout"><a href="javascript:void(0)"><span class="outIcon fontSty cursor">
                         退出</span></a></li>
                 </ul>

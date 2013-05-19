@@ -8,7 +8,9 @@
     <script type="text/javascript" src="../js/student/StuMyStore.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="StuIndex.aspx">首页</a>>><a href="StuSelect.aspx">所有选题</a></div>
     <div class="wrap">
+         
         <div class="mystore">
             <dl>
                 <dt>我的收藏<span><a href="/StudentUI/StuSelect.aspx?nodeId=201" class="arrow-left">进入所有选题页面</a><a href="/StudentUI/StuMySelect.aspx?nodeId=203" class="aRight">进入我的选题<span

@@ -6,6 +6,7 @@
     <script type="text/javascript" src="../js/student/StuSelect.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
+    <div class="links"><a href="StuIndex.aspx">首页</a></div>
     <div class="select-list">
         <div class="content-top">
             <div class="search fl fillet">

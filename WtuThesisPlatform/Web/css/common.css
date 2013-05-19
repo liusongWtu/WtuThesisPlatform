@@ -602,6 +602,18 @@ body{
 {
     float: right;
 }
+.links
+{
+    height: 20px;
+    line-height: 20px;
+    background: rgb(186,193,201);
+    padding-left: 10px;
+    font-size: 13px;
+}
+.col-name
+{
+    width: 100px;
+}
 /*错误信息样式*/
 /*label.error{
     background: #fff6bf url(images/alert.png) center no-repeat;
