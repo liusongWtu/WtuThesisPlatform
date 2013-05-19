@@ -39,7 +39,7 @@ $(function () {
         loadDepartment(DepartmentId);
         loadMajor(MajorId, DepartmentId.val());
         loadClass(SClass, MajorId.val());
-        DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); });
+        DepartmentId.change(function () { loadMajor(MajorId, DepartmentId.val()); loadClass(SClass, MajorId.val()); });
         MajorId.change(function () { loadClass(SClass, MajorId.val()); });
         $("#StuAddNew").omDialog({ title: "添加用户" });
         $("#StuAddNew").omDialog('open');
