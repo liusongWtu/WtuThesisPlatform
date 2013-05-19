@@ -174,8 +174,17 @@ namespace WtuThesisPlatform.BLL
         public IList<Notice> GetList(Student student, int pageIndex, int pageSize, out int rowCount, out int pageCount)
         {
             string tids = GetSelectedTids(student);
-            IList<Notice> lstNotice = GetList(pageIndex, pageSize, "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0",
-                " NPublishTime desc", out rowCount, out pageCount);
+            IList<Notice> lstNotice;
+            if (!string.IsNullOrEmpty(tids))
+            {
+                lstNotice = GetList(pageIndex, pageSize, "( NLevel=1 or (NLevel=2 and NPublisherId in (" + tids + ") )) and IsDel=0",
+                    " NPublishTime desc", out rowCount, out pageCount);
+            }
+            else
+            {
+                lstNotice = GetList(pageIndex, pageSize, " NLevel=1 and IsDel=0", " NPublishTime desc", out rowCount, out pageCount);
+            }
+
             IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=1 and NUserId=" + student.SId);
 
             if (lstNotice == null)
