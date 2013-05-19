@@ -160,5 +160,31 @@ namespace WtuThesisPlatform.BLL
             }
             return sbDids.ToString();
         }
+
+        public int GetDIdByName(string departmentName)
+        {
+            return dal.GetDidByName(departmentName);
+        }
+
+        /// <summary>
+        /// 根据院系名获取院系id，若不存在该院系则添加该院系并返回其id
+        /// </summary>
+        /// <param name="departmentName"></param>
+        /// <returns></returns>
+        public int GetInsertDId(string departmentName)
+        {
+            int did=GetDIdByName(departmentName);
+            if (did <= 0)
+            {
+                Department department = new Department();
+                department.DName = departmentName;
+                Add(department);
+                return department.DId;
+            }
+            else
+            {
+                return did;
+            }
+        }
     }
 }

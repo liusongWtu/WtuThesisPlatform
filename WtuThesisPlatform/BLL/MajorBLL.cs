@@ -165,5 +165,28 @@ namespace WtuThesisPlatform.BLL
             }
             return sbMids.ToString();
         }
+
+        public int GetMIdByName(string majorName)
+        {
+            return dal.GetDIdByName(majorName);
+        }
+
+        public int GetInsertMId(string majorName,int did)
+        {
+            int mid = GetMIdByName(majorName);
+            if (mid <= 0)
+            {
+                Major major = new Major();
+                major.MName = majorName;
+                major.Department = new Department();
+                major.Department.DId = did;
+                Add(major);
+                return major.MId;
+            }
+            else
+            {
+                return mid;
+            }
+        }
     }
 }

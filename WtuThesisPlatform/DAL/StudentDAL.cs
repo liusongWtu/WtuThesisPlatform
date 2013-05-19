@@ -255,7 +255,7 @@ namespace WtuThesisPlatform.DAL
         /// <summary>
         /// Add a record
         /// </summary>
-        public int Add(Student model,out int sid)
+        public int Add(Student model)
         {
             int result = 0;
             try
@@ -320,7 +320,6 @@ namespace WtuThesisPlatform.DAL
             {
                 throw ex;
             }
-            sid = model.SId;
             return result;
         }
         #endregion
@@ -413,5 +412,7 @@ namespace WtuThesisPlatform.DAL
             }
             return lstSid;
         }
+
+       
     }
 }

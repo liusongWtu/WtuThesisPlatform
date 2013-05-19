@@ -105,10 +105,9 @@ namespace Web.ashx.admin
         private void AddStudent()
         {
             Student student = InitStudent();
-            int sid = 0;
-            if (bll.Add(student,out sid) > 0)
+            if (bll.Add(student) > 0)
             {
-                context.Response.Write("{result:'ok',id:" + sid + "}");
+                context.Response.Write("{result:'ok',id:" + student.SId + "}");
             }
             else
             {
