@@ -87,7 +87,6 @@
     <Content Include="AdminUI\MajorManager.aspx" />
     <Content Include="AdminUI\NoticeDetail.aspx" />
     <Content Include="AdminUI\NoticeManager.aspx" />
-    <Content Include="AdminUI\PublishNotice.aspx" />
     <Content Include="AdminUI\StudentManager.aspx" />
     <Content Include="AdminUI\TeacherApply.aspx" />
     <Content Include="AdminUI\TeacherApplyDetail.aspx" />
@@ -1284,13 +1283,6 @@
     </Compile>
     <Compile Include="AdminUI\NoticeManager.aspx.designer.cs">
       <DependentUpon>NoticeManager.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminUI\PublishNotice.aspx.cs">
-      <DependentUpon>PublishNotice.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminUI\PublishNotice.aspx.designer.cs">
-      <DependentUpon>PublishNotice.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminUI\StudentManager.aspx.cs">
       <DependentUpon>StudentManager.aspx</DependentUpon>

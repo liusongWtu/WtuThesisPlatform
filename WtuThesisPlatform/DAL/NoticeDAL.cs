@@ -242,7 +242,7 @@ namespace WtuThesisPlatform.DAL
                     new SqlParameter("@NPublisherId", SqlDbType.Int,4),
                     new SqlParameter("@NPublishUnits", SqlDbType.VarChar,50),
                     new SqlParameter("@NTitle", SqlDbType.VarChar,200),
-                    new SqlParameter("@NContent", SqlDbType.VarChar,16),
+                    new SqlParameter("@NContent", SqlDbType.VarChar,4000),
                     new SqlParameter("@NPublishTime", SqlDbType.DateTime,8),
                     new SqlParameter("@NDeadTime", SqlDbType.DateTime,8),
                     new SqlParameter("@IsDel", SqlDbType.Bit,1)};

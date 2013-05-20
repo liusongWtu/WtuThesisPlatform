@@ -27,7 +27,7 @@
                     <ul>
                         <asp:Repeater ID="rptNotice" runat="server">
                         <ItemTemplate>
-                            <li><a href="/TeacherUI/NoticeDetail.aspx?nodeId=2021&nid=<%#Eval("NId") %>" class="readstatus"><%#Eval("NTitle") %></a></li>
+                            <li><a href="/TeacherUI/NoticeDetail.aspx?nodeId=2021&nid=<%#Eval("NId") %>" class="readstatus <%#Eval("IsNew") %>"><%#Eval("NTitle") %></a></li>
                         </ItemTemplate>
                         </asp:Repeater>
                     </ul>

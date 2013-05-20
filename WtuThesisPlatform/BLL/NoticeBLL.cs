@@ -309,10 +309,32 @@ namespace WtuThesisPlatform.BLL
             return lstNotice;
         }
 
-        public IList<Notice> GetTop(int num)
+        public IList<Notice> GetTop(int num,string teacherId)
         {
             string sql = "select top " + num + " * from Notice where NLevel=1 and IsDel=0 order by NPublishTime desc";
-            return dal.GetTop(sql);
+            IList<Notice> lstNotice= dal.GetTop(sql);
+            IList<NewNotice> lstNewNotice = new NewNoticeBLL().GetList(" NUserType=2 and NUserId=" + teacherId+" order by NId");
+
+            if (lstNotice == null)
+            {
+                return null;
+            }
+            if (lstNewNotice == null)
+            {
+                lstNewNotice = new List<NewNotice>();
+            }
+            foreach (Notice noctice in lstNotice)
+            {
+                foreach (NewNotice item in lstNewNotice)
+                {
+                    if (item.NoticeId == noctice.NId)
+                    {
+                        noctice.IsNew = true;
+                        break;
+                    }
+                }
+            }
+            return lstNotice;
         }
     }
 }
