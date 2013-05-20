@@ -55,6 +55,11 @@ namespace Web.ashx
             switch (type)
             {
                 case "1"://学生
+                    if (System.Configuration.ConfigurationManager.AppSettings["studentOpen"] != "yes")
+                    {
+                        context.Response.Write("close");
+                        return;
+                    }
                     StudentBLL studentBll = new StudentBLL();
                     Student student = studentBll.GetModel(username);
                     if (student == null)
@@ -93,6 +98,11 @@ namespace Web.ashx
                     }
                     break;
                 case "2"://教师
+                    if (System.Configuration.ConfigurationManager.AppSettings["studentOpen"] != "yes")
+                    {
+                        context.Response.Write("close");
+                        return;
+                    }
                     TeacherBLL teacherBll = new TeacherBLL();
                     Teacher teacher = teacherBll.GetModel(username);
                     if (teacher == null)

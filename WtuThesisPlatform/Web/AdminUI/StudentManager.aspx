@@ -11,6 +11,14 @@
     <script type="text/javascript" src="../js/admin/Import.js"></script>
     
     <script type="text/javascript" src="../js/admin/StudentManager.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var num = $(".btnUpload").attr("success");
+            if (typeof (num) != 'undefined') {
+                $.omMessageTip.show({ content: '上传成功' + num + '条数据！', timeout: 1000, type: 'success' });
+            }
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list">

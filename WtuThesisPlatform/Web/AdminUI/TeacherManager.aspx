@@ -7,7 +7,14 @@
     <script type="text/javascript" src="../js/admin/TeacherManager.js"></script>
     <script src="../js/DataHelper.js" type="text/javascript"></script>
     <script type="text/javascript" src="../js/admin/Import.js"></script>
-
+    <script type="text/javascript">
+        $(function () {
+            var num = $(".btnUpload").attr("success");
+            if (typeof (num) != 'undefined') {
+                $.omMessageTip.show({ content: '上传成功'+num+'条数据！', timeout: 1000, type: 'success' });
+            }
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
 <div class="select-list">
@@ -27,10 +34,10 @@
                 <li id="delete" class="opeDelete">批量删除</li>
                 <li id="import" class="opeImport">导入</li>
                 <li id="export" class="opeExport">
-                    <asp:Button ID="btnExport" runat="server" Text="导出" onclick="btnExport_Click" /></li>
+                    <asp:Button ID="btnExport" CssClass="btnExport" runat="server" Text="导出" onclick="btnExport_Click" /></li>
             </ul>
             <div class="importDiv" style="display: none"> <asp:FileUpload ID="fileUpExcel" CssClass="fielUpExcel"   runat="server" />
-            <asp:Button ID="btnUpload" runat="server" Text="上传" OnClientClick="return clientClick()" onclick="btnUpload_Click" /></div>
+            <asp:Button ID="btnUpload" CssClass="btnUpload" runat="server" Text="上传" OnClientClick="return clientClick()" onclick="btnUpload_Click" /></div>
             <table id="topicList" class="topic-list" cellspacing="0" cellpadding="0">
                 <tr class="list-header">
                     <td class="tr3">

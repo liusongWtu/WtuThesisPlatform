@@ -96,6 +96,7 @@ namespace Web.AdminUI
                 return;
             }
             string strPath = fileUpExcel.FileName;//获得 要读取 的 excel文件 路径
+            int total=0;
             using (Stream file = new MemoryStream(fileUpExcel.FileBytes))//将 指定 的 文件 以流的方式读取到 file对象中
             {
                 //将 文件流 对象 传入 workbook，此时，workbook 就相当于一个 Excel文件操作对象了
@@ -112,20 +113,22 @@ namespace Web.AdminUI
                     {
                         //获得 当前循环的 行
                         HSSFRow dr = sheet.GetRow(j);
-                        AddTeacher(dr);
+                        total= AddTeacher(dr, total);
+                        
                     }
                     catch { }
                 }
             }
             LoadPageData(1);
+            btnUpload.Attributes.Add("success",total.ToString ());
         }
 
-        private static void AddTeacher(HSSFRow dr)
+        private static int AddTeacher(HSSFRow dr, int total)
         {
             Teacher teacher = new Teacher();
             if (dr.GetCell(0) == null && !string.IsNullOrEmpty(dr.GetCell(0).ToString().Trim()))//学号不存在则放弃该条记录
             {
-                return;
+                return total;
             }
             teacher.TNo = dr.GetCell(0).ToString();
             if (dr.GetCell(1) != null && !string.IsNullOrEmpty(dr.GetCell(1).ToString().Trim()))//姓名
@@ -181,6 +184,8 @@ namespace Web.AdminUI
             teacher.RoleInfo.RoleId = 2;
             TeacherBLL bll = new TeacherBLL();
             bll.Add(teacher);
+            total++;
+            return total;
         }
 
         //导出excel表

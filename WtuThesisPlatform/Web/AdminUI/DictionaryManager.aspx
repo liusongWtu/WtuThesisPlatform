@@ -6,16 +6,25 @@
     <div class="select-list">
         <table class="dictionary">
             <tr><td>当前届：</td><td>
-                <select id="currYear">
-                    <option></option>
+                <select id="currYear" runat="server">
                 </select>
             </td></tr>
             <tr><td>是否向学生开放：</td><td>
-                <input name="open" type="radio" checked="checked" />是
-                <input name="open" type="radio" />否
+                <asp:RadioButtonList  ID="rblStuOpen" runat="server">
+                    <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
+                    <asp:ListItem Value="no" >否</asp:ListItem>
+                </asp:RadioButtonList>
+               
+            </td></tr>
+            <tr><td>是否向教师开放：</td><td>
+                <asp:RadioButtonList  ID="rblTeaOpen" runat="server">
+                    <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
+                    <asp:ListItem Value="no" >否</asp:ListItem>
+                </asp:RadioButtonList>
+               
             </td></tr>
             <tr><td>学生志愿数：</td><td>
-                <select id="wish">
+                <select id="wish" runat="server">
                     <option selected="selected">1</option>
                     <option>2</option>
                     <option>3</option>
@@ -25,7 +34,7 @@
             </td></tr>
         </table>
         <div class="content-bottom">
-            <button>保存</button>
+            <asp:Button ID="btnSave" runat="server" Text="保 存" onclick="btnSave_Click" />
         </div>
     </div>
 </asp:Content>
