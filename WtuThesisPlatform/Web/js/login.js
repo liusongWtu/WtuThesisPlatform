@@ -116,7 +116,10 @@ function requestBack(result) {
         msgBox.showMsgErr("非法用户！");
         changeCode();
         username.select();
-    } else {
+    } else if (result == "close") {
+        msgBox.showMsgErr("当前系统尚未对您开放！");
+        changeCode();
+    }else {
         msgBox.showMsgOk("登录成功!正在跳转...");
         var currType = getRadioValue("ID");
         if (currType == "1") {

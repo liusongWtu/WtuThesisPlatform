@@ -57,7 +57,7 @@ namespace Web.AdminUI
             //根据页码 获得当前页数据
             StudentBLL bll = new StudentBLL();
             string where = GetWhere(filter);
-            IList<Student> lstStudent = bll.GetList(intPageIndex, pageSize, where, "DId", out rowCount, out pageCount);
+            IList<Student> lstStudent = bll.GetList(intPageIndex, pageSize, where, "DId desc", out rowCount, out pageCount);
             rptStudent.DataSource = lstStudent;
             rptStudent.DataBind();
             pageBar = CommonCode.GetPageTxt("StudentManager.aspx?nodeId=" + nodeId + "&i=", "&searchWord=" + filter, rowCount, pageCount, intPageIndex, 3, pageSize);
@@ -110,6 +110,7 @@ namespace Web.AdminUI
             }
             string strPath = fileUpExcel.FileName;//获得 要读取 的 excel文件 路径
             string year = strPath.Substring(0, 4);
+            int total = 0;
             using (Stream file = new MemoryStream(fileUpExcel.FileBytes))//将 指定 的 文件 以流的方式读取到 file对象中
             {
                 //将 文件流 对象 传入 workbook，此时，workbook 就相当于一个 Excel文件操作对象了
@@ -126,22 +127,23 @@ namespace Web.AdminUI
                     {
                         //获得 当前循环的 行
                         HSSFRow dr = sheet.GetRow(j);
-                        AddStudent(dr, year);
+                        total=AddStudent(dr, year,total);
                     }
                     catch { }
                 }
             }
+            LoadPageData(1);
         }
 
         /// <summary>
         /// 添加学生信息
         /// </summary>
-        private static void AddStudent(HSSFRow dr, string year)
+        private static int AddStudent(HSSFRow dr, string year,int total)
         {
             Student student = new Student();
             if (dr.GetCell(0) == null && !string.IsNullOrEmpty(dr.GetCell(0).ToString().Trim()))//学号不存在则放弃该条记录
             {
-                return;
+                return total;
             }
             student.SNo = dr.GetCell(0).ToString();
             if (dr.GetCell(1) != null && !string.IsNullOrEmpty(dr.GetCell(1).ToString().Trim()))//姓名
@@ -155,16 +157,19 @@ namespace Web.AdminUI
             if (dr.GetCell(3) != null && !string.IsNullOrEmpty(dr.GetCell(3).ToString().Trim()))//院系
             {
                 string deparmentName = dr.GetCell(3).ToString();
+                student.Department = new Department();
                 student.Department.DId = new DepartmentBLL().GetInsertDId(deparmentName);
             }
             if (dr.GetCell(4) != null && !string.IsNullOrEmpty(dr.GetCell(4).ToString().Trim()))//专业
             {
                 string majorName = dr.GetCell(4).ToString();
+                student.Major = new Major();
                 student.Major.MId = new MajorBLL().GetInsertMId(majorName, student.Department.DId);
             }
             if (dr.GetCell(5) != null && !string.IsNullOrEmpty(dr.GetCell(5).ToString().Trim()))//班级
             {
                 string className = dr.GetCell(5).ToString();
+                student.ClassInfo = new ClassInfo();
                 student.ClassInfo.CId = new ClassInfoBLL().GetInsertCId(className, student.Major.MId);
             }
             if (dr.GetCell(6) != null && !string.IsNullOrEmpty(dr.GetCell(6).ToString().Trim()))//电话
@@ -181,8 +186,12 @@ namespace Web.AdminUI
             }
             student.SYear = year;
             student.SPassword = CommonCode.Md5Compute(student.SNo);
+            student.RoleInfo = new RoleInfo();
+            student.RoleInfo.RoleId = 1;
             StudentBLL bll = new StudentBLL();
             bll.Add(student);
+            total++;
+            return total;
         }
 
         //导出excel表

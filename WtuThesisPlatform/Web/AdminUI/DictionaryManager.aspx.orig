@@ -13,11 +13,24 @@
         </dl>
         <div class="content-center">
         <table class="dictionary">
+<<<<<<< HEAD
             <tr><td class="col-name">当前届：</td><td>
-                <select id="currYear" runat="server">
+                <select id="currYear">
+                    <option></option>
                 </select>
             </td></tr>
             <tr><td class="col-name">是否向学生开放：</td><td>
+                <input name="open" type="radio" checked="checked" />是
+                <input name="open" type="radio" />否
+            </td></tr>
+            <tr><td class="col-name">学生志愿数：</td><td>
+                <select id="wish">
+=======
+            <tr><td>当前届：</td><td>
+                <select id="currYear" runat="server">
+                </select>
+            </td></tr>
+            <tr><td>是否向学生开放：</td><td>
                 <asp:RadioButtonList  ID="rblStuOpen" runat="server">
                     <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
                     <asp:ListItem Value="no" >否</asp:ListItem>
@@ -31,8 +44,9 @@
                 </asp:RadioButtonList>
                
             </td></tr>
-            <tr><td class="col-name">学生志愿数：</td><td>
+            <tr><td>学生志愿数：</td><td>
                 <select id="wish" runat="server">
+>>>>>>> 5583dd3b8e4c792b059d5d733103c4557bb6e5c6
                     <option selected="selected">1</option>
                     <option>2</option>
                     <option>3</option>

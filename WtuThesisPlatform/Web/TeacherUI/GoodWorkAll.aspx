@@ -20,7 +20,7 @@
                         <td class="title"><a href="/TeacherUI/SingleWork.aspx?gid=<%#Eval("GId") %>&nodeId=2001"><%#Eval("GTitle") %></a></td>
                     </tr>
                     <tr>
-                        <td class="work-summary fn-ellipsis fn-text-wrap" colspan="2"><%# Eval("GContent").ToString().Substring(0,100) %>
+                        <td class="work-summary fn-ellipsis fn-text-wrap" colspan="2"> <%# Eval("GContent").ToString().Length < 150 ? Eval("GContent").ToString() : Eval("GContent").ToString().Substring(0, 150)+"..."%>
                             <a href="/TeacherUI/SingleWork.aspx?gid=<%#Eval("GId") %>&nodeId=2001">【查看全文】</a>
                         </td>
                     </tr> 

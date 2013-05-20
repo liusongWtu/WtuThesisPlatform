@@ -214,8 +214,8 @@ namespace WtuThesisPlatform.DAL
             model.SName = dr["SName"].ToString();
             if (!dr.IsNull("DId") && dr["DId"].ToString() != "")
             {
-                model.Department.DId = int.Parse(dr["DId"].ToString());
-                model.Department = new DepartmentDAL().GetModel(model.Department.DId);
+                int departmentId = int.Parse(dr["DId"].ToString());
+                model.Department = new DepartmentDAL().GetModel(departmentId);
             }
             if (!dr.IsNull("MId") && dr["MId"].ToString() != "")
             {

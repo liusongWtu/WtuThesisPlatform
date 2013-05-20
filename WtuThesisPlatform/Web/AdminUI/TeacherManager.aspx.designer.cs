@@ -31,13 +31,22 @@ namespace Web.AdminUI {
         protected global::System.Web.UI.HtmlControls.HtmlButton searchButton;
         
         /// <summary>
-        /// fielUpExcel 控件。
+        /// btnExport 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fielUpExcel;
+        protected global::System.Web.UI.WebControls.Button btnExport;
+        
+        /// <summary>
+        /// fileUpExcel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fileUpExcel;
         
         /// <summary>
         /// btnUpload 控件。
