@@ -2,7 +2,6 @@
     AutoEventWireup="true" CodeBehind="AdminModifyPwd.aspx.cs" Inherits="Web.AdminUI.AdminModifyPwd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" type="text/css" href="../css/student/stu_page.css" />
     <link rel="stylesheet" type="text/css" href="../js/popup/jquery.confirm.css" />
     <script type="text/javascript" src="../js/ModifyPwd.js"></script>
     <script src="../js/MD5.js" type="text/javascript"></script>
@@ -12,11 +11,11 @@
         <div class="modify_password">
             <dl>
                 <dt>
-                    <h1>
-                        密码修改</h1>
+                        密码修改
                 </dt>
                 <br />
             </dl>
+            <div class="content-center">
             <table>
                 <tr>
                     <td>
@@ -59,6 +58,7 @@
                     </td>
                 </tr>
             </table>
+            </div>
             <!--<div id="tPhoto">
 				待定
 			</div>-->

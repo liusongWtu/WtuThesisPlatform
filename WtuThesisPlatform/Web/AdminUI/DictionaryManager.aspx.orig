@@ -25,8 +25,13 @@
                 <select id="currYear" runat="server">
                 </select>
             </td></tr>
-            <tr><td class="col-name">是否向学生开放：</td><td>
+<<<<<<< HEAD
+            <tr><td>是否向学生开放：</td><td>
                 <asp:RadioButtonList  ID="rblStuOpen" runat="server" Width="120px" RepeatDirection="Horizontal">
+=======
+            <tr><td class="col-name">是否向学生开放：</td><td>
+                <asp:RadioButtonList  ID="rblStuOpen" runat="server">
+>>>>>>> 5da88aebe7a450f7ceb94be3771f67f6c4f324aa
                     <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
                     <asp:ListItem Value="no" >否</asp:ListItem>
                 </asp:RadioButtonList>

@@ -21,10 +21,11 @@
     <div class="links"><a href="StuIndex.aspx">首页</a></div>
     
     <div class="wrap">
+        <dl>
+			<dt>所有公告</dt>
+		</dl>
         <div class="notice">
-                <!--<dl>
-								    <dt>历年选题信息</dt>
-							    </dl>-->
+                
                 <table class="topic-list" cellspacing="0" cellpadding="0">
                     <tr class="list-header">
                         <td class="left tr30">

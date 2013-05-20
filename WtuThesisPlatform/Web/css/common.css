@@ -337,7 +337,7 @@ body{
 }
 .topic dt{
 	border-bottom: 3px solid #2888a8;
-	font-size: 20px;
+	font-size: 18px;
     font-weight: bold;
 	height: 42px;
 	line-height: 55px;
@@ -612,7 +612,7 @@ body{
 }
 .col-name
 {
-    width: 100px;
+    width: 150px;
 }
 /*错误信息样式*/
 /*label.error{

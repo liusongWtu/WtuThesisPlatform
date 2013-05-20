@@ -33,7 +33,7 @@
                 </dd>
             </dl>
         </div>
-        <div class="download-wrap">
+        <%--<div class="download-wrap">
             <dl id="download" class="download">
                 <dt class="fn-ellipsis">相关文档下载<span class="fr more"><a href="#">>>更多</a></span></dt>
                 <dd>
@@ -42,6 +42,6 @@
                     </ul>
                 </dd>
             </dl>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>
