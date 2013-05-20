@@ -98,6 +98,8 @@
     <Content Include="ashx\admin\StudentManager.ashx" />
     <Content Include="css\common_goodwork.css" />
     <Content Include="css\common_notice.css" />
+    <Content Include="css\error.css" />
+    <Content Include="error.aspx" />
     <Content Include="images\admin\ope_add.jpg" />
     <Content Include="images\admin\ope_delete.jpg" />
     <Content Include="images\admin\ope_export.jpg" />
@@ -105,6 +107,7 @@
     <Content Include="images\banner_bg.png" />
     <Content Include="images\goodwork\1.gif" />
     <Content Include="images\goodwork\2.gif" />
+    <Content Include="images\wrong.gif" />
     <Content Include="js\admin\Import.js" />
     <Content Include="js\admin\StudentApply.js" />
     <Content Include="js\admin\TeacherApply.js" />
@@ -1419,6 +1422,13 @@
     <Compile Include="Common\CommonCode.cs" />
     <Compile Include="Common\ConfigurationOperator.cs" />
     <Compile Include="Common\NPOIHelper.cs" />
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -10,8 +10,7 @@
         <div class="modify_password">
             <dl>
                 <dt>
-                    <h1>
-                        密码修改</h1>
+                        密码修改
                 </dt>
                 <br />
             </dl>

@@ -15,11 +15,9 @@
                     <span>搜索</span></button>
             </div>
         </div>--%>
+        <div class="topic">
         <dl>
-                <dt>
-                    <h1>
-                        公告管理</h1>
-                </dt>
+                <dt>公告管理</dt>
                 <br />
             </dl>
         <div class="content-center">
@@ -82,6 +80,7 @@
             <div class="pagechange">
                     <div id="pageBar"><%=pageBar%></div>
             </div>
+        </div>
         </div>
     </div>
 </asp:Content>

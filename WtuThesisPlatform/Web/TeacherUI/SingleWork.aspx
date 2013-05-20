@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
-    <div class="links"><a href="TeacherIndex.aspx">首页</a><a href="GoodWorkAll.aspx">所有作品</a></div>
+    <div class="links"><a href="TeacherIndex.aspx">首页</a>>><a href="GoodWorkAll.aspx">所有作品</a></div>
     
     <div class="wrap-teavher">      
         <div class="singleBg">

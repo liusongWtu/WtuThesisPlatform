@@ -41,9 +41,9 @@
             <div id="info" class="info">
                 <ul class="info_ul">
                     <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currAdmin.UName %></a></span></li>
-                    <li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor">
+                    <%-- <li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor">
                         <%= noticeNum %></span></a></li>
-                   <%-- <li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">
+                   <li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">
                         <%= msgNum %></span></a></li>--%>
                     <li id="logout" class="loginout"><a href="javascript:void(0)"><span class="outIcon fontSty cursor">
                         退出</span></a></li>
