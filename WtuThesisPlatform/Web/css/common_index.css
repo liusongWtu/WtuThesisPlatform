@@ -58,9 +58,7 @@
 	-moz-text-overflow: ellipsis;
 	-webkit-text-overflow: ellipsis; /* 目前这段代码无效，为 Firefox 预留 */
 }
-.readstatus{
-	font-weight: bold;
-}
+
 .content a:hover{
 	text-decoration: underline;
 	color: #666;
