@@ -15,16 +15,27 @@ namespace Web.StudentUI
         Student currStudent = null;
         protected string pageBar = string.Empty;
         string nodeId = string.Empty;
+        string searchWord;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            nodeId=Request["nodeId"];
             currStudent = Session["currUser"] as Student;
             if (currStudent == null)
             {
                 return;
             }
+            nodeId=Request["nodeId"];
+            searchWord = Request["searchWord"];
             string strPageIndex=Request.QueryString["i"];
+            if (IsPostBack)//回传页面
+            {
+                searchWord = null;
+                strPageIndex = null;
+            }
+            else
+            {
+                txtSearch.Value = searchWord;
+            }
             int intPageIndex = 0;
             if (!int.TryParse(strPageIndex, out intPageIndex) && intPageIndex <= 0)
             {
@@ -40,12 +51,15 @@ namespace Web.StudentUI
             int rowCount=0;
             int pageCount=0;
             string currYear = System.Configuration.ConfigurationManager.AppSettings["currentYear"];
+            string filter = txtSearch.Value.Trim();
             //根据页码 获得当前页数据
             ThesisTitleBLL bll = new ThesisTitleBLL();
-            IList<ThesisTitle> lstThesisTitle = bll.GetList(intPageIndex, pageSize, "TState=1 and IsDel=1 and TYear='"+currYear+"'", "", out rowCount, out pageCount);
+            IList<ThesisTitle> lstThesisTitle = bll.GetList(intPageIndex, pageSize, "TState=1 and IsDel=1 and TYear='"+currYear
+                +"' and (TName like '%"+filter+"%' or TPlatform like '%"+filter+"%' or TIntroduct like '%"+filter
+                +"%' or TRequire like '%"+filter+"%')", "TTeacherId", out rowCount, out pageCount);
             rptThesises.DataSource = lstThesisTitle;
             rptThesises.DataBind();
-            pageBar = CommonCode.GetPageTxt("StuSelect.aspx?nodeId=" + nodeId + "&i=", "", rowCount, pageCount, intPageIndex, 3, pageSize);
+            pageBar = CommonCode.GetPageTxt("StuSelect.aspx?nodeId=" + nodeId + "&i=", "&searchWord=" + filter, rowCount, pageCount, intPageIndex, 3, pageSize);
         }
     }
 }

@@ -22,15 +22,6 @@ namespace Web.AdminUI {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtName;
         
         /// <summary>
-        /// rfvName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
-        
-        /// <summary>
         /// txtUnits 控件。
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace Web.AdminUI {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtUnits;
         
         /// <summary>
-        /// rfvUnits 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUnits;
-        
-        /// <summary>
         /// deadLine 控件。
         /// </summary>
         /// <remarks>
@@ -56,24 +38,6 @@ namespace Web.AdminUI {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText deadLine;
-        
-        /// <summary>
-        /// rfvDeadTime 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDeadTime;
-        
-        /// <summary>
-        /// rfvContent 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvContent;
         
         /// <summary>
         /// txtContent 控件。

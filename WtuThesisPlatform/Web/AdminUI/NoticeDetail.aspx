@@ -13,7 +13,7 @@
                         <h3><span class="publishTime">发表时间：<span id="publishTime"><%=string.Format("{0:yyyy/MM/dd}",currNotice.NPublishTime) %></span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class="publishUnits">发表单位：<span id="publishUnits"><%=currNotice.NPublishUnits %></span></span></h3>
                     </dt>
                     <div class="line"></div>
-                    <dd><p class="noticeContent"><%=currNotice.NContent %></p></dd>
+                    <dd><div class="noticeContent"><%=currNotice.NContent %></div></dd>
                   </dl>
                  <div class="bottom">
                    <%-- <table class="tab-down">

@@ -79,14 +79,10 @@
                  <div class="line"></div>
                  <div class="noticeContent center">
                      <table class="notice-excel">
-                        <tr><td class="tab-name"><h2>公告名称：</h2></td><td><input type="text" class="txtName" runat="server" id="txtName" /><asp:RequiredFieldValidator ID="rfvName"
-                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtName"></asp:RequiredFieldValidator></td></tr>
-                        <tr><td class="tab-name"><h2>发布单位：</h2></td><td><input type="text" runat="server" class="txtUnits" id="txtUnits" /><asp:RequiredFieldValidator ID="rfvUnits"
-                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtUnits"></asp:RequiredFieldValidator></td></tr>
-                        <tr><td class="tab-name"><h2>截止日期：</h2></td><td><input id="deadLine"  class="deadline"  runat="server"  /><asp:RequiredFieldValidator ID="rfvDeadTime"
-                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="deadLine"></asp:RequiredFieldValidator></td></tr>
-                        <tr><td class="tab-name"><h2>公告内容：<asp:RequiredFieldValidator ID="rfvContent"
-                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtContent"></asp:RequiredFieldValidator></h2></td><td><textarea runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
+                        <tr><td class="tab-name"><h2>公告名称：</h2></td><td><input type="text" class="txtName" runat="server" id="txtName" /></td></tr>
+                        <tr><td class="tab-name"><h2>发布单位：</h2></td><td><input type="text" runat="server" class="txtUnits" id="txtUnits" /></td></tr>
+                        <tr><td class="tab-name"><h2>截止日期：</h2></td><td><input id="deadLine"  class="deadline"  runat="server"  /></td></tr>
+                        <tr><td class="tab-name"><h2>公告内容：</h2></td><td><textarea runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
                         <tr><td></td><td align="center">
                             <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" onclick="btnSubmit_Click" style="width: 40px;height: 20px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" onclick="clearAll()" style="width: 40px;height: 20px"  /></td></tr>
                      </table>
