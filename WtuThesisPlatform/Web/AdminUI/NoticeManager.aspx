@@ -53,7 +53,7 @@
                                 <input type="checkbox" name="topiclist"  />
                             </td>
                             <td class="first">
-                                <a href="#" title="<%#Eval("NTitle") %>">
+                                <a href="/AdminUI/NoticeDetail.aspx?nodeId=3042&nid=<%#Eval("NId") %>" title="<%#Eval("NTitle") %>">
                                     <%#Eval("NTitle").ToString().Length > 15 ? Eval("NTitle").ToString().Substring(0, 15) + "..." : Eval("NTitle")%></a>
                             </td>
                             <td>

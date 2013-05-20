@@ -11,7 +11,7 @@
                 <ul>
                     <asp:Repeater ID="rptGoodWork" runat="server">
                     <ItemTemplate>
-                    <li class="fn-ellipsis"><a href="/StudentUI/GoodWorkAll.aspx?nodeId=1001"><%#Eval("GTitle") %></a></li>
+                    <li class="fn-ellipsis"><a href="/StudentUI/SingleWork.aspx?nodeId=1001"><%#Eval("GTitle") %></a></li>
                     </ItemTemplate>
                     </asp:Repeater>
                 </ul>

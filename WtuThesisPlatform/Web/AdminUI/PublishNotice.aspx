@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="PublishNotice.aspx.cs" Inherits="Web.AdminUI.PublishNotice" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="PublishNotice.aspx.cs" Inherits="Web.AdminUI.PublishNotice"  ValidateRequest="false"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
     <script type="text/javascript" src="../js/om/ui/om-calendar.js"></script>
@@ -11,11 +11,14 @@
                 $(".txtContent").val("");
             }
             $(".cancel").click(function () {
+                clearAll();
+            });
+            function clearAll() {
                 $(".txtName").val("");
                 $(".txtUnits").val("");
                 $(".deadline").val("");
                 $(".txtContent").val("");
-            });
+            }
         })
     </script>
     <script type="text/javascript" src="../js/kindeditor/kindeditor-min.js"></script>
@@ -45,7 +48,7 @@
                         <tr><td class="tab-name"><h2>公告内容：<asp:RequiredFieldValidator ID="rfvContent"
                                 runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtContent"></asp:RequiredFieldValidator></h2></td><td><textarea style="width:604px;height:200px;visibility:hidden;" name="content" runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
                         <tr><td></td><td align="center">
-                            <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" style="width: 40px;height: 20px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" style="width: 40px;height: 20px"  /></td></tr>
+                            <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" style="width: 40px;height: 20px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" onclick="clearAll()" style="width: 40px;height: 20px"  /></td></tr>
                      </table>
                  </div>
                  

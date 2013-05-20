@@ -10,6 +10,6 @@
 namespace Web.AdminUI {
     
     
-    public partial class editorTest {
+    public partial class NoticeDetail {
     }
 }

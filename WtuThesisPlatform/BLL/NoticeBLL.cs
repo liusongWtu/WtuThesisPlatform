@@ -308,5 +308,11 @@ namespace WtuThesisPlatform.BLL
             }
             return lstNotice;
         }
+
+        public IList<Notice> GetTop(int num)
+        {
+            string sql = "select top " + num + " * from Notice where NLevel=1 and IsDel=0 order by NPublishTime desc";
+            return dal.GetTop(sql);
+        }
     }
 }
