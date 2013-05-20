@@ -40,7 +40,7 @@
             </div>
             <div id="info" class="info">
                 <ul class="info_ul">
-                    <li class="infoItem"><span class="fontSty cursor"><a href="#">欢迎您，<%= currAdmin.UName %></a></span></li>
+                    <li class="infoItem"><span class="fontSty cursor"><a href="/AdminUI/AdminInfo.aspx?nodeId=3001">欢迎您，<%= currAdmin.UName %></a></span></li>
                     <%-- <li class="infoItem"><a href="#" id="megNum"><span class="megIcon fontSty cursor">
                         <%= noticeNum %></span></a></li>
                    <li class="infoItem"><a href="#" id="infoNum"><span class="infoIcon fontSty cursor">

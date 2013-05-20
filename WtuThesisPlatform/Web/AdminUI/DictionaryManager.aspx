@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminUI/AdminMasterPage.Master" AutoEventWireup="true" CodeBehind="DictionaryManager.aspx.cs" Inherits="Web.AdminUI.DictionaryManager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="Stylesheet" type="text/css" href="../css/admin/adm_page.css" />
+    <script type="text/javascript">
+        $(function () {
+            var num = $(".btnSave").attr("success");
+            if (typeof (num) != 'undefined') {
+                $.omMessageTip.show({ content: '保存成功', timeout: 1000, type: 'success' });
+            }
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="select-list"> 
@@ -18,14 +26,18 @@
                 </select>
             </td></tr>
             <tr><td class="col-name">是否向学生开放：</td><td>
-                <asp:RadioButtonList  ID="rblStuOpen" runat="server">
+                <asp:RadioButtonList  ID="rblStuOpen" runat="server" Width="120px" RepeatDirection="Horizontal">
                     <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem><asp:ListItem Value="no" >否</asp:ListItem>
+                    <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
+                    <asp:ListItem Value="no" >否</asp:ListItem>
                 </asp:RadioButtonList>
                
             </td></tr>
             <tr><td>是否向教师开放：</td><td>
-                <asp:RadioButtonList  ID="rblTeaOpen" runat="server">
+                <asp:RadioButtonList  ID="rblTeaOpen" runat="server" Width="120px" RepeatDirection="Horizontal">
                     <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem><asp:ListItem Value="no" >否</asp:ListItem>
+                    <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
+                    <asp:ListItem Value="no" >否</asp:ListItem>
                 </asp:RadioButtonList>
                
             </td></tr>
@@ -41,7 +53,7 @@
         </table>
         </div>
         <div class="content-bottom">
-            <asp:Button ID="btnSave" runat="server" Text="保 存" onclick="btnSave_Click" />
+            <asp:Button ID="btnSave" CssClass="btnSave" runat="server" Text="保 存" onclick="btnSave_Click" />
         </div>
         </div>
     </div>

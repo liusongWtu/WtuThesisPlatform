@@ -39,7 +39,7 @@ namespace Web.StudentUI
         private void LoadNotice()
         {
             NoticeBLL bll = new NoticeBLL();
-            IList<Notice> lstNotice = bll.GetTop(currStudent,6);
+            IList<Notice> lstNotice = bll.GetTop(currStudent,10);
             rptNotice.DataSource = lstNotice;
             rptNotice.DataBind();
 

@@ -7,26 +7,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderBody" runat="server">
     <div class="fl workShow-wrap">
         <dl id="workShow" class="workShow">
-            <dt class="fn-ellipsis">优秀毕业设计展示<span class="more"><a href="#">>>更多</a></span></dt>
+            <dt class="fn-ellipsis">优秀毕业设计展示<span class="more"><a href="/TeacherUI/GoodWorkAll.aspx?nodeId=2001">>>更多</a></span></dt>
             <dd>
                 <ul>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
-                    <li><a href="#">毕业设计选题系统作品欣赏</a></li>
+                    <asp:Repeater ID="rptGoodWork" runat="server">
+                    <ItemTemplate>
+                         <li><a href="/TeacherUI/SingleWork.aspx?nodeId=2001&gid=<%#Eval("GId") %>"><%#Eval("GTitle")%></a></li>
+                    </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </dd>
         </dl>
@@ -34,12 +22,14 @@
     <div class="fr rightpart">
         <div class="notice-wrap">
             <dl id="notice" class="notice">
-                <dt class="fn-ellipsis">公告<span class="fr more"><a href="#">>>更多</a></span></dt>
+                <dt class="fn-ellipsis">公告<span class="fr more"><a href="/TeacherUI/AllNotice.aspx?nodeId=2021">>>更多</a></span></dt>
                 <dd>
                     <ul>
-                        <li><a href="#" class="readstatus">马上要交毕业设计了，你们赶紧的啊~~</a></li>
-                        <li><a href="#" class="readstatus">马上要交毕业设计了，你们赶紧的啊~~</a></li>
-                        <li><a href="#" class="readstatus">马上要交毕业设计了，你们赶紧的啊~~</a></li>
+                        <asp:Repeater ID="rptNotice" runat="server">
+                        <ItemTemplate>
+                            <li><a href="/TeacherUI/NoticeDetail.aspx?nodeId=2021&nid=<%#Eval("NId") %>" class="readstatus <%#Eval("IsNew") %>"><%#Eval("NTitle") %></a></li>
+                        </ItemTemplate>
+                        </asp:Repeater>
                     </ul>
                 </dd>
             </dl>

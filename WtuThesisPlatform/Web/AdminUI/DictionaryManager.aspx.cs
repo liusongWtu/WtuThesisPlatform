@@ -20,6 +20,8 @@ namespace Web.AdminUI
                     int item=1958+i;
                     currYear.Items.Add(item.ToString());
                 }
+                currYear.Value = ConfigurationManager.AppSettings["currentYear"];
+                wish.Value = ConfigurationManager.AppSettings["MaxSelect"];
             }
         }
 
@@ -29,6 +31,8 @@ namespace Web.AdminUI
             ConfigurationManager.AppSettings["studentOpen"] = rblStuOpen.SelectedValue;
             ConfigurationManager.AppSettings["teacherOpen"] = rblTeaOpen.SelectedValue;
             ConfigurationManager.AppSettings["MaxSelect"] = wish.Value;
+            btnSave.Attributes.Add("success","yes");
+
         }
     }
 }
