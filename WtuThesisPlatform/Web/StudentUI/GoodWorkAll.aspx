@@ -19,7 +19,7 @@
                             <tr>
                                 <td rowspan="2" class="image">
                                     <a href="/StudentUI/SingleWork.aspx?gid=<%#Eval("GId") %>&nodeId=1001">
-                                        <img src="/images/goodwork/<%#Eval("GCoverPic") %>" alt="封面图片" /></a>
+                                        <img src="/images/goodwork/<%#Eval("GCoverPic") %>" alt="封面图片" width="100px" height="100px" /></a>
                                 </td>
                                 <td class="work-data">
                                     <%#string.Format("{0:yyyy/MM/dd}",Eval("GTime") )%>
