@@ -119,6 +119,7 @@
     <Content Include="js\student\PublishWork.js" />
     <Content Include="js\teacher\ApplyExcel.js" />
     <Content Include="images\msg_bg.png" />
+    <Content Include="js\CommonNotice.js" />
     <Content Include="kindeditor\kindeditor-min.js" />
     <Content Include="kindeditor\kindeditor.js" />
     <Content Include="kindeditor\lang\ar.js" />

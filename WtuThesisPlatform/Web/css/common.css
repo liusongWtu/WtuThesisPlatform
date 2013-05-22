@@ -614,6 +614,11 @@ body{
 {
     width: 150px;
 }
+
+.error
+{
+    border: 1px solid red;    
+}
 /*错误信息样式*/
 /*label.error{
     background: #fff6bf url(images/alert.png) center no-repeat;
