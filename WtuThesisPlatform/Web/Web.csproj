@@ -107,6 +107,7 @@
     <Content Include="images\admin\ope_import.jpg" />
     <Content Include="images\banner_bg.png" />
     <Content Include="images\goodwork\1.gif" />
+    <Content Include="images\goodwork\1.jpg" />
     <Content Include="images\goodwork\2.gif" />
     <Content Include="images\wrong.gif" />
     <Content Include="js\admin\Import.js" />

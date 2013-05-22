@@ -226,13 +226,13 @@ namespace WtuThesisPlatform.DAL
                 strSql.Append("GId,GTitle,GStudentId,GTime,GContent,GCoverPic,GPassed)");
                 strSql.Append(" values (");
                 strSql.Append(" @GId,@GTitle,@GStudentId,@GTime,@GContent,@GCoverPic,@GPassed)");
-                strSql.Append(";select @@IDENTITY");
+                strSql.Append(";");
                 SqlParameter[] parameters = {
                     new SqlParameter("@GId", SqlDbType.Int,4),
                     new SqlParameter("@GTitle", SqlDbType.VarChar,200),
                     new SqlParameter("@GStudentId", SqlDbType.Int,4),
                     new SqlParameter("@GTime", SqlDbType.DateTime,3),
-                    new SqlParameter("@GContent", SqlDbType.VarChar,16),
+                    new SqlParameter("@GContent", SqlDbType.VarChar,4000),
                     new SqlParameter("@GCoverPic", SqlDbType.VarChar,200),
                     new SqlParameter("@GPassed", SqlDbType.Int,2)};
 

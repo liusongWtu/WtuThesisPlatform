@@ -2,27 +2,64 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="../css/common_notice.css" />
     <script type="text/javascript" src="../js/student/PublishWork.js"></script>
-    <script type="text/javascript" src="../js/kindeditor/kindeditor-min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            if ($(".btnSubmit").attr("isSaved") == "saved") {
+                $.omMessageTip.show({ content: '保存成功！', timeout: 1000, type: 'success' });
+                $(".txtName").val("");
+                $(".txtContent").val("");
+            }
+            $(".cancel").click(function () {
+                $(".txtName").val("");
+                $(".txtContent").val("");
+                $(".fileUpImage").val("");
+            });
+        });
+    </script>
+   <script src="../kindeditor/lang/zh_CN.js" type="text/javascript"></script>
+    <script src="../kindeditor/kindeditor.js" type="text/javascript"></script>
+    <script src="../kindeditor/plugins/code/prettify.js" type="text/javascript"></script> 
     <script type="text/javascript">
         KindEditor.ready(function (K) {
-            var editor = K.editor({
-                allowFileManager: true
-            });
-            var editor1 = K.create('textarea[name="ctl00$ContentPlaceHolderBody$txtContent"]', {
-                allowFileManager: true
-            });
-            K('#image3').click(function () {
-                editor.loadPlugin('image', function () {
-                    editor.plugin.imageDialog({
-                        showRemote: false,
-                        imageUrl: K('#url3').val(),
-                        clickFn: function (url, title, width, height, border, align) {
-                            K('#url3').val(url);
-                            editor.hideDialog();
-                        }
+            var editor = K.create('#ContentPlaceHolderBody_txtContent', {
+                //上传管理
+                uploadJson: '../kindeditor/asp.net/upload_json.ashx',
+                //文件管理
+                fileManagerJson: '../kindeditor/asp.net/file_manager_json.ashx',
+                allowFileManager: true,
+                //设置编辑器创建后执行的回调函数
+                afterCreate: function () {
+                    var self = this;
+                    K.ctrl(document, 13, function () {
+                        self.sync();
+                        K('form[name=example]')[0].submit();
                     });
-                });
+                    K.ctrl(self.edit.doc, 13, function () {
+                        self.sync();
+                        K('form[name=example]')[0].submit();
+                    });
+                },
+                //上传文件后执行的回调函数,获取上传图片的路径
+                afterUpload: function (url) {
+                    // alert(url);
+                },
+                //编辑器高度
+                width: '700px',
+                //编辑器宽度
+                height: '450px;',
+                //配置编辑器的工具栏
+                items: [
+                'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+                'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+                'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                'anchor', 'link', 'unlink', '|', 'about'
+                ]
             });
+            prettyPrint();
         });
     </script>
 </asp:Content>
@@ -37,17 +74,17 @@
                  <div class="noticeContent center">
                      <table class="notice-excel">
                         <tr><td class="tab-name"><h2>作品名称：</h2></td></tr>
-                        <tr><td><input type="text" class="txtName" runat="server" id="txtName" /><asp:RequiredFieldValidator ID="rfvName"
-                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtName"></asp:RequiredFieldValidator></td></tr>
+                        <tr><td><input type="text" class="txtName" runat="server" id="txtName" /></td></tr>
                         <tr>
                             <td class="tab-name"><h2>封面图片：</h2></td></tr>
-                        <tr><td><input type="text" id="url3" value="" /> <input style="width: 70px" type="button" id="image3" value="选择图片" /></td>
+                        <tr><td> 
+                            <asp:FileUpload ID="fileUpImage" CssClass="fileUpImage" runat="server" /></td>
                         </tr>
-                        <tr><td class="tab-name"><h2>作品概要：<asp:RequiredFieldValidator ID="rfvContent"
-                                runat="server" ErrorMessage="*" style="color:Red;" ControlToValidate="txtContent"></asp:RequiredFieldValidator></h2></td></tr>
+                        <tr><td class="tab-name"><h2>作品概要：</h2></td></tr>
                         <tr><td><textarea style="width:600px;height:400px;visibility:hidden;" runat="server" id="txtContent" class="txtContent"></textarea></td></tr>
                         <tr><td align="center">
-                            <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" style="width: 40px;height: 20px" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" style="width: 40px;height: 20px"  /></td></tr>
+                            <asp:Button ID="btnSubmit"  runat="server" Text="提交" class="btnSubmit" 
+                                style="width: 40px;height: 20px" onclick="btnSubmit_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="cancel" class="cancel" value="取消" style="width: 40px;height: 20px"  /></td></tr>
                      </table>
                  </div>
                  
