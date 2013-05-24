@@ -46,7 +46,7 @@ namespace Web.ashx.student
 
             if (operate == "add")//选题
             {
-                if (tsBll.GetModel(thesisId) != null)
+                if (tsBll.Contains(thesisSelected))
                 {
                     context.Response.Write("ok");
                     return;

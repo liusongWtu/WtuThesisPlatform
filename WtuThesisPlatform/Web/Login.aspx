@@ -36,7 +36,7 @@
                             <div class="ui-input-wap">
                                 <label for="verification">
                                     验证码&nbsp;|</label>
-                                <input type="text" id="txtCode" class="ui-input" onblur="checkCode()" value="aaa" /><span class="verification-msg dis-inline-block"></span>
+                                <input type="text" id="txtCode" class="ui-input" onblur="checkCode()"  /><span class="verification-msg dis-inline-block"></span>
                                 <a><img class="vcode" id="codeSpan" src="/ashx/common/ValidateCode.ashx" alt="验证码" title="验证码" /></a>
                                 <a href="javascript:changeCode()" >看不清，换一张</a>
                             </div>
@@ -50,7 +50,7 @@
                             <span class="ui-btn-shadow btn-size">
                                 <input type="button" id="btnLogin" value="登陆" class="btn-size ui-btn" />
                             </span><span class="ui-btn-shadow  ml100 btn-size">
-                                <input type="button" id="btnReset" value="重置" class="btn-size ui-btn " /></span>
+                                <input type="reset" id="btnReset" value="重置" class="btn-size ui-btn " /></span>
                         </div>
                     </fieldset>
                 </div>

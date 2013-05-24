@@ -15,7 +15,12 @@
         $(function () {
             var num = $(".btnUpload").attr("success");
             if (typeof (num) != 'undefined') {
-                $.omMessageTip.show({ content: '上传成功' + num + '条数据！', timeout: 1000, type: 'success' });
+                $.omMessageBox.alert({
+                    title: '提示信息',
+                    content: '上传成功' + num + '条数据！',
+                    onClose: function (value) {
+                    }
+                });
             }
         });
     </script>
@@ -38,7 +43,7 @@
                 <li id="delete" class="opeDelete">批量删除</li>
                 <li id="import" class="opeImport">导入</li>
                 <li id="export" class="opeExport">
-                    <asp:Button ID="btnExport" runat="server" Text="导出" onclick="btnExport_Click" /></li>
+                    <asp:Button ID="btnExport" runat="server" Text="导出" style="border:0;font-weight: bold;cursor: pointer;" onclick="btnExport_Click" /></li>
             </ul>
             <div class="importDiv" style="display: none"> <asp:FileUpload ID="fileUpExcel" CssClass="fileUpExcel"   runat="server" />
             <asp:Button ID="btnUpload" CssClass="btnUpload" runat="server" Text="上 传" 

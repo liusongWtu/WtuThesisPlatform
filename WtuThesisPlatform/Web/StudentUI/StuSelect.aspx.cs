@@ -60,6 +60,32 @@ namespace Web.StudentUI
             rptThesises.DataSource = lstThesisTitle;
             rptThesises.DataBind();
             pageBar = CommonCode.GetPageTxt("StuSelect.aspx?nodeId=" + nodeId + "&i=", "&searchWord=" + filter, rowCount, pageCount, intPageIndex, 3, pageSize);
+
+            //根据学生选择情况设置收藏的显示属性
+            IList<ThesisCollect> lstStore = new ThesisCollectBLL().GetListBySId(currStudent.SId.ToString());
+            foreach (ThesisCollect item in lstStore)
+            {
+                foreach (ThesisTitle thesisTitle in lstThesisTitle)
+                {
+                    if (thesisTitle.TId == item.ThesisTitle.TId)
+                    {
+                        thesisTitle.IsStore = "store-icon-actived";
+                    }
+                }
+            }
+
+            IList<ThesisSelected> lstSelected = new ThesisSelectedBLL().GetListById(currStudent.SId.ToString());
+            foreach (ThesisSelected item in lstSelected)
+            {
+                foreach (ThesisTitle thesisTitle in lstThesisTitle)
+                {
+                    if (thesisTitle.TId == item.ThesisTitle.TId)
+                    {
+                        thesisTitle.IsSeleted = "select-icon-actived";
+                    }
+                }
+            }
+
         }
     }
 }

@@ -192,6 +192,27 @@ namespace WtuThesisPlatform.MODEL
             set { _isDel = value; }
             get { return _isDel; }
         }
+
+        /// <summary>
+        /// 当前学生是否收藏该选题
+        /// </summary>
+        public string IsStore
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// 当前学生是否选择该选题
+        /// </summary>
+        public string IsSeleted
+        {
+            get;
+            set;
+        }
+
+
+
         #endregion
     }
 }

@@ -31,17 +31,17 @@ namespace Web.ashx
 
             //todo:取消下面注释即可添加验证功能
             //验证码为空
-            //if (string.IsNullOrWhiteSpace(code))
-            //{
-            //    context.Response.Write("codeEmpty");
-            //    return;
-            //}
-            ////验证码错误
-            //if (code.ToLower() != HttpContext.Current.Session["vCode"].ToString().ToLower())
-            //{
-            //    context.Response.Write("codeError");
-            //    return;
-            //}
+            if (string.IsNullOrWhiteSpace(code))
+            {
+                context.Response.Write("codeEmpty");
+                return;
+            }
+            //验证码错误
+            if (code.ToLower() != HttpContext.Current.Session["vCode"].ToString().ToLower())
+            {
+                context.Response.Write("codeError");
+                return;
+            }
 
             LoginManager(context);
         }
