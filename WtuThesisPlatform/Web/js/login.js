@@ -11,6 +11,7 @@ window.onload = function () {
     code = gel("txtCode");
     username = gel("username");
     password = gel("password");
+    btnReset = gel("btnReset");
     radio = $(".radioWrap");
     checkbox = $(".checkboxWrap");
 
@@ -39,6 +40,12 @@ window.onload = function () {
         else {
             input.attr("checked", "checked");
         }
+    });
+    btnReset.click(function () {
+        console.log("ok");
+        username.val("");
+        password.val("");
+        code.val("");
     })
 };
 

@@ -53,7 +53,9 @@ namespace Web.ashx.teacher
             }
         }
 
-        //选择学生
+        /// <summary>
+        /// 选择学生
+        /// </summary>
         private void SelectStudent()
         {
             //该教师所带学生数目是否达到限制人数

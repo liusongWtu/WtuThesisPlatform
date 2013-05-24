@@ -133,6 +133,7 @@ namespace Web.AdminUI
                 }
             }
             LoadPageData(1);
+            btnUpload.Attributes.Add("success", total.ToString());
         }
 
         /// <summary>

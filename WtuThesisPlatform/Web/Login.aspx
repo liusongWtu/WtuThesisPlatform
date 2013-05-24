@@ -26,11 +26,11 @@
                         <div class="item">
                             <div class="ui-input-wap">
                                 <label for="username">
-                                    用户名&nbsp;|</label><input type="text" id="username" value="admin" class="ui-input  textInd70" />
+                                    用户名&nbsp;|</label><input type="text" id="username"  class="ui-input  textInd70" />
                             </div>
                             <div class="ui-input-wap">
                                 <label for="password ">
-                                    密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password" value="123" class="ui-input  textInd70" />
+                                    密&nbsp;&nbsp;码&nbsp;|</label><input type="password" id="password"  class="ui-input  textInd70" />
                             </div>
                             <div class="checkboxWrap"><input type="checkbox" id="isRemember" />记住我</div>
                             <div class="ui-input-wap">
@@ -50,7 +50,7 @@
                             <span class="ui-btn-shadow btn-size">
                                 <input type="button" id="btnLogin" value="登陆" class="btn-size ui-btn" />
                             </span><span class="ui-btn-shadow  ml100 btn-size">
-                                <input type="button" value="重置" class="btn-size ui-btn " /></span>
+                                <input type="button" id="btnReset" value="重置" class="btn-size ui-btn " /></span>
                         </div>
                     </fieldset>
                 </div>

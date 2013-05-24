@@ -28,16 +28,12 @@
             <tr><td class="col-name">是否向学生开放：</td><td>
                 <asp:RadioButtonList  ID="rblStuOpen" runat="server" Width="120px" RepeatDirection="Horizontal">
                     <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem><asp:ListItem Value="no" >否</asp:ListItem>
-                    <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
-                    <asp:ListItem Value="no" >否</asp:ListItem>
                 </asp:RadioButtonList>
                
             </td></tr>
             <tr><td>是否向教师开放：</td><td>
                 <asp:RadioButtonList  ID="rblTeaOpen" runat="server" Width="120px" RepeatDirection="Horizontal">
                     <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem><asp:ListItem Value="no" >否</asp:ListItem>
-                    <asp:ListItem  Selected="True" Value="yes">是</asp:ListItem>
-                    <asp:ListItem Value="no" >否</asp:ListItem>
                 </asp:RadioButtonList>
                
             </td></tr>

@@ -60,7 +60,7 @@
                 </tr>
                 <asp:Repeater ID="rptThesises" runat="server">
                     <ItemTemplate>
-                        <tr class="list-content">
+                        <tr class="list-content "  >
                             <td class="td0">
                                 <input type="checkbox" name="topiclist" id="<%#Eval("TId") %>" />
                             </td>
@@ -81,7 +81,7 @@
                                 <a href="/StudentUI/StuTopicInfo.aspx?nodeId=1011&teacherId=<%#Eval("Teacher.TId") %>">
                                     <%#Eval("Teacher.TName") %></a>
                             </td>
-                            <td class="td6" id="<%#Eval("TId") %>">
+                            <td class="td6" id="<%#Eval("TId") %>" >
                                 <span class="store-icon list-icon"></span>
                             </td>
                             <td class="td7" id="<%#Eval("TId") %>">
